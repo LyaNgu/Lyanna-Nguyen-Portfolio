@@ -1,0 +1,109 @@
+/* Pixel Pals — cozy farm design-system components. */
+/* Pixel Pals — cozy farm components. Tokens come from tokens.css. */
+.pp-root, .pp-root * { box-sizing: border-box; }
+body { background: var(--surface); color: var(--ink); font-family: var(--font-body); }
+img.px { image-rendering: pixelated; display: block; }
+
+/* Outer notched outline (wood-dark), shared */
+.pp-frame, .pp-btn {
+  --o: var(--border-pixel);
+  --outline-ring:
+    0 calc(-1 * var(--o)) 0 0 var(--wood-dark), 0 var(--o) 0 0 var(--wood-dark),
+    calc(-1 * var(--o)) 0 0 0 var(--wood-dark), var(--o) 0 0 0 var(--wood-dark);
+  margin: var(--o);
+}
+
+/* The wooden frame */
+.pp-frame {
+  position: relative;
+  background: var(--surface-raised);
+  border: var(--border-wood) solid var(--wood);
+  box-shadow: inset 0 0 0 2px var(--wood-light), var(--outline-ring),
+    calc(var(--o) + 4px) calc(var(--o) + 4px) 0 0 var(--pixel-shadow);
+}
+.pp-frame.lift { transition: transform 120ms steps(3), box-shadow 120ms steps(3); }
+.pp-frame.lift:hover { transform: translate(-2px,-2px);
+  box-shadow: inset 0 0 0 2px var(--wood-light), var(--outline-ring),
+    calc(var(--o) + 8px) calc(var(--o) + 8px) 0 0 var(--pixel-shadow); }
+
+/* Button: a wooden plank */
+.pp-btn {
+  font-family: var(--font-pixel); font-size: 22px; line-height: 22px; letter-spacing: .04em; text-transform: uppercase;
+  display: inline-flex; align-items: center; gap: var(--space-2);
+  padding: var(--space-3) var(--space-4) calc(var(--space-3) - 2px);
+  border: 0; cursor: pointer; text-decoration: none; color: var(--on-wood); background: var(--wood);
+  box-shadow: inset 0 2px 0 0 var(--wood-light), inset 0 -3px 0 0 #00000033, var(--outline-ring),
+    calc(var(--o) + 4px) calc(var(--o) + 4px) 0 0 var(--pixel-shadow);
+  transition: transform 120ms steps(3), box-shadow 120ms steps(3);
+}
+.pp-btn img { width: 24px; height: 24px; image-rendering: pixelated; }
+.pp-btn:hover { filter: brightness(1.06); }
+.pp-btn:active, .pp-btn.is-pressed { transform: translate(4px,4px);
+  box-shadow: inset 0 3px 0 0 #00000033, var(--outline-ring); }
+.pp-btn:focus-visible { outline: 3px solid var(--focus); outline-offset: 6px; }
+.pp-btn.grass { background: var(--grass); color: var(--on-fill); box-shadow: inset 0 2px 0 0 #ffffff55, inset 0 -3px 0 0 #00000026, var(--outline-ring), calc(var(--o) + 4px) calc(var(--o) + 4px) 0 0 var(--pixel-shadow); }
+.pp-btn.secondary { background: var(--surface-raised); color: var(--ink); box-shadow: inset 0 -3px 0 0 #00000014, var(--outline-ring), calc(var(--o) + 4px) calc(var(--o) + 4px) 0 0 var(--pixel-shadow); }
+.pp-btn.ghost { background: transparent; color: var(--accent-text); box-shadow: none; text-decoration: underline; text-underline-offset: 4px; margin: 0; }
+.pp-btn:disabled { opacity: .5; cursor: not-allowed; transform: none; box-shadow: var(--outline-ring); }
+
+/* Sticker: a seed tag */
+.pp-sticker {
+  font-family: var(--font-pixel); font-size: 18px; line-height: 18px; letter-spacing: .04em; text-transform: uppercase;
+  display: inline-flex; align-items: center; gap: var(--space-1);
+  padding: var(--space-1) var(--space-2) 2px; color: var(--on-fill); background: var(--gold);
+  box-shadow: inset 0 -2px 0 0 #00000022, 0 -2px 0 0 var(--wood-dark), 0 2px 0 0 var(--wood-dark), -2px 0 0 0 var(--wood-dark), 2px 0 0 0 var(--wood-dark);
+  margin: 2px;
+}
+.pp-sticker img { width: 16px; height: 16px; image-rendering: pixelated; }
+.pp-sticker.grass { background: var(--grass); } .pp-sticker.sky { background: var(--sky); }
+.pp-sticker.flower { background: var(--flower); } .pp-sticker.berry { background: var(--berry); }
+.pp-sticker.tilt { transform: rotate(-4deg); }
+.pp-sticker.round { border-radius: var(--radius-pill); box-shadow: 0 0 0 2px var(--wood-dark); padding: var(--space-1) var(--space-3) 2px; }
+
+/* Window / dialog box */
+.pp-window { display: flex; flex-direction: column; }
+.pp-window__bar {
+  display: flex; align-items: center; gap: var(--space-2);
+  background: var(--wood); color: var(--on-wood);
+  padding: var(--space-2) var(--space-3) 6px;
+  box-shadow: inset 0 -3px 0 0 var(--wood-dark);
+  font-family: var(--font-pixel); font-size: 20px; line-height: 20px; text-transform: uppercase; letter-spacing: .04em;
+}
+.pp-window__bar img { width: 24px; height: 24px; image-rendering: pixelated; }
+.pp-window__bar .x { margin-left: auto; width: 20px; height: 20px; background: var(--berry); color: var(--on-fill); display: grid; place-items: center; box-shadow: 0 0 0 2px var(--wood-dark); font-size: 18px; }
+.pp-window__body { padding: var(--space-6); }
+
+/* Project card */
+.pp-card { display: flex; flex-direction: column; text-decoration: none; color: var(--ink); width: 300px; }
+.pp-card__thumb { margin: var(--space-3) var(--space-3) 0; height: 150px; border-radius: var(--radius-md); background: var(--sky);
+  display: grid; place-items: center; overflow: hidden; box-shadow: inset 0 0 0 2px #00000022; position: relative; }
+.pp-card__thumb::after { content:""; position:absolute; left:0; right:0; bottom:0; height:28px; background: var(--grass); box-shadow: inset 0 3px 0 0 #00000022; }
+.pp-card__thumb img { position: relative; z-index: 1; image-rendering: pixelated; margin-top: 18px; }
+.pp-card__body { padding: var(--space-4); display: flex; flex-direction: column; gap: var(--space-2); }
+.pp-card__title { font-family: var(--font-display); font-size: 24px; line-height: 30px; font-weight: 600; margin: 0; }
+.pp-card__meta { font-size: 14px; line-height: 22px; font-weight: 600; color: var(--ink-muted); margin: 0; }
+.pp-card__tags { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-1); }
+.pp-card:focus-visible { outline: 3px solid var(--focus); outline-offset: 9px; }
+
+/* Energy bar (XPBar) */
+.pp-xp { display: grid; grid-template-columns: 24px 150px 1fr 64px; white-space: nowrap; align-items: center; gap: var(--space-3); font-family: var(--font-pixel); font-size: 20px; line-height: 20px; text-transform: uppercase; color: var(--ink); }
+.pp-xp img { width: 24px; height: 24px; image-rendering: pixelated; }
+.pp-xp__track { height: 22px; background: var(--surface-sunken); border: 3px solid var(--wood); box-shadow: 0 0 0 2px var(--wood-dark); padding: 2px; display: flex; gap: 2px; }
+.pp-xp__seg { flex: 1; }
+.pp-xp__seg.on { background: var(--grass); box-shadow: inset 0 3px 0 0 #ffffff55, inset 0 -3px 0 0 #00000026; }
+.pp-xp.gold .pp-xp__seg.on { background: var(--gold); }
+.pp-xp.flower .pp-xp__seg.on { background: var(--flower); }
+.pp-xp__val { color: var(--ink-muted); text-align: right; }
+
+/* Hero scene */
+.pp-hero { position: relative; overflow: hidden; background: var(--sky); min-height: 360px; display: grid; grid-template-columns: 1fr auto; align-items: end; }
+[data-theme="dark"] .pp-hero { background: #1b2a52; }
+.pp-hero__lawn { position: absolute; left: 0; right: 0; bottom: 0; height: 72px; background: var(--grass); box-shadow: inset 0 4px 0 0 #2f7d3a; }
+.pp-hero__path { position: absolute; bottom: 0; right: 174px; width: 66px; height: 72px; background: var(--gold); box-shadow: inset 4px 0 0 #c98a3a, inset -4px 0 0 #c98a3a; }
+.pp-hero__copy { position: relative; z-index: 1; align-self: center; padding: var(--space-8); max-width: 460px; }
+.pp-hero__card { padding: var(--space-6); }
+.pp-hero__card h1 { font-family: var(--font-display); font-size: 48px; line-height: 50px; font-weight: 700; margin: 0 0 var(--space-3); }
+.pp-hero__card p { margin: 0 0 var(--space-4); font-size: 17px; line-height: 28px; color: var(--ink-muted); }
+.pp-hero__house { position: relative; z-index: 1; width: 360px; height: 330px; margin-right: var(--space-6); margin-bottom: 2px; }
+
+@media (prefers-reduced-motion: reduce) { .pp-btn, .pp-frame.lift { transition: none; } .pp-frame.lift:hover, .pp-btn:active, .pp-btn.is-pressed { transform: none; } }

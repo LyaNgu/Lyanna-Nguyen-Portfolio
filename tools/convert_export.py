@@ -1,0 +1,317 @@
+"""Convert the single-file design export into this static multi-page site.
+
+Usage: python3 tools/convert_export.py path/to/Lyanna_Nguyen_Portfolio_Final.html .
+
+Regenerates the HTML pages, css/ and assets/. The scripts in js/ are hand-written and
+are not touched, so keep the data-show / data-action hooks below in sync with them.
+"""
+import base64, hashlib, html, json, os, re, sys
+
+SRC = sys.argv[1]
+OUT = sys.argv[2]
+raw = open(SRC, encoding='utf-8').read()
+lines = raw.splitlines()
+pi = next(i for i, l in enumerate(lines) if l.startswith('<script>window.__PAGES__'))
+m = re.match(r'<script>window.__PAGES__ = (.*?);window.__BLOBS__ = (.*);</script>$', lines[pi])
+PAGES, BLOBS = json.loads(m.group(1)), json.loads(m.group(2))
+HEAD_CSS = re.search(r'<style>\n(.*?)</style>', raw, re.S).group(1)
+
+FILES = {
+    'Main': 'index.html', 'About': 'about.html', 'Garden': 'garden.html',
+    'CaseStudy-Linguistics': 'linguistics-club.html', 'CaseStudy-Include': 'triceratops.html',
+}
+EXT = {'image/png': 'png', 'image/webp': 'webp', 'image/jpeg': 'jpg', 'image/svg+xml': 'svg',
+       'font/woff2': 'woff2', 'application/pdf': 'pdf', 'image/gif': 'gif'}
+DATA_RE = re.compile(r'data:([\w/+.-]+);base64,([A-Za-z0-9+/=]+)')
+
+# ---------------------------------------------------------------- assets
+# Names for assets that carry no alt text (keyed by the first 8 hex chars of their SHA-1).
+RENAME = {
+    '201fccc2': 'icon-letter', '2f082456': 'icon-sprout', 'ac6f105f': 'icon-watering-can',
+    'ccdde39b': 'icon-heart', 'e45a9f71': 'icon-download', '5992af6d': 'cursor-arrow',
+    'fdf5557d': 'cursor-pointer', '7c86bcb0': 'chibi-head', '9da8c471': 'chibi-happy',
+    '29114d32': 'chibi-love', '07eea9b8': 'chibi-calm', '555f11e1': 'chibi-wow', '462f02dc': 'chibi-wink',
+    '6e5b7e5b': 'sticker-triceratops-blue', 'b818ba6d': 'sticker-triceratops-yellow',
+    '5431050c': 'triceratops-hero-background',
+    '252790e8': 'proto-lin-ucd-logo', '079cb268': 'proto-wug-a', 'd310a7b8': 'proto-wug-b',
+    '6e1ec4ed': 'proto-wug-c', '8eb13b4f': 'proto-wug-small-a', '54bf9d1c': 'proto-wug-small-b',
+    '8778bee1': 'proto-footer-wave-mobile', '346694bd': 'proto-footer-wave-desktop',
+    'e01cc607': 'proto-band-mobile', '6d812d98': 'proto-band-desktop', 'bcc16d34': 'proto-map-kerr-hall',
+    '3c5a3b2f': 'proto-clr', 'd945017a': 'proto-global-affairs', '057b3758': 'proto-linguistics-major',
+    'f7341629': 'proto-ferreiralab', '1e652af7': 'proto-phd', '86f24728': 'proto-ma',
+    'f91a5b8b': 'proto-governing-committee', '25092d86': 'proto-phonetics-lab',
+    'b53c9b1d': 'hanken-grotesk-400', '4b14b5c9': 'hanken-grotesk-500', 'a16cd99a': 'hanken-grotesk-600',
+    '1f8766dd': 'hanken-grotesk-700', '39c01c25': 'gochi-hand',
+}
+assets = {}      # sha -> relative path from site root
+used_names = set()
+
+def slug(t):
+    t = re.sub(r"[’']", '', t.lower())
+    t = re.sub(r'[^a-z0-9]+', '-', t).strip('-')
+    return '-'.join(t.split('-')[:6])[:48].strip('-')
+
+def save(mime, b64, hint=''):
+    data = base64.b64decode(b64)
+    h = hashlib.sha1(data).hexdigest()
+    if h in assets:
+        return assets[h]
+    ext = EXT[mime]
+    folder = {'woff2': 'fonts', 'pdf': 'files'}.get(ext, 'images')
+    if ext == 'pdf':
+        name = 'Lyanna_Nguyen_Resume'
+    else:
+        name = RENAME.get(h[:8]) or slug(hint) or ('img-' + h[:8])
+        if name in used_names:
+            name = name + '-' + h[:6]
+    used_names.add(name)
+    if ext == 'svg':
+        txt = data.decode('utf-8')
+        if 'shape-rendering' not in txt[:300]:
+            txt = re.sub(r'<svg\b', '<svg shape-rendering="crispEdges"', txt, count=1)
+        data = txt.encode('utf-8')
+    rel = f'assets/{folder}/{name}.{ext}'
+    os.makedirs(os.path.join(OUT, 'assets', folder), exist_ok=True)
+    open(os.path.join(OUT, rel), 'wb').write(data)
+    assets[h] = rel
+    return rel
+
+# Find a human hint for every blob: alt text of the first <img> that uses it.
+hints = {}
+for P in PAGES.values():
+    for tag in re.findall(r'<img\b[^>]*>', P['tpl']):
+        sm = re.search(r'src="/_blob/([0-9a-f]{32})"', tag)
+        am = re.search(r'alt="([^"]+)"', tag)
+        if sm and am and sm.group(1) not in hints:
+            hints[sm.group(1)] = html.unescape(am.group(1))
+blob_path = {}
+for bid, uri in BLOBS.items():
+    mm = DATA_RE.match(uri)
+    blob_path[bid] = save(mm.group(1), mm.group(2), hints.get(bid, ''))
+
+def resolve_blobs(s, prefix=''):
+    return re.sub(r'/_blob/([0-9a-f]{32})', lambda mm: prefix + blob_path[mm.group(1)], s)
+
+# ---------------------------------------------------------------- template helpers
+VOID = {'area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'link', 'meta', 'source', 'track', 'wbr'}
+TOKEN = re.compile(r'<!--.*?-->|<(/?)([a-zA-Z][\w:-]*)((?:[^>"\']|"[^"]*"|\'[^\']*\')*?)(/?)>', re.S)
+
+def add_attr_to_top_level(fragment, attrs):
+    """Add `attrs` to every top-level element of an HTML fragment."""
+    out, depth, pos = [], 0, 0
+    for t in TOKEN.finditer(fragment):
+        between = fragment[pos:t.start()]
+        if depth == 0 and between.strip():
+            raise ValueError('bare text in sc-if: %r' % between[:80])
+        out.append(between)
+        pos = t.end()
+        tok = t.group(0)
+        if tok.startswith('<!--'):
+            out.append(tok); continue
+        closing, name, selfclose = t.group(1), t.group(2).lower(), t.group(4)
+        if closing:
+            depth -= 1; out.append(tok); continue
+        if depth == 0:
+            if name == 'sc-if':
+                raise ValueError('nested sc-if at top level')
+            tok = tok[:1 + len(t.group(2))] + attrs + tok[1 + len(t.group(2)):]
+        out.append(tok)
+        if not selfclose and name not in VOID:
+            depth += 1
+    tail = fragment[pos:]
+    if depth == 0 and tail.strip():
+        raise ValueError('bare text in sc-if tail: %r' % tail[:80])
+    out.append(tail)
+    return ''.join(out)
+
+def convert_scif(tpl, shows):
+    """Replace <sc-if value="{{x}}"> blocks with data-show markers (innermost first)."""
+    pat = re.compile(r'<sc-if value="\{\{([^}]+)\}\}"[^>]*>((?:(?!<sc-if\b).)*?)</sc-if>', re.S)
+    while True:
+        mm = pat.search(tpl)
+        if not mm:
+            break
+        expr, body = mm.group(1).strip(), mm.group(2)
+        name, initial = shows[expr]
+        attrs = f' data-show="{name}"' + ('' if initial else ' hidden')
+        tpl = tpl[:mm.start()] + add_attr_to_top_level(body, attrs) + tpl[mm.end():]
+    return tpl
+
+def fill(tpl, values, actions):
+    def ev(mm):
+        attr, expr = mm.group(1), mm.group(2).strip()
+        rep = actions[expr]
+        return rep if rep else ''
+    tpl = re.sub(r'\s(on[A-Za-z]+)="\{\{([^}]+)\}\}"', lambda mm: (' ' + ev(mm)) if ev(mm) else '', tpl)
+    def hole(mm):
+        k = mm.group(1).strip()
+        if k not in values:
+            raise KeyError(k)
+        return html.escape(str(values[k]), quote=True)
+    return re.sub(r'\{\{([^}]+)\}\}', hole, tpl)
+
+def fix_links(tpl):
+    def link(mm):
+        page, hash_ = mm.group(1), mm.group(2) or ''
+        return 'href="' + FILES[page] + hash_ + '"'
+    tpl = re.sub(r'href="([\w-]+)\.dc\.html(#[\w-]*)?"', link, tpl)
+    # "Works"/"Contact" links on sub pages pointed at the home page top; send them to their sections.
+    tpl = re.sub(r'href="index\.html"([^>]*>)Works<', r'href="index.html#work"\1Works<', tpl)
+    tpl = re.sub(r'href="index\.html"([^>]*>)Contact<', r'href="index.html#resume"\1Contact<', tpl)
+    return tpl
+
+def clean(tpl):
+    def cls(mm):
+        v = ' '.join(mm.group(1).split())
+        return f' class="{v}"' if v else ''
+    tpl = re.sub(r' class="([^"]*)"', cls, tpl)
+    tpl = re.sub(r'\s+hint-placeholder-val="[^"]*"', '', tpl)
+    tpl = re.sub(r'[ \t]+\n', '\n', tpl)
+    tpl = re.sub(r'\n{3,}', '\n\n', tpl)
+    return tpl.strip('\n')
+
+# ---------------------------------------------------------------- per-page config
+def toc_values():
+    v = {}
+    for i, k in enumerate(['overview', 'challenge', 'research', 'process', 'solution', 'results', 'reflect']):
+        on = i == 0
+        v[f'toc.{k}.cur'] = 'location' if on else 'false'
+        v[f'toc.{k}.fw'] = '800' if on else '600'
+        v[f'toc.{k}.col'] = 'var(--ink)' if on else 'var(--ink-muted)'
+    return v
+
+CONFIG = {
+    'Main': dict(
+        values={'rootCls': '', 'cls.top': '', 'cls.work': '', 'cls.resume': '', 'doorAria': 'Knock on the door',
+                'doorCls': '', 'doorOpen': 'none', 'girlCls': '', 'typed': '', 'envCls': '', 'mailAria': 'false'},
+        shows={'loader': ('loader', False), 'knocking': ('knocking', False), 'showHint': ('knock-hint', True),
+               'greeted': ('greeted', False), 'showNext': ('dialog-next', False),
+               'showChoices': ('dialog-choices', False), 'mailClosed': ('mail-closed', True),
+               'mailOpen': ('mail-open', False)},
+        actions={'skipLoader': 'data-action="skip-loader"', 'knock': 'data-action="knock"', 'houseKey': '',
+                 'dlgClick': 'data-action="dialog-advance"', 'next': 'data-action="dialog-next"',
+                 'startTour': 'data-action="close-dialog"', 'closeTalk': 'data-action="close-dialog"',
+                 'toggleMail': 'data-action="toggle-mail"'},
+    ),
+    'About': dict(
+        values={'rootCls': '', 'cls.about': '', **{f'songs.s{i}.aria': 'false' for i in range(4)}},
+        shows={'coverOk': ('cover', True), **{f'songs.s{i}.on': (f'song-{i}', False) for i in range(4)}},
+        actions={f'songs.s{i}.toggle': f'data-action="toggle-song" data-song="{i}"' for i in range(4)},
+    ),
+    'Garden': dict(
+        values={'rootCls': '', 'cls.playground': '',
+                **{f'tabs.{k}.{p}': v for k in ['all', 'visual', 'illus', 'photo', 'motion']
+                   for p, v in zip(['pressed', 'bg', 'fg'],
+                                   ['true', 'var(--wood)', 'var(--on-wood)'] if k == 'all'
+                                   else ['false', 'var(--surface-raised)', 'var(--ink)'])}},
+        shows={f'pg.{k}': (f'cat-{k}', True) for k in ['visual', 'illus', 'photo', 'motion']},
+        actions={f'tabs.{k}.pick': f'data-action="filter" data-filter="{k}"'
+                 for k in ['all', 'visual', 'illus', 'photo', 'motion']},
+    ),
+}
+CS = dict(
+    values={'rootCls': '', 'markTop': '0px', 'baCls': '', 'baBefore': 'true', 'baAfter': 'false',
+            'resAria': 'false', 'resLbl': '▸ See', **toc_values()},
+    shows={'resOpen': ('research-more', False), 'showTop': ('back-to-top', False)},
+    actions={},
+)
+CONFIG['CaseStudy-Linguistics'] = CS
+CONFIG['CaseStudy-Include'] = CS
+
+# ---------------------------------------------------------------- CSS
+main_css = PAGES['Main']['css']
+cs_css = PAGES['CaseStudy-Include']['css']
+for n in ('About', 'Garden'):
+    assert PAGES[n]['css'] == main_css, n
+assert PAGES['CaseStudy-Linguistics']['css'] == cs_css
+
+def css_assets(css, prefix):
+    css = resolve_blobs(css, prefix)
+    return DATA_RE.sub(lambda mm: prefix + save(mm.group(1), mm.group(2)), css)
+
+main_lines, cs_lines = main_css.split('\n'), cs_css.split('\n')
+# The case-study sheet is the shared sheet with a few extra rules; split them out.
+extra = []
+for l in cs_lines:
+    if l not in main_lines:
+        extra.append(l)
+shared_line5 = next(l for l in main_lines if l.startswith('.dlg{'))
+dlg_core, dlg_media = shared_line5.split('@media', 1)
+for i, l in enumerate(extra):
+    if l.startswith(dlg_core):
+        extra[i] = l[len(dlg_core):]
+os.makedirs(os.path.join(OUT, 'css'), exist_ok=True)
+open(os.path.join(OUT, 'css', 'pixel-pals.css'), 'w').write(
+    '/* Pixel Pals — cozy farm design-system components. */\n' + HEAD_CSS.strip() + '\n')
+site_css = css_assets(main_css, '../').strip()
+site_css = site_css.replace(':root{', '/* Design tokens */\n:root{', 1)
+site_css += '\n\n/* Elements toggled by the page scripts */\n[hidden]{display:none!important}\n'
+open(os.path.join(OUT, 'css', 'site.css'), 'w').write(site_css)
+open(os.path.join(OUT, 'css', 'case-study.css'), 'w').write(
+    '/* Extra rules for the case-study pages (annotations, before/after, table of contents). */\n'
+    + css_assets('\n'.join(l for l in extra if l.strip()), '../') + '\n')
+
+# ---------------------------------------------------------------- pages
+FONT_LINK = re.search(r'<link rel="preconnect".*?>\s*<link[^>]*fonts\.googleapis[^>]*>', raw).group(0)
+SCRIPTS = {'Main': ['home.js'], 'About': ['about.js'], 'Garden': ['garden.js'],
+           'CaseStudy-Linguistics': ['case-study.js'], 'CaseStudy-Include': ['case-study.js']}
+DESC = 'Lyanna Nguyen — Product Designer & UX Researcher. Cognitive Science @ UC Davis.'
+
+for name, P in PAGES.items():
+    cfg = CONFIG[name]
+    tpl = P['tpl']
+    if name == 'Main':
+        # The scroll-following tour guide is permanently switched off (showComp is always false).
+        tpl, n = re.subn(r'  <!-- TOUR GUIDE -->.*?(?=  <!-- NAV -->)', '', tpl, flags=re.S)
+        assert n == 1 and 'showComp' not in tpl
+    # Extract the embedded interactive prototype into its own page.
+    def proto(mm):
+        doc = html.unescape(mm.group(1))
+        doc = DATA_RE.sub(lambda d: '../' + save(d.group(1), d.group(2)), doc)
+        os.makedirs(os.path.join(OUT, 'prototypes'), exist_ok=True)
+        open(os.path.join(OUT, 'prototypes', 'linguistics-club.html'), 'w').write(doc)
+        return 'src="prototypes/linguistics-club.html"'
+    tpl = re.sub(r'srcdoc="([^"]*)"', proto, tpl)
+    # Hooks for the page scripts.
+    tpl = tpl.replace('{{typed}}<span class="cur"', '<span class="dlg-typed"></span><span class="cur"')
+    tpl = tpl.replace('<span aria-hidden="true" style="position: absolute; left: 0; top: {{markTop}};',
+                      '<span class="toc-mark" aria-hidden="true" style="position: absolute; left: 0; top: {{markTop}};')
+    tpl = convert_scif(tpl, cfg['shows'])
+    tpl = fill(tpl, cfg['values'], cfg['actions'])
+    tpl = resolve_blobs(tpl)
+    tpl = DATA_RE.sub(lambda d: save(d.group(1), d.group(2)), tpl)
+    tpl = fix_links(tpl)
+    # Song embeds load only when opened, so a hidden player never streams in the background.
+    tpl = re.sub(r'(<iframe [^>]*?)\ssrc="(https://open\.spotify\.com[^"]*)"', r'\1 data-src="\2"', tpl)
+    tpl = clean(tpl)
+    css = ['css/pixel-pals.css', 'css/site.css'] + (['css/case-study.css'] if name.startswith('CaseStudy') else [])
+    title = P['title']
+    doc = f'''<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{title}</title>
+<meta name="description" content="{html.escape(DESC)}">
+<link rel="icon" href="{blob_path['3d04620ca257bc0131b8bef0887d78cb'] if '3d04620ca257bc0131b8bef0887d78cb' in blob_path else ''}">
+{FONT_LINK}
+''' + ''.join(f'<link rel="stylesheet" href="{c}">\n' for c in css) + f'''</head>
+<body>
+{tpl}
+<script src="js/site.js"></script>
+''' + ''.join(f'<script src="js/{s}"></script>\n' for s in SCRIPTS[name]) + '''</body>
+</html>
+'''
+    assert '{{' not in doc and '/_blob/' not in doc and 'sc-if' not in doc and ';base64,' not in doc, name
+    open(os.path.join(OUT, FILES[name]), 'w').write(doc)
+
+# Drop assets no page references (e.g. sprites only used by the disabled tour guide).
+texts = ''
+for root, _, files in os.walk(OUT):
+    for f in files:
+        if f.endswith(('.html', '.css')):
+            texts += open(os.path.join(root, f)).read()
+for h, rel in list(assets.items()):
+    if os.path.basename(rel) not in texts:
+        os.remove(os.path.join(OUT, rel)); print('unused', rel); del assets[h]
+print('assets', len(assets))
