@@ -33,6 +33,7 @@
   var doorPanel = house.querySelector('.doorpanel');
   var girl = house.querySelector('.greetgirl .emerge > div');
   var typedEl = document.querySelector('.dlg-typed');
+  var ghostEl = document.querySelector('.dlg-ghost');   // invisible full line that sizes the box up front
 
   var phase = 'idle';   // idle → knocking → open → greet
   var line = 0;
@@ -61,6 +62,7 @@
     Site.show('dialog-next', greeted && !(lastLine && typedDone));
     Site.show('dialog-choices', greeted && lastLine && typedDone);
     typedEl.textContent = text.slice(0, Math.min(chars, text.length));
+    ghostEl.textContent = text + '\u258C';
   }
 
   function type() {

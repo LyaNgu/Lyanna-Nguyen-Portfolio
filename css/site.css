@@ -2,7 +2,7 @@
 :root{--surface:#f6e3b4;--surface-raised:#fdf1d3;--surface-sunken:#ecd29a;--ink:#3a1f17;--ink-muted:#6b4227;--accent-text:#9a3d1a;--grass-text:#2f6b2b;--wood:#a0522a;--wood-dark:#5e2f18;--wood-light:#e09a52;--on-wood:#fff3d6;--on-fill:#2b1510;--grass:#7cc44f;--gold:#f0b54a;--sky:#7cc0ea;--flower:#f08cc0;--berry:#e5645a;--pixel-shadow:#3a1f1759;--focus:#2f6b2b;
 --font-display:"Pixelify Sans","Courier New",monospace;--font-body:"Nunito",ui-rounded,system-ui,sans-serif;--font-pixel:"VT323",ui-monospace,monospace;
 --space-1:4px;--space-2:8px;--space-3:12px;--space-4:16px;--space-6:24px;--space-8:32px;--space-12:48px;--space-20:80px;--radius-md:8px;--radius-pill:999px;--border-wood:4px;--border-pixel:3px}
-.dlg{height:192px;align-items:stretch}.dlg-text{min-height:0!important;overflow:hidden}.dlg-text .pp-btn{font-size:18px;line-height:18px;padding:6px 12px 8px 14px;justify-content:center}.dlg-text>div{flex-wrap:nowrap!important;gap:8px!important}@media (max-width:760px){.dlg{height:240px}.dlg-text>div{flex-wrap:wrap!important}}
+.dlg{min-height:192px;align-items:stretch}.dlg-text{min-height:0!important;overflow:hidden}.dlg-text .pp-btn{font-size:18px;line-height:18px;padding:6px 12px 8px 14px;justify-content:center}.dlg-text>div{flex-wrap:nowrap!important;gap:8px!important}@media (max-width:760px){.dlg{min-height:240px}.dlg-text>div{flex-wrap:wrap!important}}
 @media (max-width:760px){.catchgap{padding-top:96px!important}}
 @media (max-width:760px){.mailgrid{grid-template-columns:1fr!important;justify-items:start}.mailgrid .mailbtn{width:240px!important}}
 body{margin:0;background:var(--surface)}
@@ -154,6 +154,10 @@ a,button,[role=switch],label,.flip,.workcard{cursor:url(../assets/images/cursor-
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.js .rv{opacity:1}}
 @media (max-width:1100px){.topnav{gap:12px!important;font-size:19px!important}}@media (max-width:900px){.topnav{gap:4px!important;font-size:18px!important}}
 @media (max-width:760px){.navlinks{display:none!important}.hero-house{width:240px;height:220px}.comp{width:32px}.greetgirl{width:64px!important;left:calc(50% - 32px)!important}.compbubble{display:none!important}}
+
+/* Dialogue: the box grows to fit long lines; a hidden copy of the full line reserves the space
+   before it finishes typing, so the box never resizes mid-sentence. */
+.dlg-text>p{display:grid}.dlg-ghost,.dlg-shown{grid-area:1/1}.dlg-ghost{visibility:hidden}
 
 /* Elements toggled by the page scripts */
 [hidden]{display:none!important}

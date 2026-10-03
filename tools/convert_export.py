@@ -245,7 +245,13 @@ open(os.path.join(OUT, 'css', 'pixel-pals.css'), 'w').write(
     '/* Pixel Pals — cozy farm design-system components. */\n' + HEAD_CSS.strip() + '\n')
 site_css = css_assets(main_css, '../').strip()
 site_css = site_css.replace(':root{', '/* Design tokens */\n:root{', 1)
-site_css += '\n\n/* Elements toggled by the page scripts */\n[hidden]{display:none!important}\n'
+# Let the dialogue box grow for long lines instead of clipping the Next button.
+site_css = site_css.replace('.dlg{height:192px;', '.dlg{min-height:192px;', 1)
+site_css = site_css.replace('@media (max-width:760px){.dlg{height:240px}', '@media (max-width:760px){.dlg{min-height:240px}', 1)
+site_css += ('\n\n/* Dialogue: the box grows to fit long lines; a hidden copy of the full line reserves the space\n'
+             '   before it finishes typing, so the box never resizes mid-sentence. */\n'
+             '.dlg-text>p{display:grid}.dlg-ghost,.dlg-shown{grid-area:1/1}.dlg-ghost{visibility:hidden}\n')
+site_css += '\n/* Elements toggled by the page scripts */\n[hidden]{display:none!important}\n'
 open(os.path.join(OUT, 'css', 'site.css'), 'w').write(site_css)
 open(os.path.join(OUT, 'css', 'case-study.css'), 'w').write(
     '/* Extra rules for the case-study pages (annotations, before/after, table of contents). */\n'
@@ -273,7 +279,9 @@ for name, P in PAGES.items():
         return 'src="prototypes/linguistics-club.html"'
     tpl = re.sub(r'srcdoc="([^"]*)"', proto, tpl)
     # Hooks for the page scripts.
-    tpl = tpl.replace('{{typed}}<span class="cur"', '<span class="dlg-typed"></span><span class="cur"')
+    tpl = tpl.replace('{{typed}}<span class="cur" aria-hidden="true" style="color: var(--wood);">▌</span>',
+                      '<span class="dlg-ghost" aria-hidden="true"></span><span class="dlg-shown"><span class="dlg-typed"></span>'
+                      '<span class="cur" aria-hidden="true" style="color: var(--wood);">▌</span></span>')
     tpl = tpl.replace('<span aria-hidden="true" style="position: absolute; left: 0; top: {{markTop}};',
                       '<span class="toc-mark" aria-hidden="true" style="position: absolute; left: 0; top: {{markTop}};')
     tpl = convert_scif(tpl, cfg['shows'])
