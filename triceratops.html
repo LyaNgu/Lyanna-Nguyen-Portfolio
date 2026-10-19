@@ -37,7 +37,7 @@
     <header class="cs-head">
       <span class="cs-tags"><span class="pp-sticker">Paid contract</span><span class="pp-sticker grass">Shipped</span><span class="cs-small">UC Davis Triceratops website</span></span>
       <h1>Streamlining onboarding to help new members get involved from day one</h1>
-      <p class="cs-sum">I designed and built the Getting Started and Flash Sales pages that turn a scattered Discord into a clear first step for new UC Davis Triceratops members.</p>
+      <p class="cs-sum">I designed and built the Getting Started and Flash Sales pages, turning a 41-channel Discord into one clear first step so interested students actually join their first hunt.</p>
     </header>
 
     <div class="cs-hero-stage">
@@ -61,7 +61,7 @@
 
     <div class="cs-actions">
       <a href="https://triceratops-website.m-jared020.workers.dev/" target="_blank" rel="noopener" class="pp-btn grass">Visit the live site ↗</a>
-      <a href="#overview" class="pp-btn ghost">▾ Read the case study</a>
+      <a href="#context" class="pp-btn ghost">▾ Read the case study</a>
     </div>
 
     <div style="display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: var(--space-12); align-items: start;" class="csgrid">
@@ -70,9 +70,10 @@
         <div style="position: relative; display: flex; flex-direction: column;">
           <span aria-hidden="true" style="position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--surface-sunken);"></span>
           <span class="toc-mark" aria-hidden="true" style="position: absolute; left: 0; top: 0px; width: 4px; height: 36px; background: var(--wood-dark); transition: top .5s cubic-bezier(.34, 1.56, .64, 1);"></span>
-          <a href="#overview" aria-current="location" style="position: relative; display: block; height: 36px; box-sizing: border-box; padding: var(--space-2) 0 var(--space-2) var(--space-4); text-decoration: none; white-space: nowrap; color: var(--ink); font-weight: 800; font-size: 15px; line-height: 20px; transition: color .3s ease, font-weight .3s ease;">Overview</a>
+<a href="#context" aria-current="location" style="position: relative; display: block; height: 36px; box-sizing: border-box; padding: var(--space-2) 0 var(--space-2) var(--space-4); text-decoration: none; white-space: nowrap; color: var(--ink); font-weight: 800; font-size: 15px; line-height: 20px; transition: color .3s ease, font-weight .3s ease;">Context</a>
+          <a href="#peek" aria-current="false" style="position: relative; display: block; height: 36px; box-sizing: border-box; padding: var(--space-2) 0 var(--space-2) var(--space-4); text-decoration: none; white-space: nowrap; color: var(--ink-muted); font-weight: 600; font-size: 15px; line-height: 20px; transition: color .3s ease, font-weight .3s ease;">Sneak peek</a>
           <a href="#problem" aria-current="false" style="position: relative; display: block; height: 36px; box-sizing: border-box; padding: var(--space-2) 0 var(--space-2) var(--space-4); text-decoration: none; white-space: nowrap; color: var(--ink-muted); font-weight: 600; font-size: 15px; line-height: 20px; transition: color .3s ease, font-weight .3s ease;">Problem</a>
-          <a href="#constraints" aria-current="false" style="position: relative; display: block; height: 36px; box-sizing: border-box; padding: var(--space-2) 0 var(--space-2) var(--space-4); text-decoration: none; white-space: nowrap; color: var(--ink-muted); font-weight: 600; font-size: 15px; line-height: 20px; transition: color .3s ease, font-weight .3s ease;">Constraints</a>
+          <a href="#hmw" aria-current="false" style="position: relative; display: block; height: 36px; box-sizing: border-box; padding: var(--space-2) 0 var(--space-2) var(--space-4); text-decoration: none; white-space: nowrap; color: var(--ink-muted); font-weight: 600; font-size: 15px; line-height: 20px; transition: color .3s ease, font-weight .3s ease;">How might we</a>
           <a href="#insight" aria-current="false" style="position: relative; display: block; height: 36px; box-sizing: border-box; padding: var(--space-2) 0 var(--space-2) var(--space-4); text-decoration: none; white-space: nowrap; color: var(--ink-muted); font-weight: 600; font-size: 15px; line-height: 20px; transition: color .3s ease, font-weight .3s ease;">Insight</a>
           <a href="#decisions" aria-current="false" style="position: relative; display: block; height: 36px; box-sizing: border-box; padding: var(--space-2) 0 var(--space-2) var(--space-4); text-decoration: none; white-space: nowrap; color: var(--ink-muted); font-weight: 600; font-size: 15px; line-height: 20px; transition: color .3s ease, font-weight .3s ease;">Key decisions</a>
           <a href="#solution" aria-current="false" style="position: relative; display: block; height: 36px; box-sizing: border-box; padding: var(--space-2) 0 var(--space-2) var(--space-4); text-decoration: none; white-space: nowrap; color: var(--ink-muted); font-weight: 600; font-size: 15px; line-height: 20px; transition: color .3s ease, font-weight .3s ease;">Solution</a>
@@ -83,38 +84,52 @@
 
       <article style="max-width: 720px; min-width: 0; font-size: 18px; line-height: 30px;">
 
-        <!-- 1 · OVERVIEW -->
-        <section id="overview" class="cs-sec">
-          <span class="cs-label">01 · Overview</span>
-          <h2>Students want to join the hunt, but the club's information is scattered across Discord</h2>
-          <p>When students discover UC Davis Triceratops, a campus club built around crochet dinosaur scavenger hunts, they're met with a 41-channel Discord server and rules spread across it. Many follow the Instagram but never learn the rules or how to get started, so interested students stall before they ever join.</p>
-          <p>The club hired our team of 6 designer-developers to design and build a website that turns that scattered information into one clear first step. I owned the onboarding pages: Getting Started and Flash Sales.</p>
+        <!-- 1 · CONTEXT -->
+        <section id="context" class="cs-sec">
+          <span class="cs-label">01 · Context</span>
+          <dl class="cs-context">
+            <div><dt>The club</dt><dd>UC Davis Triceratops is a campus club built around crochet dinosaur scavenger hunts. It hired our team of 6 designer-developers to build its first website.</dd></div>
+            <div><dt>Problem</dt><dd>Everything new members needed lived across a 41-channel Discord, so interested students got lost before they ever joined.</dd></div>
+            <div><dt>Impact</dt><dd>I designed and built the onboarding pages, Getting Started and Flash Sales. They shipped, approved by the client after QA.</dd></div>
+          </dl>
         </section>
 
+        <!-- 2 · SOLUTION SNEAK PEEK -->
+        <section id="peek" class="cs-sec">
+          <span class="cs-label">02 · Solution sneak peek</span>
+          <h2>From a 41-channel Discord to one clear first step</h2>
+          <div class="ba2">
+            <div role="group" aria-label="Compare the old Discord with the new Getting Started page" class="ba2-switch">
+              <span class="ba2-knob" aria-hidden="true"></span>
+              <button type="button" class="ba2-tab" data-v="before" aria-pressed="true">Old</button>
+              <button type="button" class="ba2-tab" data-v="after" aria-pressed="false">New</button>
+            </div>
+            <div class="ba-pb"><div class="ph img" style="aspect-ratio: 16 / 10;"><b>Old: the Discord server</b><span>Rules and drop info spread across 41 channels</span></div></div>
+            <div class="ba-pa"><div class="cs-browser"><div class="cs-browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>New · Getting Started</span></div>
+              <div class="cs-scroll" tabindex="0" aria-label="Final Getting Started page, scrollable"><img src="assets/images/final-beginners-guide.webp" alt="Final Getting Started page with short numbered steps and clear sections" loading="lazy" width="684" height="4000"></div></div></div>
+          </div>
+          <a href="#solution" class="cs-jump">Jump to the full solution ▸</a>
+        </section>
 
-        <!-- 2 · PROBLEM -->
+        <!-- 3 · PROBLEM -->
         <section id="problem" class="cs-sec">
-          <span class="cs-label">02 · Problem</span>
-          <h2>Discord was the only way in, and new members got lost in it</h2>
+          <span class="cs-label">03 · Problem</span>
+          <h2>Interested students were dropping off before their first hunt</h2>
           <blockquote class="cs-quote">“I followed the Instagram but I didn't know you had to go on Discord to find drop info.”<cite>Interview participant</cite></blockquote>
           <div class="ph img" style="aspect-ratio: 16 / 9;"><b>Annotated screenshot: the old Discord</b><span>The 41-channel server with 2–3 pain points called out</span></div>
           <p class="cs-for"><span class="cs-label sm">Designed for</span>Students who'd never heard of the club, and interested students who hadn't joined Discord yet. Active hunters were a secondary audience.</p>
         </section>
 
-        <!-- 3 · CONSTRAINTS -->
-        <section id="constraints" class="cs-sec">
-          <span class="cs-label">03 · Constraints</span>
-          <h2>I had to learn to build the site while I was designing it</h2>
-          <ul class="cs-plain">
-            <li><b>New to code.</b> No backend or Claude Code experience going in.</li>
-            <li><b>No usage data.</b> Discord couldn't show where newcomers dropped off, so I relied on surveys and interviews.</li>
-            <li><b>18 weeks</b> to design and ship, while learning GitHub and Cloudflare.</li>
-          </ul>
+        <!-- 4 · HOW MIGHT WE -->
+        <section id="hmw" class="cs-sec">
+          <span class="cs-label">04 · How might we</span>
+          <p class="cs-hmw">How might we help new members learn the rules and take their first step, <em>without reading a rulebook?</em></p>
+          <p class="cs-small">…so curious Instagram followers become active hunters.</p>
         </section>
 
-        <!-- 4 · INSIGHT -->
+        <!-- 5 · INSIGHT -->
         <section id="insight" class="cs-sec">
-          <span class="cs-label">04 · Insight</span>
+          <span class="cs-label">05 · Insight</span>
           <h2>Rules, not discovery, were the biggest barrier to joining</h2>
           <div class="cs-callout"><b>9 of 15</b><p>interested students said not knowing the rules stopped them from joining.<span class="cs-source">From a 62-response survey and 12 interviews</span></p></div>
           <h3>Testing my mid-fi showed the same pattern</h3>
@@ -126,14 +141,15 @@
           <p class="cs-takeaway">New members didn't want the whole rulebook. They wanted “what to do and what to do after.”</p>
         </section>
 
-        <!-- 5 · KEY DECISIONS -->
+        <!-- 6 · KEY DECISIONS -->
         <section id="decisions" class="cs-sec">
-          <span class="cs-label">05 · Key decisions</span>
+          <span class="cs-label">06 · Key decisions</span>
           <h2>I cut what overwhelmed new members, and kept what guided them</h2>
 
           <div class="cs-decision">
-            <h3><span class="cs-num">1</span>Cut the rulebook into 4 scannable sections</h3>
+            <h3><span class="cs-num">1</span>Show everything the club knows, or just the next step?</h3>
             <p><span class="cs-rejected">Rejected</span> Showing everything the client gave us. Mentors called it congested, and 2 of 6 testers had scroll fatigue.</p>
+            <p><span class="cs-chosen">Chose</span> Just the next step: the rulebook cut into 4 scannable sections.</p>
             <div class="ba2">
               <div role="group" aria-label="Compare the mid-fi and final Beginner's Guide" class="ba2-switch">
                 <span class="ba2-knob" aria-hidden="true"></span>
@@ -176,9 +192,9 @@
           </div>
         </section>
 
-        <!-- 6 · SOLUTION -->
+        <!-- 7 · SOLUTION -->
         <section id="solution" class="cs-sec">
-          <span class="cs-label">06 · Solution</span>
+          <span class="cs-label">07 · Solution</span>
           <h2>Two guides that take a newcomer from “how do I join?” to their first hunt</h2>
           <div class="ph" style="aspect-ratio: 16 / 9;"><b>Core flow walkthrough</b><span>Getting Started → Discord notifications → what to do after claiming a dino</span></div>
 
@@ -226,18 +242,20 @@
           <div class="ph img" style="aspect-ratio: 16 / 7;"><b>Desktop + mobile</b><span>Final Getting Started on a laptop and a phone</span></div>
         </section>
 
-        <!-- 7 · REFLECTION -->
+        <!-- 8 · REFLECTION -->
         <section id="reflect" class="cs-sec">
-          <span class="cs-label">07 · Reflections</span>
+          <span class="cs-label">08 · Reflections</span>
           <h2>I learned to design for what new members need first, not everything they could know</h2>
           <p>My first versions showed everything the client gave us. Testers just wanted “what to do and what to do after,” so reducing friction meant cutting, not explaining more.</p>
           <h2>I learned that accessibility is a design decision, not a final check</h2>
           <p>A failing contrast ratio and competing GIFs slipped into my designs. Now I plan for contrast, motion and readability from the first draft, instead of patching them at the end.</p>
+          <h2>I learned to design within constraints by building what I designed</h2>
+          <p>I started with no backend or Claude Code experience and 18 weeks to ship, while learning GitHub and Cloudflare. Coding my own pages gave me a developer's view of my design choices, and Discord's lack of usage data pushed me to lean on surveys and interviews.</p>
         </section>
 
-        <!-- 8 · OUTCOME & THANKS -->
+        <!-- 9 · OUTCOME & THANKS -->
         <section id="outcome" class="cs-sec">
-          <span class="cs-label">08 · The outcome</span>
+          <span class="cs-label">09 · The outcome</span>
           <h2>Our onboarding pages shipped, approved by the client!</h2>
           <p>After QA, my design lead and the client approved the final pages, and they're live on the club's site. Mentors called Getting Started the strongest visual direction of the project.</p>
           <figure class="cs-fig">
