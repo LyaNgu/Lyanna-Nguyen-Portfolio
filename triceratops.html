@@ -80,7 +80,7 @@
           <a href="#options" aria-current="false" style="position: relative; display: block; height: 36px; box-sizing: border-box; padding: 8px 0 8px 18px; text-decoration: none; white-space: nowrap; color: var(--ink-muted); font-weight: 600; font-size: 15px; line-height: 20px; transition: color .3s ease, font-weight .3s ease;">Options &amp; tradeoffs</a>
           <a href="#solution" aria-current="false" style="position: relative; display: block; height: 36px; box-sizing: border-box; padding: 8px 0 8px 18px; text-decoration: none; white-space: nowrap; color: var(--ink-muted); font-weight: 600; font-size: 15px; line-height: 20px; transition: color .3s ease, font-weight .3s ease;">Solution</a>
           <a href="#outcome" aria-current="false" style="position: relative; display: block; height: 36px; box-sizing: border-box; padding: 8px 0 8px 18px; text-decoration: none; white-space: nowrap; color: var(--ink-muted); font-weight: 600; font-size: 15px; line-height: 20px; transition: color .3s ease, font-weight .3s ease;">The outcome</a>
-          <a href="#reflect" aria-current="false" style="position: relative; display: block; height: 36px; box-sizing: border-box; padding: 8px 0 8px 18px; text-decoration: none; white-space: nowrap; color: var(--ink-muted); font-weight: 600; font-size: 15px; line-height: 20px; transition: color .3s ease, font-weight .3s ease;">Reflection &amp; thanks</a>
+          <a href="#reflect" aria-current="false" style="position: relative; display: block; height: 36px; box-sizing: border-box; padding: 8px 0 8px 18px; text-decoration: none; white-space: nowrap; color: var(--ink-muted); font-weight: 600; font-size: 15px; line-height: 20px; transition: color .3s ease, font-weight .3s ease;">Reflection</a>
         </div>
       </nav>
 
@@ -300,7 +300,7 @@
           </details>
         </section>
 
-        <!-- 7 · OUTCOME -->
+        <!-- 7 · OUTCOME & THANKS -->
         <section id="outcome" class="cs-sec">
           <span class="cs-label">07 · The outcome</span>
           <h2>Our onboarding pages shipped, approved by the client!</h2>
@@ -310,24 +310,24 @@
             <figcaption><span class="ph-text">Caption: who's in the photo and what moment it shows</span></figcaption>
           </figure>
           <p class="cs-small">No usage data yet: testing was one mid-fi round with 6 people, and the hi-fi was reviewed by mentors, my lead and the client rather than tested with users.</p>
-        </section>
-
-        <!-- 8 · REFLECTION & THANKS -->
-        <section id="reflect" class="cs-sec">
-          <span class="cs-label">08 · Reflection</span>
-          <h2>Next time, I'd</h2>
-          <ul class="cs-lessons">
-            <li><b>Protect hi-fi testing.</b> Mentor feedback filled the gap, but it isn't the same as watching new members use the pages.</li>
-            <li><b>Cut content on purpose.</b> Fitting in everything the client gave me made the page harder to use.</li>
-            <li><b>Check accessibility, not assume it.</b> Contrast, motion, sizing and states, every time.</li>
-            <li><b>Write the QA checklist first.</b> Claude Code caught my edge cases; the same checklist should guide both design and code.</li>
-          </ul>
-          <p class="cs-small"><b style="color: var(--ink);">After launch, I'll measure:</b> Discord click-throughs from Getting Started · repeat rules questions in Discord · whether testers find post-claim steps unaided.</p>
 
           <span class="cs-label" style="margin-top: 40px;">Gratitude &amp; special thanks</span>
           <h2>Thank you to my wonderful team!</h2>
           <p>A special shout-out to my teammates <span class="ph-text">[teammate names]</span>! And a big thank you to our design lead <span class="ph-text">[design lead name]</span> for guiding our team from research to launch, to our industry mentors for their honest feedback, and to UC Davis Triceratops for trusting us with their club.</p>
-          <figure class="cs-fig">
+        </section>
+
+        <!-- 8 · REFLECTION -->
+        <section id="reflect" class="cs-sec">
+          <span class="cs-label">08 · Reflection</span>
+          <h2>What I'm taking into my next project</h2>
+          <ol class="cs-takeaways">
+            <li><b>Less content made a better onboarding.</b><span>I tried to fit everything the client gave me, and it buried new members. Cutting it to 4 scannable sections is what won over our mentors and the client.</span></li>
+            <li><b>Mentor feedback isn't user testing.</b><span>Deadlines squeezed out hi-fi testing. Next time I'll lock testing time into the schedule from day one, so I watch new members use the final design.</span></li>
+            <li><b>Accessibility is a check, not an assumption.</b><span>Failing contrast and competing GIFs slipped into my designs. I now check contrast, motion, sizing and states on purpose.</span></li>
+            <li><b>AI made me a faster, more careful builder.</b><span>Claude Code compared my built pages against Figma and caught mismatches before launch. Next time I'll write the QA checklist first, so design and code share it.</span></li>
+          </ol>
+          <p class="cs-small"><b style="color: var(--ink);">After launch, I'll measure:</b> Discord click-throughs from Getting Started · repeat rules questions in Discord · whether testers find post-claim steps unaided.</p>
+          <figure class="cs-fig" style="margin-top: 16px;">
             <div class="ph img" style="aspect-ratio: 16 / 9;"><b>Team photo</b><span>The team together, or a screenshot from a team call</span></div>
             <figcaption><span class="ph-text">Caption: the team, named left to right</span></figcaption>
           </figure>
