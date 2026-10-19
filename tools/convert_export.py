@@ -16,6 +16,11 @@ m = re.match(r'<script>window.__PAGES__ = (.*?);window.__BLOBS__ = (.*);</script
 PAGES, BLOBS = json.loads(m.group(1)), json.loads(m.group(2))
 HEAD_CSS = re.search(r'<style>\n(.*?)</style>', raw, re.S).group(1)
 
+# Text corrected after the export, per page.
+CONTENT_FIXES = {
+    'Main': [('>Triceratops Website · Jun 2026 – Present<', '>Triceratops Website · 4 months<')],
+}
+
 # Pages rebuilt by hand after the export; the converter never overwrites them.
 HAND_BUILT = {'triceratops.html'}
 
@@ -295,6 +300,10 @@ for name, P in PAGES.items():
     # Song embeds load only when opened, so a hidden player never streams in the background.
     tpl = re.sub(r'(<iframe [^>]*?)\ssrc="(https://open\.spotify\.com[^"]*)"', r'\1 data-src="\2"', tpl)
     tpl = clean(tpl)
+    # Content corrections made after the export.
+    for old, new in CONTENT_FIXES.get(name, []):
+        assert old in tpl, (name, old)
+        tpl = tpl.replace(old, new)
     css = ['css/pixel-pals.css', 'css/site.css'] + (['css/case-study.css'] if name.startswith('CaseStudy') else [])
     title = P['title']
     doc = f'''<!doctype html>
