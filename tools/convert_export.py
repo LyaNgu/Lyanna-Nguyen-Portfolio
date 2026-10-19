@@ -18,7 +18,7 @@ HEAD_CSS = re.search(r'<style>\n(.*?)</style>', raw, re.S).group(1)
 
 # Text corrected after the export, per page.
 CONTENT_FIXES = {
-    'Main': [('>Triceratops Website · Jun 2026 – Present<', '>Triceratops Website · 4 months<')],
+    'Main': [('>Triceratops Website · Jun 2026 – Present<', '>Triceratops Website · Jun – Oct 2026<')],
 }
 
 # Pages rebuilt by hand after the export; the converter never overwrites them.
