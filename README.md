@@ -20,6 +20,7 @@ Plain HTML, CSS and JavaScript — no build step, no dependencies.
 css/pixel-pals.css   design-system components (frames, buttons, stickers…)
 css/site.css         design tokens, animations and page styles
 css/case-study.css   extra rules for the case-study pages
+css/cs-components.css  hand-written case-study blocks (stat row, options, annotations, placeholders)
 js/site.js           shared helpers: data-show toggles, data-action clicks, scroll reveals
 js/home.js           opening animation, door knock + dialogue, mailbox, fireflies
 js/about.js          song previews (Spotify embeds)
@@ -30,6 +31,10 @@ assets/fonts/        fonts used by the prototype
 assets/files/        Lyanna_Nguyen_Resume.pdf
 tools/convert_export.py  regenerates the pages from a single-file design export
 ```
+
+`triceratops.html` is hand-built (it follows the 2026 case-study structure), so the converter
+skips it. Media still to come are dashed `.ph` placeholders; search the page for `class="ph` to
+find them, and see the comment in the hero for how to drop in the looping video.
 
 Interactive bits use two attributes:
 

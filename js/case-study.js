@@ -3,8 +3,8 @@
 (function () {
   'use strict';
 
-  var IDS = ['overview', 'challenge', 'research', 'process', 'solution', 'results', 'reflect'];
   var tocLinks = document.querySelectorAll('.cstoc a[href^="#"]');
+  var IDS = Array.prototype.map.call(tocLinks, function (a) { return a.getAttribute('href').slice(1); });
   var mark = document.querySelector('.toc-mark');
 
   var active = IDS[0];

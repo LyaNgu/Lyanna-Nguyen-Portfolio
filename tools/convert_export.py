@@ -16,6 +16,9 @@ m = re.match(r'<script>window.__PAGES__ = (.*?);window.__BLOBS__ = (.*);</script
 PAGES, BLOBS = json.loads(m.group(1)), json.loads(m.group(2))
 HEAD_CSS = re.search(r'<style>\n(.*?)</style>', raw, re.S).group(1)
 
+# Pages rebuilt by hand after the export; the converter never overwrites them.
+HAND_BUILT = {'triceratops.html'}
+
 FILES = {
     'Main': 'index.html', 'About': 'about.html', 'Garden': 'garden.html',
     'CaseStudy-Linguistics': 'linguistics-club.html', 'CaseStudy-Include': 'triceratops.html',
@@ -311,6 +314,8 @@ for name, P in PAGES.items():
 </html>
 '''
     assert '{{' not in doc and '/_blob/' not in doc and 'sc-if' not in doc and ';base64,' not in doc, name
+    if FILES[name] in HAND_BUILT and os.path.exists(os.path.join(OUT, FILES[name])):
+        print('kept hand-built', FILES[name]); continue
     open(os.path.join(OUT, FILES[name]), 'w').write(doc)
 
 # Drop assets no page references (e.g. sprites only used by the disabled tour guide).
