@@ -69,7 +69,8 @@
 .cs-context>div{display:grid;grid-template-columns:120px minmax(0,1fr);gap:var(--space-6);padding:var(--space-4) 0;border-top:2px dashed var(--surface-sunken)}
 .cs-context>div:last-child{border-bottom:2px dashed var(--surface-sunken)}
 .cs-context dt{font-family:var(--font-pixel);font-size:18px;line-height:27px;letter-spacing:.04em;text-transform:uppercase;color:var(--accent-text)}
-.cs-context dd{margin:0;font-size:18px;line-height:28px;font-weight:600}
+.cs-context dd{margin:0;font-size:18px;line-height:28px;font-weight:600;color:var(--ink-muted)}
+.cs-context dd b{font-weight:800;color:var(--ink)}
 @media (max-width:560px){.cs-context>div{grid-template-columns:1fr;gap:var(--space-1)}}
 
 /* ---------- Feedback rounds strip ---------- */
