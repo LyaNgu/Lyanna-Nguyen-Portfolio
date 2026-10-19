@@ -21,7 +21,7 @@
 .cs-hero-screen>img,.cs-hero-screen>video{display:block;width:100%;height:100%;object-fit:cover;object-position:top}
 .cs-hero-screen>.ph{height:100%;border:0;border-radius:0;box-shadow:none}
 .cs-sticker{position:absolute;width:17%;max-width:92px;z-index:2;filter:drop-shadow(0 4px 6px rgba(30,40,60,.35))}
-.cs-meta{margin:20px 0 0;padding:14px 22px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px 24px;background:var(--surface);box-shadow:inset 0 0 0 2px var(--surface-sunken);border-radius:var(--radius-md)}
+.cs-meta{margin:20px 0 0;padding:14px 22px;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1.1fr) minmax(0,1.1fr) minmax(0,1.5fr);gap:12px 24px;background:var(--surface);box-shadow:inset 0 0 0 2px var(--surface-sunken);border-radius:var(--radius-md)}
 .cs-meta>div{display:flex;flex-direction:column;gap:2px;min-width:0}
 .cs-meta dt{font-family:var(--font-pixel);font-size:15px;line-height:16px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-muted)}
 .cs-meta dd{margin:0;font-size:15px;line-height:22px;font-weight:700}
