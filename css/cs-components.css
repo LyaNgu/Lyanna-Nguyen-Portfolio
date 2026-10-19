@@ -125,13 +125,6 @@
 .cs-more>summary:focus-visible{outline:3px solid var(--focus);outline-offset:-3px}
 .cs-more>div{padding:4px 18px 20px;display:flex;flex-direction:column;gap:18px}
 
-/* ---------- Reflection takeaways ---------- */
-.cs-sec ol.cs-takeaways{list-style:none;margin:0;padding:0;counter-reset:tk;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
-.cs-takeaways li{counter-increment:tk;display:flex;flex-direction:column;gap:8px;padding:20px 22px;background:var(--surface);box-shadow:inset 0 0 0 2px var(--surface-sunken);border-top:6px solid var(--wood-light)}
-.cs-takeaways li::before{content:"0" counter(tk);font-family:var(--font-pixel);font-size:28px;line-height:28px;color:var(--accent-text)}
-.cs-takeaways b{font-size:19px;line-height:26px;font-weight:800;color:var(--ink)}
-.cs-takeaways span{font-size:16px;line-height:25px;font-weight:600;color:var(--ink-muted)}
-
 /* ---------- Build appendix ---------- */
 .cs-build{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;margin-top:56px;padding:22px 24px;background:var(--surface-sunken);border-radius:var(--radius-md)}
 
