@@ -80,7 +80,7 @@
           <a href="#options" aria-current="false" style="position: relative; display: block; height: 36px; box-sizing: border-box; padding: 8px 0 8px 18px; text-decoration: none; white-space: nowrap; color: var(--ink-muted); font-weight: 600; font-size: 15px; line-height: 20px; transition: color .3s ease, font-weight .3s ease;">Options &amp; tradeoffs</a>
           <a href="#solution" aria-current="false" style="position: relative; display: block; height: 36px; box-sizing: border-box; padding: 8px 0 8px 18px; text-decoration: none; white-space: nowrap; color: var(--ink-muted); font-weight: 600; font-size: 15px; line-height: 20px; transition: color .3s ease, font-weight .3s ease;">Solution</a>
           <a href="#outcome" aria-current="false" style="position: relative; display: block; height: 36px; box-sizing: border-box; padding: 8px 0 8px 18px; text-decoration: none; white-space: nowrap; color: var(--ink-muted); font-weight: 600; font-size: 15px; line-height: 20px; transition: color .3s ease, font-weight .3s ease;">Outcome</a>
-          <a href="#reflect" aria-current="false" style="position: relative; display: block; height: 36px; box-sizing: border-box; padding: 8px 0 8px 18px; text-decoration: none; white-space: nowrap; color: var(--ink-muted); font-weight: 600; font-size: 15px; line-height: 20px; transition: color .3s ease, font-weight .3s ease;">Reflection</a>
+          <a href="#reflect" aria-current="false" style="position: relative; display: block; height: 36px; box-sizing: border-box; padding: 8px 0 8px 18px; text-decoration: none; white-space: nowrap; color: var(--ink-muted); font-weight: 600; font-size: 15px; line-height: 20px; transition: color .3s ease, font-weight .3s ease;">Reflection &amp; thanks</a>
         </div>
       </nav>
 
@@ -322,23 +322,32 @@
         <!-- 8 · REFLECTION -->
         <section id="reflect" class="cs-sec">
           <span class="cs-label">08 · Reflection</span>
-          <h2>Protect testing time, cut content on purpose, and check accessibility instead of assuming it</h2>
-          <h3>I'd protect usability testing for the hi-fi</h3>
-          <p>Deadlines and building the site while designing it squeezed out hi-fi testing, so mentor feedback replaced it. That feedback was valuable, but it isn't the same as watching new members use the pages. Next time I'd lock that testing time into the schedule from the start.</p>
-          <h3>More content isn't more helpful</h3>
-          <p>I tried to fit every piece of information the client gave me, and it worked against the problem I was solving. Cutting back made the pages easier to use. I also learned that accessibility is something you check, not something you assume: a mentor caught my failing contrast, and simultaneous GIFs caused overload. I now check contrast, motion, sizing and states on purpose.</p>
-          <h3>AI made QA manageable</h3>
-          <p>Claude Code was new to me. I used it with Figma MCP to turn my designs into coded pages, then prompted it to compare the built pages against the designs. That's how I caught the edge cases above before launch, and it kept the site consistent. Next time I'll write the QA checklist before building, so the same checks guide both the design and the code.</p>
-          <h3>After launch, I'd measure</h3>
-          <div class="cs-table-wrap">
-            <table class="cs-table">
-              <thead><tr><th scope="col">Question</th><th scope="col">Signal</th><th scope="col">Success looks like</th></tr></thead>
-              <tbody>
-                <tr><td>Do newcomers reach Discord?</td><td>Link clicks from Getting Started to Discord</td><td>A steady share of visitors clicking through</td></tr>
-                <tr><td>Are the rules clear?</td><td>Rules questions still asked in Discord</td><td>Fewer repeated rules questions</td></tr>
-                <tr><td>Are post-claim steps findable?</td><td>A follow-up usability task</td><td>Most testers find them without help</td></tr>
-              </tbody>
-            </table>
+          <h2>A clear front door for new hunters, and a better way for me to work</h2>
+          <div class="cs-impact">
+            <div><span class="cs-label sm">For new members</span><p>One place to learn the rules and get to Discord, instead of 41 channels.</p></div>
+            <div><span class="cs-label sm">For the club</span><p>Onboarding pages the client approved after QA, now live on their site.</p></div>
+            <div><span class="cs-label sm">For me</span><p>I designed and coded my own pages, with QA built into the process.</p></div>
+          </div>
+
+          <h3>Next time, I'd</h3>
+          <ul class="cs-lessons">
+            <li><b>Protect hi-fi testing.</b> Mentor feedback filled the gap, but it isn't the same as watching new members use the pages.</li>
+            <li><b>Cut content on purpose.</b> Fitting in everything the client gave me made the page harder to use.</li>
+            <li><b>Check accessibility, not assume it.</b> Contrast, motion, sizing and states, every time.</li>
+            <li><b>Write the QA checklist first.</b> Claude Code caught my edge cases; the same checklist should guide both design and code.</li>
+          </ul>
+          <p class="cs-small"><b style="color: var(--ink);">After launch, I'll measure:</b> Discord click-throughs from Getting Started · repeat rules questions in Discord · whether testers find post-claim steps unaided.</p>
+
+          <div class="cs-thanks">
+            <span class="cs-label sm">Thank you</span>
+            <p>To my design lead and teammates for building this with me, to our industry mentors for honest feedback, and to UC Davis Triceratops for trusting us with their club.</p>
+            <div class="cs-team">
+              <div class="ph img" style="aspect-ratio: 16 / 9;"><b>Team photo</b><span>The six of us, or a team call screenshot</span></div>
+              <div class="cs-team-row">
+                <div class="ph img" style="aspect-ratio: 4 / 3; min-height: 0;"><b>Team moment</b><span>Working session or critique</span></div>
+                <div class="ph img" style="aspect-ratio: 4 / 3; min-height: 0;"><b>With the club</b><span>Handoff or a hunt with Triceratops</span></div>
+              </div>
+            </div>
           </div>
         </section>
 

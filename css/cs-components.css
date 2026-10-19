@@ -130,6 +130,22 @@
 .cs-table td:first-child{font-weight:800}
 .cs-table-wrap{overflow-x:auto}
 
+/* ---------- Reflection: impact strip, lessons, thanks ---------- */
+.cs-impact{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px}
+.cs-impact>div{display:flex;flex-direction:column;gap:6px;padding:16px 18px;background:var(--surface);box-shadow:inset 0 0 0 2px var(--surface-sunken);border-top:6px solid var(--grass)}
+.cs-impact>div:nth-child(2){border-top-color:var(--gold)}
+.cs-impact>div:nth-child(3){border-top-color:var(--sky)}
+.cs-impact p{font-size:16px;line-height:24px;font-weight:700}
+.cs-sec ul.cs-lessons{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.cs-lessons li{position:relative;padding:10px 0 10px 28px;border-top:2px dashed var(--surface-sunken);font-size:16px;line-height:25px;font-weight:600;color:var(--ink-muted)}
+.cs-lessons li::before{content:"✿";position:absolute;left:2px;top:10px;color:var(--wood-light)}
+.cs-lessons b{color:var(--ink);font-weight:800}
+.cs-thanks{display:flex;flex-direction:column;gap:12px;margin-top:10px;padding:22px 24px;background:var(--surface);box-shadow:inset 0 0 0 2px var(--surface-sunken);border-radius:var(--radius-md)}
+.cs-thanks>p{font-size:17px;line-height:27px;font-weight:700}
+.cs-team{display:flex;flex-direction:column;gap:12px}
+.cs-team-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:560px){.cs-team-row{grid-template-columns:1fr}}
+
 /* ---------- Build appendix ---------- */
 .cs-build{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;margin-top:56px;padding:22px 24px;background:var(--surface-sunken);border-radius:var(--radius-md)}
 
