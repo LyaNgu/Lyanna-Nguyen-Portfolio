@@ -87,32 +87,14 @@
       <article style="max-width: 720px; min-width: 0; font-size: 18px; line-height: 30px;">
 
         <!-- 1 · OVERVIEW -->
-        <section id="overview" class="cs-sec">
-          <span class="cs-label">01 · Overview</span>
-          <h2>New members couldn't learn the rules or how to join a hunt, because everything was scattered across Discord</h2>
-          <div class="cs-stats">
-            <div class="cs-stat"><b>490 → 4</b><span>490 words of rules from a 41-channel Discord became 4 scannable sections</span></div>
-            <div class="cs-stat"><b>3 of 6</b><span>mid-fi testers praised Getting Started as beginner-friendly, and mentors called it the strongest visual direction</span></div>
-            <div class="cs-stat"><b>Shipped</b><span>approved by the client and my design lead after QA, and live on the club's site</span></div>
-          </div>
-          <div class="ba2" style="display: flex; flex-direction: column; gap: 18px;">
-            <div role="group" aria-label="Compare the mid-fi and final Beginner's Guide" class="ba2-switch">
-              <span class="ba2-knob" aria-hidden="true"></span>
-              <button type="button" class="ba2-tab" data-v="before" aria-pressed="true">Before</button>
-              <button type="button" class="ba2-tab" data-v="after" aria-pressed="false">After</button>
-            </div>
-            <div class="ba-pb"><figure class="cs-fig">
-              <div class="cs-browser"><div class="cs-browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>Before · Mid-fi Beginner's Guide</span></div>
-                <div class="cs-scroll" tabindex="0" aria-label="Mid-fi Beginner's Guide, scrollable"><img src="assets/images/mid-fi-beginners-guide.webp" alt="Mid-fi Beginner's Guide with dense blocks of rules" loading="lazy" width="513" height="2000"></div></div>
-              <figcaption>Before: every rule the client gave us, in dense blocks competing for attention.</figcaption>
-            </figure></div>
-            <div class="ba-pa"><figure class="cs-fig">
-              <div class="cs-browser"><div class="cs-browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>After · Final Beginner's Guide</span></div>
-                <div class="cs-scroll" tabindex="0" aria-label="Final Beginner's Guide, scrollable"><img src="assets/images/final-beginners-guide.webp" alt="Final Beginner's Guide with short numbered steps and clear sections" loading="lazy" width="684" height="4000"></div></div>
-              <figcaption>After: short numbered steps, rules under their own headers, and room to breathe.</figcaption>
-            </figure></div>
-          </div>
-        </section>
+        <section id="overview" style="scroll-margin-top: 96px; display: flex; flex-direction: column; gap: 18px; padding-top: 88px;">
+        <span style="font-family: var(--font-pixel); font-size: 20px; letter-spacing: .04em; text-transform: uppercase; color: var(--ink-muted);">01 · Overview</span>
+        <p style="margin: 0; font-family: var(--font-body); font-size: 26px; line-height: 38px; font-weight: 800; color: var(--ink);">Turning a scattered Discord into one clear starting point for new dino hunters.</p><p style="margin: 0;">UC Davis Triceratops is a campus club built around crochet dinosaur scavenger hunts. Members follow clues to find dinos hidden in the wild, and the club doubles as a place for community and downtime from the stress of school.</p><p style="margin: 0;">On a contract with the club, our team acted as UI/UX designers and developers to build a static website that pulls information out of Discord and into one place, then sends visitors to the club&#39;s Discord and Instagram. I owned the <b>onboarding</b> side of the site: the <b>Getting Started</b> guide and the <b>Flash Sales</b> guide.</p><div style="display: flex; flex-direction: column; gap: 10px; padding: 20px 24px; background: var(--surface-sunken); border-left: 6px solid var(--grass);">
+          <span style="font-family: var(--font-pixel); font-size: 20px; letter-spacing: .04em; text-transform: uppercase; color: var(--ink-muted); font-size: 18px; color: var(--ink);">My impact</span>
+          <ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; font-size: 16px; line-height: 26px; font-weight: 600;"><li>Designed and built the Getting Started and Flash Sales pages, from lo-fi to hi-fi and into code.</li><li>Ran interviews, synthesized survey data, and helped with affinity mapping, information architecture and a SWOT analysis.</li><li>Developed the site in VS Code, GitHub and Cloudflare, using Claude as an AI coding partner.</li></ul>
+        </div><div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 12px;"><div style="display: flex; flex-direction: column; gap: 6px; padding: 18px 20px; background: var(--surface); border-top: 6px solid var(--berry);"><span style="font-family: var(--font-pixel); font-size: 20px; letter-spacing: .04em; text-transform: uppercase; color: var(--ink-muted); font-size: 18px;">The challenge</span><span style="font-size: 16px; line-height: 26px; font-weight: 600;">All club info lived in Discord, scattered across channels and hard for newcomers to navigate.</span></div><div style="display: flex; flex-direction: column; gap: 6px; padding: 18px 20px; background: var(--surface); border-top: 6px solid var(--gold);"><span style="font-family: var(--font-pixel); font-size: 20px; letter-spacing: .04em; text-transform: uppercase; color: var(--ink-muted); font-size: 18px;">The solution</span><span style="font-size: 16px; line-height: 26px; font-weight: 600;">Onboarding pages that explain the rules and drops in plain steps, then bridge visitors to Discord.</span></div><div style="display: flex; flex-direction: column; gap: 6px; padding: 18px 20px; background: var(--surface); border-top: 6px solid var(--grass);"><span style="font-family: var(--font-pixel); font-size: 20px; letter-spacing: .04em; text-transform: uppercase; color: var(--ink-muted); font-size: 18px;">The outcome</span><span style="font-size: 16px; line-height: 26px; font-weight: 600;">A pushed-out, functional website the club can use.</span></div></div><a href="#solution" class="pp-btn" style="align-self: flex-start; text-decoration: none;">▸ See the final pages</a>
+      </section>
+
 
         <!-- 2 · PROBLEM -->
         <section id="problem" class="cs-sec">
@@ -179,7 +161,24 @@
             <h3>Show everything the client gave us</h3>
             <div class="cs-verdicts">
               <div class="cs-verdict"><span class="cs-label">Rejected because</span><p>Mentors called the dense mid-fi congested, a teammate said the graphics and boxes made the page too long, and 2 of 6 testers mentioned scroll fatigue.</p></div>
-              <div class="cs-verdict ok"><span class="cs-label">I chose</span><p>Short numbered steps, rules grouped under their own headers, and more space between sections. <a href="#overview">See the before/after ↑</a></p></div>
+              <div class="cs-verdict ok"><span class="cs-label">I chose</span><p>Short numbered steps, rules grouped under their own headers, and more space between sections.</p></div>
+            </div>
+            <div class="ba2" style="display: flex; flex-direction: column; gap: 18px;">
+              <div role="group" aria-label="Compare the mid-fi and final Beginner's Guide" class="ba2-switch">
+                <span class="ba2-knob" aria-hidden="true"></span>
+                <button type="button" class="ba2-tab" data-v="before" aria-pressed="true">Before</button>
+                <button type="button" class="ba2-tab" data-v="after" aria-pressed="false">After</button>
+              </div>
+              <div class="ba-pb"><figure class="cs-fig">
+                <div class="cs-browser"><div class="cs-browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>Before · Mid-fi Beginner's Guide</span></div>
+                  <div class="cs-scroll" tabindex="0" aria-label="Mid-fi Beginner's Guide, scrollable"><img src="assets/images/mid-fi-beginners-guide.webp" alt="Mid-fi Beginner's Guide with dense blocks of rules" loading="lazy" width="513" height="2000"></div></div>
+                <figcaption>Before: every rule the client gave us, in dense blocks competing for attention.</figcaption>
+              </figure></div>
+              <div class="ba-pa"><figure class="cs-fig">
+                <div class="cs-browser"><div class="cs-browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>After · Final Beginner's Guide</span></div>
+                  <div class="cs-scroll" tabindex="0" aria-label="Final Beginner's Guide, scrollable"><img src="assets/images/final-beginners-guide.webp" alt="Final Beginner's Guide with short numbered steps and clear sections" loading="lazy" width="684" height="4000"></div></div>
+                <figcaption>After: short numbered steps, rules under their own headers, and room to breathe.</figcaption>
+              </figure></div>
             </div>
           </div>
 
@@ -279,7 +278,7 @@
           <details class="cs-more">
             <summary>Process: 1 lo-fi → 1 mid-fi → 2 hi-fi desktop → 2 hi-fi mobile</summary>
             <div>
-              <figure class="cs-fig" style="max-width: 520px;"><img src="assets/images/hand-drawn-lo-fi-wireframe-of.webp" alt="Hand-drawn lo-fi wireframe of the Beginner's Guide page with notes on layout" loading="lazy" width="766" height="1097"><figcaption>Lo-fi: a zigzag of numbered steps with dino footprints leading the eye. (The mid-fi is in the before/after at the top.)</figcaption></figure>
+              <figure class="cs-fig" style="max-width: 520px;"><img src="assets/images/hand-drawn-lo-fi-wireframe-of.webp" alt="Hand-drawn lo-fi wireframe of the Beginner's Guide page with notes on layout" loading="lazy" width="766" height="1097"><figcaption>Lo-fi: a zigzag of numbered steps with dino footprints leading the eye. (The mid-fi is in the before/after under Option A.)</figcaption></figure>
               <div class="cs-pair">
                 <div class="ph img"><b>Hi-fi desktop V1</b><span>First hi-fi pass</span></div>
                 <div class="ph img"><b>Hi-fi desktop V2</b><span>After mentor and client feedback</span></div>
