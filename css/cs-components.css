@@ -40,12 +40,6 @@
 .cs-quote cite{display:block;margin-top:var(--space-1);font-size:14px;font-style:normal;font-weight:700;color:var(--ink-muted)}
 @media (max-width:560px){.cs-callout{grid-template-columns:1fr;gap:var(--space-2)}}
 
-/* ---------- Numbered findings ---------- */
-.cs-findings{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
-.cs-findings li{display:grid;grid-template-columns:minmax(76px,max-content) 1fr;gap:var(--space-4);padding:var(--space-3) 0;border-top:2px dashed var(--surface-sunken)}
-.cs-findings li>b{white-space:nowrap;font-family:var(--font-pixel);font-size:28px;line-height:30px;font-weight:400;color:var(--accent-text)}
-.cs-findings li span{font-size:17px;line-height:27px;font-weight:600}
-
 /* ---------- Cohorts (who I designed for) ---------- */
 .cs-sec ol.cs-cohorts{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space-4)}
 .cs-cohorts li{display:flex;flex-direction:column;gap:var(--space-2);padding:var(--space-4);background:var(--surface);box-shadow:inset 0 0 0 2px var(--surface-sunken);border-top:6px solid var(--gold)}
