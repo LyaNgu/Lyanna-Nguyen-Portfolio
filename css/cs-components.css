@@ -57,6 +57,10 @@
 .cs-cohorts em{margin-top:auto;font-style:normal;font-size:14px;line-height:20px;font-weight:800;color:var(--accent-text)}
 @media (max-width:700px){.cs-sec ol.cs-cohorts{grid-template-columns:1fr}}
 
+/* ---------- How might we ---------- */
+.cs-hmw{display:flex;flex-direction:column;gap:var(--space-2);margin-top:var(--space-6);padding:var(--space-6);background:var(--surface);box-shadow:inset 0 0 0 2px var(--surface-sunken);border-left:6px solid var(--wood)}
+.cs-sec .cs-hmw p{max-width:none;font-family:var(--font-display);font-size:clamp(22px,2.6vw,28px);line-height:1.35;font-weight:700;color:var(--ink)}
+
 /* ---------- Open list (constraints) ---------- */
 .cs-sec ul.cs-plain{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
 .cs-plain li{padding:var(--space-3) 0;border-top:2px dashed var(--surface-sunken);font-size:17px;line-height:27px;font-weight:600;color:var(--ink-muted)}
