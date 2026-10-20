@@ -4,7 +4,9 @@
 /* ---------- Type ---------- */
 .cs-label{font-family:var(--font-pixel);font-size:20px;line-height:22px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-muted)}
 .cs-label.sm{font-size:16px;line-height:18px}
-.cs-sec{scroll-margin-top:96px;display:flex;flex-direction:column;gap:var(--space-6);padding-top:var(--space-20)}
+.cs-sec{scroll-margin-top:96px;display:flex;flex-direction:column;gap:var(--space-8);padding-top:var(--space-20)}
+/* Sections read as separate chapters: 48px of extra white space, then 80px before the next label */
+.cs-sec+.cs-sec{margin-top:var(--space-12)}
 .cs-sec h2{margin:0;font-family:var(--font-body);font-size:28px;line-height:36px;font-weight:800}
 .cs-sec h3{margin:var(--space-6) 0 0;font-size:22px;line-height:30px;font-weight:800}
 .cs-sec p{margin:0;max-width:640px}
