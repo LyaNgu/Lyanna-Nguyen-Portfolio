@@ -101,18 +101,33 @@
 .cs-fig>img{display:block;width:100%;height:auto;border-radius:var(--radius-md);box-shadow:0 0 0 3px var(--wood-dark),4px 4px 0 3px var(--pixel-shadow);background:#fff}
 .cs-fig figcaption{font-size:14px;line-height:22px;font-weight:600;font-style:italic;color:var(--ink-muted)}
 
-/* ---------- Annotated final screens (pins + notes; hover sync in case-study.js) ---------- */
-.anno{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--space-6);align-items:start}
-.anno .cs-scroll{position:relative}
+/* ---------- Callout annotations (dashed boxes + labelled markers + cards; hover sync in case-study.js) ---------- */
+.anno.cs-callouts{display:flex;flex-direction:column;gap:var(--space-4);padding:var(--space-6);border-radius:16px;background:#dcecf7}
+.cs-co-stage{display:grid;grid-template-columns:112px minmax(0,1fr) 112px}
+.cs-co-gutter{position:relative}
+.cs-co-media{position:relative;border-radius:var(--radius-md);overflow:hidden;background:#fff;box-shadow:0 2px 10px rgba(30,60,90,.12)}
+.cs-co-media>img{display:block;width:100%;height:auto}
+.cs-co-box{position:absolute;box-sizing:border-box;border:2px dashed #3d8fd1;border-radius:6px;background:rgba(124,192,234,.16);transition:background .2s,border-color .2s}
+.cs-co-box.hl{background:rgba(124,192,234,.32);border-style:solid;border-color:#1f6fb2}
+.cs-co-dot{flex:none;display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;background:var(--wood-dark);color:#fff;font-family:var(--font-body);font-size:12px;line-height:12px;font-weight:800;font-style:normal}
+.cs-co-box>.cs-co-dot{display:none;position:absolute;left:4px;top:4px}
+.cs-co-label{position:absolute;left:0;right:0;transform:translateY(-50%);display:flex;align-items:center;gap:var(--space-1);padding:0;border:0;background:none;cursor:pointer;font-family:var(--font-body);font-size:13px;line-height:17px;font-weight:800;color:var(--ink);text-align:left}
+.cs-co-gutter.left .cs-co-label{justify-content:flex-end;text-align:right}
+.cs-co-gutter.left .cs-co-label::after,.cs-co-gutter.right .cs-co-label::before{content:"";flex:none;width:var(--space-3);height:2px;background:#3d8fd1}
+.cs-co-gutter.left .cs-co-label .cs-co-dot{order:-1}
+.cs-co-label.hl{color:var(--accent-text)}
+.cs-co-label:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+.cs-sec ol.cs-co-cards{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(var(--cols),minmax(0,1fr));gap:var(--space-3)}
+.cs-co-cards .anno-note{display:block;padding:var(--space-4);border-radius:var(--radius-md);background:#fff;box-shadow:0 2px 10px rgba(30,60,90,.08);font-size:15px;line-height:23px;font-weight:600;color:var(--ink-muted)}
+.cs-co-cards .anno-note b{color:var(--ink);font-weight:800}
+.cs-co-cards .anno-note.hl{background:#fff;box-shadow:inset 4px 0 0 #3d8fd1,0 2px 10px rgba(30,60,90,.12)}
+@media (max-width:700px){.anno.cs-callouts{padding:var(--space-4)}.cs-co-stage{grid-template-columns:minmax(0,1fr)}.cs-co-gutter{display:none}.cs-co-box>.cs-co-dot{display:inline-grid}.cs-sec ol.cs-co-cards{grid-template-columns:1fr}}
+
+/* Faded Problem screenshot */
 .anno-shot{position:relative}
-.anno-notes{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:var(--space-2)}
-.anno-note b{display:block;font-size:16px;line-height:23px;font-weight:800}
-.anno-note span{display:block;font-size:14px;line-height:21px;font-weight:600;color:var(--ink-muted)}
-.anno-note .anno-num{display:inline-flex;font-size:18px;line-height:18px;color:var(--ink);font-weight:400}
 .cs-fade::after{content:"";position:absolute;left:0;right:0;bottom:0;height:28%;background:linear-gradient(rgba(18,18,20,0),rgb(18,18,20) 85%);pointer-events:none}
 .cs-shot-frame{border-radius:var(--radius-md);overflow:hidden;box-shadow:0 0 0 3px var(--wood-dark),4px 4px 0 3px var(--pixel-shadow)}
 .cs-shot-frame img{display:block;width:100%;height:auto}
-.anno-pin{width:28px;height:28px;margin:-14px 0 0 -14px;font-size:18px;line-height:18px}
 
 /* ---------- Placeholders for media still to come ---------- */
 .ph{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:var(--space-1);width:100%;min-height:180px;padding:var(--space-6);text-align:center;border:3px dashed var(--wood-light);border-radius:var(--radius-md);background:repeating-linear-gradient(135deg,var(--surface) 0 14px,var(--surface-raised) 14px 28px);color:var(--ink-muted);box-sizing:border-box}
@@ -124,5 +139,5 @@
 /* Text still to fill in (names, captions) */
 .ph-text{padding:0 var(--space-1);background:#f0b54a55;border-bottom:2px dashed var(--wood);font-style:normal;font-weight:800;color:var(--ink)}
 
-@media (max-width:700px){.anno{grid-template-columns:1fr}.cs-meta{grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-4) var(--space-6);padding:var(--space-4)}.cs-meta>div{padding:0;border-left:0}.cs-meta>div:nth-child(3){order:1}.cs-meta>div:nth-child(2){order:2;grid-column:1/-1}.cs-meta>div:last-child{order:3}}
+@media (max-width:700px){.cs-meta{grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-4) var(--space-6);padding:var(--space-4)}.cs-meta>div{padding:0;border-left:0}.cs-meta>div:nth-child(3){order:1}.cs-meta>div:nth-child(2){order:2;grid-column:1/-1}.cs-meta>div:last-child{order:3}}
 @media (max-width:560px){.cs-hero-screen>.ph span{display:none}.cs-hero-screen>.ph{min-height:0;padding:var(--space-2)}}
