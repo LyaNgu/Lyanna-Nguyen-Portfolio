@@ -111,13 +111,12 @@
 .anno-note b{display:block;font-size:16px;line-height:23px;font-weight:800}
 .anno-note span{display:block;font-size:14px;line-height:21px;font-weight:600;color:var(--ink-muted)}
 .anno-note .anno-num{display:inline-flex;font-size:18px;line-height:18px;color:var(--ink);font-weight:400}
-.anno.anno-wide{grid-template-columns:1fr}
-.anno-wide .cs-shot-frame{max-width:600px}
-.cs-scroll-short{max-height:440px;overflow-y:auto}
-.cs-sec .cs-scroll-hint{margin-top:calc(var(--space-2) * -1);font-size:13px;line-height:18px;font-weight:700;color:var(--ink-muted)}
-.anno-wide .anno-notes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));max-width:600px}
+.anno.anno-wide{grid-template-columns:minmax(0,1fr)}
+.anno-wide{justify-items:center}
+.anno-wide .cs-shot-frame{width:100%;max-width:600px}
+.anno-wide .anno-notes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));width:100%;max-width:600px}
 .cs-shot-frame{border-radius:var(--radius-md);overflow:hidden;box-shadow:0 0 0 3px var(--wood-dark),4px 4px 0 3px var(--pixel-shadow)}
-.cs-shot-frame>img{display:block;width:100%;height:auto}
+.cs-shot-frame img{display:block;width:100%;height:auto}
 .anno-pin{width:28px;height:28px;margin:-14px 0 0 -14px;font-size:18px;line-height:18px}
 
 /* ---------- Placeholders for media still to come ---------- */
