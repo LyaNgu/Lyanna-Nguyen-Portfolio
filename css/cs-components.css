@@ -112,11 +112,9 @@
 .anno-note span{display:block;font-size:14px;line-height:21px;font-weight:600;color:var(--ink-muted)}
 .anno-note .anno-num{display:inline-flex;font-size:18px;line-height:18px;color:var(--ink);font-weight:400}
 .anno.anno-wide{grid-template-columns:1fr}
-.anno-wide .anno-notes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+.anno-wide .anno-notes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
 .cs-shot-frame{border-radius:var(--radius-md);overflow:hidden;box-shadow:0 0 0 3px var(--wood-dark),4px 4px 0 3px var(--pixel-shadow)}
 .cs-shot-frame>img{display:block;width:100%;height:auto}
-.cs-fullsize{position:absolute;right:var(--space-2);bottom:var(--space-2);padding:var(--space-1) var(--space-2);border-radius:var(--radius-md);background:#000000b3;color:#fff;font-size:13px;line-height:18px;font-weight:700;text-decoration:none}
-.cs-fullsize:hover{background:#000000e0;color:#fff}
 .anno-pin{width:28px;height:28px;margin:-14px 0 0 -14px;font-size:18px;line-height:18px}
 
 /* ---------- Placeholders for media still to come ---------- */
