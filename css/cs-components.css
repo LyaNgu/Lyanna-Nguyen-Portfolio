@@ -10,6 +10,7 @@
 .cs-sec h2{margin:0;font-family:var(--font-body);font-size:28px;line-height:36px;font-weight:800}
 .cs-sec h3{margin:var(--space-6) 0 0;font-size:22px;line-height:30px;font-weight:800}
 .cs-sec p{margin:0;max-width:640px}
+#research>p{max-width:none}
 .cs-sec .cs-gap-top{margin-top:var(--space-12)}
 .cs-small{font-size:15px;line-height:24px;font-weight:600;color:var(--ink-muted)}
 
