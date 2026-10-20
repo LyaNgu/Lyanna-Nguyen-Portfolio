@@ -98,6 +98,7 @@
         <section id="problem" class="cs-sec">
           <span class="cs-label">02 · Problem</span>
           <h2>New members couldn't learn the rules or how to join a hunt, because everything was scattered across a 41-channel Discord</h2>
+          <p>The research showed the cost: confused students stopped short of joining the Discord or taking part in hunts, so the club was losing interested members before their first hunt.</p>
           <blockquote class="cs-quote">“I followed the Instagram but I didn't know you had to go on Discord to find drop info.”<cite>Interview participant</cite></blockquote>
           <div class="cs-shot-frame">
             <div class="anno-shot cs-fade">
@@ -128,9 +129,9 @@
           <p>The research gathered gave me the evidence behind my design choices: a <b>62-response survey</b>, <b>12 user interviews</b> and a <b>SWOT of 9+ club sites</b>, synthesized through affinity mapping and IA.</p>
           <p>The research grouped people by how familiar they were with the club, since each group has a different gap to close. I designed for Cohorts 1 and 2; active hunters already live in Discord.</p>
           <ol class="cs-cohorts">
-            <li><span class="cs-cohort-top"><span class="cs-label sm">Cohort 1 · Unaware</span><span class="pp-sticker">Primary</span></span><p class="cs-find"><b>85%</b> would check social media first; none would check AggieLife.</p><em>Gap: awareness</em></li>
-            <li class="key"><span class="cs-cohort-top"><span class="cs-label sm">Cohort 2 · Interested</span><span class="pp-sticker">Primary</span></span><p class="cs-find"><b>9 of 15</b> said not knowing the rules stopped them from joining.</p><em>Gap: conversion · key finding</em></li>
-            <li class="secondary"><span class="cs-cohort-top"><span class="cs-label sm">Cohort 3 · Active</span><span class="pp-sticker sky">Secondary</span></span><p class="cs-find"><b>19 of 19</b> stay active because they enjoy the drops.</p><em>Use: quick reference</em></li>
+            <li><span class="cs-cohort-top"><span class="cs-label sm">Cohort 1 · Unaware</span><span class="pp-sticker">Primary</span></span><p class="cs-find"><b>85%</b> of Cohort 1 and 2 respondents would check social media first; none would check AggieLife.</p><em>Gap: awareness</em></li>
+            <li class="key"><span class="cs-cohort-top"><span class="cs-label sm">Cohort 2 · Interested</span><span class="pp-sticker">Primary</span></span><p class="cs-find"><b>9 of 15</b> Cohort 2 respondents said not knowing the rules stopped them from joining.</p><em>Gap: conversion · key finding</em></li>
+            <li class="secondary"><span class="cs-cohort-top"><span class="cs-label sm">Cohort 3 · Active</span><span class="pp-sticker sky">Secondary</span></span><p class="cs-find"><b>19 of 19</b> Cohort 3 respondents stay active because they enjoy the drops.</p><em>Use: quick reference</em></li>
           </ol>
         </section>
 
@@ -186,10 +187,10 @@
           </div>
 
           <div class="cs-decision">
-            <h3><span class="cs-num">3</span>Kept boxes only where they guide</h3>
+            <h3><span class="cs-num">3</span>Advocated for keeping boxes where they guide</h3>
             <div class="cs-why">
-              <p><span class="cs-rejected">Rejected</span> Removing every box to avoid the “rulebook” feel.</p>
-              <p><span class="cs-chosen">Chose</span> Cutting only the filler, since testers were lost without a starting point.</p>
+              <p><span class="cs-rejected">Rejected</span> Removing every box, as the client asked, to avoid the “rulebook” feel.</p>
+              <p><span class="cs-chosen">Chose</span> Cutting only the filler. I showed the client research that new members didn't know where to start in Discord, and they agreed to keep the boxes that guide.</p>
             </div>
             <div class="ba2">
               <div role="group" aria-label="Compare boxes before and after" class="ba2-switch">
@@ -237,7 +238,8 @@
             </ol>
           </div>
 
-          <p class="cs-small">Before launch I fixed desktop/mobile sizing mismatches, broken breakpoints, and missing hover and empty states.</p>
+          <h3>How I built it</h3>
+          <p>I used Claude Code with the Figma MCP to turn our Figma frames into the base code, then to fix the broken breakpoints and sizing mismatches we found in manual QA. Work that would have taken weeks took hours.</p>
           <div class="ph img" style="aspect-ratio: 16 / 7;"><b>Desktop + mobile</b><span>Final Getting Started on a laptop and a phone</span></div>
         </section>
 
@@ -246,6 +248,13 @@
           <span class="cs-label">07 · The outcome</span>
           <h2>Getting Started and Flash Sales are live on the club's site</h2>
           <p>After QA, my design lead and the client approved the final pages. Mentors called Getting Started the strongest visual direction of the project.</p>
+          <h3>How we'll measure success</h3>
+          <p>The site just launched, so there's no usage data yet. Next, we'll track:</p>
+          <ul class="cs-plain">
+            <li><b>Site visits</b> to Getting Started and Flash Sales.</li>
+            <li><b>Discord invite conversion</b> from the site.</li>
+            <li><b>Re-tests</b> with first-time members, to confirm they can reach their first hunt on their own.</li>
+          </ul>
           <figure class="cs-fig">
             <div class="ph img" style="aspect-ratio: 16 / 9;"><b>Outcome photo</b><span>The final handoff, or the live page on a laptop and phone</span></div>
             <figcaption><span class="ph-text">Caption: who's in the photo and what moment it shows</span></figcaption>
@@ -259,9 +268,7 @@
           <p>My first versions showed everything the client gave us. Testers just wanted “what to do and what to do after,” so reducing friction meant cutting, not explaining more.</p>
           <h2>I learned that accessibility is a design decision, not a final check</h2>
           <p>A failing contrast ratio and competing GIFs slipped into my designs. Now I plan for contrast, motion and readability from the first draft, instead of patching them at the end.</p>
-          <h2>Next, I'd test the final pages with new members</h2>
-          <p>After the first usability test, feedback came from mentors and the client. I'd run the final pages past first-time members to confirm they can reach their first hunt on their own.</p>
-          <h2 class="cs-gap-top">Thank you to my wonderful team!</h2>
+                    <h2 class="cs-gap-top">Thank you to my wonderful team!</h2>
           <p>A huge thank you to my lovely teammates Anqi Su, Leif Caratiquit, Nathan Salas, and Lisa Wang, and to our amazing lead, Jared Martinez, for guiding and teaching us every step of the way! I'm so grateful to our industry mentors for their insightful critiques, and to UC Davis Triceratops for trusting us with their very first website.</p>
         </section>
 
