@@ -253,6 +253,9 @@ open(os.path.join(OUT, 'css', 'pixel-pals.css'), 'w').write(
     '/* Pixel Pals — cozy farm design-system components. */\n' + HEAD_CSS.strip() + '\n')
 site_css = css_assets(main_css, '../').strip()
 site_css = site_css.replace(':root{', '/* Design tokens */\n:root{', 1)
+# Loader backdrop: replace the custom-property mask reveal, which mobile Safari renders transparent.
+site_css = site_css.replace("@property --ldr-r{syntax:'<length>';inherits:false;initial-value:0px}\n@keyframes ldrReveal{0%,80%{--ldr-r:0px}100%{--ldr-r:calc(120vmax + 160px)}}\n.ldr-bg{-webkit-mask-image:radial-gradient(circle at 50% 46%,transparent calc(var(--ldr-r) - 160px),#000 var(--ldr-r));mask-image:radial-gradient(circle at 50% 46%,transparent calc(var(--ldr-r) - 160px),#000 var(--ldr-r));animation:ldrReveal 3.6s cubic-bezier(.5,0,.3,1) both}\n@supports not (mask-image:radial-gradient(circle,#000,#000)){.ldr-bg{animation:ldrFade 3.6s linear both}}",
+                            '/* Backdrop reveal: a growing hole whose solid surround is a box-shadow. Avoids animating a\n   custom property inside a mask, which mobile Safari renders as fully transparent. */\n@keyframes ldrHole{0%,80%{width:0;height:0}100%{width:300vmax;height:300vmax}}\n.ldr-bg{right:auto!important;bottom:auto!important;left:50%!important;top:46%!important;width:0;height:0;border-radius:50%;transform:translate(-50%,-50%);background:radial-gradient(closest-side,rgba(207,234,250,0) 70%,#cfeafa 100%)!important;box-shadow:0 0 0 150vmax #cfeafa;animation:ldrHole 3.6s cubic-bezier(.5,0,.3,1) both}', 1)
 # Let the dialogue box grow for long lines instead of clipping the Next button.
 site_css = site_css.replace('.dlg{height:192px;', '.dlg{min-height:192px;', 1)
 site_css = site_css.replace('@media (max-width:760px){.dlg{height:240px}', '@media (max-width:760px){.dlg{min-height:240px}', 1)
