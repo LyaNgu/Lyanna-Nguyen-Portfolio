@@ -101,27 +101,21 @@
 .cs-fig>img{display:block;width:100%;height:auto;border-radius:var(--radius-md);box-shadow:0 0 0 3px var(--wood-dark),4px 4px 0 3px var(--pixel-shadow);background:#fff}
 .cs-fig figcaption{font-size:14px;line-height:22px;font-weight:600;font-style:italic;color:var(--ink-muted)}
 
-/* ---------- Callout annotations (dashed boxes + labelled markers + cards; hover sync in case-study.js) ---------- */
-.anno.cs-callouts{display:flex;flex-direction:column;gap:var(--space-4);padding:var(--space-6);border-radius:var(--radius-md);background:var(--surface);box-shadow:inset 0 0 0 2px var(--surface-sunken)}
-.cs-co-stage{display:grid;grid-template-columns:112px minmax(0,1fr) 112px}
-.cs-co-gutter{position:relative}
+/* ---------- Callout annotations: screenshot with numbered dashed boxes + matching cards (hover sync in case-study.js) ---------- */
+.anno.cs-callouts{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:var(--space-6);align-items:center;padding:var(--space-6);border-radius:var(--radius-md);background:var(--surface);box-shadow:inset 0 0 0 2px var(--surface-sunken)}
 .cs-co-media{position:relative;border-radius:var(--radius-md);overflow:hidden;background:#fff;box-shadow:0 0 0 3px var(--wood-dark),4px 4px 0 3px var(--pixel-shadow)}
 .cs-co-media>img{display:block;width:100%;height:auto}
-.cs-co-box{position:absolute;box-sizing:border-box;border:2px dashed var(--wood);border-radius:6px;background:rgba(240,181,74,.14);transition:background .2s,border-color .2s}
+.cs-co-box{position:absolute;box-sizing:border-box;border:2px dashed var(--wood);border-radius:6px;background:rgba(240,181,74,.14);transition:background .2s,border-color .2s;outline:none}
 .cs-co-box.hl{background:rgba(240,181,74,.3);border-style:solid;border-color:var(--wood-dark)}
-.cs-co-dot{flex:none;display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;background:var(--wood-dark);color:#fff;font-family:var(--font-body);font-size:12px;line-height:12px;font-weight:800;font-style:normal}
-.cs-co-box>.cs-co-dot{display:none;position:absolute;left:4px;top:4px}
-.cs-co-label{position:absolute;left:0;right:0;transform:translateY(-50%);display:flex;align-items:center;gap:var(--space-1);padding:0;border:0;background:none;cursor:pointer;font-family:var(--font-body);font-size:13px;line-height:17px;font-weight:800;color:var(--ink);text-align:left}
-.cs-co-gutter.left .cs-co-label{justify-content:flex-end;text-align:right}
-.cs-co-gutter.left .cs-co-label::after,.cs-co-gutter.right .cs-co-label::before{content:"";flex:none;width:var(--space-3);height:2px;background:var(--wood)}
-.cs-co-gutter.left .cs-co-label .cs-co-dot{order:-1}
-.cs-co-label.hl{color:var(--accent-text)}
-.cs-co-label:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
-.cs-sec ol.cs-co-cards{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(var(--cols),minmax(0,1fr));gap:var(--space-3)}
-.cs-co-cards .anno-note{display:block;padding:var(--space-4);border-radius:var(--radius-md);background:var(--surface-raised);box-shadow:inset 0 0 0 2px var(--surface-sunken);font-size:15px;line-height:23px;font-weight:600;color:var(--ink-muted)}
+.cs-co-box:focus-visible{box-shadow:0 0 0 3px var(--focus)}
+.cs-co-dot{flex:none;display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--wood-dark);color:#fff;font-family:var(--font-body);font-size:12px;line-height:12px;font-weight:800;font-style:normal}
+.cs-co-box>.cs-co-dot{position:absolute;left:4px;top:4px}
+.cs-co-box.sm>.cs-co-dot{left:auto;right:calc(100% + 4px);top:50%;transform:translateY(-50%)}
+.cs-sec ol.cs-co-cards{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:var(--space-3)}
+.cs-co-cards .anno-note{display:flex;align-items:flex-start;gap:var(--space-3);padding:var(--space-4);border-radius:var(--radius-md);background:var(--surface-raised);box-shadow:inset 0 0 0 2px var(--surface-sunken);font-size:15px;line-height:23px;font-weight:600;color:var(--ink-muted)}
 .cs-co-cards .anno-note b{color:var(--ink);font-weight:800}
 .cs-co-cards .anno-note.hl{background:var(--surface-raised);box-shadow:inset 4px 0 0 var(--wood),inset 0 0 0 2px var(--surface-sunken)}
-@media (max-width:700px){.anno.cs-callouts{padding:var(--space-4)}.cs-co-stage{grid-template-columns:minmax(0,1fr)}.cs-co-gutter{display:none}.cs-co-box>.cs-co-dot{display:inline-grid}.cs-sec ol.cs-co-cards{grid-template-columns:1fr}}
+@media (max-width:700px){.anno.cs-callouts{grid-template-columns:1fr;padding:var(--space-4)}}
 
 /* Faded Problem screenshot */
 .anno-shot{position:relative}
