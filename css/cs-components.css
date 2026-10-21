@@ -68,7 +68,6 @@
 .cs-vs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-4)}
 .cs-vs-col{margin:0;display:flex;flex-direction:column;gap:var(--space-3)}
 .cs-vs-img{aspect-ratio:4/3;overflow:hidden;border-radius:var(--radius-md);background:#fff;box-shadow:inset 0 0 0 2px var(--surface-sunken)}
-.cs-vs-img.tall{aspect-ratio:3/4}
 .cs-vs-img img{display:block;width:100%;height:100%;object-fit:cover;object-position:top}
 .cs-vs-img .ph{height:100%;min-height:0;padding:var(--space-3)}
 .cs-vs-col figcaption{font-size:15px;line-height:24px;font-weight:600;color:var(--ink-muted)}
