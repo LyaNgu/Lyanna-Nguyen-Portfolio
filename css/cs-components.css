@@ -37,17 +37,6 @@
 .cs-quote{margin:0;padding:var(--space-1) 0 var(--space-1) var(--space-4);border-left:4px solid var(--wood-light);font-size:20px;line-height:31px;font-weight:700;font-style:italic}
 .cs-quote cite{display:block;margin-top:var(--space-1);font-size:14px;font-style:normal;font-weight:700;color:var(--ink-muted)}
 /* ---------- Cohorts (who I designed for) ---------- */
-.cs-sec ol.cs-cohorts{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space-4)}
-.cs-cohorts li{display:flex;flex-direction:column;gap:var(--space-2);padding:var(--space-4);background:var(--surface);box-shadow:inset 0 0 0 2px var(--surface-sunken);border-top:6px solid var(--gold)}
-.cs-cohorts li.secondary{background:transparent;border-top-color:var(--sky)}
-.cs-cohorts li.key{border-top-color:var(--berry);box-shadow:inset 0 0 0 2px var(--berry)}
-.cs-sec .cs-find{color:var(--ink)}
-.cs-find b{font-family:var(--font-pixel);font-size:22px;font-weight:400;color:var(--accent-text)}
-.cs-cohort-top{display:flex;align-items:center;justify-content:space-between;gap:var(--space-2)}
-.cs-cohort-top .pp-sticker{font-size:14px;line-height:14px}
-.cs-cohorts p{font-size:15px;line-height:23px;font-weight:600;color:var(--ink-muted)}
-.cs-cohorts em{margin-top:auto;font-style:normal;font-size:14px;line-height:20px;font-weight:800;color:var(--accent-text)}
-@media (max-width:700px){.cs-sec ol.cs-cohorts{grid-template-columns:1fr}}
 
 /* ---------- How might we ---------- */
 .cs-hmw{display:flex;flex-direction:column;gap:var(--space-2);margin-top:var(--space-6);padding:var(--space-6);background:var(--surface);box-shadow:inset 0 0 0 2px var(--surface-sunken);border-left:6px solid var(--wood)}
@@ -72,15 +61,6 @@
 @media (max-width:560px){.cs-context>div{grid-template-columns:1fr;gap:var(--space-1)}}
 
 /* ---------- Feedback rounds strip ---------- */
-.cs-rounds-wrap{display:flex;flex-direction:column;gap:var(--space-3)}
-.cs-sec ol.cs-rounds{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:var(--space-2)}
-.cs-rounds li{display:flex;flex-direction:column;gap:var(--space-1);padding:var(--space-3);background:var(--surface);box-shadow:inset 0 0 0 2px var(--surface-sunken);border-top:6px solid var(--gold)}
-.cs-rounds li.mentor{border-top-color:var(--flower)}
-.cs-rounds li.client{border-top-color:var(--sky)}
-.cs-rounds b{font-family:var(--font-pixel);font-size:20px;line-height:20px;font-weight:400;color:var(--ink-muted)}
-.cs-rounds span{font-size:15px;line-height:20px;font-weight:800}
-.cs-rounds small{font-size:13px;line-height:18px;font-weight:600;color:var(--ink-muted)}
-@media (max-width:700px){.cs-sec ol.cs-rounds{grid-template-columns:repeat(2,minmax(0,1fr))}.cs-rounds li:first-child{grid-column:1/-1}}
 
 /* ---------- Key decisions (one headline, one reason, one visual each) ---------- */
 .cs-decision{display:flex;flex-direction:column;gap:var(--space-4);padding-top:var(--space-8);border-top:2px dashed var(--surface-sunken)}
