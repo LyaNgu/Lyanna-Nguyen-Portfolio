@@ -24,22 +24,19 @@
 .cs-hero-screen>img,.cs-hero-screen>video{display:block;width:100%;height:100%;object-fit:cover;object-position:top}
 .cs-hero-screen>.ph{height:100%;border:0;border-radius:0;box-shadow:none}
 .cs-sticker{position:absolute;width:17%;max-width:92px;z-index:2;filter:drop-shadow(0 4px 6px rgba(30,40,60,.35))}
-.cs-meta{margin:var(--space-4) 0 0;padding:var(--space-4) var(--space-6);display:flex;flex-wrap:wrap;row-gap:var(--space-4);background:var(--surface);box-shadow:inset 0 0 0 2px var(--surface-sunken);border-radius:var(--radius-md)}
+.cs-meta{margin:var(--space-4) 0 0;padding:var(--space-4) var(--space-6);display:flex;flex-wrap:nowrap;background:var(--surface);box-shadow:inset 0 0 0 2px var(--surface-sunken);border-radius:var(--radius-md)}
 .cs-meta>div{flex:0 1 auto;display:flex;flex-direction:column;gap:var(--space-2);min-width:0;padding:0 var(--space-6);border-left:2px dashed var(--surface-sunken)}
 .cs-meta>div:first-child{padding-left:0;border-left:0}
-.cs-meta>div:last-child{flex:1 1 240px;padding-right:0}
-@media (max-width:960px){.cs-meta{display:grid;grid-template-columns:auto auto minmax(0,1fr);row-gap:var(--space-4)}.cs-meta>div:last-child{grid-column:1/-1;padding:var(--space-4) 0 0;border-left:0;border-top:2px dashed var(--surface-sunken)}}
+.cs-meta>div:last-child{flex:1 1 0;padding-right:0}
 .cs-meta dt{font-family:var(--font-pixel);font-size:15px;line-height:16px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-muted)}
 .cs-meta dd{margin:0;font-size:15px;line-height:22px;font-weight:700;text-wrap:pretty}
 .cs-actions{display:flex;flex-wrap:wrap;align-items:center;gap:var(--space-4);margin-top:var(--space-6)}
 
 /* ---------- Cards, callouts, quotes ---------- */
-.cs-quote{margin:0;padding:var(--space-1) 0 var(--space-1) var(--space-4);border-left:4px solid var(--wood-light);font-size:20px;line-height:31px;font-weight:700;font-style:italic}
-.cs-quote cite{display:block;margin-top:var(--space-1);font-size:14px;font-style:normal;font-weight:700;color:var(--ink-muted)}
 /* ---------- Cohorts (who I designed for) ---------- */
 
 /* ---------- How might we ---------- */
-.cs-hmw{display:flex;flex-direction:column;gap:var(--space-2);margin-top:var(--space-6);padding:var(--space-6);background:var(--surface);box-shadow:inset 0 0 0 2px var(--surface-sunken);border-left:6px solid var(--wood)}
+.cs-hmw{display:flex;flex-direction:column;gap:var(--space-2);padding:var(--space-6);background:var(--surface);box-shadow:inset 0 0 0 2px var(--surface-sunken);border-left:6px solid var(--wood)}
 .cs-sec .cs-hmw p{max-width:none;font-family:var(--font-display);font-size:clamp(22px,2.6vw,28px);line-height:1.35;font-weight:700;color:var(--ink)}
 
 /* ---------- Open list (constraints) ---------- */
@@ -56,14 +53,30 @@
 .cs-context dd{margin:0;font-size:18px;line-height:28px;font-weight:600;color:var(--ink-muted)}
 .cs-context dd b{font-weight:800;color:var(--ink)}
 /* My impact: headline, contributions, then the result */
-.cs-impact{display:flex;flex-direction:column;gap:var(--space-4)}
-.cs-sec .cs-impact h2{margin:0}
+.cs-impact{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:var(--space-2)}
+.cs-impact b{font-weight:800;color:var(--ink)}
 @media (max-width:560px){.cs-context>div{grid-template-columns:1fr;gap:var(--space-1)}}
 
 /* ---------- Feedback rounds strip ---------- */
 
 /* ---------- Key decisions (one headline, one reason, one visual each) ---------- */
-.cs-decision{display:flex;flex-direction:column;gap:var(--space-4);padding-top:var(--space-8);border-top:2px dashed var(--surface-sunken)}
+.cs-decision{display:flex;flex-direction:column;gap:var(--space-4);padding-top:var(--space-6)}
+/* Before/after shown side by side: Rejected on the left, Chose on the right */
+.cs-vs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-4)}
+.cs-vs-col{margin:0;display:flex;flex-direction:column;gap:var(--space-3)}
+.cs-vs-img{aspect-ratio:4/3;overflow:hidden;border-radius:var(--radius-md);background:#fff;box-shadow:inset 0 0 0 2px var(--surface-sunken)}
+.cs-vs-img.tall{aspect-ratio:3/4}
+.cs-vs-img img{display:block;width:100%;height:100%;object-fit:cover;object-position:top}
+.cs-vs-img .ph{height:100%;min-height:0;padding:var(--space-3)}
+.cs-vs-col figcaption{font-size:15px;line-height:24px;font-weight:600;color:var(--ink-muted)}
+@media (max-width:560px){.cs-vs{grid-template-columns:1fr}}
+/* Research numbers */
+.cs-stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-6)}
+.cs-stats>div{display:flex;flex-direction:column;gap:var(--space-2);padding-top:var(--space-3);border-top:4px solid var(--surface-sunken)}
+.cs-stats>div.key{border-top-color:var(--wood)}
+.cs-stats b{font-family:var(--font-pixel);font-size:48px;line-height:44px;font-weight:400;color:var(--accent-text)}
+.cs-stats span{font-size:16px;line-height:25px;font-weight:600;color:var(--ink-muted)}
+@media (max-width:560px){.cs-stats{grid-template-columns:1fr}}
 .cs-sec .cs-decision h3{margin:0;display:flex;align-items:center;gap:var(--space-3)}
 .cs-num{flex:none;display:inline-grid;place-items:center;width:32px;height:32px;border-radius:50%;background:var(--wood);color:var(--on-wood);font-family:var(--font-pixel);font-size:20px;line-height:20px;font-weight:400}
 .cs-decision p{font-size:17px;line-height:27px;font-weight:600;color:var(--ink-muted)}
@@ -116,5 +129,5 @@
 /* Text still to fill in (names, captions) */
 .ph-text{padding:0 var(--space-1);background:#f0b54a55;border-bottom:2px dashed var(--wood);font-style:normal;font-weight:800;color:var(--ink)}
 
-@media (max-width:700px){.cs-meta{grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-4) var(--space-6);padding:var(--space-4)}.cs-meta>div{padding:0;border-left:0}.cs-meta>div:nth-child(3){order:1}.cs-meta>div:nth-child(2){order:2;grid-column:1/-1}.cs-meta>div:last-child{order:3}}
+@media (max-width:700px){.cs-meta{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-4) var(--space-6);padding:var(--space-4)}.cs-meta>div{padding:0;border-left:0}.cs-meta>div:nth-child(3){order:1}.cs-meta>div:nth-child(2){order:2;grid-column:1/-1}.cs-meta>div:last-child{order:3;grid-column:1/-1}}
 @media (max-width:560px){.cs-hero-screen>.ph span{display:none}.cs-hero-screen>.ph{min-height:0;padding:var(--space-2)}}
