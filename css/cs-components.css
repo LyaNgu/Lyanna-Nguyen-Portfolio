@@ -17,13 +17,11 @@
 /* ---------- Hero ---------- */
 /* Hero: title, summary, details and the live link all in the first view */
 .cs-head{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:var(--space-4) var(--space-12);align-items:start;padding:var(--space-6) 0 var(--space-8)}
-.cs-head>.cs-tags{grid-column:1/-1}
 .cs-head-main{display:flex;flex-direction:column;gap:var(--space-3)}
 .cs-sec .cs-actions{margin-top:0}
 @media (max-width:860px){.cs-head{grid-template-columns:1fr;gap:var(--space-6)}}
 .cs-head h1{margin:0;font-family:var(--font-display);font-size:clamp(30px,3vw,38px);line-height:1.1;font-weight:700}
 .cs-head .cs-sum{margin:0;font-size:20px;line-height:32px;font-weight:600;color:var(--ink-muted)}
-.cs-tags{display:flex;flex-wrap:wrap;align-items:center;gap:var(--space-2)}
 .cs-hero-stage{position:relative;width:100%;aspect-ratio:16/9;border-radius:var(--radius-md);background:#cfe3f2 url(../assets/images/triceratops-hero-background.webp) center/cover no-repeat;overflow:hidden;box-shadow:inset 0 0 0 2px #00000022}
 .cs-hero-screen{position:absolute;left:12%;right:12%;top:11%;bottom:-6%;border-radius:12px 12px 0 0;overflow:hidden;background:#fff;box-shadow:0 0 0 3px #2b1f17,0 20px 36px rgba(20,30,50,.45)}
 .cs-hero-screen>img,.cs-hero-screen>video{display:block;width:100%;height:100%;object-fit:cover;object-position:top}
