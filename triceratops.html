@@ -67,10 +67,10 @@
           <span aria-hidden="true" style="position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--surface-sunken);"></span>
           <span class="toc-mark" aria-hidden="true" style="position: absolute; left: 0; top: 0px; width: 4px; height: 36px; background: var(--wood-dark); transition: top .5s cubic-bezier(.34, 1.56, .64, 1);"></span>
           <a href="#overview" aria-current="location" style="position: relative; display: block; height: 36px; box-sizing: border-box; padding: var(--space-2) 0 var(--space-2) var(--space-4); text-decoration: none; white-space: nowrap; color: var(--ink); font-weight: 800; font-size: 15px; line-height: 20px; transition: color .3s ease, font-weight .3s ease;">Overview</a>
-          <a href="#solution" aria-current="false" style="position: relative; display: block; height: 36px; box-sizing: border-box; padding: var(--space-2) 0 var(--space-2) var(--space-4); text-decoration: none; white-space: nowrap; color: var(--ink); font-weight: 800; font-size: 15px; line-height: 20px; transition: color .3s ease, font-weight .3s ease;">Final design</a>
           <a href="#problem" aria-current="false" style="position: relative; display: block; height: 36px; box-sizing: border-box; padding: var(--space-2) 0 var(--space-2) var(--space-4); text-decoration: none; white-space: nowrap; color: var(--ink); font-weight: 800; font-size: 15px; line-height: 20px; transition: color .3s ease, font-weight .3s ease;">Problem</a>
           <a href="#research" aria-current="false" style="position: relative; display: block; height: 36px; box-sizing: border-box; padding: var(--space-2) 0 var(--space-2) var(--space-4); text-decoration: none; white-space: nowrap; color: var(--ink); font-weight: 800; font-size: 15px; line-height: 20px; transition: color .3s ease, font-weight .3s ease;">Research</a>
           <a href="#decisions" aria-current="false" style="position: relative; display: block; height: 36px; box-sizing: border-box; padding: var(--space-2) 0 var(--space-2) var(--space-4); text-decoration: none; white-space: nowrap; color: var(--ink); font-weight: 800; font-size: 15px; line-height: 20px; transition: color .3s ease, font-weight .3s ease;">Design decisions</a>
+          <a href="#solution" aria-current="false" style="position: relative; display: block; height: 36px; box-sizing: border-box; padding: var(--space-2) 0 var(--space-2) var(--space-4); text-decoration: none; white-space: nowrap; color: var(--ink); font-weight: 800; font-size: 15px; line-height: 20px; transition: color .3s ease, font-weight .3s ease;">Final design</a>
           <a href="#reflect" aria-current="false" style="position: relative; display: block; height: 36px; box-sizing: border-box; padding: var(--space-2) 0 var(--space-2) var(--space-4); text-decoration: none; white-space: nowrap; color: var(--ink); font-weight: 800; font-size: 15px; line-height: 20px; transition: color .3s ease, font-weight .3s ease;">Reflections</a>
         </div>
       </nav>
@@ -92,48 +92,24 @@
           <div class="cs-actions">
             <a href="https://triceratops-website.m-jared020.workers.dev/" target="_blank" rel="noopener" class="pp-btn grass">Visit the live site ↗</a>
           </div>
+          <div class="cs-peek">
+            <span class="cs-label sm">Sneak peek</span>
+            <div class="cs-vs">
+              <figure class="cs-vs-col">
+                <div class="cs-vs-img"><img src="assets/images/final-beginners-guide.webp" alt="The final Getting Started page" loading="lazy" width="684" height="4000"></div>
+                <figcaption>Getting Started</figcaption>
+              </figure>
+              <figure class="cs-vs-col">
+                <div class="cs-vs-img"><img src="assets/images/final-guide-to-monthly-flash-sales.webp" alt="The final Flash Sales page" loading="lazy" width="900" height="3772"></div>
+                <figcaption>Flash Sales</figcaption>
+              </figure>
+            </div>
+          </div>
         </section>
 
-        <!-- 2 · FINAL DESIGN (shown early as the teaser) -->
-        <section id="solution" class="cs-sec">
-          <span class="cs-label">02 · Final design</span>
-          <h2>The result: one clear path from first visit to first hunt</h2>
-          <p>An industry mentor called Getting Started the strongest visual direction of the project.</p>
-
-          <h3>Getting Started</h3>
-          <div class="anno cs-callouts">
-            <div class="cs-co-media">
-              <img src="assets/images/final-getting-started-annotated.webp" alt="The final Getting Started page from the after-claim guide down to drop types, with three annotated changes" loading="lazy" width="684" height="1260">
-              <span class="cs-co-box" data-n="1" tabindex="0" aria-label="Annotation 1" style="left: 1.8%; top: 0.8%; width: 96.5%; height: 23%;"><i class="cs-co-dot" aria-hidden="true">1</i></span>
-              <span class="cs-co-box sm" data-n="2" tabindex="0" aria-label="Annotation 2" style="left: 77.5%; top: 40.9%; width: 17.5%; height: 3.6%;"><i class="cs-co-dot" aria-hidden="true">2</i></span>
-              <span class="cs-co-box" data-n="3" tabindex="0" aria-label="Annotation 3" style="left: 1.8%; top: 49.2%; width: 96.5%; height: 50%;"><i class="cs-co-dot" aria-hidden="true">3</i></span>
-            </div>
-            <ol class="cs-co-cards">
-              <li class="anno-note" data-n="1"><span class="cs-co-dot" aria-hidden="true">1</span><span><b>Added:</b> A step-by-step after-claim guide, since 3 of 6 testers couldn't find what to do after claiming a dino.</span></li>
-              <li class="anno-note" data-n="2"><span class="cs-co-dot" aria-hidden="true">2</span><span><b>Fixed:</b> Rebuilt button and text colors after a mentor flagged a WCAG contrast failure.</span></li>
-              <li class="anno-note" data-n="3"><span class="cs-co-dot" aria-hidden="true">3</span><span><b>Moved:</b> Drop types into pop-ups, since there was too much content for one card.</span></li>
-            </ol>
-          </div>
-
-          <h3>Flash Sales</h3>
-          <div class="anno cs-callouts">
-            <div class="cs-co-media">
-              <img src="assets/images/final-flash-sales-annotated.webp" alt="The final Flash Sales page, with two annotated changes" loading="lazy" width="900" height="820">
-              <span class="cs-co-box" data-n="1" tabindex="0" aria-label="Annotation 1" style="left: 1.1%; top: 4.9%; width: 97.8%; height: 63.4%;"><i class="cs-co-dot" aria-hidden="true">1</i></span>
-              <span class="cs-co-box" data-n="2" tabindex="0" aria-label="Annotation 2" style="left: 1.1%; top: 76.8%; width: 97.8%; height: 20.7%;"><i class="cs-co-dot" aria-hidden="true">2</i></span>
-            </div>
-            <ol class="cs-co-cards">
-              <li class="anno-note" data-n="1"><span class="cs-co-dot" aria-hidden="true">1</span><span><b>Reused:</b> Getting Started's 4-step pattern for entering a giveaway, so members learn one pattern across the site.</span></li>
-              <li class="anno-note" data-n="2"><span class="cs-co-dot" aria-hidden="true">2</span><span><b>Replaced:</b> The filler “I won, what now?” box became real next steps: pay within 2 hours, then watch for pickup info.</span></li>
-            </ol>
-          </div>
-
-          <p class="cs-small">After manual QA, I fixed broken breakpoints and added missing hover and empty states.</p>
-        </section>
-
-        <!-- 3 · PROBLEM -->
+        <!-- 2 · PROBLEM -->
         <section id="problem" class="cs-sec">
-          <span class="cs-label">03 · Problem</span>
+          <span class="cs-label">02 · Problem</span>
           <h2>Many interested students want to join a hunt, but can't find the rules or where to start</h2>
           <p>Joining the club means learning how hunts, drops and claiming work, all inside a Discord with 41 channels. This can be difficult if it's your first time and no one walks you through it. Many students give up before their first hunt because they can't find the rules, the hunt details or the next step.</p>
           <div class="cs-shot-frame">
@@ -147,9 +123,9 @@
           </div>
         </section>
 
-        <!-- 4 · RESEARCH -->
+        <!-- 3 · RESEARCH -->
         <section id="research" class="cs-sec">
-          <span class="cs-label">04 · Research</span>
+          <span class="cs-label">03 · Research</span>
           <h2>Interest wasn't the barrier; the rules were</h2>
           <p>With no usage data, I relied on the research gathered: a <b>62-response survey</b>, <b>12 interviews</b> and a <b>SWOT of 9+ club sites</b>. I focused on new and interested students, since active hunters already live in Discord.</p>
           <div class="cs-stats">
@@ -158,9 +134,9 @@
           </div>
         </section>
 
-        <!-- 5 · DESIGN DECISIONS -->
+        <!-- 4 · DESIGN DECISIONS -->
         <section id="decisions" class="cs-sec">
-          <span class="cs-label">05 · Design decisions</span>
+          <span class="cs-label">04 · Design decisions</span>
           <h2>So I cut what overwhelmed and kept what guided</h2>
           <div class="cs-decision">
             <h3><span class="cs-num">1</span>Cut the rulebook into 8 scannable sections</h3>
@@ -201,6 +177,43 @@
               </figure>
             </div>
           </div>
+        </section>
+
+        <!-- 5 · FINAL DESIGN -->
+        <section id="solution" class="cs-sec">
+          <span class="cs-label">05 · Final design</span>
+          <h2>The result: one clear path from first visit to first hunt</h2>
+          <p>An industry mentor called Getting Started the strongest visual direction of the project.</p>
+
+          <h3>Getting Started</h3>
+          <div class="anno cs-callouts">
+            <div class="cs-co-media">
+              <img src="assets/images/final-getting-started-annotated.webp" alt="The final Getting Started page from the after-claim guide down to drop types, with three annotated changes" loading="lazy" width="684" height="1260">
+              <span class="cs-co-box" data-n="1" tabindex="0" aria-label="Annotation 1" style="left: 1.8%; top: 0.8%; width: 96.5%; height: 23%;"><i class="cs-co-dot" aria-hidden="true">1</i></span>
+              <span class="cs-co-box sm" data-n="2" tabindex="0" aria-label="Annotation 2" style="left: 77.5%; top: 40.9%; width: 17.5%; height: 3.6%;"><i class="cs-co-dot" aria-hidden="true">2</i></span>
+              <span class="cs-co-box" data-n="3" tabindex="0" aria-label="Annotation 3" style="left: 1.8%; top: 49.2%; width: 96.5%; height: 50%;"><i class="cs-co-dot" aria-hidden="true">3</i></span>
+            </div>
+            <ol class="cs-co-cards">
+              <li class="anno-note" data-n="1"><span class="cs-co-dot" aria-hidden="true">1</span><span><b>Added:</b> A step-by-step after-claim guide, since 3 of 6 testers couldn't find what to do after claiming a dino.</span></li>
+              <li class="anno-note" data-n="2"><span class="cs-co-dot" aria-hidden="true">2</span><span><b>Fixed:</b> Rebuilt button and text colors after a mentor flagged a WCAG contrast failure.</span></li>
+              <li class="anno-note" data-n="3"><span class="cs-co-dot" aria-hidden="true">3</span><span><b>Moved:</b> Drop types into pop-ups, since there was too much content for one card.</span></li>
+            </ol>
+          </div>
+
+          <h3>Flash Sales</h3>
+          <div class="anno cs-callouts">
+            <div class="cs-co-media">
+              <img src="assets/images/final-flash-sales-annotated.webp" alt="The final Flash Sales page, with two annotated changes" loading="lazy" width="900" height="820">
+              <span class="cs-co-box" data-n="1" tabindex="0" aria-label="Annotation 1" style="left: 1.1%; top: 4.9%; width: 97.8%; height: 63.4%;"><i class="cs-co-dot" aria-hidden="true">1</i></span>
+              <span class="cs-co-box" data-n="2" tabindex="0" aria-label="Annotation 2" style="left: 1.1%; top: 76.8%; width: 97.8%; height: 20.7%;"><i class="cs-co-dot" aria-hidden="true">2</i></span>
+            </div>
+            <ol class="cs-co-cards">
+              <li class="anno-note" data-n="1"><span class="cs-co-dot" aria-hidden="true">1</span><span><b>Reused:</b> Getting Started's 4-step pattern for entering a giveaway, so members learn one pattern across the site.</span></li>
+              <li class="anno-note" data-n="2"><span class="cs-co-dot" aria-hidden="true">2</span><span><b>Replaced:</b> The filler “I won, what now?” box became real next steps: pay within 2 hours, then watch for pickup info.</span></li>
+            </ol>
+          </div>
+
+          <p class="cs-small">After manual QA, I fixed broken breakpoints and added missing hover and empty states.</p>
         </section>
 
         <!-- 6 · REFLECTIONS & THANKS -->
