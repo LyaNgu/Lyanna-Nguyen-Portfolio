@@ -17,6 +17,7 @@
 /* ---------- Hero ---------- */
 /* Hero: title, summary, details and the live link all in the first view */
 .cs-head{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:var(--space-4) var(--space-12);align-items:start;padding:var(--space-6) 0 var(--space-8)}
+.cs-head>.cs-eyebrow{grid-column:1/-1}
 .cs-head-main{display:flex;flex-direction:column;gap:var(--space-3)}
 .cs-sec .cs-actions{margin-top:0}
 @media (max-width:860px){.cs-head{grid-template-columns:1fr;gap:var(--space-6)}}
