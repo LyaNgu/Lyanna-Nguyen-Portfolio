@@ -66,6 +66,9 @@
 .cs-context dt{font-family:var(--font-pixel);font-size:18px;line-height:27px;letter-spacing:.04em;text-transform:uppercase;color:var(--accent-text)}
 .cs-context dd{margin:0;font-size:18px;line-height:28px;font-weight:600;color:var(--ink-muted)}
 .cs-context dd b{font-weight:800;color:var(--ink)}
+/* My impact: headline, contributions, then the result */
+.cs-impact{display:flex;flex-direction:column;gap:var(--space-4)}
+.cs-sec .cs-impact h2{margin:0}
 @media (max-width:560px){.cs-context>div{grid-template-columns:1fr;gap:var(--space-1)}}
 
 /* ---------- Feedback rounds strip ---------- */
