@@ -155,21 +155,35 @@ html{overflow-x:clip}
 .play .pk-msg p{animation-delay:6.15s}
 @keyframes pkFade{from{opacity:0}}
 @keyframes pkRise{from{opacity:0;transform:translateY(3cqw)}}
-/* 3 · solution: both new pages rise in and scroll on their own */
-.pk-sol{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3cqw;background:var(--surface)}
-.pk-sol-title{margin:0;max-width:none;font-family:var(--font-display);font-size:max(16px,3.8cqw);font-weight:700;color:var(--ink)}
-.pk-screens{display:flex;gap:6cqw}
-.pk-screens figure{margin:0;display:flex;flex-direction:column;align-items:center;gap:1.4cqw}
-.pk-screens figcaption{padding:.6cqw 1.6cqw;border-radius:var(--radius-md);background:var(--surface-raised);box-shadow:inset 0 0 0 2px var(--surface-sunken);font-family:var(--font-body);font-size:max(11px,1.8cqw);font-weight:800;color:var(--ink)}
-.pk-screen{width:26cqw;aspect-ratio:9/14;overflow:hidden;border-radius:10px;background:#fff;box-shadow:0 0 0 3px #2b1f17,0 10px 24px #0003}
-.pk-screen img{display:block;width:100%;height:auto}
-.play .pk-sol-title{animation:pkRise 1.05s 0.3s both}
-.pk-sol{perspective:900px;background:radial-gradient(ellipse at 50% 60%,var(--surface-raised),var(--surface) 70%)}
-.play .pk-screens figure{animation:pkTilt 1.5s 0.75s cubic-bezier(.2,.8,.2,1) both}
-@keyframes pkTilt{from{opacity:0;transform:translateY(8cqw) rotateX(18deg)}}
-.play .pk-screens figure+figure{animation-delay:1.2s}
-.play .pk-screen img{animation:pkScroll 12s 2.4s ease-in-out both}
-@keyframes pkScroll{from{transform:none}to{transform:translateY(-45%)}}
+/* 3 · solution: Getting Started takes the stage and scrolls section by section while each step
+   checks off beside it; Flash Sales slides in last as the add-on page for flash sale finds */
+.pk-sol{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:2.6cqw;padding:0 10cqw;background:radial-gradient(ellipse at 40% 60%,var(--surface-raised),var(--surface) 70%)}
+.pk-sol-title{align-self:center;margin:0;max-width:none;font-family:var(--font-display);font-size:max(16px,3.6cqw);font-weight:700;color:var(--ink)}
+.pk-gs{display:flex;align-items:center;gap:4cqw}
+.pk-gs-screen{flex:none;width:32cqw;aspect-ratio:9/12;overflow:hidden;border-radius:10px;background:#fff;box-shadow:0 0 0 3px #2b1f17,0 12px 28px #0003}
+.pk-gs-screen img{display:block;width:100%;height:auto;transform:translateY(-69%)}
+.pk-steps{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:1.3cqw;max-width:24cqw}
+.pk-steps li{display:flex;align-items:center;gap:1.2cqw;font-family:var(--font-body);font-size:max(10px,1.7cqw);line-height:1.25;font-weight:800;color:var(--ink)}
+.pk-steps b{flex:none;display:grid;place-items:center;width:3.2cqw;aspect-ratio:1;border-radius:50%;background:var(--grass);box-shadow:0 0 0 2px var(--wood-dark);font-family:var(--font-pixel);font-size:max(10px,1.9cqw);font-weight:400;color:var(--ink)}
+.pk-fs{position:absolute;right:8cqw;bottom:4cqw;margin:0;display:flex;flex-direction:column;align-items:center;gap:1cqw;width:17cqw;transform:rotate(4deg)}
+.pk-fs-screen{width:100%;aspect-ratio:9/11;overflow:hidden;border-radius:8px;background:#fff;box-shadow:0 0 0 3px #2b1f17,0 10px 22px #0003}
+.pk-fs-screen img{display:block;width:100%;height:auto}
+.pk-fs figcaption{padding:.6cqw 1.2cqw;border-radius:var(--radius-md);background:var(--surface-raised);box-shadow:inset 0 0 0 2px var(--surface-sunken);font-family:var(--font-body);font-size:max(9px,1.4cqw);font-weight:600;line-height:1.3;text-align:center;color:var(--ink-muted)}
+.pk-fs figcaption b{display:block;color:var(--accent-text)}
+.play .pk-sol-title{animation:pkRise 1s .3s both}
+.play .pk-gs-screen{animation:pkRise 1.1s .7s cubic-bezier(.2,.8,.2,1) both}
+.play .pk-gs-screen img{animation:pkSteps 9.6s 1.2s both}
+.play .pk-steps li{animation:pkCheck .6s both}
+.play .pk-steps li:nth-child(1){animation-delay:2.5s}
+.play .pk-steps li:nth-child(2){animation-delay:4.2s}
+.play .pk-steps li:nth-child(3){animation-delay:5.95s}
+.play .pk-steps li:nth-child(4){animation-delay:7.7s}
+.play .pk-steps li:nth-child(5){animation-delay:9.4s}
+.play .pk-fs{animation:pkSlideIn 1.1s 10.8s cubic-bezier(.2,.9,.3,1.2) both}
+/* the page pauses on each section the steps name */
+@keyframes pkSteps{0%,8%{transform:none}14%,26%{transform:translateY(-7%)}32%,44%{transform:translateY(-20%)}50%,62%{transform:translateY(-45%)}68%,80%{transform:translateY(-54%)}86%,100%{transform:translateY(-69%)}}
+@keyframes pkCheck{from{opacity:.25;transform:translateX(-1.5cqw)}}
+@keyframes pkSlideIn{from{opacity:0;transform:translate(14cqw,6cqw) rotate(14deg)}}
 /* hold the first scene at its opening frame until the carousel is on screen */
 .pk:not(.is-live) *{animation-play-state:paused}
 @media (prefers-reduced-motion:reduce){.pk *{animation:none!important}.pk-slide{transition:none}}
