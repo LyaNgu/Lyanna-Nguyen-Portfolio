@@ -158,7 +158,11 @@ html{overflow-x:clip}
 /* 3 · solution: Getting Started takes the stage and scrolls section by section while each step
    checks off beside it; Flash Sales slides in last as the add-on page for flash sale finds */
 .pk-sol{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:2.6cqw;padding:0 10cqw;background:radial-gradient(ellipse at 40% 60%,var(--surface-raised),var(--surface) 70%)}
-.pk-sol-title{align-self:center;margin:0;max-width:none;font-family:var(--font-display);font-size:max(16px,3.6cqw);font-weight:700;color:var(--ink)}
+.pk-sol-title{align-self:center;margin:0;max-width:none;display:flex;flex-direction:column;align-items:center;gap:.4cqw;text-align:center}
+.pk-kicker2{font-family:var(--font-body);font-size:max(11px,1.8cqw);font-weight:800;color:var(--ink-muted)}
+.pk-head2{font-family:var(--font-display);font-size:max(18px,4cqw);line-height:1.05;font-weight:700;color:var(--ink)}
+/* the number counts down from 41 (js/peek.js), then the page name lands */
+.pk-num{display:inline-block;min-width:1.2em;text-align:right;color:var(--accent-text);font-variant-numeric:tabular-nums}
 .pk-gs{display:flex;align-items:center;gap:4cqw}
 .pk-gs-screen{flex:none;width:32cqw;aspect-ratio:9/12;overflow:hidden;border-radius:10px;background:#fff;box-shadow:0 0 0 3px #2b1f17,0 12px 28px #0003}
 .pk-gs-screen img{display:block;width:100%;height:auto;transform:translateY(-69%)}
@@ -171,6 +175,7 @@ html{overflow-x:clip}
 .pk-fs figcaption{padding:.6cqw 1.2cqw;border-radius:var(--radius-md);background:var(--surface-raised);box-shadow:inset 0 0 0 2px var(--surface-sunken);font-family:var(--font-body);font-size:max(9px,1.4cqw);font-weight:600;line-height:1.3;text-align:center;color:var(--ink-muted)}
 .pk-fs figcaption b{display:block;color:var(--accent-text)}
 .play .pk-sol-title{animation:pkRise 1s .3s both}
+.play .pk-unit{animation:pkRise .7s 2.3s both}
 .play .pk-gs-screen{animation:pkRise 1.1s .7s cubic-bezier(.2,.8,.2,1) both}
 .play .pk-gs-screen img{animation:pkSteps 9.6s 1.2s both}
 .play .pk-steps li{animation:pkCheck .6s both}

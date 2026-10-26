@@ -60,6 +60,24 @@
     });
     void slides[current].offsetWidth;          // restart the scene's animations
     if (!reduced) slides[current].classList.add('play');
+    countDown(slides[current]);
+  }
+
+  // Scene 3: count the channels down to one page
+  var countRaf = null;
+  function countDown(slide) {
+    cancelAnimationFrame(countRaf);
+    var num = slide.querySelector('.pk-num');
+    if (!num) return;
+    var from = +num.dataset.from, delay = 900, dur = 1400, t0 = null;
+    if (reduced || !started) { num.textContent = '1'; return; }
+    num.textContent = from;
+    countRaf = requestAnimationFrame(function step(t) {
+      if (t0 === null) t0 = t;
+      var k = Math.min(Math.max((t - t0 - delay) / dur, 0), 1);
+      num.textContent = Math.round(from - (from - 1) * (1 - Math.pow(1 - k, 3)));
+      if (k < 1) countRaf = requestAnimationFrame(step);
+    });
   }
 
   root.querySelector('.pk-arrow.prev').addEventListener('click', function () { go(current - 1); });
