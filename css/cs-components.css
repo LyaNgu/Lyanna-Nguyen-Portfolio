@@ -99,25 +99,43 @@
 /* highlight box over the link text in the screenshot */
 .pk-link{position:absolute;left:35.2%;top:28.6%;width:16.8%;height:4.2%;border-radius:6px;box-shadow:0 0 0 2px #8fa7ff;opacity:0}
 .pk-link::after{content:"";position:absolute;left:50%;top:50%;width:2cqw;aspect-ratio:1;margin:-1cqw;border-radius:50%;border:2px solid #fff;opacity:0}
-/* the cursor: the outer box slides sideways, the arrow inside lifts, so together they trace an arc */
-.pk-cursor{position:absolute;left:44%;top:30.4%;z-index:2;filter:drop-shadow(0 2px 2px #0006)}
+/* after the tap, Discord's invite opens over Instagram and the cursor moves on to Join */
+.pk-invite{position:absolute;inset:0;z-index:1;display:flex;align-items:center;justify-content:center;background:#000a}
+.pk-inv-card{display:flex;flex-direction:column;align-items:center;gap:1.2cqw;width:38cqw;padding:3cqw 3cqw 2.6cqw;border-radius:10px;background:#313338;box-shadow:0 12px 32px #0008;font-family:var(--font-body);text-align:center}
+.pk-inv-icon{display:grid;place-items:center;width:8cqw;aspect-ratio:1;border-radius:30%;background:#7cc44f;color:#1e1f22;font-size:max(11px,2.4cqw);font-weight:800}
+.pk-inv-sub{font-size:max(10px,1.6cqw);font-weight:700;color:#b5bac1}
+.pk-inv-name{font-size:max(14px,2.8cqw);line-height:1.1;color:#f2f3f5}
+.pk-join-btn{position:relative;align-self:stretch;margin-top:1cqw;padding:1.2cqw 0;border-radius:6px;background:#5865f2;color:#fff;font-size:max(11px,1.9cqw);font-weight:800}
+.pk-join-btn::after{content:"";position:absolute;left:50%;top:50%;width:2cqw;aspect-ratio:1;margin:-1cqw;border-radius:50%;border:2px solid #fff;opacity:0}
+.pk-cap.c1{opacity:0}
+.pk-cap.c2{z-index:1}
+/* one cursor for both taps: it arcs to the bio link, waits, then glides to Join */
+.pk-cursor{position:absolute;left:51%;top:60%;z-index:2;filter:drop-shadow(0 2px 2px #0006)}
 .pk-cursor svg{display:block;width:max(16px,2.6cqw);height:auto}
-.play .pk-site{animation:pkZoom 6s ease-out both}
-.play .pk-cursor{animation:pkCursorX 1.9s .5s cubic-bezier(.45,0,.25,1) both}
-.play .pk-cursor svg{animation:pkCursorY 1.9s .5s cubic-bezier(.15,.75,.3,1) both,pkPress .25s 2.45s both}
+.play .pk-site{animation:pkZoom 6.6s ease-out both}
+.play .pk-cursor{animation:pkCursorPath 4.1s .5s both}
+.play .pk-cursor svg{animation:pkCursorY 1.9s .5s cubic-bezier(.15,.75,.3,1) both,pkPress .25s 2.45s both,pkPress .25s 4.65s both}
 .play .pk-link{animation:pkLink 1.4s 2.2s both}
 .play .pk-link::after{animation:pkRipple .7s 2.45s ease-out both}
-.play .pk-cap{animation:pkRise .6s 2.8s both}
-.play .pk-wipe{animation:pkWipe .9s 4.6s cubic-bezier(.6,0,.4,1) both}
+.play .pk-cap.c1{animation:pkCapIO 1.6s 2.6s both}
+.play .pk-invite{animation:pkFade .5s 3.5s both}
+.play .pk-inv-card{animation:pkPop .6s 3.6s cubic-bezier(.3,1.4,.5,1) both}
+.play .pk-cap.c2{animation:pkRise .6s 4s both}
+.play .pk-join-btn{animation:pkClick .5s 4.6s both}
+.play .pk-join-btn::after{animation:pkRipple .7s 4.65s ease-out both}
+.play .pk-wipe{animation:pkWipe .9s 5.5s cubic-bezier(.6,0,.4,1) both}
 @keyframes pkZoom{from{transform:scale(1.12)}}
-@keyframes pkCursorX{from{left:92%;opacity:0}12%{opacity:1}}
-@keyframes pkCursorY{from{transform:translateY(30cqw)}}
+@keyframes pkCursorPath{0%{left:92%;top:30.4%;animation-timing-function:cubic-bezier(.45,0,.25,1)}46%,73%{left:44%;top:30.4%;animation-timing-function:cubic-bezier(.5,0,.2,1)}98%,100%{left:51%;top:60%}}
+@keyframes pkCursorY{from{transform:translateY(30cqw);opacity:0}15%{opacity:1}}
 @keyframes pkPress{50%{transform:scale(.82)}}
 @keyframes pkLink{0%{opacity:0}20%,60%{opacity:1;background:#8fa7ff33}100%{opacity:1;background:#8fa7ff22}}
 @keyframes pkRipple{0%{opacity:.9;transform:scale(1)}100%{opacity:0;transform:scale(9)}}
+@keyframes pkCapIO{0%{opacity:0;transform:translateY(3cqw)}25%,70%{opacity:1;transform:none}100%{opacity:0}}
+@keyframes pkPop{from{opacity:0;transform:scale(.85)}}
+@keyframes pkClick{0%{transform:none}25%{transform:scale(.95);background:#4752c4}100%{transform:none;background:#4752c4}}
 /* after the click, Discord's dark grey grows out from the button and carries into scene 2 */
-.pk-wipe{position:absolute;inset:0;z-index:3;background:#313338;clip-path:circle(0% at 43.6% 30.6%);pointer-events:none}
-@keyframes pkWipe{from{clip-path:circle(0% at 43.6% 30.6%)}to{clip-path:circle(130% at 43.6% 30.6%)}}
+.pk-wipe{position:absolute;inset:0;z-index:3;background:#313338;clip-path:circle(0% at 52% 61%);pointer-events:none}
+@keyframes pkWipe{from{clip-path:circle(0% at 52% 61%)}to{clip-path:circle(130% at 52% 61%)}}
 /* 2 · flood: Discord channels pour in from the top, then the problem rises over them */
 .pk-flood{background:#313338}
 .pk-chans{position:absolute;inset:0;filter:blur(2px) brightness(.7)}
