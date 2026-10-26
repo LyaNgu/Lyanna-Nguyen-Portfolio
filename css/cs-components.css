@@ -27,8 +27,8 @@
 .cs-hero-screen>img,.cs-hero-screen>video{display:block;width:100%;height:100%;object-fit:cover;object-position:top}
 .cs-hero-screen>.ph{height:100%;border:0;border-radius:0;box-shadow:none}
 .cs-sticker{position:absolute;width:17%;max-width:92px;z-index:2;filter:drop-shadow(0 4px 6px rgba(30,40,60,.35))}
-/* Details: one label/value row each, spread to the same height as the title and subtitle */
-.cs-meta{margin:0;align-self:stretch;display:flex;flex-direction:column;justify-content:space-between;gap:var(--space-2)}
+/* Details: one compact label/value row each, centred beside the title block */
+.cs-meta{margin:0;align-self:center;display:flex;flex-direction:column;gap:var(--space-3)}
 .cs-meta>div{display:grid;grid-template-columns:88px minmax(0,1fr);gap:var(--space-3);align-items:baseline}
 .cs-meta dt{font-family:var(--font-pixel);font-size:16px;line-height:18px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-muted)}
 .cs-meta dd{margin:0;font-size:15px;line-height:22px;font-weight:600;color:var(--ink);text-wrap:pretty}
