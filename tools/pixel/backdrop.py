@@ -133,8 +133,16 @@ def grass():
         px[(x, y)] = '#f0b54a'
     return W, H, px
 
+# Distance haze: the tree line is blended toward the pale sky so the farmhouse stays the focus
+HAZE, FADE = (0xcd, 0xe8, 0xef), {'bg-trees': .45}
+
+def fade(c, a):
+    rgb = [int(c[i:i + 2], 16) for i in (1, 3, 5)]
+    return '#' + ''.join(f'{round(v + (hz - v) * a):02x}' for v, hz in zip(rgb, HAZE))
+
 for name, fn in [('bg-mountains', mountains), ('bg-hills', hills), ('bg-trees', trees), ('bg-grass', grass)]:
     w, h, px = fn()
+    px = {k: fade(c, FADE.get(name, 0)) for k, c in px.items()}
     px = {(x % w, y): c for (x, y), c in px.items() if 0 <= y < h}
     open(os.path.join(OUT, name + '.svg'), 'w').write(svg(w, h, px))
     print(name, w, h, len(px))
