@@ -94,7 +94,7 @@
 .pk-dots button[aria-current="true"]{background:var(--wood-dark)}
 /* 1 · join: the club's Instagram; the cursor taps the Discord link in the bio */
 .pk-site{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 0;transform-origin:43.6% 30.6%}
-.pk-join .pk-cap{padding:1.4cqw 0;background:linear-gradient(transparent,#000c 40%)}
+.pk-join .pk-cap{bottom:0;padding:3cqw 4cqw 2.6cqw;background:linear-gradient(transparent,#000c 40%)}
 /* highlight box over the link text in the screenshot */
 .pk-link{position:absolute;left:35.2%;top:28.6%;width:16.8%;height:4.2%;border-radius:6px;box-shadow:0 0 0 2px #8fa7ff;opacity:0}
 .pk-link::after{content:"";position:absolute;left:50%;top:50%;width:2cqw;aspect-ratio:1;margin:-1cqw;border-radius:50%;border:2px solid #fff;opacity:0}
