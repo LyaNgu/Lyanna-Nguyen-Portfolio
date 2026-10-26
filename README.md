@@ -31,6 +31,7 @@ assets/fonts/        fonts used by the prototype
 assets/files/        Lyanna_Nguyen_Resume.pdf
 tools/convert_export.py  regenerates the pages from a single-file design export
 tools/pixel/backdrop.py  draws the home hero's 8-bit mountains, hills, trees and grass (assets/images/bg-*.svg)
+tools/pixel/farmhouse_seamless.py  copies the exported farmhouse without its boxed lawn (a-pixel-farmhouse-seamless.svg)
 ```
 
 `triceratops.html` is hand-built (it follows the 2026 case-study structure), so the converter

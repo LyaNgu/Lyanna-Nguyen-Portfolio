@@ -126,15 +126,23 @@ def grass():
     tufts = [(3, 5), (12, 15), (22, 7), (27, 19), (7, 20), (17, 2), (36, 11), (44, 4), (51, 17), (58, 9), (40, 21), (61, 2)]
     for x, y in tufts:
         for dx, dy in ((0, 0), (2, 0), (1, -1), (-1, -1), (3, -1)):
-            px[(x + dx, y + dy)] = '#4f9e3c'
-    flowers = [(9, 9, '#ffffff'), (25, 13, '#ffd85a'), (14, 21, '#f6a6c8'), (33, 4, '#ffffff'), (47, 14, '#ffffff'), (56, 20, '#f6a6c8')]
+            px[(x + dx, y + dy)] = '#6cb545'
+    flowers = [(47, 14, '#fff6d8')]
     for x, y, c in flowers:
         for dx, dy in ((0, -1), (-1, 0), (1, 0), (0, 1)): px[((x + dx) % W, y + dy)] = c
         px[(x, y)] = '#f0b54a'
     return W, H, px
 
+# Distance haze: each layer is blended toward the pale sky so the farmhouse stays the focus
+HAZE, FADE = (0xcd, 0xe8, 0xef), {'bg-mountains': .35, 'bg-hills': .3, 'bg-trees': .45, 'bg-grass': 0}
+
+def fade(c, a):
+    rgb = [int(c[i:i + 2], 16) for i in (1, 3, 5)]
+    return '#' + ''.join(f'{round(v + (hz - v) * a):02x}' for v, hz in zip(rgb, HAZE))
+
 for name, fn in [('bg-mountains', mountains), ('bg-hills', hills), ('bg-trees', trees), ('bg-grass', grass)]:
     w, h, px = fn()
+    px = {k: fade(c, FADE[name]) for k, c in px.items()}
     px = {(x % w, y): c for (x, y), c in px.items() if 0 <= y < h}
     open(os.path.join(OUT, name + '.svg'), 'w').write(svg(w, h, px))
     print(name, w, h, len(px))
