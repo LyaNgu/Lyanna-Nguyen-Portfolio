@@ -30,7 +30,6 @@ assets/images/       images and pixel sprites
 assets/fonts/        fonts used by the prototype
 assets/files/        Lyanna_Nguyen_Resume.pdf
 tools/convert_export.py  regenerates the pages from a single-file design export
-tools/soft_palette.py    the muted cozy palette the converter applies to every page, stylesheet and SVG
 tools/pixel/backdrop.py  draws the home hero's 8-bit mountains, hills, trees and grass (assets/images/bg-*.svg)
 ```
 
