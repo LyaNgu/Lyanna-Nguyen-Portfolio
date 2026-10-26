@@ -1,6 +1,6 @@
-/* Case study sneak peek: a three-scene story carousel. Each scene plays its CSS animation,
-   then the next one starts. Plays only while on screen, pauses on hover and focus, and stays
-   still for visitors who prefer reduced motion. */
+/* Case study sneak peek: a three-scene story carousel. Each scene plays its CSS animation once;
+   visitors move on with the arrows or dots. The first scene waits until the carousel is on
+   screen, and nothing moves for visitors who prefer reduced motion. */
 (function () {
   'use strict';
 
@@ -9,9 +9,8 @@
 
   var slides = root.querySelectorAll('.pk-slide');
   var dotsBox = root.querySelector('.pk-dots');
-  var pauseBtn = root.querySelector('.pk-pause');
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var current = 0, timer = null, visible = false, hovered = false, paused = reduced;
+  var current = 0, started = false;
 
   // Scene 2: real channel names from the club's Discord, padded with blank rows to 41.
   var NAMES = ['welcome', 'general-info', 'rules', 'assign-roles', 'modmail', 'general-qna',
@@ -36,7 +35,7 @@
       el.style.left = (2 + (i % 5) * 19.5 + rand() * 4) + '%';
       el.style.top = (3 + Math.floor(i / 5) * 11 + rand() * 4) + '%';
       el.style.setProperty('--r', ((rand() - .5) * 8).toFixed(1) + 'deg');
-      el.style.animationDelay = (order[i] * 0.065).toFixed(2) + 's';
+      el.style.animationDelay = (order[i] * 0.1).toFixed(2) + 's';
       chans.appendChild(el);
     }
   }
@@ -50,12 +49,6 @@
   });
   var dots = dotsBox.querySelectorAll('button');
 
-  function schedule() {
-    clearTimeout(timer);
-    if (paused || hovered || !visible) return;
-    timer = setTimeout(function () { go(current + 1); }, +slides[current].dataset.dur || 7000);
-  }
-
   function go(i) {
     current = (i + slides.length) % slides.length;
     slides.forEach(function (s, k) {
@@ -67,36 +60,21 @@
     });
     void slides[current].offsetWidth;          // restart the scene's animations
     if (!reduced) slides[current].classList.add('play');
-    schedule();
   }
 
   root.querySelector('.pk-arrow.prev').addEventListener('click', function () { go(current - 1); });
   root.querySelector('.pk-arrow.next').addEventListener('click', function () { go(current + 1); });
 
-  function setPaused(p) {
-    paused = p;
-    pauseBtn.textContent = p ? 'Play' : 'Pause';
-    pauseBtn.setAttribute('aria-pressed', p ? 'true' : 'false');
-    root.classList.toggle('is-paused', p);
-    schedule();
-  }
-  pauseBtn.addEventListener('click', function () { setPaused(!paused); });
-
-  root.addEventListener('mouseenter', function () { hovered = true; schedule(); });
-  root.addEventListener('mouseleave', function () { hovered = false; schedule(); });
-  root.addEventListener('focusin', function () { hovered = true; schedule(); });
-  root.addEventListener('focusout', function () { hovered = false; schedule(); });
-
+  // play the first scene once the carousel scrolls into view
+  function start() { if (!started) { started = true; root.classList.add('is-live'); go(current); } }
   if ('IntersectionObserver' in window) {
-    new IntersectionObserver(function (entries) {
-      var was = visible;
-      visible = entries[0].isIntersecting;
-      if (visible && !was) go(current); else schedule();
-    }, { threshold: 0.4 }).observe(root);
+    var io = new IntersectionObserver(function (entries) {
+      if (entries[0].isIntersecting) { start(); io.disconnect(); }
+    }, { threshold: 0.4 });
+    io.observe(root);
   } else {
-    visible = true;
+    start();
   }
 
-  setPaused(paused);
   go(0);
 })();

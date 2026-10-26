@@ -94,7 +94,7 @@
           </dl>
           <div class="cs-peek">
             <span class="cs-label">Solution sneak peek</span>
-            <!-- Story carousel: scenes play in turn; js/peek.js drives it, CSS in cs-components.css -->
+            <!-- Story carousel: each scene plays once; the arrows and dots move between them. js/peek.js drives it, CSS in cs-components.css -->
             <div class="pk" role="region" aria-roledescription="carousel" aria-label="The project in three scenes">
               <div class="pk-viewport">
                 <div class="pk-slide" role="group" aria-roledescription="scene" aria-label="1 of 3: from Instagram to Discord" data-dur="6600">
@@ -112,7 +112,6 @@
                     </div>
                     <p class="pk-cap c2">…and is invited to join the club’s Discord.</p>
                     <span class="pk-cursor" aria-hidden="true"><svg viewBox="0 0 14 21" width="14" height="21"><path d="M1 1v16l4-3.6 3 6.4 2.6-1.2-3-6.2H13z" fill="#fff" stroke="#111" stroke-width="1.3" stroke-linejoin="round"/></svg></span>
-                    <span class="pk-wipe" aria-hidden="true"></span>
                   </div>
                 </div>
                 <div class="pk-slide" role="group" aria-roledescription="scene" aria-label="2 of 3: lost in Discord" data-dur="9000">
@@ -130,12 +129,11 @@
                     </div>
                   </div>
                 </div>
-                <button type="button" class="pk-arrow prev" aria-label="Previous scene">‹</button>
-                <button type="button" class="pk-arrow next" aria-label="Next scene">›</button>
+                <button type="button" class="pk-arrow prev" aria-label="Previous scene"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                <button type="button" class="pk-arrow next" aria-label="Next scene"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
               </div>
               <div class="pk-controls">
                 <div class="pk-dots"></div>
-                <button type="button" class="pk-pause" aria-pressed="false">Pause</button>
               </div>
             </div>
             <a href="#solution" class="pp-btn ghost cs-peek-link">▾ See the final design</a>
