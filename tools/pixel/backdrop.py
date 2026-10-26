@@ -127,7 +127,7 @@ def grass():
     for x, y in tufts:
         for dx, dy in ((0, 0), (2, 0), (1, -1), (-1, -1), (3, -1)):
             px[(x + dx, y + dy)] = '#4f9e3c'
-    flowers = [(9, 9, '#ffffff'), (25, 13, '#ffd85a'), (14, 21, '#f6a6c8'), (33, 4, '#ffffff'), (47, 14, '#ffffff'), (56, 20, '#f6a6c8')]
+    flowers = [(14, 21, '#f6a6c8'), (47, 14, '#ffffff')]
     for x, y, c in flowers:
         for dx, dy in ((0, -1), (-1, 0), (1, 0), (0, 1)): px[((x + dx) % W, y + dy)] = c
         px[(x, y)] = '#f0b54a'
