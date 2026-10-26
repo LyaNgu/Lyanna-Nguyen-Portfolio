@@ -69,7 +69,7 @@
     cancelAnimationFrame(countRaf);
     var num = slide.querySelector('.pk-num');
     if (!num) return;
-    var from = +num.dataset.from, delay = 900, dur = 1400, t0 = null;
+    var from = +num.dataset.from, delay = 1000, dur = 1300, t0 = null;
     if (reduced || !started) { num.textContent = '1'; return; }
     num.textContent = from;
     countRaf = requestAnimationFrame(function step(t) {
