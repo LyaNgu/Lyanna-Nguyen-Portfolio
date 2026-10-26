@@ -7,7 +7,7 @@
   var IDS = Array.prototype.map.call(tocLinks, function (a) { return a.getAttribute('href').slice(1); });
   var mark = document.querySelector('.toc-mark');
 
-  var active = IDS[0];
+  var active = null;   // nothing is highlighted until the reader reaches the first section
   var lockId = null, lockUntil = 0;
   var raf = null;
 
@@ -18,14 +18,17 @@
       a.style.fontWeight = on ? '800' : '600';
       a.style.color = on ? 'var(--ink)' : 'var(--ink-muted)';
     });
-    if (mark) mark.style.top = (Math.max(0, IDS.indexOf(active)) * 36) + 'px';
+    if (mark) {
+      mark.style.top = (Math.max(0, IDS.indexOf(active)) * 36) + 'px';
+      mark.style.opacity = active ? '1' : '0';
+    }
   }
 
   function onScroll() {
     if (raf) return;
     raf = requestAnimationFrame(function () {
       raf = null;
-      var next = IDS[0];
+      var next = null;
       var line = window.innerHeight * 0.4;
       IDS.forEach(function (id) {
         var el = document.getElementById(id);
@@ -44,6 +47,7 @@
     });
   }
   window.addEventListener('scroll', onScroll, { passive: true });
+  renderToc();
   setTimeout(onScroll, 80);
 
   var researchOpen = false;
