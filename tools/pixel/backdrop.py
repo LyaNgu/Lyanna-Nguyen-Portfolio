@@ -133,24 +133,6 @@ def grass():
         px[(x, y)] = '#f0b54a'
     return W, H, px
 
-# ---- meadow: a soft sage lawn for the Design Garden, tiling in both directions
-def meadow():
-    W, H = 96, 72; px = {}
-    for y in range(H):
-        for x in range(W):
-            # gentle lighter patches, periodic in x and y so the tile wraps seamlessly
-            v = (math.sin(2 * math.pi * x / W) + math.sin(2 * math.pi * (y / H + x / W * 2))
-                 + math.cos(2 * math.pi * 2 * y / H + 1.3))
-            px[(x, y)] = '#a3cd98' if v > 1.15 else '#99c78f' if v > .55 else '#8fc088'
-    tufts = [(5, 8), (20, 30), (37, 12), (50, 52), (66, 25), (80, 60), (88, 9), (12, 58), (30, 66), (58, 40), (74, 44), (44, 3)]
-    for x, y in tufts:
-        for dx, dy in ((0, 0), (2, 0), (1, -1)):
-            px[((x + dx) % W, (y + dy) % H)] = '#80b37b'
-    for x, y in [(26, 47), (71, 16)]:
-        for dx, dy in ((0, -1), (-1, 0), (1, 0), (0, 1)): px[(x + dx, y + dy)] = '#f4f1e4'
-        px[(x, y)] = '#f3d58a'
-    return W, H, px
-
 # Distance haze: the tree line is blended toward the pale sky so the farmhouse stays the focus
 HAZE, FADE = (0xcd, 0xe8, 0xef), {'bg-trees': .45}
 
@@ -158,7 +140,7 @@ def fade(c, a):
     rgb = [int(c[i:i + 2], 16) for i in (1, 3, 5)]
     return '#' + ''.join(f'{round(v + (hz - v) * a):02x}' for v, hz in zip(rgb, HAZE))
 
-for name, fn in [('bg-mountains', mountains), ('bg-hills', hills), ('bg-trees', trees), ('bg-grass', grass), ('bg-meadow', meadow)]:
+for name, fn in [('bg-mountains', mountains), ('bg-hills', hills), ('bg-trees', trees), ('bg-grass', grass)]:
     w, h, px = fn()
     px = {k: fade(c, FADE.get(name, 0)) for k, c in px.items()}
     px = {(x % w, y): c for (x, y), c in px.items() if 0 <= y < h}
