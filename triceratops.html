@@ -39,6 +39,9 @@
       <div class="cs-head-main">
         <h1>Streamlining onboarding for new members</h1>
         <p class="cs-sum">Designing for interested students, 60% of whom said unclear rules kept them from joining.</p>
+        <div class="cs-actions">
+          <a href="https://triceratops-website.m-jared020.workers.dev/" target="_blank" rel="noopener" class="pp-btn grass">Visit the live site ↗</a>
+        </div>
       </div>
       <dl class="cs-meta">
         <div><dt>Role</dt><dd>UI/UX Designer &amp; Developer</dd></div>
@@ -89,21 +92,42 @@
               <li><b>Shipped with Claude Code and the Figma MCP</b>, cutting what I estimate as weeks of build work to hours.</li>
             </ul></dd></div>
           </dl>
-          <div class="cs-actions">
-            <a href="https://triceratops-website.m-jared020.workers.dev/" target="_blank" rel="noopener" class="pp-btn grass">Visit the live site ↗</a>
-          </div>
           <div class="cs-peek">
             <span class="cs-label sm">Solution sneak peek</span>
             <h3>Bringing step-by-step guides for hunts and flash sales to Triceratops’ newest members.</h3>
-            <div class="cs-peek-panel">
-              <figure>
-                <figcaption>Getting Started: join a hunt</figcaption>
-                <div class="cs-peek-screen"><img src="assets/images/final-beginners-guide.webp" alt="The final Getting Started page" loading="lazy" width="684" height="4000"></div>
-              </figure>
-              <figure>
-                <figcaption>Flash Sales: claim a dino</figcaption>
-                <div class="cs-peek-screen"><img src="assets/images/final-guide-to-monthly-flash-sales.webp" alt="The final Flash Sales page" loading="lazy" width="900" height="3772"></div>
-              </figure>
+            <!-- Story carousel: scenes play in turn; js/peek.js drives it, CSS in cs-components.css -->
+            <div class="pk" role="region" aria-roledescription="carousel" aria-label="The project in three scenes">
+              <div class="pk-viewport">
+                <div class="pk-slide" role="group" aria-roledescription="scene" aria-label="1 of 3: joining the club" data-dur="6000">
+                  <div class="pk-scene pk-join">
+                    <img class="pk-site" src="assets/images/triceratops-at-uc-davis-home-page.webp" alt="" loading="lazy" width="1116" height="792">
+                    <div class="pk-join-card"><span class="pk-kicker">Want to join a dino hunt?</span><span class="pk-discord">Join our Discord</span></div>
+                    <img class="pk-cursor px" src="assets/images/cursor-pointer.png" alt="" width="32" height="32">
+                    <p class="pk-cap">A curious student clicks “Join our Discord”…</p>
+                  </div>
+                </div>
+                <div class="pk-slide" role="group" aria-roledescription="scene" aria-label="2 of 3: lost in Discord" data-dur="9000">
+                  <div class="pk-scene pk-flood">
+                    <div class="pk-chans" aria-hidden="true"></div>
+                    <div class="pk-msg"><b>41 channels</b><p>Everything new members needed lived across a 41-channel Discord, so interested students got lost before they ever joined.</p></div>
+                  </div>
+                </div>
+                <div class="pk-slide" role="group" aria-roledescription="scene" aria-label="3 of 3: one clear path" data-dur="10000">
+                  <div class="pk-scene pk-sol">
+                    <p class="pk-sol-title">One clear path to a first hunt</p>
+                    <div class="pk-screens">
+                      <figure><figcaption>Getting Started</figcaption><div class="pk-screen"><img src="assets/images/final-beginners-guide.webp" alt="The final Getting Started page" loading="lazy" width="684" height="4000"></div></figure>
+                      <figure><figcaption>Flash Sales</figcaption><div class="pk-screen"><img src="assets/images/final-guide-to-monthly-flash-sales.webp" alt="The final Flash Sales page" loading="lazy" width="900" height="3772"></div></figure>
+                    </div>
+                  </div>
+                </div>
+                <button type="button" class="pk-arrow prev" aria-label="Previous scene">‹</button>
+                <button type="button" class="pk-arrow next" aria-label="Next scene">›</button>
+              </div>
+              <div class="pk-controls">
+                <div class="pk-dots"></div>
+                <button type="button" class="pk-pause" aria-pressed="false">Pause</button>
+              </div>
             </div>
             <a href="#solution" class="pp-btn ghost cs-peek-link">▾ See the final design</a>
           </div>
@@ -266,5 +290,6 @@
 </div>
 <script src="js/site.js"></script>
 <script src="js/case-study.js"></script>
+<script src="js/peek.js"></script>
 </body>
 </html>
