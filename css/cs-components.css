@@ -75,7 +75,6 @@
 @media (max-width:560px){.cs-vs{grid-template-columns:1fr}}
 .cs-peek{display:flex;flex-direction:column;gap:var(--space-3)}
 .cs-peek-link{align-self:center}
-.cs-sec .cs-peek h3{margin:0 0 var(--space-2)}
 /* Story carousel: three animated scenes (join → Discord flood → the new pages).
    Base styles are each scene's end state; animations only run on the playing slide. */
 .pk{display:flex;flex-direction:column;gap:var(--space-3)}
@@ -102,7 +101,7 @@
 /* after the tap, Discord's invite opens over Instagram and the cursor moves on to Join */
 .pk-invite{position:absolute;inset:0;z-index:1;display:flex;align-items:center;justify-content:center;background:#000a}
 .pk-inv-card{display:flex;flex-direction:column;align-items:center;gap:1.2cqw;width:38cqw;padding:3cqw 3cqw 2.6cqw;border-radius:10px;background:#313338;box-shadow:0 12px 32px #0008;font-family:var(--font-body);text-align:center}
-.pk-inv-icon{display:grid;place-items:center;width:8cqw;aspect-ratio:1;border-radius:30%;background:#7cc44f;color:#1e1f22;font-size:max(11px,2.4cqw);font-weight:800}
+.pk-inv-icon{display:block;width:8cqw;height:auto;aspect-ratio:1;border-radius:50%;object-fit:cover}
 .pk-inv-sub{font-size:max(10px,1.6cqw);font-weight:700;color:#b5bac1}
 .pk-inv-name{font-size:max(14px,2.8cqw);line-height:1.1;color:#f2f3f5}
 .pk-join-btn{position:relative;align-self:stretch;margin-top:1cqw;padding:1.2cqw 0;border-radius:6px;background:#5865f2;color:#fff;font-size:max(11px,1.9cqw);font-weight:800}
