@@ -21,7 +21,12 @@ CONTENT_FIXES = {
     'Main': [('>Triceratops Website · Jun 2026 – Present<', '>Triceratops Website · Jun – Oct 2026<'),
              # Keep the Works card in step with the hand-built case study hero
              ('>Streamlining onboarding to help new members get involved from day one<', '>Streamlining onboarding for new members<'),
-             ('>I designed and built a Getting Started page that turns a crowded Discord into a clear first step for new members.<', '>Designing for interested students, 60% of whom said unclear rules kept them from joining.<')],
+             ('>I designed and built a Getting Started page that turns a crowded Discord into a clear first step for new members.<', '>Designing for interested students, 60% of whom said unclear rules kept them from joining.<'),
+             # 8-bit backdrop (mountains, hills, tree line, grass tufts) drawn by tools/pixel/backdrop.py
+             ('    <div aria-hidden="true" style="position: absolute; left: -10%; right: 30%; bottom: 80px; height: 170px; background: #9fd28a; border-radius: 50% 50% 0 0 / 100% 100% 0 0; box-shadow: inset 0 4px 0 #b8e0a0;"></div>\n    <div aria-hidden="true" style="position: absolute; left: 35%; right: -15%; bottom: 80px; height: 130px; background: #8cc97a; border-radius: 50% 50% 0 0 / 100% 100% 0 0; box-shadow: inset 0 4px 0 #a8d890;"></div>\n',
+              '    <div aria-hidden="true" style="position: absolute; left: 0; right: 0; bottom: 120px; height: 144px; background: url(assets/images/bg-mountains.svg) 0 100% / 384px 144px repeat-x; image-rendering: pixelated;"></div>\n    <div aria-hidden="true" style="position: absolute; left: 0; right: 0; bottom: 96px; height: 104px; background: url(assets/images/bg-hills.svg) -60px 100% / 320px 104px repeat-x; image-rendering: pixelated;"></div>\n    <div aria-hidden="true" style="position: absolute; left: 0; right: 0; bottom: 96px; height: 136px; background: url(assets/images/bg-trees.svg) 50% 100% / 512px 136px repeat-x; image-rendering: pixelated;"></div>\n'),
+             ('<div aria-hidden="true" style="position: absolute; left: 0; right: 0; bottom: 0; height: 96px; background: var(--grass); box-shadow: inset 0 4px 0 0 #2f7d3a;"></div>',
+              '<div aria-hidden="true" style="position: absolute; left: 0; right: 0; bottom: 0; height: 96px; background: url(assets/images/bg-grass.svg) 0 0 / 256px 96px repeat-x, var(--grass); box-shadow: inset 0 4px 0 0 #2f7d3a; image-rendering: pixelated;"></div>')],
 }
 
 # Pages rebuilt by hand after the export; the converter never overwrites them.
