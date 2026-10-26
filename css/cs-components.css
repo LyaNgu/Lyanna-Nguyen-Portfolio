@@ -26,8 +26,8 @@
 .cs-hero-screen>img,.cs-hero-screen>video{display:block;width:100%;height:100%;object-fit:cover;object-position:top}
 .cs-hero-screen>.ph{height:100%;border:0;border-radius:0;box-shadow:none}
 .cs-sticker{position:absolute;width:17%;max-width:92px;z-index:2;filter:drop-shadow(0 4px 6px rgba(30,40,60,.35))}
-/* Details: one compact label/value row each, centred beside the title block */
-.cs-meta{margin:0;align-self:center;display:flex;flex-direction:column;gap:var(--space-3)}
+/* Details: one compact label/value row each, in a soft box beside the title block */
+.cs-meta{margin:0;align-self:center;display:flex;flex-direction:column;gap:var(--space-3);padding:var(--space-4) var(--space-6);background:var(--surface);border-radius:var(--radius-md);box-shadow:inset 0 0 0 2px var(--surface-sunken)}
 .cs-meta>div{display:grid;grid-template-columns:88px minmax(0,1fr);gap:var(--space-3);align-items:baseline}
 .cs-meta dt{font-family:var(--font-pixel);font-size:16px;line-height:18px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-muted)}
 .cs-meta dd{margin:0;font-size:15px;line-height:22px;font-weight:600;color:var(--ink);text-wrap:pretty}
