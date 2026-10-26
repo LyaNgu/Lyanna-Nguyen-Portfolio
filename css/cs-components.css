@@ -78,7 +78,7 @@
 /* Story carousel: three animated scenes (join → Discord flood → the new pages).
    Base styles are each scene's end state; animations only run on the playing slide. */
 .pk{display:flex;flex-direction:column;gap:var(--space-3)}
-.pk-viewport{position:relative;aspect-ratio:16/10;overflow:hidden;border-radius:var(--radius-md);background:#1e1f22;box-shadow:0 0 0 3px #2b1f17,8px 8px 0 0 var(--pixel-shadow);container-type:inline-size}
+.pk-viewport{position:relative;aspect-ratio:16/10;overflow:hidden;border-radius:var(--radius-md);background:#1e1f22;box-shadow:0 0 0 3px #2b1f17;container-type:inline-size}
 /* Scenes cross-fade with a slight zoom, so one flows into the next */
 .pk-slide{position:absolute;inset:0;opacity:0;visibility:hidden;transform:scale(1.04);transition:opacity .7s ease,transform .9s cubic-bezier(.2,.7,.2,1),visibility 0s .7s}
 .pk-slide.is-active{opacity:1;visibility:visible;transform:none;transition:opacity .7s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
