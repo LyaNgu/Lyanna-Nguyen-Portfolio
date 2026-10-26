@@ -113,17 +113,17 @@
 .pk-cursor svg{display:block;width:max(16px,2.6cqw);height:auto}
 .play .pk-site{animation:pkZoom 9.9s ease-out both}
 .play .pk-cursor{animation:pkCursorPath 6.15s 0.75s both}
-.play .pk-cursor svg{animation:pkCursorY 2.85s 0.75s cubic-bezier(.15,.75,.3,1) both,pkPress 0.38s 3.68s both,pkPress 0.38s 6.98s both}
-.play .pk-link{animation:pkLink 2.1s 3.3s both}
-.play .pk-link::after{animation:pkRipple 1.05s 3.68s ease-out both}
+.play .pk-cursor svg{animation:pkCursorY 2.85s 0.75s cubic-bezier(.15,.75,.3,1) both,pkPress 0.38s 3.75s both,pkPress 0.38s 6.6s both}
+.play .pk-link{animation:pkLink 2.1s 3.95s both}
+.play .pk-link::after{animation:pkRipple 1.05s 3.95s ease-out both}
 .play .pk-cap.c1{animation:pkCapIO 2.4s 3.9s both}
 .play .pk-invite{animation:pkFade 0.75s 5.25s both}
 .play .pk-inv-card{animation:pkPop 0.9s 5.4s cubic-bezier(.3,1.4,.5,1) both}
 .play .pk-cap.c2{animation:pkRise 0.9s 6s both}
-.play .pk-join-btn{animation:pkClick 0.75s 6.9s both}
-.play .pk-join-btn::after{animation:pkRipple 1.05s 6.98s ease-out both}
+.play .pk-join-btn{animation:pkClick 0.75s 6.8s both}
+.play .pk-join-btn::after{animation:pkRipple 1.05s 6.8s ease-out both}
 @keyframes pkZoom{from{transform:scale(1.12)}}
-@keyframes pkCursorPath{0%{left:92%;top:30.4%;animation-timing-function:cubic-bezier(.45,0,.25,1)}46%,73%{left:44%;top:30.4%;animation-timing-function:cubic-bezier(.5,0,.2,1)}98%,100%{left:51%;top:60%}}
+@keyframes pkCursorPath{0%{left:92%;top:30.4%;animation-timing-function:cubic-bezier(.45,0,.25,1)}46%,73%{left:44%;top:30.4%;animation-timing-function:cubic-bezier(.5,0,.2,1)}90%,100%{left:51%;top:60%}}
 @keyframes pkCursorY{from{transform:translateY(30cqw);opacity:0}15%{opacity:1}}
 @keyframes pkPress{50%{transform:scale(.82)}}
 @keyframes pkLink{0%{opacity:0}20%,60%{opacity:1;background:#8fa7ff33}100%{opacity:1;background:#8fa7ff22}}
