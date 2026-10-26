@@ -1,5 +1,7 @@
 """Generate the tiling 8-bit backdrop layers for the home hero as crisp-edged SVGs."""
 import math, sys, os
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'))
+from soft_palette import soften_text
 OUT = sys.argv[1]
 
 def svg(w, h, px):
@@ -162,5 +164,5 @@ for name, fn in [('bg-mountains', mountains), ('bg-hills', hills), ('bg-trees', 
     w, h, px = fn()
     px = {k: fade(c, FADE.get(name, 0)) for k, c in px.items()}
     px = {(x % w, y): c for (x, y), c in px.items() if 0 <= y < h}
-    open(os.path.join(OUT, name + '.svg'), 'w').write(svg(w, h, px))
+    open(os.path.join(OUT, name + '.svg'), 'w').write(soften_text(svg(w, h, px)))
     print(name, w, h, len(px))

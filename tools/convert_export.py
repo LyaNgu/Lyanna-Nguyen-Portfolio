@@ -6,6 +6,8 @@ Regenerates the HTML pages, css/ and assets/. The scripts in js/ are hand-writte
 are not touched, so keep the data-show / data-action hooks below in sync with them.
 """
 import base64, hashlib, html, json, os, re, sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from soft_palette import soften_text  # muted cozy palette for the whole site
 
 SRC = sys.argv[1]
 OUT = sys.argv[2]
@@ -90,7 +92,7 @@ def save(mime, b64, hint=''):
         txt = data.decode('utf-8')
         if 'shape-rendering' not in txt[:300]:
             txt = re.sub(r'<svg\b', '<svg shape-rendering="crispEdges"', txt, count=1)
-        data = txt.encode('utf-8')
+        data = soften_text(txt).encode('utf-8')
     rel = f'assets/{folder}/{name}.{ext}'
     os.makedirs(os.path.join(OUT, 'assets', folder), exist_ok=True)
     open(os.path.join(OUT, rel), 'wb').write(data)
@@ -263,7 +265,7 @@ for i, l in enumerate(extra):
         extra[i] = l[len(dlg_core):]
 os.makedirs(os.path.join(OUT, 'css'), exist_ok=True)
 open(os.path.join(OUT, 'css', 'pixel-pals.css'), 'w').write(
-    '/* Pixel Pals — cozy farm design-system components. */\n' + HEAD_CSS.strip() + '\n')
+    soften_text('/* Pixel Pals — cozy farm design-system components. */\n' + HEAD_CSS.strip() + '\n'))
 site_css = css_assets(main_css, '../').strip()
 site_css = site_css.replace(':root{', '/* Design tokens */\n:root{', 1)
 # Loader backdrop: replace the custom-property mask reveal, which mobile Safari renders transparent.
@@ -276,10 +278,10 @@ site_css += ('\n\n/* Dialogue: the box grows to fit long lines; a hidden copy of
              '   before it finishes typing, so the box never resizes mid-sentence. */\n'
              '.dlg-text>p{display:grid}.dlg-ghost,.dlg-shown{grid-area:1/1}.dlg-ghost{visibility:hidden}\n')
 site_css += '\n/* Elements toggled by the page scripts */\n[hidden]{display:none!important}\n'
-open(os.path.join(OUT, 'css', 'site.css'), 'w').write(site_css)
+open(os.path.join(OUT, 'css', 'site.css'), 'w').write(soften_text(site_css))
 open(os.path.join(OUT, 'css', 'case-study.css'), 'w').write(
-    '/* Extra rules for the case-study pages (annotations, before/after, table of contents). */\n'
-    + css_assets('\n'.join(l for l in extra if l.strip()), '../') + '\n')
+    soften_text('/* Extra rules for the case-study pages (annotations, before/after, table of contents). */\n'
+    + css_assets('\n'.join(l for l in extra if l.strip()), '../') + '\n'))
 
 # ---------------------------------------------------------------- pages
 FONT_LINK = re.search(r'<link rel="preconnect".*?>\s*<link[^>]*fonts\.googleapis[^>]*>', raw).group(0)
@@ -341,7 +343,7 @@ for name, P in PAGES.items():
     assert '{{' not in doc and '/_blob/' not in doc and 'sc-if' not in doc and ';base64,' not in doc, name
     if FILES[name] in HAND_BUILT and os.path.exists(os.path.join(OUT, FILES[name])):
         print('kept hand-built', FILES[name]); continue
-    open(os.path.join(OUT, FILES[name]), 'w').write(doc)
+    open(os.path.join(OUT, FILES[name]), 'w').write(soften_text(doc))
 
 # Drop assets no page references (e.g. sprites only used by the disabled tour guide).
 texts = ''

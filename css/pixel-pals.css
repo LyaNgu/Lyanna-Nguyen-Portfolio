@@ -98,8 +98,8 @@ img.px { image-rendering: pixelated; display: block; }
 /* Hero scene */
 .pp-hero { position: relative; overflow: hidden; background: var(--sky); min-height: 360px; display: grid; grid-template-columns: 1fr auto; align-items: end; }
 [data-theme="dark"] .pp-hero { background: #1b2a52; }
-.pp-hero__lawn { position: absolute; left: 0; right: 0; bottom: 0; height: 72px; background: var(--grass); box-shadow: inset 0 4px 0 0 #2f7d3a; }
-.pp-hero__path { position: absolute; bottom: 0; right: 174px; width: 66px; height: 72px; background: var(--gold); box-shadow: inset 4px 0 0 #c98a3a, inset -4px 0 0 #c98a3a; }
+.pp-hero__lawn { position: absolute; left: 0; right: 0; bottom: 0; height: 72px; background: var(--grass); box-shadow: inset 0 4px 0 0 #74a46f; }
+.pp-hero__path { position: absolute; bottom: 0; right: 174px; width: 66px; height: 72px; background: var(--gold); box-shadow: inset 4px 0 0 #b88d56, inset -4px 0 0 #b88d56; }
 .pp-hero__copy { position: relative; z-index: 1; align-self: center; padding: var(--space-8); max-width: 460px; }
 .pp-hero__card { padding: var(--space-6); }
 .pp-hero__card h1 { font-family: var(--font-display); font-size: 48px; line-height: 50px; font-weight: 700; margin: 0 0 var(--space-3); }
