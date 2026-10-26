@@ -18,7 +18,13 @@ HEAD_CSS = re.search(r'<style>\n(.*?)</style>', raw, re.S).group(1)
 
 # Text corrected after the export, per page.
 CONTENT_FIXES = {
-    'Main': [('>Triceratops Website · Jun 2026 – Present<', '>Triceratops Website · Jun – Oct 2026<'),
+    'Main': [
+             # Cottage drawn by tools/pixel/cottage.py replaces the exported farmhouse
+             ('src="assets/images/a-pixel-farmhouse-with-a-red.svg" alt="A pixel farmhouse with a red shingle roof, glowing windows, flower boxes and a stone path"',
+              'src="assets/images/a-pixel-cottage.svg" alt="A pixel cottage with a thatched roof, timber-framed walls, rose shutters, flower boxes and a garden path"'),
+             ('src="assets/images/a-pixel-farmhouse-with-a-red.svg" alt="The farmhouse at night, windows glowing"',
+              'src="assets/images/a-pixel-cottage.svg" alt="The cottage at night, windows glowing"'),
+             ('>Triceratops Website · Jun 2026 – Present<', '>Triceratops Website · Jun – Oct 2026<'),
              # Keep the Works card in step with the hand-built case study hero
              ('>Streamlining onboarding to help new members get involved from day one<', '>Streamlining onboarding for new members<'),
              ('>I designed and built a Getting Started page that turns a crowded Discord into a clear first step for new members.<', '>Designing for interested students, 60% of whom said unclear rules kept them from joining.<'),
