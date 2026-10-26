@@ -80,8 +80,9 @@
    Base styles are each scene's end state; animations only run on the playing slide. */
 .pk{display:flex;flex-direction:column;gap:var(--space-3)}
 .pk-viewport{position:relative;aspect-ratio:16/10;overflow:hidden;border-radius:var(--radius-md);background:#1e1f22;box-shadow:0 0 0 3px #2b1f17,8px 8px 0 0 var(--pixel-shadow);container-type:inline-size}
-.pk-slide{position:absolute;inset:0;opacity:0;visibility:hidden;transition:opacity .5s ease,visibility 0s .5s}
-.pk-slide.is-active{opacity:1;visibility:visible;transition:opacity .5s ease}
+/* Scenes cross-fade with a slight zoom, so one flows into the next */
+.pk-slide{position:absolute;inset:0;opacity:0;visibility:hidden;transform:scale(1.04);transition:opacity .7s ease,transform .9s cubic-bezier(.2,.7,.2,1),visibility 0s .7s}
+.pk-slide.is-active{opacity:1;visibility:visible;transform:none;transition:opacity .7s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
 .pk-scene{position:absolute;inset:0;overflow:hidden}
 .pk-cap{position:absolute;left:0;right:0;bottom:6%;margin:0;text-align:center;font-family:var(--font-body);font-size:max(13px,3cqw);font-weight:800;color:#fff;text-shadow:0 2px 0 #0008}
 .pk-arrow{position:absolute;top:50%;z-index:3;width:36px;height:36px;margin-top:-18px;border:0;border-radius:50%;background:#ffffffd9;color:var(--ink);font-size:24px;line-height:32px;cursor:pointer;box-shadow:0 2px 6px #0004}
@@ -97,15 +98,34 @@
 .pk-join-card{position:absolute;left:50%;top:42%;transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;gap:2cqw;padding:3cqw 5cqw;border-radius:12px;background:#fffdf6;box-shadow:0 10px 30px #0006}
 .pk-kicker{font-family:var(--font-body);font-size:max(12px,2.6cqw);font-weight:800;color:var(--ink)}
 .pk-discord{padding:1.4cqw 3cqw;border-radius:8px;background:#5865f2;color:#fff;font-family:var(--font-body);font-size:max(12px,2.4cqw);font-weight:800}
-.pk-cursor{position:absolute;left:56%;top:47%;width:max(20px,4cqw);height:auto;image-rendering:pixelated}
-.play .pk-cursor{animation:pkCursor 2.4s cubic-bezier(.4,0,.2,1) both}
-.play .pk-discord{animation:pkClick 2.4s both}
-.play .pk-cap{animation:pkRise .6s 2.6s both}
-@keyframes pkCursor{0%{left:86%;top:88%}70%,100%{left:56%;top:47%}}
-@keyframes pkClick{0%,74%{transform:none;background:#5865f2}80%{transform:scale(.92);background:#4752c4}88%,100%{transform:none;background:#4752c4}}
+.pk-discord{position:relative}
+.pk-discord::after{content:"";position:absolute;left:50%;top:50%;width:2cqw;aspect-ratio:1;margin:-1cqw;border-radius:50%;border:2px solid #fff;opacity:0}
+/* the cursor: the outer box slides sideways, the arrow inside lifts, so together they trace an arc */
+.pk-cursor{position:absolute;left:57%;top:46%;z-index:2;filter:drop-shadow(0 2px 2px #0006)}
+.pk-cursor svg{display:block;width:max(16px,2.6cqw);height:auto}
+.play .pk-site{animation:pkZoom 6s ease-out both}
+.play .pk-join-card{animation:pkPop .6s .2s cubic-bezier(.3,1.4,.5,1) both}
+.play .pk-cursor{animation:pkCursorX 1.9s .5s cubic-bezier(.45,0,.25,1) both}
+.play .pk-cursor svg{animation:pkCursorY 1.9s .5s cubic-bezier(.15,.75,.3,1) both,pkPress .25s 2.45s both}
+.play .pk-discord{animation:pkClick .5s 2.4s both}
+.play .pk-discord::after{animation:pkRipple .7s 2.45s ease-out both}
+.play .pk-cap{animation:pkRise .6s 2.8s both}
+.play .pk-wipe{animation:pkWipe .9s 4.6s cubic-bezier(.6,0,.4,1) both}
+@keyframes pkZoom{from{transform:scale(1.12)}}
+@keyframes pkPop{from{opacity:0;transform:translate(-50%,-50%) scale(.85)}}
+@keyframes pkCursorX{from{left:92%;opacity:0}12%{opacity:1}}
+@keyframes pkCursorY{from{transform:translateY(26cqw)}}
+@keyframes pkPress{50%{transform:scale(.82)}}
+@keyframes pkClick{0%{transform:none}25%{transform:scale(.93);background:#4752c4}100%{transform:none;background:#4752c4}}
+@keyframes pkRipple{0%{opacity:.9;transform:scale(1)}100%{opacity:0;transform:scale(9)}}
+/* after the click, Discord's dark grey grows out from the button and carries into scene 2 */
+.pk-wipe{position:absolute;inset:0;z-index:3;background:#313338;clip-path:circle(0% at 52% 47%);pointer-events:none}
+@keyframes pkWipe{from{clip-path:circle(0% at 52% 47%)}to{clip-path:circle(120% at 52% 47%)}}
 /* 2 · flood: Discord channels pour in from the top, then the problem rises over them */
 .pk-flood{background:#313338}
-.pk-chans{position:absolute;inset:0}
+.pk-chans{position:absolute;inset:0;filter:blur(2px) brightness(.7)}
+.play .pk-chans{animation:pkFocus .9s 3.3s both}
+@keyframes pkFocus{from{filter:none}}
 .pk-chan{position:absolute;transform:rotate(var(--r,0deg));display:flex;align-items:center;gap:.8cqw;padding:.7cqw 1.4cqw;border-radius:6px;background:#2b2d31;color:#949ba4;font-family:var(--font-body);font-size:max(9px,1.7cqw);font-weight:700;white-space:nowrap;box-shadow:0 2px 0 #0003}
 .pk-chan.unread{color:#f2f3f5}
 .pk-chan.skel{width:12cqw;height:3.2cqw}
@@ -131,7 +151,9 @@
 .pk-screen{width:26cqw;aspect-ratio:9/14;overflow:hidden;border-radius:10px;background:#fff;box-shadow:0 0 0 3px #2b1f17,0 10px 24px #0003}
 .pk-screen img{display:block;width:100%;height:auto}
 .play .pk-sol-title{animation:pkRise .7s .2s both}
-.play .pk-screens figure{animation:pkRise .8s .5s both}
+.pk-sol{perspective:900px;background:radial-gradient(ellipse at 50% 60%,var(--surface-raised),var(--surface) 70%)}
+.play .pk-screens figure{animation:pkTilt 1s .5s cubic-bezier(.2,.8,.2,1) both}
+@keyframes pkTilt{from{opacity:0;transform:translateY(8cqw) rotateX(18deg)}}
 .play .pk-screens figure+figure{animation-delay:.8s}
 .play .pk-screen img{animation:pkScroll 8s 1.6s ease-in-out both}
 @keyframes pkScroll{from{transform:none}to{transform:translateY(-45%)}}

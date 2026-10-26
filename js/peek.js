@@ -22,6 +22,10 @@
   if (chans) {
     var seed = 7;
     var rand = function () { seed = (seed * 9301 + 49297) % 233280; return seed / 233280; };
+    // channels land in a scattered order, so the flood feels chaotic rather than row by row
+    var order = [];
+    for (var k = 0; k < 41; k++) order.push(k);
+    order.sort(function () { return rand() - .5; });
     for (var i = 0; i < 41; i++) {
       var el = document.createElement('span');
       var name = NAMES[i];
@@ -32,7 +36,7 @@
       el.style.left = (2 + (i % 5) * 19.5 + rand() * 4) + '%';
       el.style.top = (3 + Math.floor(i / 5) * 11 + rand() * 4) + '%';
       el.style.setProperty('--r', ((rand() - .5) * 8).toFixed(1) + 'deg');
-      el.style.animationDelay = (i * 0.07).toFixed(2) + 's';
+      el.style.animationDelay = (order[i] * 0.065).toFixed(2) + 's';
       chans.appendChild(el);
     }
   }
