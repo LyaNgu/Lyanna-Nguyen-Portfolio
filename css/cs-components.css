@@ -19,6 +19,7 @@
 .cs-head>.cs-eyebrow{grid-column:1/-1}
 .cs-head-main{display:flex;flex-direction:column;gap:var(--space-3)}
 .cs-sec .cs-actions{margin-top:0}
+.cs-head .pp-btn.ghost{padding-left:0;padding-right:0}
 @media (max-width:860px){.cs-head{grid-template-columns:1fr;gap:var(--space-6)}}
 .cs-head h1{margin:0;font-family:var(--font-display);font-size:clamp(30px,3vw,38px);line-height:1.1;font-weight:700}
 .cs-head .cs-sum{margin:0;font-size:20px;line-height:32px;font-weight:600;color:var(--ink-muted)}
