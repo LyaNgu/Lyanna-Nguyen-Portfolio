@@ -16,12 +16,12 @@
 /* ---------- Hero ---------- */
 /* Hero: title, summary, details and the live link all in the first view */
 .cs-head{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:var(--space-4) var(--space-12);align-items:start;padding:var(--space-6) 0 var(--space-8)}
-.cs-head>.cs-eyebrow{grid-column:1/-1}
-.cs-head-main{display:flex;flex-direction:column;gap:var(--space-3)}
+.cs-head>.cs-eyebrow{grid-column:1/-1;color:var(--accent-text)}
+.cs-head-main{display:flex;flex-direction:column;gap:var(--space-4)}
 .cs-sec .cs-actions{margin-top:0}
 @media (max-width:860px){.cs-head{grid-template-columns:1fr;gap:var(--space-6)}}
-.cs-head h1{margin:0;font-family:var(--font-display);font-size:clamp(30px,3vw,38px);line-height:1.1;font-weight:700}
-.cs-head .cs-sum{margin:0;font-size:20px;line-height:32px;font-weight:600;color:var(--ink-muted)}
+.cs-head h1{margin:0;font-family:var(--font-display);font-size:clamp(30px,3vw,38px);line-height:1.08;font-weight:700;text-wrap:balance}
+.cs-head .cs-sum{margin:0;max-width:34em;font-size:19px;line-height:30px;font-weight:500;color:var(--ink-muted)}
 /* Banner opens the page edge to edge, right under the site nav; the page clips the sideways overflow */
 html{overflow-x:clip}
 .cs-hero-stage{position:relative;width:100vw;margin:calc(-1 * var(--space-12)) 0 var(--space-8) calc(50% - 50vw);height:clamp(300px,44vw,640px);background:#cfe3f2 url(../assets/images/triceratops-hero-background.webp) center/cover no-repeat;overflow:hidden;box-shadow:inset 0 -2px 0 #00000022}
@@ -30,10 +30,11 @@ html{overflow-x:clip}
 .cs-hero-screen>.ph{height:100%;border:0;border-radius:0;box-shadow:none}
 .cs-sticker{position:absolute;width:17%;max-width:92px;z-index:2;filter:drop-shadow(0 4px 6px rgba(30,40,60,.35))}
 /* Details: one compact label/value row each, centred beside the title block */
-.cs-meta{margin:0;align-self:center;display:flex;flex-direction:column;gap:var(--space-3)}
+.cs-meta{margin:0;align-self:start;display:flex;flex-direction:column;gap:var(--space-3);padding:var(--space-2) 0 0 var(--space-6);border-left:2px solid var(--surface-sunken)}
+@media (max-width:860px){.cs-meta{padding:var(--space-4) 0 0;border-left:0;border-top:2px solid var(--surface-sunken)}}
 .cs-meta>div{display:grid;grid-template-columns:88px minmax(0,1fr);gap:var(--space-3);align-items:baseline}
 .cs-meta dt{font-family:var(--font-pixel);font-size:16px;line-height:18px;letter-spacing:.04em;text-transform:uppercase;color:var(--accent-text)}
-.cs-meta dd{margin:0;font-size:15px;line-height:22px;font-weight:600;color:var(--ink);text-wrap:pretty}
+.cs-meta dd{margin:0;font-size:15px;line-height:22px;font-weight:500;color:var(--ink);text-wrap:pretty}
 
 .cs-actions{display:flex;flex-wrap:wrap;align-items:center;gap:var(--space-4);margin-top:var(--space-6)}
 
