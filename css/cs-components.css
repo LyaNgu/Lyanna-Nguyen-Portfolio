@@ -16,7 +16,6 @@
 /* ---------- Hero ---------- */
 /* Hero: title, summary, details and the live link all in the first view */
 .cs-head{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:var(--space-4) var(--space-12);align-items:start;padding:var(--space-4) 0 var(--space-12)}
-.cs-head>.cs-eyebrow{grid-column:1/-1;margin-bottom:calc(-1 * var(--space-2))}
 .cs-head-main{display:flex;flex-direction:column;gap:var(--space-3)}
 .cs-sec .cs-actions{margin-top:0}
 .cs-live{align-self:flex-start;margin-top:var(--space-2);font-family:var(--font-pixel);font-size:20px;line-height:24px;letter-spacing:.04em;text-transform:uppercase;color:var(--accent-text);text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:5px}
