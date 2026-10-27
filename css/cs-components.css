@@ -22,7 +22,7 @@
 .cs-live{align-self:flex-start;margin-top:var(--space-2);font-family:var(--font-pixel);font-size:20px;line-height:24px;letter-spacing:.04em;text-transform:uppercase;color:var(--accent-text);text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:5px}
 .cs-live:hover{color:var(--ink)}
 @media (max-width:860px){.cs-head{grid-template-columns:1fr;gap:var(--space-6)}}
-.cs-head h1{margin:0;font-family:var(--font-display);font-size:clamp(30px,3vw,40px);line-height:1.08;font-weight:700;text-wrap:balance}
+.cs-head h1{margin:0;font-family:var(--font-display);font-size:clamp(30px,3vw,40px);line-height:1.08;font-weight:700;text-wrap:balance;color:var(--wood)}
 .cs-head .cs-sum{margin:0;max-width:32em;font-size:19px;line-height:30px;font-weight:500;color:var(--ink-muted)}
 /* Banner: a rounded box under the title, with the final page in a screen frame */
 html{overflow-x:clip}
