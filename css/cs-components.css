@@ -29,7 +29,13 @@ html{overflow-x:clip}
 .cs-hero-screen{position:absolute;left:50%;width:min(76%,980px);transform:translateX(-50%);top:10%;bottom:-6%;border-radius:12px 12px 0 0;overflow:hidden;background:#fff;box-shadow:0 0 0 3px #2b1f17,0 20px 36px rgba(20,30,50,.45)}
 .cs-hero-screen>img,.cs-hero-screen>video{display:block;width:100%;height:100%;object-fit:cover;object-position:top}
 .cs-hero-screen>.ph{height:100%;border:0;border-radius:0;box-shadow:none}
-.cs-sticker{position:absolute;width:17%;max-width:92px;z-index:2;filter:drop-shadow(0 4px 6px rgba(30,40,60,.35))}
+.cs-sticker{position:absolute;width:17%;max-width:92px;z-index:2;filter:drop-shadow(0 4px 6px rgba(30,40,60,.35));transition:translate .35s cubic-bezier(.3,1.6,.5,1),scale .35s cubic-bezier(.3,1.6,.5,1),filter .35s ease}
+/* hovering the banner pops the dino stickers up, one after another */
+.cs-hero-stage:hover .cs-sticker{translate:0 -10px;scale:1.12;filter:drop-shadow(0 12px 12px rgba(30,40,60,.3))}
+.cs-hero-stage .cs-sticker:nth-of-type(2){transition-delay:.05s}
+.cs-hero-stage .cs-sticker:nth-of-type(3){transition-delay:.1s}
+.cs-hero-stage .cs-sticker:nth-of-type(4){transition-delay:.15s}
+@media (prefers-reduced-motion:reduce){.cs-sticker{transition:none}}
 /* Details: one compact label/value row each, centred beside the title block */
 .cs-meta{margin:0;align-self:start;display:flex;flex-direction:column;gap:var(--space-3);margin-top:var(--space-2);padding-left:var(--space-6);border-left:2px solid var(--surface-sunken)}
 @media (max-width:860px){.cs-meta{padding:var(--space-4) 0 0;border-left:0;border-top:2px solid var(--surface-sunken)}}
