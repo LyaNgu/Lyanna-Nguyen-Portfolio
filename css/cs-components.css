@@ -30,7 +30,7 @@ html{overflow-x:clip}
 .cs-sticker{position:absolute;width:17%;max-width:92px;z-index:2;filter:drop-shadow(0 4px 6px rgba(30,40,60,.35))}
 /* Details: one compact label/value row each, centred beside the title block */
 /* one horizontal line of facts between the summary and the button: label above value */
-.cs-meta{margin:0;display:grid;grid-template-columns:repeat(3,max-content) minmax(0,1fr);gap:var(--space-4) var(--space-12);padding-top:var(--space-4);border-top:2px solid var(--surface-sunken)}
+.cs-meta{margin:0;display:grid;grid-template-columns:repeat(3,max-content) minmax(0,1fr);gap:var(--space-4) var(--space-12)}
 @media (max-width:700px){.cs-meta{grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-4) var(--space-6)}.cs-meta>div:last-child{grid-column:1/-1}}
 .cs-meta>div{display:flex;flex-direction:column;gap:var(--space-2);min-width:0}
 .cs-meta dt{font-family:var(--font-pixel);font-size:16px;line-height:18px;letter-spacing:.04em;text-transform:uppercase;color:var(--accent-text)}
