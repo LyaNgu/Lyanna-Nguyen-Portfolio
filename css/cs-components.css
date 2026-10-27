@@ -26,7 +26,7 @@
 /* Banner opens the page edge to edge, right under the site nav; the page clips the sideways overflow */
 html{overflow-x:clip}
 .cs-hero-stage{position:relative;width:100vw;margin:calc(-1 * var(--space-12)) 0 var(--space-8) calc(50% - 50vw);height:clamp(260px,34vw,500px);background:#cfe3f2 url(../assets/images/triceratops-hero-background.webp) center/cover no-repeat;overflow:hidden;box-shadow:inset 0 -2px 0 #00000022}
-.cs-hero-screen{position:absolute;left:50%;top:50%;width:min(76%,1040px);aspect-ratio:1905/602;transform:translate(-50%,-50%);border-radius:12px;overflow:hidden;background:#fff;box-shadow:0 0 0 3px #2b1f17,0 20px 36px rgba(20,30,50,.45)}
+.cs-hero-screen{position:absolute;left:50%;width:min(76%,980px);transform:translateX(-50%);top:10%;bottom:-6%;border-radius:12px 12px 0 0;overflow:hidden;background:#fff;box-shadow:0 0 0 3px #2b1f17,0 20px 36px rgba(20,30,50,.45)}
 .cs-hero-screen>img,.cs-hero-screen>video{display:block;width:100%;height:100%;object-fit:cover;object-position:top}
 .cs-hero-screen>.ph{height:100%;border:0;border-radius:0;box-shadow:none}
 .cs-sticker{position:absolute;width:17%;max-width:92px;z-index:2;filter:drop-shadow(0 4px 6px rgba(30,40,60,.35));transition:translate .35s cubic-bezier(.3,1.6,.5,1),scale .35s cubic-bezier(.3,1.6,.5,1),filter .35s ease}
