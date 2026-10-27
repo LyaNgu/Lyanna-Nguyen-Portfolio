@@ -15,28 +15,25 @@
 
 /* ---------- Hero ---------- */
 /* Hero: title, summary, details and the live link all in the first view */
-.cs-head{display:flex;flex-direction:column;gap:var(--space-6);padding:var(--space-6) 0 var(--space-8)}
-.cs-head>.cs-eyebrow{margin-bottom:calc(-1 * var(--space-2))}
-.cs-head-main{display:flex;flex-direction:column;gap:var(--space-4)}
-.cs-sec .cs-actions,.cs-head .cs-actions{margin-top:0}
-.cs-head .pp-btn.ghost{padding-left:0;padding-right:0}
-.cs-head h1{margin:0;font-family:var(--font-display);font-size:clamp(30px,3vw,38px);line-height:1.08;font-weight:700;text-wrap:balance}
-.cs-head .cs-sum{margin:0;font-size:19px;line-height:30px;font-weight:500;color:var(--ink-muted)}
-/* Banner runs edge to edge under the title; the page clips the sideways overflow */
+.cs-head{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:var(--space-4) var(--space-12);align-items:start;padding:var(--space-6) 0 var(--space-8)}
+.cs-head>.cs-eyebrow{grid-column:1/-1}
+.cs-head-main{display:flex;flex-direction:column;gap:var(--space-3)}
+.cs-sec .cs-actions{margin-top:0}
+@media (max-width:860px){.cs-head{grid-template-columns:1fr;gap:var(--space-6)}}
+.cs-head h1{margin:0;font-family:var(--font-display);font-size:clamp(30px,3vw,38px);line-height:1.1;font-weight:700}
+.cs-head .cs-sum{margin:0;font-size:20px;line-height:32px;font-weight:600;color:var(--ink-muted)}
+/* Banner runs edge to edge across the window; the page clips the sideways overflow */
 html{overflow-x:clip}
-.cs-hero-stage{position:relative;width:100vw;margin:0 0 var(--space-8) calc(50% - 50vw);height:clamp(300px,44vw,640px);background:#cfe3f2 url(../assets/images/triceratops-hero-background.webp) center/cover no-repeat;overflow:hidden;box-shadow:inset 0 -2px 0 #00000022}
+.cs-hero-stage{position:relative;width:100vw;margin-left:calc(50% - 50vw);height:clamp(300px,44vw,640px);background:#cfe3f2 url(../assets/images/triceratops-hero-background.webp) center/cover no-repeat;overflow:hidden;box-shadow:inset 0 -2px 0 #00000022}
 .cs-hero-screen{position:absolute;left:50%;width:min(76%,980px);transform:translateX(-50%);top:10%;bottom:-6%;border-radius:12px 12px 0 0;overflow:hidden;background:#fff;box-shadow:0 0 0 3px #2b1f17,0 20px 36px rgba(20,30,50,.45)}
 .cs-hero-screen>img,.cs-hero-screen>video{display:block;width:100%;height:100%;object-fit:cover;object-position:top}
 .cs-hero-screen>.ph{height:100%;border:0;border-radius:0;box-shadow:none}
 .cs-sticker{position:absolute;width:17%;max-width:92px;z-index:2;filter:drop-shadow(0 4px 6px rgba(30,40,60,.35))}
 /* Details: one compact label/value row each, centred beside the title block */
-/* one horizontal line of facts between the summary and the button: label above value */
-.cs-meta{margin:0;display:grid;grid-template-columns:repeat(3,max-content) minmax(0,1fr);gap:var(--space-4) var(--space-12)}
-@media (max-width:700px){.cs-meta{grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-4) var(--space-6)}.cs-meta>div:last-child{grid-column:1/-1}}
-.cs-hero-stage+.cs-meta{margin-bottom:var(--space-8)}
-.cs-meta>div{display:flex;flex-direction:column;gap:var(--space-2);min-width:0}
-.cs-meta dt{font-family:var(--font-pixel);font-size:16px;line-height:18px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-muted)}
-.cs-meta dd{margin:0;font-size:15px;line-height:22px;font-weight:500;color:var(--ink);text-wrap:pretty}
+.cs-meta{margin:0;align-self:center;display:flex;flex-direction:column;gap:var(--space-3)}
+.cs-meta>div{display:grid;grid-template-columns:88px minmax(0,1fr);gap:var(--space-3);align-items:baseline}
+.cs-meta dt{font-family:var(--font-pixel);font-size:16px;line-height:18px;letter-spacing:.04em;text-transform:uppercase;color:var(--accent-text)}
+.cs-meta dd{margin:0;font-size:15px;line-height:22px;font-weight:600;color:var(--ink);text-wrap:pretty}
 
 .cs-actions{display:flex;flex-wrap:wrap;align-items:center;gap:var(--space-4);margin-top:var(--space-6)}
 
