@@ -268,11 +268,30 @@ site_css = site_css.replace(':root{', '/* Design tokens */\n:root{', 1)
 site_css = site_css.replace("@property --ldr-r{syntax:'<length>';inherits:false;initial-value:0px}\n@keyframes ldrReveal{0%,80%{--ldr-r:0px}100%{--ldr-r:calc(120vmax + 160px)}}\n.ldr-bg{-webkit-mask-image:radial-gradient(circle at 50% 46%,transparent calc(var(--ldr-r) - 160px),#000 var(--ldr-r));mask-image:radial-gradient(circle at 50% 46%,transparent calc(var(--ldr-r) - 160px),#000 var(--ldr-r));animation:ldrReveal 3.6s cubic-bezier(.5,0,.3,1) both}\n@supports not (mask-image:radial-gradient(circle,#000,#000)){.ldr-bg{animation:ldrFade 3.6s linear both}}",
                             '/* Backdrop reveal: a growing hole whose solid surround is a box-shadow. Avoids animating a\n   custom property inside a mask, which mobile Safari renders as fully transparent. */\n@keyframes ldrHole{0%,80%{width:0;height:0}100%{width:300vmax;height:300vmax}}\n.ldr-bg{right:auto!important;bottom:auto!important;left:50%!important;top:46%!important;width:0;height:0;border-radius:50%;transform:translate(-50%,-50%);background:radial-gradient(closest-side,rgba(207,234,250,0) 70%,#cfeafa 100%)!important;box-shadow:0 0 0 150vmax #cfeafa;animation:ldrHole 3.6s cubic-bezier(.5,0,.3,1) both}', 1)
 # Let the dialogue box grow for long lines instead of clipping the Next button.
+# Opening animation, reworked with the basic motion principles: the seed falls under gravity,
+# squashes and bounces; the can arcs in, tips back before pouring and overshoots on the way back;
+# drops stretch as they fall; the sprout squashes up, overshoots and settles; the bloom pops and settles.
+LOADER_MOTION = {
+    '@keyframes ldrSeed{': '@keyframes ldrSeed{0%{transform:translateY(-40px) scale(.9,1.15);opacity:0;animation-timing-function:cubic-bezier(.55,0,1,.45)}6%{opacity:1}22%{transform:translateY(160px) scale(1.25,.72);animation-timing-function:cubic-bezier(.2,.8,.4,1)}27%{transform:translateY(149px) scale(.94,1.08);animation-timing-function:cubic-bezier(.55,0,1,.45)}32%{transform:translateY(160px) scale(1.12,.88);animation-timing-function:ease-out}36%{transform:translateY(160px)}42%{transform:translateY(168px);opacity:1}56%,100%{transform:translateY(168px);opacity:0}}',
+    '@keyframes ldrCan{': '@keyframes ldrCan{0%,36%{transform:translate(80px,-16px);opacity:0;animation-timing-function:cubic-bezier(.2,.8,.4,1)}40%{transform:translate(34px,-14px);opacity:1;animation-timing-function:cubic-bezier(.3,0,.3,1)}44%{transform:none;opacity:1;animation-timing-function:ease-in-out}48%{transform:rotate(7deg)}54%,72%{transform:rotate(-32deg);animation-timing-function:cubic-bezier(.3,0,.2,1)}78%{transform:rotate(6deg);animation-timing-function:ease-in-out}83%{transform:rotate(0);opacity:1;animation-timing-function:cubic-bezier(.55,0,1,.45)}92%,100%{transform:translateX(80px);opacity:0}}',
+    '@keyframes ldrDrop{': '@keyframes ldrDrop{0%{transform:translateY(0) scale(.9,1);opacity:0}15%{opacity:1}100%{transform:translateY(56px) scale(.75,1.45);opacity:0}}',
+    '@keyframes ldrSprout{': '@keyframes ldrSprout{0%,54%{transform:scale(0);animation-timing-function:cubic-bezier(.2,.8,.4,1)}60%{transform:scale(.55,.3);animation-timing-function:cubic-bezier(.3,0,.4,1)}67%{transform:scale(.62,.9);animation-timing-function:cubic-bezier(.2,.8,.4,1)}73%{transform:scale(1.06,1.12);animation-timing-function:ease-in-out}79%{transform:scale(.97,.95)}84%,100%{transform:scale(1)}}',
+    '@keyframes ldrBloom{': '@keyframes ldrBloom{0%,80%{transform:scale(0);opacity:0;animation-timing-function:cubic-bezier(.2,.8,.4,1)}86%{transform:scale(1.3);opacity:1;animation-timing-function:ease-in-out}90%{transform:scale(.9);opacity:1}94%{transform:scale(1.05)}97%,100%{transform:scale(1);opacity:1}}',
+}
+_lines = site_css.split('\n')
+for _i, _l in enumerate(_lines):
+    for _k, _v in LOADER_MOTION.items():
+        if _l.startswith(_k):
+            _lines[_i] = _v
+site_css = '\n'.join(_lines)
+assert all(v in site_css for v in LOADER_MOTION.values())
 site_css = site_css.replace('.dlg{height:192px;', '.dlg{min-height:192px;', 1)
 site_css = site_css.replace('@media (max-width:760px){.dlg{height:240px}', '@media (max-width:760px){.dlg{min-height:240px}', 1)
 site_css += ('\n\n/* Dialogue: the box grows to fit long lines; a hidden copy of the full line reserves the space\n'
              '   before it finishes typing, so the box never resizes mid-sentence. */\n'
              '.dlg-text>p{display:grid}.dlg-ghost,.dlg-shown{grid-area:1/1}.dlg-ghost{visibility:hidden}\n')
+site_css += ('\n/* Opening: squash and stretch from the base; drops fall under gravity */\n'
+             '.ldr-seed{transform-origin:50% 100%}.ldr-drop{animation-timing-function:cubic-bezier(.55,0,1,.45)}\n')
 site_css += '\n/* Elements toggled by the page scripts */\n[hidden]{display:none!important}\n'
 open(os.path.join(OUT, 'css', 'site.css'), 'w').write(site_css)
 open(os.path.join(OUT, 'css', 'case-study.css'), 'w').write(
