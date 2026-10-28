@@ -110,11 +110,57 @@
   document.addEventListener('mouseover', highlight);
   document.addEventListener('focusin', highlight);
 
-  // looping prototype recordings stay still for visitors who prefer reduced motion
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    document.querySelectorAll('video[autoplay]').forEach(function (v) {
-      v.removeAttribute('autoplay');
-      v.pause();
+  // Prototype recordings: story captions follow the clip, it plays from the start when it
+  // scrolls into view and pauses when it leaves. Reduced-motion visitors press play themselves.
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.querySelectorAll('.cs-reel').forEach(function (reel) {
+    var video = reel.querySelector('video');
+    var cap = reel.querySelector('.cs-reel-cap');
+    var btn = reel.querySelector('.cs-reel-toggle');
+    var bar = reel.querySelector('.cs-reel-progress i');
+    var cues = reel.dataset.captions.split(';').map(function (c) {
+      var p = c.split('|');
+      return { t: +p[0], text: p[1] };
     });
-  }
+    var shown = null, userPaused = reduceMotion;
+
+    function caption() {
+      var text = cues[0].text;
+      cues.forEach(function (c) { if (video.currentTime >= c.t) text = c.text; });
+      if (video.duration) bar.style.width = (video.currentTime / video.duration * 100) + '%';
+      if (text === shown) return;
+      shown = text;
+      cap.classList.remove('on');
+      void cap.offsetWidth;
+      cap.textContent = text;
+      cap.classList.add('on');
+    }
+    function sync() {
+      var playing = !video.paused;
+      btn.setAttribute('aria-pressed', playing ? 'true' : 'false');
+      btn.setAttribute('aria-label', playing ? 'Pause recording' : 'Play recording');
+    }
+    video.addEventListener('timeupdate', caption);
+    video.addEventListener('seeked', caption);
+    video.addEventListener('play', sync);
+    video.addEventListener('pause', sync);
+    btn.addEventListener('click', function () {
+      userPaused = !video.paused;
+      if (userPaused) video.pause(); else video.play();
+    });
+    caption();
+    sync();
+
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (entries) {
+        if (entries[0].isIntersecting) {
+          if (!userPaused && video.paused) { video.currentTime = 0; video.play().catch(function () {}); }
+        } else if (!video.paused) {
+          video.pause();
+        }
+      }, { threshold: 0.5 }).observe(reel);
+    } else if (!userPaused) {
+      video.play().catch(function () {});
+    }
+  });
 })();
