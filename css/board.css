@@ -37,6 +37,8 @@
 
 /* pixel stickers: no paper or pin, just the die-cut sticker; they peel up a little when picked up */
 .bb-stk{width:7.5cqw;min-width:44px;padding:0;background:none;box-shadow:none;filter:drop-shadow(0 calc(2px + var(--lift) * 8px) calc(2px + var(--lift) * 8px) #3a1f1755);transition:transform .35s cubic-bezier(.3,1.5,.5,1),filter .3s ease}
+.bb-stk.lg{width:9.5cqw}
+.bb-stk.xl{width:13cqw}
 .bb-stk img{display:block;width:100%;height:auto;image-rendering:pixelated}
 .bb-stk.is-held{transform:rotate(-6deg) scale(1.15)}
 .bb-stk:hover{transform:rotate(var(--r)) scale(1.06)}
@@ -76,5 +78,7 @@
   .bb-cover{width:18cqw}
   .bb-polaroid{width:34cqw;padding:2.5cqw 2.5cqw 3cqw}
   .bb-stk{width:15cqw}
+  .bb-stk.lg{width:19cqw}
+  .bb-stk.xl{width:26cqw}
 }
 @media (prefers-reduced-motion:reduce){.bb-note{transition:none}.bb-note.is-dropped{animation:none}.bb-cover{animation:none!important}}

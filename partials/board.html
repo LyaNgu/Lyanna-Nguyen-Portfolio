@@ -1,4 +1,4 @@
-  <!-- TOWN BULLETIN BOARD: photo stickers, pixel stickers and a mini music player of Lyanna's
+  <!-- TOWN BULLETIN BOARD: pixel stickers, two photo stickers and a mini music player of Lyanna's
        hobbies and interests, with almost no words (no links, just for fun). Each note can be
        picked up and re-pinned (js/board.js, css/board.css). Inserted into index.html by
        tools/convert_export.py; positions are % of the board, --x/--y wide and --mx/--my narrow. -->
@@ -13,30 +13,31 @@
         <p id="bb-help" class="bb-sr">Each sticker can be moved: drag it, or focus it and use the arrow keys.</p>
         <div class="bb-board" aria-describedby="bb-help">
 
-          <article class="bb-note bb-pic round" tabindex="0" aria-roledescription="movable sticker" aria-label="Photo: hiking with friends at a mountain lake" style="--x:2%;--y:4%;--r:-4deg;--mx:2%;--my:1%"><img src="assets/images/lyanna-and-friends-on-the-granite.jpg" alt="" loading="lazy" style="object-position:50% 40%"></article>
-          <article class="bb-note bb-player" tabindex="0" aria-roledescription="movable sticker" aria-label="Now playing: Tweak by GIRLSET" style="--x:22%;--y:6%;--r:2deg;--mx:38%;--my:3%">
+          <article class="bb-note bb-pic round" tabindex="0" aria-roledescription="movable sticker" aria-label="Photo: hiking with friends at a mountain lake" style="--x:3%;--y:5%;--r:-4deg;--mx:3%;--my:1%"><img src="assets/images/lyanna-and-friends-on-the-granite.jpg" alt="" loading="lazy" style="object-position:50% 40%"></article>
+          <article class="bb-note bb-player" tabindex="0" aria-roledescription="movable sticker" aria-label="Now playing: Tweak by GIRLSET" style="--x:22%;--y:6%;--r:2deg;--mx:40%;--my:3%">
             <span class="bb-cover" aria-hidden="true"></span>
             <span class="bb-track"><b>Tweak</b><small>GIRLSET</small><span class="bb-ctrl" aria-hidden="true">◂◂ &#10073;&#10073; ▸▸</span></span>
           </article>
-          <article class="bb-note bb-pic round" tabindex="0" aria-roledescription="movable sticker" aria-label="Photo: Swiss Alps" style="--x:57%;--y:3%;--r:5deg;--mx:60%;--my:19%"><img src="assets/images/lyanna-looking-out-at-snowy-swiss.jpg" alt="" loading="lazy" style="object-position:50% 30%"></article>
-          <article class="bb-note bb-pic tall" tabindex="0" aria-roledescription="movable sticker" aria-label="Photo: giant black cat plush at a Studio Ghibli pop-up" style="--x:4%;--y:47%;--r:-6deg;--mx:4%;--my:22%"><img src="assets/images/a-giant-black-cat-plush-with.jpg" alt="" loading="lazy" style="object-position:50% 40%"></article>
-          <article class="bb-note bb-pic round" tabindex="0" aria-roledescription="movable sticker" aria-label="Photo: Vaporeon plush at the Nintendo store" style="--x:80%;--y:28%;--r:-3deg;--mx:52%;--my:37%"><img src="assets/images/lyanna-holding-a-vaporeon-plush-in.jpg" alt="" loading="lazy" style="object-position:50% 35%"></article>
-          <article class="bb-note bb-pic square" tabindex="0" aria-roledescription="movable sticker" aria-label="Photo: crêpe in Paris" style="--x:40%;--y:44%;--r:4deg;--mx:6%;--my:45.5%"><img src="assets/images/a-crepe-with-chocolate-drizzle-sliced.jpg" alt="" loading="lazy" style="object-position:50% 40%"></article>
-          <article class="bb-note bb-pic round sm" tabindex="0" aria-roledescription="movable sticker" aria-label="Photo: hedgehog-cut mango dessert" style="--x:60%;--y:57%;--r:-5deg;--mx:56%;--my:58%"><img src="assets/images/a-hedgehog-cut-mango-with-a.jpg" alt="" loading="lazy" style="object-position:50% 40%"></article>
-          <article class="bb-note bb-pic square" tabindex="0" aria-roledescription="movable sticker" aria-label="Photo: iced drinks at a café" style="--x:76%;--y:62%;--r:6deg;--mx:10%;--my:66%"><img src="assets/images/four-iced-drinks-with-pun-filled.jpg" alt="" loading="lazy" style="object-position:50% 40%"></article>
-          <article class="bb-note bb-polaroid bb-pond" tabindex="0" aria-roledescription="movable sticker" aria-label="Polaroid: gone fishing" style="--x:22%;--y:55%;--r:-3deg;--mx:54%;--my:78%">
+          <article class="bb-note bb-pic round sm" tabindex="0" aria-roledescription="movable sticker" aria-label="Photo: Swiss Alps" style="--x:62%;--y:4%;--r:5deg;--mx:62%;--my:19%"><img src="assets/images/lyanna-looking-out-at-snowy-swiss.jpg" alt="" loading="lazy" style="object-position:50% 30%"></article>
+          <article class="bb-note bb-stk xl" tabindex="0" aria-roledescription="movable sticker" aria-label="Sticker: ribbon fox" style="--x:30%;--y:42%;--r:-6deg;--mx:34%;--my:40%"><img src="assets/images/sticker-fox.svg" alt=""></article>
+          <article class="bb-note bb-polaroid bb-pond" tabindex="0" aria-roledescription="movable sticker" aria-label="Polaroid: gone fishing" style="--x:4%;--y:50%;--r:-3deg;--mx:58%;--my:76%">
             <span class="bb-photo bb-scene" aria-hidden="true"><img class="px" src="assets/images/lyannas-chibi-happily-holding-a-fishing.png" alt=""></span>
             <b>gone fishin'</b>
           </article>
-          <article class="bb-note bb-stk" tabindex="0" aria-roledescription="movable sticker" aria-label="Sticker: latte with heart art" style="--x:78%;--y:5%;--r:-8deg;--mx:82%;--my:16%"><img src="assets/images/sticker-latte.svg" alt=""></article>
-          <article class="bb-note bb-stk" tabindex="0" aria-roledescription="movable sticker" aria-label="Sticker: microphone, for singing" style="--x:48%;--y:8%;--r:8deg;--mx:30%;--my:18%"><img src="assets/images/sticker-mic.svg" alt=""></article>
-          <article class="bb-note bb-stk" tabindex="0" aria-roledescription="movable sticker" aria-label="Sticker: music notes" style="--x:49%;--y:33%;--r:-6deg;--mx:85%;--my:4%"><img src="assets/images/sticker-notes.svg" alt=""></article>
-          <article class="bb-note bb-stk" tabindex="0" aria-roledescription="movable sticker" aria-label="Sticker: handheld game console" style="--x:71%;--y:37%;--r:7deg;--mx:82%;--my:47%"><img src="assets/images/sticker-handheld.svg" alt=""></article>
-          <article class="bb-note bb-stk" tabindex="0" aria-roledescription="movable sticker" aria-label="Sticker: camera" style="--x:23%;--y:36%;--r:-7deg;--mx:36%;--my:40%"><img src="assets/images/sticker-camera.svg" alt=""></article>
-          <article class="bb-note bb-stk" tabindex="0" aria-roledescription="movable sticker" aria-label="Sticker: ice cream cone" style="--x:55%;--y:78%;--r:10deg;--mx:40%;--my:62%"><img src="assets/images/sticker-cone.svg" alt=""></article>
-          <article class="bb-note bb-stk" tabindex="0" aria-roledescription="movable sticker" aria-label="Sticker: paintbrush, for digital art" style="--x:90%;--y:52%;--r:-12deg;--mx:80%;--my:72%"><img src="assets/images/sticker-brush.svg" alt=""></article>
-          <article class="bb-note bb-stk" tabindex="0" aria-roledescription="movable sticker" aria-label="Sticker: salmon sushi" style="--x:39%;--y:85%;--r:4deg;--mx:6%;--my:86%"><img src="assets/images/sticker-sushi.svg" alt=""></article>
-          <article class="bb-note bb-stk" tabindex="0" aria-roledescription="movable sticker" aria-label="Sticker: snowy mountains" style="--x:89%;--y:86%;--r:-5deg;--mx:32%;--my:90%"><img src="assets/images/sticker-alps.svg" alt=""></article>
+          <article class="bb-note bb-stk" tabindex="0" aria-roledescription="movable sticker" aria-label="Sticker: microphone, for singing" style="--x:52%;--y:9%;--r:8deg;--mx:6%;--my:20%"><img src="assets/images/sticker-mic.svg" alt=""></article>
+          <article class="bb-note bb-stk" tabindex="0" aria-roledescription="movable sticker" aria-label="Sticker: latte with heart art" style="--x:78%;--y:6%;--r:-8deg;--mx:30%;--my:22%"><img src="assets/images/sticker-latte.svg" alt=""></article>
+          <article class="bb-note bb-stk" tabindex="0" aria-roledescription="movable sticker" aria-label="Sticker: headphones" style="--x:89%;--y:16%;--r:6deg;--mx:80%;--my:33%"><img src="assets/images/sticker-headphones.svg" alt=""></article>
+          <article class="bb-note bb-stk" tabindex="0" aria-roledescription="movable sticker" aria-label="Sticker: camera" style="--x:21%;--y:36%;--r:-7deg;--mx:6%;--my:37%"><img src="assets/images/sticker-camera.svg" alt=""></article>
+          <article class="bb-note bb-stk" tabindex="0" aria-roledescription="movable sticker" aria-label="Sticker: music notes" style="--x:47%;--y:38%;--r:-6deg;--mx:44%;--my:14%"><img src="assets/images/sticker-notes.svg" alt=""></article>
+          <article class="bb-note bb-stk" tabindex="0" aria-roledescription="movable sticker" aria-label="Sticker: bubble tea" style="--x:57%;--y:40%;--r:7deg;--mx:8%;--my:56%"><img src="assets/images/sticker-boba.svg" alt=""></article>
+          <article class="bb-note bb-stk" tabindex="0" aria-roledescription="movable sticker" aria-label="Sticker: handheld game console" style="--x:69%;--y:34%;--r:7deg;--mx:58%;--my:46%"><img src="assets/images/sticker-handheld.svg" alt=""></article>
+          <article class="bb-note bb-stk lg" tabindex="0" aria-roledescription="movable sticker" aria-label="Sticker: black cat with a red bow" style="--x:80%;--y:38%;--r:-5deg;--mx:80%;--my:52%"><img src="assets/images/sticker-cat.svg" alt=""></article>
+          <article class="bb-note bb-stk lg" tabindex="0" aria-roledescription="movable sticker" aria-label="Sticker: ticket stub, for pop-up events" style="--x:21%;--y:73%;--r:-8deg;--mx:32%;--my:63%"><img src="assets/images/sticker-ticket.svg" alt=""></article>
+          <article class="bb-note bb-stk lg" tabindex="0" aria-roledescription="movable sticker" aria-label="Sticker: crêpe" style="--x:38%;--y:76%;--r:5deg;--mx:6%;--my:70%"><img src="assets/images/sticker-crepe.svg" alt=""></article>
+          <article class="bb-note bb-stk" tabindex="0" aria-roledescription="movable sticker" aria-label="Sticker: ice cream cone" style="--x:51%;--y:70%;--r:10deg;--mx:62%;--my:64%"><img src="assets/images/sticker-cone.svg" alt=""></article>
+          <article class="bb-note bb-stk" tabindex="0" aria-roledescription="movable sticker" aria-label="Sticker: salmon sushi" style="--x:61%;--y:84%;--r:4deg;--mx:34%;--my:84%"><img src="assets/images/sticker-sushi.svg" alt=""></article>
+          <article class="bb-note bb-stk" tabindex="0" aria-roledescription="movable sticker" aria-label="Sticker: paintbrush, for digital art" style="--x:71%;--y:63%;--r:-12deg;--mx:8%;--my:86%"><img src="assets/images/sticker-brush.svg" alt=""></article>
+          <article class="bb-note bb-stk lg" tabindex="0" aria-roledescription="movable sticker" aria-label="Sticker: suitcase, for travel" style="--x:83%;--y:72%;--r:6deg;--mx:82%;--my:72%"><img src="assets/images/sticker-suitcase.svg" alt=""></article>
 
         </div>
         <button type="button" class="bb-tidy">Tidy up the board</button>

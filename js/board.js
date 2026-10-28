@@ -8,7 +8,7 @@
   var notes = Array.prototype.slice.call(board.querySelectorAll('.bb-note'));
   var tidy = document.querySelector('.bb-tidy');
   var narrow = window.matchMedia('(max-width: 700px)');
-  var KEY = 'ln_board_v4';   // bump when the default layout changes
+  var KEY = 'ln_board_v5';   // bump when the default layout changes
   var top = 10;
 
   function load() {
