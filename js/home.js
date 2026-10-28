@@ -33,7 +33,8 @@
   var doorPanel = house.querySelector('.doorpanel');
   var girl = house.querySelector('.greetgirl .emerge > div');
   var typedEl = document.querySelector('.dlg-typed');
-  var ghostEl = document.querySelector('.dlg-ghost');   // invisible full line that sizes the box up front
+  var ghostEl = document.querySelector('.dlg-ghost');   // invisible longest line: every line gets the same box size
+  var LONGEST = LINES.reduce(function (a, b) { return b.length > a.length ? b : a; });
 
   var phase = 'idle';   // idle → knocking → open → greet
   var line = 0;
@@ -62,7 +63,27 @@
     Site.show('dialog-next', greeted && !(lastLine && typedDone));
     Site.show('dialog-choices', greeted && lastLine && typedDone);
     typedEl.textContent = text.slice(0, Math.min(chars, text.length));
-    ghostEl.textContent = text + '\u258C';
+    ghostEl.textContent = LONGEST + '\u258C';
+    if (greeted) reserveFooter();
+  }
+
+  // The last line swaps Next for two buttons; reserve their height on every line so the box never resizes
+  var footer = document.querySelector('.dlg-text > div');
+  var choices = document.querySelectorAll('[data-show="dialog-choices"]');
+  var nextBtn = document.querySelector('[data-show="dialog-next"]');
+  function reserveFooter() {
+    var was = Array.prototype.map.call(choices, function (el) { return el.hidden; });
+    var nextWas = nextBtn.hidden;
+    footer.style.minHeight = '';
+    nextBtn.hidden = true;
+    choices.forEach(function (el) { el.hidden = false; });
+    var withChoices = footer.offsetHeight;
+    nextBtn.hidden = false;
+    choices.forEach(function (el) { el.hidden = true; });
+    var withNext = footer.offsetHeight;
+    nextBtn.hidden = nextWas;
+    choices.forEach(function (el, i) { el.hidden = was[i]; });
+    footer.style.minHeight = Math.max(withChoices, withNext) + 'px';
   }
 
   function type() {
