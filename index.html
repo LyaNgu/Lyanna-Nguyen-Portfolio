@@ -185,35 +185,34 @@
   </div>
 
 
-  <!-- TOWN BULLETIN BOARD: notes about Lyanna's roles, hobbies and interests. Each note can be
+  <!-- TOWN BULLETIN BOARD: notes about Lyanna's hobbies and interests (no links, just for fun). Each note can be
        picked up and re-pinned (js/board.js, css/board.css). Inserted into index.html by
        tools/convert_export.py; positions are % of the board, --x/--y wide and --mx/--my narrow. -->
   <div class="bb-wrap">
     <section id="board" data-area="board" class="bb-sec" aria-labelledby="bb-title">
       <div class="rv bb-head">
         <h2 id="bb-title"><span aria-hidden="true"><img class="px" src="assets/images/icon-sprout.svg" width="40" height="40" alt=""></span>Town bulletin board</h2>
-        <p>What I'm up to lately. Pick up a note and pin it anywhere!</p>
+        <p>A few of my favorite things. Pick up a note and pin it anywhere!</p>
       </div>
 
       <div class="rv bb-frame">
-        <p id="bb-help" class="bb-sr">Each note can be moved: drag it, or focus it and use the arrow keys. Links inside notes still open as usual.</p>
+        <p id="bb-help" class="bb-sr">Each note can be moved: drag it, or focus it and use the arrow keys.</p>
         <div class="bb-board" aria-describedby="bb-help">
 
-          <article class="bb-note bb-poster" tabindex="0" aria-roledescription="movable note" aria-label="Now: UI/UX Design Director at HackDavis" style="--x:3%;--y:6%;--r:-3deg;--mx:3%;--my:1%">
+          <article class="bb-note bb-poster" tabindex="0" aria-roledescription="movable note" aria-label="Sing-along hours" style="--x:3%;--y:6%;--r:-3deg;--mx:3%;--my:1%">
             <i class="bb-pin red" aria-hidden="true"></i>
-            <span class="bb-kicker">Now</span>
-            <b>UI/UX Design Director</b>
-            <span>@ HackDavis</span>
-            <small>Designing for a 750+ attendee hackathon.</small>
+            <span class="bb-kicker">Daily ritual</span>
+            <b>Sing-along hours</b>
+            <small>Belting whatever song is stuck in my head this week.</small>
           </article>
 
-          <article class="bb-note bb-lost" tabindex="0" aria-roledescription="movable note" aria-label="Lost: one crochet dino" style="--x:27%;--y:4%;--r:2deg;--mx:51%;--my:1%">
+          <article class="bb-note bb-lost" tabindex="0" aria-roledescription="movable note" aria-label="Lost: one Vaporeon plush, just kidding" style="--x:27%;--y:4%;--r:2deg;--mx:51%;--my:1%">
             <i class="bb-pin blue" aria-hidden="true"></i>
             <span class="bb-kicker">Lost!</span>
-            <img class="bb-dino" src="assets/images/sticker-triceratops-yellow.png" alt="" width="56" height="56">
-            <b>1 crochet dino</b>
-            <small>Last seen in a 41-channel Discord.</small>
-            <span class="bb-tabs"><a href="triceratops.html">See case study</a><a href="triceratops.html" tabindex="-1">See case study</a><a href="triceratops.html" tabindex="-1">See case study</a></span>
+            <span class="bb-snap"><img src="assets/images/lyanna-holding-a-vaporeon-plush-in.jpg" alt="Lyanna holding a Vaporeon plush in a Nintendo store" loading="lazy"></span>
+            <b>1 Vaporeon plush</b>
+            <small>Just kidding, it came home with me.</small>
+            <span class="bb-tabs" aria-hidden="true"><span>Pokémon fan</span><span>Pokémon fan</span><span>Pokémon fan</span></span>
           </article>
 
           <article class="bb-note bb-punch" tabindex="0" aria-roledescription="movable note" aria-label="Café hopping punch card" style="--x:52%;--y:7%;--r:-2deg;--mx:3%;--my:25%">
@@ -229,7 +228,7 @@
             <span class="bb-vinyl" aria-hidden="true"></span>
             <span class="bb-kicker">Now playing</span>
             <b>Songs on repeat</b>
-            <a href="about.html">Have a listen ▸</a>
+            <small>Absolute music lover.</small>
           </article>
 
           <article class="bb-note bb-polaroid" tabindex="0" aria-roledescription="movable note" aria-label="Pop-up event hunter" style="--x:5%;--y:52%;--r:3deg;--mx:3%;--my:49%">
@@ -238,25 +237,26 @@
             <b>Pop-up event hunter</b>
           </article>
 
-          <article class="bb-note bb-sticky" tabindex="0" aria-roledescription="movable note" aria-label="Studying Cognitive Science at UC Davis" style="--x:28%;--y:58%;--r:-3deg;--mx:51%;--my:50%">
+          <article class="bb-note bb-sticky" tabindex="0" aria-roledescription="movable note" aria-label="Foodie notes" style="--x:28%;--y:58%;--r:-3deg;--mx:51%;--my:50%">
             <i class="bb-pin green" aria-hidden="true"></i>
-            <span class="bb-kicker">Studying</span>
-            <b>Cognitive Science B.S.</b>
-            <span>UC Davis · Product Design</span>
+            <span class="bb-kicker">Foodie notes</span>
+            <b>Will travel for dessert</b>
+            <span>Shaking beef, sushi platters &amp; hedgehog-cut mango.</span>
           </article>
 
           <article class="bb-note bb-sketch" tabindex="0" aria-roledescription="movable note" aria-label="Doodle corner: digital art" style="--x:53%;--y:55%;--r:2deg;--mx:3%;--my:77%">
             <i class="bb-pin red" aria-hidden="true"></i>
             <span class="bb-kicker">Doodle corner</span>
             <b>Digital art &amp; illustration</b>
-            <a href="garden.html">Visit the Design Garden ▸</a>
+            <small>Usually mid-piece on something new.</small>
           </article>
 
-          <article class="bb-note bb-letter" tabindex="0" aria-roledescription="movable note" aria-label="Say hi" style="--x:78%;--y:58%;--r:-2deg;--mx:51%;--my:76%">
+          <article class="bb-note bb-letter" tabindex="0" aria-roledescription="movable note" aria-label="Postcard: Swiss Alps and Paris" style="--x:78%;--y:58%;--r:-2deg;--mx:51%;--my:76%">
             <i class="bb-pin yellow" aria-hidden="true"></i>
-            <img class="px" src="assets/images/icon-letter.svg" alt="" width="32" height="32">
-            <b>Say hi!</b>
-            <a href="mailto:lyannanguyen21@gmail.com">Send a letter ▸</a>
+            <span class="bb-stamp" aria-hidden="true"><img class="px" src="assets/images/icon-heart.svg" alt="" width="20" height="20"></span>
+            <span class="bb-kicker">Postcard</span>
+            <b>Wish you were here!</b>
+            <small>Swiss Alps hikes &amp; Paris crêpes.</small>
           </article>
 
         </div>

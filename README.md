@@ -24,7 +24,7 @@ css/board.css        town bulletin board on the home page
 css/cs-components.css  hand-written case-study blocks (stat row, options, annotations, placeholders)
 js/site.js           shared helpers: data-show toggles, data-action clicks, scroll reveals
 js/home.js           opening animation, door knock + dialogue, fireflies
-js/board.js          bulletin board: drag or arrow-key notes to re-pin them
+js/board.js          bulletin board: drag or arrow-key hobby notes to re-pin them
 partials/board.html  bulletin board notes, inserted into index.html by the converter
 js/about.js          song previews (Spotify embeds)
 js/garden.js         gallery filter tabs

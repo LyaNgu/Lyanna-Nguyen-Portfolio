@@ -27,7 +27,6 @@
   transition:transform .35s cubic-bezier(.3,1.5,.5,1),box-shadow .3s ease}
 .bb-note b{font-family:var(--font-display);font-size:max(13px,1.55cqw);line-height:1.15;font-weight:700}
 .bb-note small{font-size:max(10px,1.1cqw);color:var(--ink-muted)}
-.bb-note a{font-weight:800;color:var(--accent-text);text-decoration:underline;text-underline-offset:3px}
 .bb-kicker{font-family:var(--font-pixel);font-size:max(12px,1.35cqw);line-height:1;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-muted)}
 .bb-note:focus-visible{outline:3px solid var(--focus);outline-offset:4px}
 .bb-note img{pointer-events:none;-webkit-user-drag:none}
@@ -48,17 +47,18 @@
 .bb-poster{background:#fde7b4;border-top:1cqw solid var(--accent-text)}
 .bb-lost{background:#fffef6;align-items:center;text-align:center;padding-bottom:0;width:18cqw}
 .bb-lost .bb-kicker{font-size:max(16px,2.2cqw);color:#c0392b}
-.bb-dino{width:5cqw;height:auto}
+.bb-snap{display:block;width:7cqw;aspect-ratio:1;border-radius:50%;overflow:hidden;box-shadow:0 0 0 2px var(--surface-sunken)}
+.bb-snap img{display:block;width:100%;height:100%;object-fit:cover}
 .bb-tabs{display:flex;width:calc(100% + 3.2cqw);margin:1cqw -1.6cqw 0;border-top:2px dashed var(--surface-sunken)}
-.bb-tabs a{flex:1;padding:.8cqw .3cqw;font-size:max(8px,.85cqw);font-weight:700;line-height:1.2;writing-mode:vertical-rl;transform:rotate(180deg);height:8cqw;border-right:2px dashed var(--surface-sunken);text-decoration:none;color:var(--ink-muted)}
-.bb-tabs a:last-child{border-right:0}
+.bb-tabs span{flex:1;padding:.8cqw .3cqw;font-size:max(8px,.85cqw);font-weight:700;line-height:1.2;writing-mode:vertical-rl;transform:rotate(180deg);height:8cqw;border-right:2px dashed var(--surface-sunken);text-decoration:none;color:var(--ink-muted)}
+.bb-tabs span:last-child{border-right:0}
 .bb-punch{background:#f6d9e2}
 .bb-holes{display:flex;gap:.8cqw;margin:.4cqw 0}
 .bb-holes i{width:1.8cqw;height:1.8cqw;min-width:12px;min-height:12px;border-radius:50%;box-shadow:inset 0 0 0 2px #c27383}
 .bb-holes i.on{background:#c99a62;box-shadow:inset 0 2px 2px #0004}
 .bb-record{background:#1f2433;color:#f4ecdc;padding-left:9cqw;width:22cqw;min-height:10cqw;justify-content:center}
 .bb-record .bb-kicker{color:#cfc6b4}
-.bb-record a{color:#f0b54a}
+.bb-record small{color:#cfc6b4}
 .bb-vinyl{position:absolute;left:1.2cqw;top:50%;width:7cqw;height:7cqw;margin-top:-3.5cqw;border-radius:50%;background:radial-gradient(circle,#f0b54a 0 16%,#111 17% 20%,#222 21% 100%);box-shadow:inset 0 0 0 .6cqw #2c2c2c}
 .bb-note.bb-record:hover .bb-vinyl,.bb-record.is-held .bb-vinyl{animation:bbSpin 2.4s linear infinite}
 @keyframes bbSpin{to{transform:rotate(360deg)}}
@@ -67,8 +67,10 @@
 .bb-photo img{display:block;width:100%;height:100%;object-fit:cover}
 .bb-sticky{background:#fff3a6;box-shadow:0 2px 3px #3a1f1740,inset 0 -1.2cqw 1.2cqw -1cqw #0000000f}
 .bb-sketch{background:#f7fbff;background-image:linear-gradient(#cfe3f2 1px,transparent 1px);background-size:100% 1.8cqw}
-.bb-letter{background:#fbeede;align-items:center;text-align:center;width:16cqw}
-.bb-letter img{width:3.2cqw;height:auto;image-rendering:pixelated}
+.bb-letter{background:#fbeede;width:18cqw}
+.bb-letter{position:relative;padding-right:5.5cqw}
+.bb-stamp{position:absolute;right:1.2cqw;top:1.2cqw;display:grid;place-items:center;width:3.4cqw;height:4cqw;min-width:24px;min-height:28px;background:#a9cfdc;outline:2px dotted #fff;outline-offset:-3px;transform:rotate(6deg)}
+.bb-stamp img{width:60%;height:auto;image-rendering:pixelated}
 
 @media (max-width:700px){
   .bb-board{aspect-ratio:9/16}
@@ -76,12 +78,12 @@
   .bb-note b{font-size:max(13px,3.6cqw)}
   .bb-kicker{font-size:max(12px,3cqw)}
   .bb-pin{width:4cqw;height:4cqw;margin-left:-2cqw;top:-1.4cqw}
-  .bb-lost{width:44cqw}.bb-dino{width:9cqw}.bb-tabs{display:none}
+  .bb-lost{width:44cqw}.bb-snap{width:14cqw}.bb-tabs{display:none}
   .bb-record{padding-left:17cqw;width:44cqw;min-height:22cqw}
   .bb-vinyl{width:13cqw;height:13cqw;margin-top:-6.5cqw;left:2cqw}
   .bb-polaroid{width:40cqw;padding:2.5cqw 2.5cqw 3cqw}
   .bb-photo{aspect-ratio:4/3}
-  .bb-letter{width:40cqw}.bb-letter img{width:7cqw}
+  .bb-letter{width:40cqw;padding-right:11cqw}.bb-stamp{width:8cqw;height:9cqw}
   .bb-holes i{width:4cqw;height:4cqw}
 }
 @media (prefers-reduced-motion:reduce){.bb-note,.bb-pin{transition:none}.bb-note.is-dropped,.bb-note.is-dropped .bb-pin{animation:none}.bb-vinyl{animation:none!important}}

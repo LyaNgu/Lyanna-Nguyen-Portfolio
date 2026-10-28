@@ -1,6 +1,5 @@
 /* Town bulletin board: pick up a note (drag, or arrow keys when focused) and pin it anywhere.
-   A short press still follows links inside notes; only a real drag moves a note. Positions are
-   remembered per visitor in localStorage, and "Tidy up" puts everything back. */
+   Positions are remembered per visitor in localStorage, and "Tidy up" puts everything back. */
 (function () {
   'use strict';
 
@@ -77,7 +76,7 @@
       if (!start || e.pointerId !== start.id) return;
       var dx = e.clientX - start.x, dy = e.clientY - start.y;
       if (!dragged) {
-        if (Math.abs(dx) + Math.abs(dy) < 6) return;   // still a click
+        if (Math.abs(dx) + Math.abs(dy) < 6) return;   // ignore tiny jitters
         dragged = true;
         note.setPointerCapture(e.pointerId);
         note.style.zIndex = ++top;
@@ -95,11 +94,6 @@
     }
     note.addEventListener('pointerup', end);
     note.addEventListener('pointercancel', end);
-
-    // a drag that ends over a link should not follow it
-    note.addEventListener('click', function (e) {
-      if (dragged) { e.preventDefault(); dragged = false; }
-    }, true);
 
     // keyboard: arrow keys nudge the focused note (Shift for bigger steps)
     note.addEventListener('keydown', function (e) {
