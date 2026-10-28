@@ -43,6 +43,14 @@
 .bb-note.is-dropped .bb-pin{animation:bbPin .4s cubic-bezier(.3,1.6,.5,1)}
 @keyframes bbPin{0%{transform:translateY(-1.6cqw) scale(1.2);opacity:0}60%{transform:translateY(.2cqw) scale(.9);opacity:1}100%{transform:none}}
 
+/* Lyanna's 8-bit character, tucked onto the corner of a note; she hops when the note is picked up */
+.bb-me{position:absolute;right:-1.2cqw;bottom:-1.2cqw;width:5.2cqw;min-width:34px;height:auto;image-rendering:pixelated;filter:drop-shadow(0 2px 0 #3a1f1740);transition:transform .3s cubic-bezier(.3,1.6,.5,1)}
+.bb-me.peek{bottom:auto;top:1.2cqw;right:-1.6cqw;transform:rotate(12deg)}
+.bb-note:hover .bb-me,.bb-note.is-held .bb-me{transform:translateY(-.8cqw)}
+.bb-note:hover .bb-me.peek,.bb-note.is-held .bb-me.peek{transform:rotate(12deg) translateY(-.8cqw)}
+.bb-notes{position:absolute;right:-.4cqw;bottom:4.8cqw;font-size:max(12px,1.6cqw);color:var(--accent-text);letter-spacing:.3em}
+.bb-poster,.bb-sticky,.bb-sketch,.bb-letter{padding-right:4.6cqw}
+
 /* note styles */
 .bb-poster{background:#fde7b4;border-top:1cqw solid var(--accent-text)}
 .bb-lost{background:#fffef6;align-items:center;text-align:center;padding-bottom:0;width:18cqw}
@@ -85,5 +93,7 @@
   .bb-photo{aspect-ratio:4/3}
   .bb-letter{width:40cqw;padding-right:11cqw}.bb-stamp{width:8cqw;height:9cqw}
   .bb-holes i{width:4cqw;height:4cqw}
+  .bb-me{width:11cqw;right:-2cqw;bottom:-2cqw}.bb-me.peek{top:2cqw;right:-3cqw}.bb-notes{right:-1cqw;bottom:10cqw}
+  .bb-poster,.bb-sticky,.bb-sketch{padding-right:8cqw}
 }
-@media (prefers-reduced-motion:reduce){.bb-note,.bb-pin{transition:none}.bb-note.is-dropped,.bb-note.is-dropped .bb-pin{animation:none}.bb-vinyl{animation:none!important}}
+@media (prefers-reduced-motion:reduce){.bb-note,.bb-pin,.bb-me{transition:none}.bb-note.is-dropped,.bb-note.is-dropped .bb-pin{animation:none}.bb-vinyl{animation:none!important}}
