@@ -158,6 +158,8 @@ a,button,[role=switch],label,.flip,.workcard{cursor:url(../assets/images/cursor-
 /* Dialogue: the box grows to fit long lines; a hidden copy of the full line reserves the space
    before it finishes typing, so the box never resizes mid-sentence. */
 .dlg-text>p{display:grid}.dlg-ghost,.dlg-shown{grid-area:1/1}.dlg-ghost{visibility:hidden}
+/* The portrait keeps one size whatever the line length; only the text box grows */
+.dlg-port{align-self:start}.dlg-port>div:first-child{flex:none!important;height:122px}
 
 /* Opening: squash and stretch from the base; drops fall under gravity */
 .ldr-seed{transform-origin:50% 100%}.ldr-drop{animation-timing-function:cubic-bezier(.55,0,1,.45)}

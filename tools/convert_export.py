@@ -289,7 +289,9 @@ site_css = site_css.replace('.dlg{height:192px;', '.dlg{min-height:192px;', 1)
 site_css = site_css.replace('@media (max-width:760px){.dlg{height:240px}', '@media (max-width:760px){.dlg{min-height:240px}', 1)
 site_css += ('\n\n/* Dialogue: the box grows to fit long lines; a hidden copy of the full line reserves the space\n'
              '   before it finishes typing, so the box never resizes mid-sentence. */\n'
-             '.dlg-text>p{display:grid}.dlg-ghost,.dlg-shown{grid-area:1/1}.dlg-ghost{visibility:hidden}\n')
+             '.dlg-text>p{display:grid}.dlg-ghost,.dlg-shown{grid-area:1/1}.dlg-ghost{visibility:hidden}\n'
+             '/* The portrait keeps one size whatever the line length; only the text box grows */\n'
+             '.dlg-port{align-self:start}.dlg-port>div:first-child{flex:none!important;height:122px}\n')
 site_css += ('\n/* Opening: squash and stretch from the base; drops fall under gravity */\n'
              '.ldr-seed{transform-origin:50% 100%}.ldr-drop{animation-timing-function:cubic-bezier(.55,0,1,.45)}\n')
 site_css += '\n/* Elements toggled by the page scripts */\n[hidden]{display:none!important}\n'
