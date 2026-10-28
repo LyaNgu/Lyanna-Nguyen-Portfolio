@@ -179,7 +179,7 @@ def fix_links(tpl):
     tpl = re.sub(r'href="([\w-]+)\.dc\.html(#[\w-]*)?"', link, tpl)
     # "Works"/"Contact" links on sub pages pointed at the home page top; send them to their sections.
     tpl = re.sub(r'href="index\.html"([^>]*>)Works<', r'href="index.html#work"\1Works<', tpl)
-    tpl = re.sub(r'href="index\.html"([^>]*>)Contact<', r'href="index.html#resume"\1Contact<', tpl)
+    tpl = re.sub(r'href="index\.html"([^>]*>)Contact<', r'href="index.html#contact"\1Contact<', tpl)
     return tpl
 
 def clean(tpl):
@@ -343,9 +343,15 @@ for name, P in PAGES.items():
         assert old in tpl, (name, old)
         tpl = tpl.replace(old, new)
     if name == 'Main':
-        # The resume lives in the PDF; the home page keeps only the contact block and mailbox.
-        tpl, n = re.subn(r'\n *<!-- the postcard \(resume\), landscape -->.*?</article>\n', '\n', tpl, flags=re.S)
+        # No resume section: the resume lives in the PDF (nav Resume button) and the night-time
+        # footer is the contact section, so Contact links and the dialogue point there instead.
+        tpl, n = re.subn(r'\n  <div style="max-width: 1080px; margin: 0 auto; padding: 0 20px;">\n    <!-- STOP 3: THE MAILBOX -->.*?</section>\n  </div>\n', '\n', tpl, flags=re.S)
         assert n == 1
+        tpl = tpl.replace('<footer style="', '<footer id="contact" style="scroll-margin-top: 68px; ', 1)
+        tpl = tpl.replace('href="#resume"', 'href="#contact"')
+        tpl = tpl.replace('<a data-show="dialog-choices" hidden href="#contact" class="pp-btn secondary" data-action="close-dialog">Just the resume</a>',
+                          '<a data-show="dialog-choices" hidden href="assets/files/Lyanna_Nguyen_Resume.pdf" target="_blank" rel="noopener" class="pp-btn secondary" data-action="close-dialog">Just the resume</a>')
+        assert '#resume' not in tpl and 'Lyanna_Nguyen_Resume.pdf" target="_blank" rel="noopener" class="pp-btn secondary"' in tpl
     css = ['css/pixel-pals.css', 'css/site.css'] + (['css/case-study.css'] if name.startswith('CaseStudy') else [])
     title = P['title']
     doc = f'''<!doctype html>

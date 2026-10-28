@@ -1,4 +1,4 @@
-/* Home page: opening animation, knock-on-the-door greeting, mailbox and night-time fireflies. */
+/* Home page: opening animation, knock-on-the-door greeting and night-time fireflies. */
 (function () {
   'use strict';
 
@@ -138,18 +138,6 @@
     next();
   });
   Site.on('close-dialog', reset);   // also used by the "Start the tour" / "Just the resume" links
-
-  /* ---------- Mailbox ---------- */
-  var mailOpen = false;
-  var mailBtn = document.querySelector('.mailbtn');
-  var envelope = document.querySelector('.mailenv');
-  Site.on('toggle-mail', function () {
-    mailOpen = !mailOpen;
-    mailBtn.setAttribute('aria-expanded', String(mailOpen));
-    envelope.classList.toggle('envfly', mailOpen);
-    Site.show('mail-closed', !mailOpen);
-    Site.show('mail-open', mailOpen);
-  });
 
   /* ---------- Fireflies scatter away from the cursor ---------- */
   var night = document.querySelector('[data-night]');

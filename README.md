@@ -7,7 +7,7 @@ Plain HTML, CSS and JavaScript — no build step, no dependencies.
 
 | File | Page |
 | --- | --- |
-| `index.html` | Home — hero, knock-on-the-door greeting, selected work, resume & contact |
+| `index.html` | Home — hero, knock-on-the-door greeting, selected work, contact footer |
 | `about.html` | About — intro, photos, songs on repeat |
 | `garden.html` | Design Garden — filterable gallery of visual, illustration and photo work |
 | `triceratops.html` | Case study: Triceratops Website |
@@ -22,7 +22,7 @@ css/site.css         design tokens, animations and page styles
 css/case-study.css   extra rules for the case-study pages
 css/cs-components.css  hand-written case-study blocks (stat row, options, annotations, placeholders)
 js/site.js           shared helpers: data-show toggles, data-action clicks, scroll reveals
-js/home.js           opening animation, door knock + dialogue, mailbox, fireflies
+js/home.js           opening animation, door knock + dialogue, fireflies
 js/about.js          song previews (Spotify embeds)
 js/garden.js         gallery filter tabs
 js/case-study.js     table-of-contents scroll spy, before/after switch, research toggle
