@@ -117,15 +117,20 @@
                   </div>
                 </div>
                 <div class="pk-slide" role="group" aria-roledescription="scene" aria-label="3 of 3: one clear path" data-dur="10000">
-                  <div class="pk-scene pk-sol">
-                    <div class="pk-gs-screen"><img src="assets/images/final-beginners-guide.webp" alt="The final Getting Started page" loading="lazy" width="684" height="4000"></div>
+                  <div class="pk-scene pk-sol" data-page="gs">
+                    <div class="pk-gs-screen">
+                      <img class="pk-page gs" src="assets/images/final-beginners-guide.webp" alt="The final Getting Started page" loading="lazy" width="684" height="4000">
+                      <img class="pk-page fs" src="assets/images/final-guide-to-monthly-flash-sales.webp" alt="The final Flash Sales page" loading="lazy" width="900" height="3772">
+                    </div>
                     <div class="pk-sol-copy">
                       <p class="pk-sol-title"><span class="pk-kicker2">From 41 channels to</span><span class="pk-num" data-from="41">1</span><span class="pk-unit">Getting Started page</span></p>
                       <p class="pk-sol-sub">Every step to a first hunt, in order.</p>
-                      <figure class="pk-fs">
-                        <div class="pk-fs-screen"><img src="assets/images/flash-sales-header.webp" alt="The final Flash Sales page" loading="lazy" width="1901" height="941"></div>
-                        <figcaption><b>+ Flash Sales page</b>The details for flash sale finds</figcaption>
-                      </figure>
+                      <!-- swaps the big screen between the two pages -->
+                      <button type="button" class="pk-fs" aria-pressed="false" aria-label="Show the Flash Sales page">
+                        <span class="pk-fs-screen"><img class="to-fs" src="assets/images/flash-sales-header.webp" alt="" loading="lazy" width="1901" height="941"><img class="to-gs" src="assets/images/getting-started-header.webp" alt="" loading="lazy" width="1905" height="943"></span>
+                        <span class="pk-fs-cap to-fs"><b>+ Flash Sales page</b>Tap to take a look ▸</span>
+                        <span class="pk-fs-cap to-gs"><b>◂ Getting Started page</b>Back to the main guide</span>
+                      </button>
                     </div>
                   </div>
                 </div>

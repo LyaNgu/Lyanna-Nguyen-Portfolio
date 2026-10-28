@@ -58,6 +58,7 @@
       s.setAttribute('aria-hidden', on ? 'false' : 'true');
       dots[k].setAttribute('aria-current', on ? 'true' : 'false');
     });
+    showPage('gs');
     void slides[current].offsetWidth;          // restart the scene's animations
     if (!reduced) slides[current].classList.add('play');
     countDown(slides[current]);
@@ -79,6 +80,16 @@
       if (k < 1) countRaf = requestAnimationFrame(step);
     });
   }
+
+  // Scene 3: the Flash Sales card swaps the big screen between the two pages
+  var sol = root.querySelector('.pk-sol'), swap = root.querySelector('.pk-fs');
+  function showPage(page) {
+    if (!sol) return;
+    sol.dataset.page = page;
+    swap.setAttribute('aria-pressed', page === 'fs' ? 'true' : 'false');
+    swap.setAttribute('aria-label', page === 'fs' ? 'Back to the Getting Started page' : 'Show the Flash Sales page');
+  }
+  if (swap) swap.addEventListener('click', function () { showPage(sol.dataset.page === 'fs' ? 'gs' : 'fs'); });
 
   root.querySelector('.pk-arrow.prev').addEventListener('click', function () { go(current - 1); });
   root.querySelector('.pk-arrow.next').addEventListener('click', function () { go(current + 1); });
