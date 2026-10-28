@@ -168,10 +168,10 @@ html{overflow-x:clip}
 .play .pk-msg b{animation:pkLand .75s 5.3s both}
 @keyframes pkLand{0%{opacity:0;transform:translateY(-8cqw) scale(.94,1.1);animation-timing-function:cubic-bezier(.55,0,1,.45)}55%{opacity:1;transform:scale(1.1,.86);animation-timing-function:cubic-bezier(.2,.8,.4,1)}78%{transform:translateY(-.6cqw) scale(.98,1.03)}100%{opacity:1;transform:none}}
 .pk-puff{position:absolute;left:50%;bottom:-.05em;width:0;height:0;pointer-events:none}
-.pk-puff i{position:absolute;left:-1cqw;top:-1cqw;width:2cqw;height:2cqw;border-radius:50%;background:#dbdee1;opacity:0;filter:blur(1px)}
+.pk-puff i{position:absolute;left:-.8cqw;top:-.8cqw;width:1.6cqw;height:1.6cqw;border-radius:50%;background:#dbdee1;opacity:0;filter:blur(1.5px)}
 .play .pk-puff i{animation:pkPuff .9s 5.72s cubic-bezier(.16,1,.3,1) forwards}
 /* forwards, not both: a backwards fill would show the dust before the landing */
-@keyframes pkPuff{0%{opacity:.7;transform:translateX(var(--sx)) scale(.5)}45%{opacity:.45}100%{opacity:0;transform:translate(calc(var(--sx) + var(--x)),var(--y)) scale(1.5)}}
+@keyframes pkPuff{0%{opacity:.35;transform:translateX(var(--sx)) scale(.4)}45%{opacity:.2}100%{opacity:0;transform:translate(calc(var(--sx) + var(--x) * .6),calc(var(--y) * .6)) scale(1.1)}}
 .play .pk-msg p{animation-delay:6.15s}
 @keyframes pkFade{from{opacity:0}}
 @keyframes pkRise{from{opacity:0;transform:translateY(3cqw)}}
