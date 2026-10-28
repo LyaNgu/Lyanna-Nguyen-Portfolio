@@ -22,7 +22,7 @@ CONTENT_FIXES = {
     'Garden': [('background-image: radial-gradient(circle at 3px 3px, #5aa83a 2.5px, transparent 3px), radial-gradient(circle at 21px 17px, #95d46a 2px, transparent 2.5px); background-size: 38px 30px;',
                 'background-image: url(assets/images/bg-lawn.svg); background-size: 512px 384px; image-rendering: pixelated;'),
                # A quiet light lawn so the artwork, not the grass, holds the eye
-               ('background-color: var(--grass); background-image: url(assets/images/bg-lawn.svg)', 'background-color: #acd29a; background-image: url(assets/images/bg-lawn.svg)'),
+               ('background-color: var(--grass); background-image: url(assets/images/bg-lawn.svg)', 'background-color: #a5ce91; background-image: url(assets/images/bg-lawn.svg)'),
                ('image-rendering: pixelated; box-shadow: inset 0 4px 0 0 #2f7d3a;', 'image-rendering: pixelated; box-shadow: inset 0 4px 0 0 #8fbf7c;')],
     'Main': [('>Triceratops Website · Jun 2026 – Present<', '>Triceratops Website · Jun – Oct 2026<'),
              # Keep the Works card in step with the hand-built case study hero
