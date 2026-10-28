@@ -3,17 +3,19 @@ the way a new member's eyes would, then pulls back out."""
 import sys, subprocess, math, numpy as np
 from PIL import Image
 SRC, OUT = sys.argv[1], sys.argv[2]
-W, H, FPS = 1278, 870, 30
+W, H, FPS = 1276, 868, 30
 AR = W / H
-# (out start, src start, src end): establishing scroll, then two stretches where the page sits still
-SEGS = [(0.0, 6.0, 9.3), (3.3, 9.3, 15.6), (9.6, 17.0, 19.6)]
+# (out start, src start, src end): the banner and scroll down, then the still stretches between
+# the accidental blue selections (3.4-4.3s and 5.0-5.6s) and a pop-up at 17.4s, which never make the cut
+SEGS = [(0.0, 13.3, 16.0), (2.7, 5.7, 10.15), (7.15, 0.0, 3.3), (10.45, 16.1, 17.3), (11.65, 17.55, 18.1)]
 DUR = 12.2
-WIDE = (639, 435, 1278)
-S1, S2 = (352, 262, 760), (928, 262, 760)
-S3, S4 = (352, 560, 740), (928, 560, 740)
-KEYS = [(0.0, WIDE), (3.3, (639, 435, 1240)), (3.95, S1), (5.0, S1), (5.5, S4), (6.4, S4),
-        (6.8, S2), (7.45, S2), (7.8, S3), (8.4, S3), (8.7, S1), (9.2, S1), (10.1, WIDE),
-        (DUR, (639, 435, 1230))]
+WIDE = (638, 434, 1276)
+S1, S2 = (351, 280, 700), (927, 280, 700)
+S3, S4 = (351, 630, 700), (927, 630, 700)
+# eyes dart between the GIFs, faster each time; cuts between stretches land mid-move
+KEYS = [(0.0, WIDE), (2.7, (638, 434, 1236)), (3.3, S1), (4.3, S1), (4.8, S4), (5.6, S4),
+        (6.0, S2), (6.4, S2), (6.75, S3), (7.0, S3), (7.3, S1), (7.8, S1), (8.05, S4), (8.4, S4),
+        (8.6, S2), (8.9, S2), (9.1, S3), (9.5, S3), (10.5, WIDE), (DUR, (638, 434, 1240))]
 FADE = 0.3
 
 def ease(k): return 4*k*k*k if k < .5 else 1 - (-2*k + 2)**3 / 2
