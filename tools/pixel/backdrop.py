@@ -133,6 +133,19 @@ def grass():
         px[(x, y)] = '#f0b54a'
     return W, H, px
 
+# ---- lawn: a quiet, light grass tile for the Design Garden so the artwork stays the focus.
+# Soft sage base with a few faint tufts and no flowers; tiles in both directions.
+def lawn():
+    W, H = 128, 96; px = {}
+    for y in range(H):
+        for x in range(W):
+            px[(x, y)] = '#acd29a'
+    tufts = [(9, 14), (41, 6), (77, 22), (110, 11), (24, 47), (60, 58), (96, 44), (14, 80), (50, 88), (88, 76), (120, 63)]
+    for x, y in tufts:
+        for dx, dy in ((0, 0), (2, 0), (1, -1)):
+            px[((x + dx) % W, (y + dy) % H)] = '#a2cb90'
+    return W, H, px
+
 # Distance haze: the tree line is blended toward the pale sky so the farmhouse stays the focus
 HAZE, FADE = (0xcd, 0xe8, 0xef), {'bg-trees': .45}
 
@@ -140,7 +153,7 @@ def fade(c, a):
     rgb = [int(c[i:i + 2], 16) for i in (1, 3, 5)]
     return '#' + ''.join(f'{round(v + (hz - v) * a):02x}' for v, hz in zip(rgb, HAZE))
 
-for name, fn in [('bg-mountains', mountains), ('bg-hills', hills), ('bg-trees', trees), ('bg-grass', grass)]:
+for name, fn in [('bg-mountains', mountains), ('bg-hills', hills), ('bg-trees', trees), ('bg-grass', grass), ('bg-lawn', lawn)]:
     w, h, px = fn()
     px = {k: fade(c, FADE.get(name, 0)) for k, c in px.items()}
     px = {(x % w, y): c for (x, y), c in px.items() if 0 <= y < h}
