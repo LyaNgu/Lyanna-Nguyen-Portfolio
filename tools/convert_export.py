@@ -305,7 +305,7 @@ open(os.path.join(OUT, 'css', 'case-study.css'), 'w').write(
 
 # ---------------------------------------------------------------- pages
 FONT_LINK = re.search(r'<link rel="preconnect".*?>\s*<link[^>]*fonts\.googleapis[^>]*>', raw).group(0)
-SCRIPTS = {'Main': ['home.js'], 'About': ['about.js'], 'Garden': ['garden.js'],
+SCRIPTS = {'Main': ['home.js', 'board.js'], 'About': ['about.js'], 'Garden': ['garden.js'],
            'CaseStudy-Linguistics': ['case-study.js'], 'CaseStudy-Include': ['case-study.js']}
 DESC = 'Lyanna Nguyen — Product Designer & UX Researcher. Cognitive Science @ UC Davis.'
 
@@ -352,7 +352,11 @@ for name, P in PAGES.items():
         tpl = tpl.replace('<a data-show="dialog-choices" hidden href="#contact" class="pp-btn secondary" data-action="close-dialog">Just the resume</a>',
                           '<a data-show="dialog-choices" hidden href="assets/files/Lyanna_Nguyen_Resume.pdf" target="_blank" rel="noopener" class="pp-btn secondary" data-action="close-dialog">Just the resume</a>')
         assert '#resume' not in tpl and 'Lyanna_Nguyen_Resume.pdf" target="_blank" rel="noopener" class="pp-btn secondary"' in tpl
-    css = ['css/pixel-pals.css', 'css/site.css'] + (['css/case-study.css'] if name.startswith('CaseStudy') else [])
+        # Town bulletin board (hand-written partial), right under Selected works
+        board = open(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'partials', 'board.html')).read()
+        tpl = tpl.replace('\n  <footer id="contact"', '\n' + board + '\n  <footer id="contact"', 1)
+        assert 'class="bb-board"' in tpl
+    css = ['css/pixel-pals.css', 'css/site.css'] + (['css/case-study.css'] if name.startswith('CaseStudy') else []) + (['css/board.css'] if name == 'Main' else [])
     title = P['title']
     doc = f'''<!doctype html>
 <html lang="en">

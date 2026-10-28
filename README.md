@@ -20,9 +20,12 @@ Plain HTML, CSS and JavaScript — no build step, no dependencies.
 css/pixel-pals.css   design-system components (frames, buttons, stickers…)
 css/site.css         design tokens, animations and page styles
 css/case-study.css   extra rules for the case-study pages
+css/board.css        town bulletin board on the home page
 css/cs-components.css  hand-written case-study blocks (stat row, options, annotations, placeholders)
 js/site.js           shared helpers: data-show toggles, data-action clicks, scroll reveals
 js/home.js           opening animation, door knock + dialogue, fireflies
+js/board.js          bulletin board: drag or arrow-key notes to re-pin them
+partials/board.html  bulletin board notes, inserted into index.html by the converter
 js/about.js          song previews (Spotify embeds)
 js/garden.js         gallery filter tabs
 js/case-study.js     table-of-contents scroll spy, before/after switch, research toggle
