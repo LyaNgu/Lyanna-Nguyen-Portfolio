@@ -5,7 +5,7 @@
   var LOADER_KEY = 'ln_farm_loader_seen';
   var LINES = [
     "Oh! A visitor! Hi, I'm Lyanna Nguyen, welcome to my little farm.",
-    "I design apps and websites and do UX research, which mostly means asking people lots of questions, then sketching until things click.",
+    "I'm a product designer and UX researcher. I enjoy chatting with people and creating designs that solve their problems!",
     'Feel free to wander around and explore, make yourself at home!'
   ];
 
