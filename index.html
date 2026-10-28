@@ -9,7 +9,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&amp;family=Pixelify+Sans:wght@400..700&amp;family=VT323&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/pixel-pals.css">
 <link rel="stylesheet" href="css/site.css">
-<link rel="stylesheet" href="css/board.css">
 </head>
 <body>
 <div class="pp-root" style="background: var(--surface); color: var(--ink); font-family: var(--font-body); font-size: 17px; line-height: 28px;">
@@ -185,53 +184,6 @@
   </div>
 
 
-  <!-- TOWN BULLETIN BOARD: pixel stickers, two photo stickers and a mini music player of Lyanna's
-       hobbies and interests, with almost no words (no links, just for fun). Each note can be
-       picked up and re-pinned (js/board.js, css/board.css). Inserted into index.html by
-       tools/convert_export.py; positions are % of the board, --x/--y wide and --mx/--my narrow. -->
-  <div class="bb-wrap">
-    <section id="board" data-area="board" class="bb-sec" aria-labelledby="bb-title">
-      <div class="rv bb-head">
-        <h2 id="bb-title"><span aria-hidden="true"><img class="px" src="assets/images/icon-sprout.svg" width="40" height="40" alt=""></span>Town bulletin board</h2>
-        <p>A few of my favorite things. Pick something up and stick it anywhere!</p>
-      </div>
-
-      <div class="rv bb-frame">
-        <p id="bb-help" class="bb-sr">Each sticker can be moved: drag it, or focus it and use the arrow keys.</p>
-        <div class="bb-board" aria-describedby="bb-help">
-
-          <article class="bb-note bb-pic round" tabindex="0" aria-roledescription="movable sticker" aria-label="Photo: hiking with friends at a mountain lake" style="--x:3%;--y:5%;--r:-4deg;--mx:3%;--my:1%"><img src="assets/images/lyanna-and-friends-on-the-granite.jpg" alt="" loading="lazy" style="object-position:50% 40%"></article>
-          <article class="bb-note bb-player" tabindex="0" aria-roledescription="movable sticker" aria-label="Now playing: Tweak by GIRLSET" style="--x:22%;--y:6%;--r:2deg;--mx:40%;--my:3%">
-            <span class="bb-cover" aria-hidden="true"></span>
-            <span class="bb-track"><b>Tweak</b><small>GIRLSET</small><span class="bb-ctrl" aria-hidden="true">◂◂ &#10073;&#10073; ▸▸</span></span>
-          </article>
-          <article class="bb-note bb-pic round sm" tabindex="0" aria-roledescription="movable sticker" aria-label="Photo: Swiss Alps" style="--x:62%;--y:4%;--r:5deg;--mx:62%;--my:19%"><img src="assets/images/lyanna-looking-out-at-snowy-swiss.jpg" alt="" loading="lazy" style="object-position:50% 30%"></article>
-          <article class="bb-note bb-stk xl" tabindex="0" aria-roledescription="movable sticker" aria-label="Sticker: ribbon fox" style="--x:30%;--y:42%;--r:-6deg;--mx:34%;--my:40%"><img src="assets/images/sticker-fox.svg" alt=""></article>
-          <article class="bb-note bb-polaroid bb-pond" tabindex="0" aria-roledescription="movable sticker" aria-label="Polaroid: gone fishing" style="--x:4%;--y:50%;--r:-3deg;--mx:58%;--my:76%">
-            <span class="bb-photo bb-scene" aria-hidden="true"><img class="px" src="assets/images/lyannas-chibi-happily-holding-a-fishing.png" alt=""></span>
-            <b>gone fishin'</b>
-          </article>
-          <article class="bb-note bb-stk" tabindex="0" aria-roledescription="movable sticker" aria-label="Sticker: microphone, for singing" style="--x:52%;--y:9%;--r:8deg;--mx:6%;--my:20%"><img src="assets/images/sticker-mic.svg" alt=""></article>
-          <article class="bb-note bb-stk" tabindex="0" aria-roledescription="movable sticker" aria-label="Sticker: latte with heart art" style="--x:78%;--y:6%;--r:-8deg;--mx:30%;--my:22%"><img src="assets/images/sticker-latte.svg" alt=""></article>
-          <article class="bb-note bb-stk" tabindex="0" aria-roledescription="movable sticker" aria-label="Sticker: headphones" style="--x:89%;--y:16%;--r:6deg;--mx:80%;--my:33%"><img src="assets/images/sticker-headphones.svg" alt=""></article>
-          <article class="bb-note bb-stk" tabindex="0" aria-roledescription="movable sticker" aria-label="Sticker: camera" style="--x:21%;--y:36%;--r:-7deg;--mx:6%;--my:37%"><img src="assets/images/sticker-camera.svg" alt=""></article>
-          <article class="bb-note bb-stk" tabindex="0" aria-roledescription="movable sticker" aria-label="Sticker: music notes" style="--x:47%;--y:38%;--r:-6deg;--mx:44%;--my:14%"><img src="assets/images/sticker-notes.svg" alt=""></article>
-          <article class="bb-note bb-stk" tabindex="0" aria-roledescription="movable sticker" aria-label="Sticker: bubble tea" style="--x:57%;--y:40%;--r:7deg;--mx:8%;--my:56%"><img src="assets/images/sticker-boba.svg" alt=""></article>
-          <article class="bb-note bb-stk" tabindex="0" aria-roledescription="movable sticker" aria-label="Sticker: handheld game console" style="--x:69%;--y:34%;--r:7deg;--mx:58%;--my:46%"><img src="assets/images/sticker-handheld.svg" alt=""></article>
-          <article class="bb-note bb-stk lg" tabindex="0" aria-roledescription="movable sticker" aria-label="Sticker: black cat with a red bow" style="--x:80%;--y:38%;--r:-5deg;--mx:80%;--my:52%"><img src="assets/images/sticker-cat.svg" alt=""></article>
-          <article class="bb-note bb-stk lg" tabindex="0" aria-roledescription="movable sticker" aria-label="Sticker: ticket stub, for pop-up events" style="--x:21%;--y:73%;--r:-8deg;--mx:32%;--my:63%"><img src="assets/images/sticker-ticket.svg" alt=""></article>
-          <article class="bb-note bb-stk lg" tabindex="0" aria-roledescription="movable sticker" aria-label="Sticker: crêpe" style="--x:38%;--y:76%;--r:5deg;--mx:6%;--my:70%"><img src="assets/images/sticker-crepe.svg" alt=""></article>
-          <article class="bb-note bb-stk" tabindex="0" aria-roledescription="movable sticker" aria-label="Sticker: ice cream cone" style="--x:51%;--y:70%;--r:10deg;--mx:62%;--my:64%"><img src="assets/images/sticker-cone.svg" alt=""></article>
-          <article class="bb-note bb-stk" tabindex="0" aria-roledescription="movable sticker" aria-label="Sticker: salmon sushi" style="--x:61%;--y:84%;--r:4deg;--mx:34%;--my:84%"><img src="assets/images/sticker-sushi.svg" alt=""></article>
-          <article class="bb-note bb-stk" tabindex="0" aria-roledescription="movable sticker" aria-label="Sticker: paintbrush, for digital art" style="--x:71%;--y:63%;--r:-12deg;--mx:8%;--my:86%"><img src="assets/images/sticker-brush.svg" alt=""></article>
-          <article class="bb-note bb-stk lg" tabindex="0" aria-roledescription="movable sticker" aria-label="Sticker: suitcase, for travel" style="--x:83%;--y:72%;--r:6deg;--mx:82%;--my:72%"><img src="assets/images/sticker-suitcase.svg" alt=""></article>
-
-        </div>
-        <button type="button" class="bb-tidy">Tidy up the board</button>
-      </div>
-    </section>
-  </div>
-
   <footer id="contact" style="scroll-margin-top: 68px; position: relative; overflow: hidden; background: #1b2a52; color: #fbe8c0;">
     <span class="star" style="left: 43%; top: 13%; animation-delay: -1.18s; width: 6px; height: 6px;"></span><span class="star" style="left: 8%; top: 8%; animation-delay: -2.46s;"></span><span class="star" style="left: 14%; top: 27%; animation-delay: -1.75s;"></span><span class="star" style="left: 66%; top: 17%; animation-delay: -0.11s;"></span><span class="star" style="left: 57%; top: 30%; animation-delay: -0.21s;"></span><span class="star" style="left: 13%; top: 39%; animation-delay: -1.27s; width: 6px; height: 6px;"></span><span class="star" style="left: 74%; top: 11%; animation-delay: -2.84s;"></span><span class="star" style="left: 82%; top: 44%; animation-delay: -1.75s;"></span><span class="star" style="left: 9%; top: 40%; animation-delay: -1.76s;"></span><span class="star" style="left: 8%; top: 18%; animation-delay: -0.14s;"></span><span class="star" style="left: 19%; top: 22%; animation-delay: -1.26s; width: 6px; height: 6px;"></span><span class="star" style="left: 71%; top: 11%; animation-delay: -1.71s;"></span><span class="star" style="left: 73%; top: 56%; animation-delay: -2.05s;"></span><span class="star" style="left: 15%; top: 41%; animation-delay: -1.71s;"></span><span class="star" style="left: 26%; top: 27%; animation-delay: -0.29s;"></span><span class="star" style="left: 93%; top: 8%; animation-delay: -1.69s; width: 6px; height: 6px;"></span><span class="star" style="left: 81%; top: 17%; animation-delay: -1.49s;"></span><span class="star" style="left: 70%; top: 31%; animation-delay: -2.33s;"></span><span class="star" style="left: 61%; top: 41%; animation-delay: -2.77s;"></span><span class="star" style="left: 48%; top: 23%; animation-delay: -0.75s;"></span><span class="star" style="left: 25%; top: 48%; animation-delay: -2.34s; width: 6px; height: 6px;"></span><span class="star" style="left: 12%; top: 40%; animation-delay: -0.90s;"></span><span class="star" style="left: 65%; top: 25%; animation-delay: -2.19s;"></span><span class="star" style="left: 38%; top: 42%; animation-delay: -2.94s;"></span><span class="star" style="left: 17%; top: 36%; animation-delay: -1.25s;"></span><span class="star" style="left: 45%; top: 13%; animation-delay: -2.80s; width: 6px; height: 6px;"></span><span class="star" style="left: 55%; top: 6%; animation-delay: -2.89s;"></span><span class="star" style="left: 11%; top: 52%; animation-delay: -1.67s;"></span><span class="star" style="left: 42%; top: 25%; animation-delay: -2.09s;"></span><span class="star" style="left: 78%; top: 35%; animation-delay: -1.74s;"></span><span class="star" style="left: 60%; top: 8%; animation-delay: -2.52s; width: 6px; height: 6px;"></span><span class="star" style="left: 36%; top: 34%; animation-delay: -2.09s;"></span><span class="star" style="left: 10%; top: 7%; animation-delay: -2.19s;"></span><span class="star" style="left: 41%; top: 45%; animation-delay: -1.73s;"></span>
     <span aria-hidden="true" style="position: absolute; right: 12%; top: 48px; width: 64px; height: 64px; background: #f7edcf; box-shadow: 0 0 0 8px #fbe8c03d, 0 0 0 20px #fbe8c01f, 0 0 0 36px #ffffff0d;"><span style="position: absolute; left: 12px; top: 14px; width: 12px; height: 12px; background: #e6d6a8;"></span><span style="position: absolute; left: 36px; top: 34px; width: 16px; height: 16px; background: #e6d6a8;"></span><span style="position: absolute; left: 30px; top: 10px; width: 8px; height: 8px; background: #ece0b8;"></span></span>
@@ -275,6 +227,5 @@
 </div>
 <script src="js/site.js"></script>
 <script src="js/home.js"></script>
-<script src="js/board.js"></script>
 </body>
 </html>
