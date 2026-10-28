@@ -81,6 +81,14 @@ html{overflow-x:clip}
 .cs-vs-img.tall{aspect-ratio:3/4}
 .cs-vs-img img{display:block;width:100%;height:100%;object-fit:cover;object-position:top}
 .cs-vs-img .ph{height:100%;min-height:0;padding:var(--space-3)}
+/* laptop mockup for prototype recordings */
+.cs-vs-img.device{display:flex;align-items:center;justify-content:center;background:var(--surface-sunken);box-shadow:none}
+.cs-laptop{width:88%}
+.cs-laptop-screen{position:relative;width:86%;margin:0 auto;aspect-ratio:1278/870;padding:2.2% 2.2% 2.6%;box-sizing:content-box;background:#1f1d24;border-radius:10px 10px 2px 2px}
+.cs-laptop-screen::before{content:"";position:absolute;top:.9%;left:50%;width:4px;height:4px;margin-left:-2px;border-radius:50%;background:#3a3742}
+.cs-laptop-screen video{display:block;width:100%;height:100%;object-fit:cover;background:#fff;border-radius:2px}
+.cs-laptop-base{position:relative;height:0;padding-bottom:3.2%;background:linear-gradient(#d9d6df,#b9b5c2);border-radius:2px 2px 12px 12px/2px 2px 60% 60%}
+.cs-laptop-base::before{content:"";position:absolute;top:0;left:50%;width:16%;height:40%;transform:translateX(-50%);background:#a8a3b2;border-radius:0 0 6px 6px}
 .cs-vs-col figcaption{font-size:15px;line-height:24px;font-weight:600;color:var(--ink-muted)}
 @media (max-width:560px){.cs-vs{grid-template-columns:1fr}}
 .cs-peek{display:flex;flex-direction:column;gap:var(--space-3)}

@@ -109,4 +109,12 @@
   }
   document.addEventListener('mouseover', highlight);
   document.addEventListener('focusin', highlight);
+
+  // looping prototype recordings stay still for visitors who prefer reduced motion
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.querySelectorAll('video[autoplay]').forEach(function (v) {
+      v.removeAttribute('autoplay');
+      v.pause();
+    });
+  }
 })();
