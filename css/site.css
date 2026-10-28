@@ -164,13 +164,5 @@ a,button,[role=switch],label,.flip,.workcard{cursor:url(../assets/images/cursor-
 /* Opening: squash and stretch from the base; drops fall under gravity */
 .ldr-seed{transform-origin:50% 100%}.ldr-drop{animation-timing-function:cubic-bezier(.55,0,1,.45)}
 
-/* Resume postcard: calmer chips, more air between entries, dates kept on the title line */
-.postcard .pp-sticker.sky,.postcard .pp-sticker.grass{background:var(--surface-raised);box-shadow:0 0 0 2px var(--surface-sunken);color:var(--ink-muted);font-size:16px;line-height:16px}
-.postcard [style*="border-bottom: 2px dashed"]{padding:16px 0!important;gap:4px!important;border-bottom-color:var(--surface-sunken)}
-.postcard [style*="justify-content: space-between; gap: 12px; flex-wrap: wrap"]{flex-wrap:nowrap!important;align-items:baseline}
-.postcard [style*="justify-content: space-between; gap: 12px; flex-wrap: wrap"]>span:last-child{flex:none;white-space:nowrap}
-.postcard [style*="border-bottom: 2px dashed"]>span:last-child{color:var(--ink-muted);line-height:24px}
-@media (max-width:560px){.postcard [style*="justify-content: space-between; gap: 12px; flex-wrap: wrap"]{flex-wrap:wrap!important}}
-
 /* Elements toggled by the page scripts */
 [hidden]{display:none!important}

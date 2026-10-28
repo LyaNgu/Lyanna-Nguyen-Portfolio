@@ -297,13 +297,6 @@ site_css += ('\n\n/* Dialogue: the box grows to fit long lines; a hidden copy of
              '.dlg-port{align-self:start}.dlg-port>div:first-child{flex:none!important;height:122px}\n')
 site_css += ('\n/* Opening: squash and stretch from the base; drops fall under gravity */\n'
              '.ldr-seed{transform-origin:50% 100%}.ldr-drop{animation-timing-function:cubic-bezier(.55,0,1,.45)}\n')
-site_css += ('\n/* Resume postcard: calmer chips, more air between entries, dates kept on the title line */\n'
-             '.postcard .pp-sticker.sky,.postcard .pp-sticker.grass{background:var(--surface-raised);box-shadow:0 0 0 2px var(--surface-sunken);color:var(--ink-muted);font-size:16px;line-height:16px}\n'
-             '.postcard [style*="border-bottom: 2px dashed"]{padding:16px 0!important;gap:4px!important;border-bottom-color:var(--surface-sunken)}\n'
-             '.postcard [style*="justify-content: space-between; gap: 12px; flex-wrap: wrap"]{flex-wrap:nowrap!important;align-items:baseline}\n'
-             '.postcard [style*="justify-content: space-between; gap: 12px; flex-wrap: wrap"]>span:last-child{flex:none;white-space:nowrap}\n'
-             '.postcard [style*="border-bottom: 2px dashed"]>span:last-child{color:var(--ink-muted);line-height:24px}\n'
-             '@media (max-width:560px){.postcard [style*="justify-content: space-between; gap: 12px; flex-wrap: wrap"]{flex-wrap:wrap!important}}\n')
 site_css += '\n/* Elements toggled by the page scripts */\n[hidden]{display:none!important}\n'
 open(os.path.join(OUT, 'css', 'site.css'), 'w').write(site_css)
 open(os.path.join(OUT, 'css', 'case-study.css'), 'w').write(
@@ -349,6 +342,10 @@ for name, P in PAGES.items():
     for old, new in CONTENT_FIXES.get(name, []):
         assert old in tpl, (name, old)
         tpl = tpl.replace(old, new)
+    if name == 'Main':
+        # The resume lives in the PDF; the home page keeps only the contact block and mailbox.
+        tpl, n = re.subn(r'\n *<!-- the postcard \(resume\), landscape -->.*?</article>\n', '\n', tpl, flags=re.S)
+        assert n == 1
     css = ['css/pixel-pals.css', 'css/site.css'] + (['css/case-study.css'] if name.startswith('CaseStudy') else [])
     title = P['title']
     doc = f'''<!doctype html>
