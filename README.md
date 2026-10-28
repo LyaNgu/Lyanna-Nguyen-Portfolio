@@ -33,6 +33,7 @@ assets/images/       images and pixel sprites
 assets/fonts/        fonts used by the prototype
 assets/files/        Lyanna_Nguyen_Resume.pdf
 tools/convert_export.py  regenerates the pages from a single-file design export
+tools/pixel/stickers.py  draws the bulletin board's pixel hobby stickers (assets/images/sticker-*.svg)
 tools/pixel/backdrop.py  draws the home hero's 8-bit mountains, hills, trees and grass (assets/images/bg-*.svg)
 ```
 

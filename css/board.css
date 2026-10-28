@@ -43,6 +43,12 @@
 .bb-note.is-dropped .bb-pin{animation:bbPin .4s cubic-bezier(.3,1.6,.5,1)}
 @keyframes bbPin{0%{transform:translateY(-1.6cqw) scale(1.2);opacity:0}60%{transform:translateY(.2cqw) scale(.9);opacity:1}100%{transform:none}}
 
+/* pixel stickers: no paper or pin, just the die-cut sticker; they peel up a little when picked up */
+.bb-stk{width:6.5cqw;min-width:44px;padding:0;background:none;box-shadow:none;filter:drop-shadow(0 calc(2px + var(--lift) * 8px) calc(2px + var(--lift) * 8px) #3a1f1755);transition:transform .35s cubic-bezier(.3,1.5,.5,1),filter .3s ease}
+.bb-stk img{display:block;width:100%;height:auto;image-rendering:pixelated}
+.bb-stk.is-held{transform:rotate(-6deg) scale(1.15)}
+.bb-stk:hover{transform:rotate(var(--r)) scale(1.06)}
+
 /* note styles */
 .bb-poster{background:#fde7b4;border-top:1cqw solid var(--accent-text)}
 .bb-lost{background:#fffef6;align-items:center;text-align:center;padding-bottom:0;width:18cqw}
@@ -90,6 +96,7 @@
   .bb-polaroid{width:40cqw;padding:2.5cqw 2.5cqw 3cqw}
   .bb-photo{aspect-ratio:4/3}
   .bb-pond{width:40cqw}
+  .bb-stk{width:15cqw;padding:0}
   .bb-letter{width:40cqw;padding-right:11cqw}.bb-stamp{width:8cqw;height:9cqw}
   .bb-holes i{width:4cqw;height:4cqw}
 }
