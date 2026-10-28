@@ -133,14 +133,13 @@ def grass():
         px[(x, y)] = '#f0b54a'
     return W, H, px
 
-# ---- lawn: a mowed-checker grass tile for the Design Garden. Two close greens in a soft
-# checkerboard, a few tufts and a couple of tiny flowers: lively, but low contrast so the
-# artwork stays the focus. Tiles in both directions.
+# ---- lawn: a grass tile for the Design Garden. A soft green with a few tufts and a couple of
+# tiny flowers: lively, but low contrast so the artwork stays the focus. Tiles in both directions.
 def lawn():
     W, H = 128, 96; px = {}
     for y in range(H):
         for x in range(W):
-            px[(x, y)] = '#a9d196' if ((x // 32) + (y // 24)) % 2 else '#a0cb8c'
+            px[(x, y)] = '#a5ce91'
     tufts = [(9, 14), (41, 6), (77, 22), (110, 11), (24, 47), (60, 58), (96, 44), (14, 80), (50, 88), (88, 76), (120, 63), (70, 36)]
     for x, y in tufts:
         for dx, dy in ((0, 0), (2, 0), (1, -1), (-1, -1), (3, -1)):
