@@ -70,7 +70,6 @@
           <a href="#problem" aria-current="false" style="position: relative; display: block; height: 36px; box-sizing: border-box; padding: var(--space-2) 0 var(--space-2) var(--space-4); text-decoration: none; white-space: nowrap; color: var(--ink); font-weight: 800; font-size: 15px; line-height: 20px; transition: color .3s ease, font-weight .3s ease;">Problem</a>
           <a href="#research" aria-current="false" style="position: relative; display: block; height: 36px; box-sizing: border-box; padding: var(--space-2) 0 var(--space-2) var(--space-4); text-decoration: none; white-space: nowrap; color: var(--ink); font-weight: 800; font-size: 15px; line-height: 20px; transition: color .3s ease, font-weight .3s ease;">Research</a>
           <a href="#decisions" aria-current="false" style="position: relative; display: block; height: 36px; box-sizing: border-box; padding: var(--space-2) 0 var(--space-2) var(--space-4); text-decoration: none; white-space: nowrap; color: var(--ink); font-weight: 800; font-size: 15px; line-height: 20px; transition: color .3s ease, font-weight .3s ease;">Design decisions</a>
-          <a href="#solution" aria-current="false" style="position: relative; display: block; height: 36px; box-sizing: border-box; padding: var(--space-2) 0 var(--space-2) var(--space-4); text-decoration: none; white-space: nowrap; color: var(--ink); font-weight: 800; font-size: 15px; line-height: 20px; transition: color .3s ease, font-weight .3s ease;">Final design</a>
           <a href="#reflect" aria-current="false" style="position: relative; display: block; height: 36px; box-sizing: border-box; padding: var(--space-2) 0 var(--space-2) var(--space-4); text-decoration: none; white-space: nowrap; color: var(--ink); font-weight: 800; font-size: 15px; line-height: 20px; transition: color .3s ease, font-weight .3s ease;">Reflections</a>
         </div>
       </nav>
@@ -141,7 +140,7 @@
                 <div class="pk-dots"></div>
               </div>
             </div>
-            <a href="#solution" class="pp-btn ghost cs-peek-link">▾ See the final design</a>
+            <a href="#decisions" class="pp-btn ghost cs-peek-link">▾ See the design decisions</a>
           </div>
         </section>
 
@@ -176,103 +175,60 @@
         <section id="decisions" class="cs-sec">
           <span class="cs-label">04 · Design decisions</span>
           <h2>So I cut what overwhelmed and kept what guided</h2>
-          <h3 class="cs-subhead">What didn&#8217;t work</h3>
-          <div class="cs-opt tall">
-            <h4><span class="cs-num">1</span>Everything the client gave us</h4>
-            <div class="cs-opt-media"><div class="cs-vs-img tall"><img style="object-position: 50% 22%;" src="assets/images/mid-fi-beginners-guide.webp" alt="Mid-fi Beginner's Guide with dense blocks of rules" loading="lazy" width="513" height="2000"></div></div>
-            <ul class="cs-pc">
-                <li class="pro">Every rule in one place</li>
-                <li class="con">Dense blocks of rules to read through</li>
-                <li class="con"><span class="cs-fb-who">Mentors · Early hi-fi</span>Called the page congested</li>
-                <li class="con"><span class="cs-fb-who">Usability test · Hi-fi V1</span>2 of 6 testers had scroll fatigue</li>
-              </ul>
+          <div class="cs-pair">
+            <h3><span class="cs-num">1</span>Cut the rulebook into 8 scannable sections</h3>
+            <div class="cs-pair-cols">
+              <div class="cs-pair-col">
+                <span class="cs-pair-k">What didn&#8217;t work</span>
+                <h4>Everything the client gave us</h4>
+                <div class="cs-opt-media"><div class="cs-vs-img tall"><img style="object-position: 50% 22%;" src="assets/images/mid-fi-beginners-guide.webp" alt="Mid-fi Beginner's Guide with dense blocks of rules" loading="lazy" width="513" height="2000"></div></div>
+                <ul class="cs-pc">
+                  <li class="pro">Every rule in one place</li>
+                  <li class="con">Dense blocks of rules to read through</li>
+                  <li class="con"><span class="cs-fb-who">Mentors · Early hi-fi</span>Called the page congested</li>
+                  <li class="con"><span class="cs-fb-who">Usability test · Hi-fi V1</span>2 of 6 testers had scroll fatigue</li>
+                </ul>
+              </div>
+              <div class="cs-pair-col">
+                <span class="cs-pair-k">What I chose</span>
+                <h4>8 short, scannable sections</h4>
+                <div class="cs-opt-media"><div class="cs-vs-img tall"><img style="object-position: 50% 10%;" src="assets/images/final-beginners-guide.webp" alt="Final Beginner's Guide with short numbered steps and clear sections" loading="lazy" width="684" height="4000"></div></div>
+                <ul class="cs-pc">
+                  <li class="pro">Short numbered steps newcomers can skim</li>
+                  <li class="pro">Clear sections, so each rule is easy to find</li>
+                </ul>
+              </div>
+            </div>
           </div>
-          <div class="cs-opt">
-            <h4><span class="cs-num">2</span>Every step&#8217;s GIF playing at once</h4>
-            <div class="cs-opt-media"><div class="cs-vs-img wide"><video poster="assets/images/hifi-v1-notification-gifs-poster.webp" autoplay muted loop playsinline preload="metadata" aria-label="Hi-fi V1 prototype: the four step GIFs all playing at once"><source src="assets/video/hifi-v1-notification-gifs.mp4" type="video/mp4"><source src="assets/video/hifi-v1-notification-gifs.webm" type="video/webm"></video></div></div>
-            <ul class="cs-pc">
-                <li class="pro">Shows each step in motion</li>
-                <li class="con">Four moving GIFs compete for attention</li>
-                <li class="con"><span class="cs-fb-who">Usability test · Hi-fi V1</span>2 of 6 testers missed these steps while every GIF played</li>
-              </ul>
-          </div>
-          <div class="cs-opt">
-            <h4><span class="cs-num">3</span>Remove every box</h4>
-            <div class="cs-opt-media"><div class="cs-vs-img"><div class="ph img"><b>Client&#8217;s ask</b><span>The page with every box removed</span></div></div></div>
-            <ul class="cs-pc">
-                <li class="pro"><span class="cs-fb-who">Client review</span>Avoids a &#8220;rulebook&#8221; feel, as the client asked</li>
-                <li class="con">Research showed newcomers didn&#8217;t know where to start</li>
-              </ul>
-          </div>
-          <h3 class="cs-subhead">What I chose</h3>
-          <div class="cs-opt tall">
-            <h4><span class="cs-num">1</span>Cut the rulebook into 8 scannable sections</h4>
-            <div class="cs-opt-media"><div class="cs-vs-img tall"><img style="object-position: 50% 10%;" src="assets/images/final-beginners-guide.webp" alt="Final Beginner's Guide with short numbered steps and clear sections" loading="lazy" width="684" height="4000"></div></div>
-            <ul class="cs-pc">
-                <li class="pro">Short numbered steps newcomers can skim</li>
-                <li class="pro">Clear sections, so each rule is easy to find</li>
-              </ul>
-          </div>
-          <div class="cs-opt">
-            <h4><span class="cs-num">2</span>Swapped simultaneous GIFs for 4 still steps</h4>
-            <div class="cs-opt-media"><div class="cs-vs-img wide"><video poster="assets/images/final-notification-steps-poster.webp" autoplay muted loop playsinline preload="metadata" aria-label="Final design: clicking each of the 4 steps swaps in one still screenshot of that step"><source src="assets/video/final-notification-steps.mp4" type="video/mp4"><source src="assets/video/final-notification-steps.webm" type="video/webm"></video></div></div>
-            <ul class="cs-pc">
-                <li class="pro">One thing to look at at a time</li>
-                <li class="pro">Click a step to see exactly where to go</li>
-              </ul>
-          </div>
-          <div class="cs-opt">
-            <h4><span class="cs-num">3</span>Pushed back to keep guiding boxes</h4>
-            <div class="cs-opt-media"><div class="cs-vs-img"><div class="ph img"><b>After</b><span>Boxes only for guidance, with real claiming steps</span></div></div></div>
-            <ul class="cs-pc">
-                <li class="pro">Keeps the guidance newcomers need</li>
-                <li class="pro">Cuts filler like &#8220;I won, what now?&#8221;</li>
-                <li class="pro">The client agreed once I shared the research</li>
-              </ul>
+          <div class="cs-pair">
+            <h3><span class="cs-num">2</span>Swapped simultaneous GIFs for 4 still steps</h3>
+            <div class="cs-pair-cols">
+              <div class="cs-pair-col">
+                <span class="cs-pair-k">What didn&#8217;t work</span>
+                <h4>Every step&#8217;s GIF playing at once</h4>
+                <div class="cs-opt-media"><div class="cs-vs-img wide"><video poster="assets/images/hifi-v1-notification-gifs-poster.webp" autoplay muted loop playsinline preload="metadata" aria-label="Hi-fi V1 prototype: the four step GIFs all playing at once"><source src="assets/video/hifi-v1-notification-gifs.mp4" type="video/mp4"><source src="assets/video/hifi-v1-notification-gifs.webm" type="video/webm"></video></div></div>
+                <ul class="cs-pc">
+                  <li class="pro">Shows each step in motion</li>
+                  <li class="con">Four moving GIFs compete for attention</li>
+                  <li class="con"><span class="cs-fb-who">Usability test · Hi-fi V1</span>2 of 6 testers missed these steps while every GIF played</li>
+                </ul>
+              </div>
+              <div class="cs-pair-col">
+                <span class="cs-pair-k">What I chose</span>
+                <h4>4 steps, one still screenshot</h4>
+                <div class="cs-opt-media"><div class="cs-vs-img wide"><video poster="assets/images/final-notification-steps-poster.webp" autoplay muted loop playsinline preload="metadata" aria-label="Final design: clicking each of the 4 steps swaps in one still screenshot of that step"><source src="assets/video/final-notification-steps.mp4" type="video/mp4"><source src="assets/video/final-notification-steps.webm" type="video/webm"></video></div></div>
+                <ul class="cs-pc">
+                  <li class="pro">One thing to look at at a time</li>
+                  <li class="pro">Click a step to see exactly where to go</li>
+                </ul>
+              </div>
+            </div>
           </div>
         </section>
 
-        <!-- 5 · FINAL DESIGN -->
-        <section id="solution" class="cs-sec">
-          <span class="cs-label">05 · Final design</span>
-          <h2>The result: one clear path from first visit to first hunt</h2>
-          <p>An industry mentor called Getting Started the strongest visual direction of the project.</p>
-
-          <h3>Getting Started</h3>
-          <div class="anno cs-callouts">
-            <div class="cs-co-media">
-              <img src="assets/images/final-getting-started-annotated.webp" alt="The final Getting Started page from the after-claim guide down to drop types, with three annotated changes" loading="lazy" width="684" height="1260">
-              <span class="cs-co-box" data-n="1" tabindex="0" aria-label="Annotation 1" style="left: 1.8%; top: 0.8%; width: 96.5%; height: 23%;"><i class="cs-co-dot" aria-hidden="true">1</i></span>
-              <span class="cs-co-box sm" data-n="2" tabindex="0" aria-label="Annotation 2" style="left: 77.5%; top: 40.9%; width: 17.5%; height: 3.6%;"><i class="cs-co-dot" aria-hidden="true">2</i></span>
-              <span class="cs-co-box" data-n="3" tabindex="0" aria-label="Annotation 3" style="left: 1.8%; top: 49.2%; width: 96.5%; height: 50%;"><i class="cs-co-dot" aria-hidden="true">3</i></span>
-            </div>
-            <ol class="cs-co-cards">
-              <li class="anno-note" data-n="1"><span class="cs-co-dot" aria-hidden="true">1</span><span><b>Added:</b> A step-by-step after-claim guide, since 3 of 6 testers couldn't find what to do after claiming a dino.</span></li>
-              <li class="anno-note" data-n="2"><span class="cs-co-dot" aria-hidden="true">2</span><span><b>Fixed:</b> Rebuilt button and text colors after a mentor flagged a WCAG contrast failure.</span></li>
-              <li class="anno-note" data-n="3"><span class="cs-co-dot" aria-hidden="true">3</span><span><b>Moved:</b> Drop types into pop-ups, since there was too much content for one card.</span></li>
-            </ol>
-          </div>
-
-          <h3>Flash Sales</h3>
-          <div class="anno cs-callouts">
-            <div class="cs-co-media">
-              <img src="assets/images/final-flash-sales-annotated.webp" alt="The final Flash Sales page, with two annotated changes" loading="lazy" width="900" height="820">
-              <span class="cs-co-box" data-n="1" tabindex="0" aria-label="Annotation 1" style="left: 1.1%; top: 4.9%; width: 97.8%; height: 63.4%;"><i class="cs-co-dot" aria-hidden="true">1</i></span>
-              <span class="cs-co-box" data-n="2" tabindex="0" aria-label="Annotation 2" style="left: 1.1%; top: 76.8%; width: 97.8%; height: 20.7%;"><i class="cs-co-dot" aria-hidden="true">2</i></span>
-            </div>
-            <ol class="cs-co-cards">
-              <li class="anno-note" data-n="1"><span class="cs-co-dot" aria-hidden="true">1</span><span><b>Reused:</b> Getting Started's 4-step pattern for entering a giveaway, so members learn one pattern across the site.</span></li>
-              <li class="anno-note" data-n="2"><span class="cs-co-dot" aria-hidden="true">2</span><span><b>Replaced:</b> The filler “I won, what now?” box became real next steps: pay within 2 hours, then watch for pickup info.</span></li>
-            </ol>
-          </div>
-
-
-          <p class="cs-small">After manual QA, I fixed broken breakpoints and added missing hover and empty states.</p>
-        </section>
-
-        <!-- 6 · REFLECTIONS & THANKS -->
+        <!-- 5 · REFLECTIONS & THANKS -->
         <section id="reflect" class="cs-sec">
-          <span class="cs-label">06 · Reflections</span>
+          <span class="cs-label">05 · Reflections</span>
           <h2>Clarity comes from cutting, and from checking early</h2>
           <ul class="cs-plain">
             <li><b>Cutting beats explaining.</b> The clearest page is usually the shortest one, so I now start from what a new member needs first and keep only what helps them act on it.</li>
