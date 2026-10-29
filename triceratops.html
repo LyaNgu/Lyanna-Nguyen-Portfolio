@@ -70,7 +70,6 @@
           <a href="#problem" aria-current="false" style="position: relative; display: block; height: 36px; box-sizing: border-box; padding: var(--space-2) 0 var(--space-2) var(--space-4); text-decoration: none; white-space: nowrap; color: var(--ink); font-weight: 800; font-size: 15px; line-height: 20px; transition: color .3s ease, font-weight .3s ease;">Problem</a>
           <a href="#research" aria-current="false" style="position: relative; display: block; height: 36px; box-sizing: border-box; padding: var(--space-2) 0 var(--space-2) var(--space-4); text-decoration: none; white-space: nowrap; color: var(--ink); font-weight: 800; font-size: 15px; line-height: 20px; transition: color .3s ease, font-weight .3s ease;">Research</a>
           <a href="#decisions" aria-current="false" style="position: relative; display: block; height: 36px; box-sizing: border-box; padding: var(--space-2) 0 var(--space-2) var(--space-4); text-decoration: none; white-space: nowrap; color: var(--ink); font-weight: 800; font-size: 15px; line-height: 20px; transition: color .3s ease, font-weight .3s ease;">Design decisions</a>
-          <a href="#feedback" aria-current="false" style="position: relative; display: block; height: 36px; box-sizing: border-box; padding: var(--space-2) 0 var(--space-2) var(--space-4); text-decoration: none; white-space: nowrap; color: var(--ink); font-weight: 800; font-size: 15px; line-height: 20px; transition: color .3s ease, font-weight .3s ease;">Feedback rounds</a>
           <a href="#solution" aria-current="false" style="position: relative; display: block; height: 36px; box-sizing: border-box; padding: var(--space-2) 0 var(--space-2) var(--space-4); text-decoration: none; white-space: nowrap; color: var(--ink); font-weight: 800; font-size: 15px; line-height: 20px; transition: color .3s ease, font-weight .3s ease;">Final design</a>
           <a href="#reflect" aria-current="false" style="position: relative; display: block; height: 36px; box-sizing: border-box; padding: var(--space-2) 0 var(--space-2) var(--space-4); text-decoration: none; white-space: nowrap; color: var(--ink); font-weight: 800; font-size: 15px; line-height: 20px; transition: color .3s ease, font-weight .3s ease;">Reflections</a>
         </div>
@@ -190,6 +189,13 @@
                 </ul>
               </div>
             </div>
+            <div class="cs-fb">
+              <span class="cs-fb-label">Feedback</span>
+              <ul class="cs-pc">
+                <li class="con"><span class="cs-fb-who">Mentors · Early hi-fi</span>Called the page congested</li>
+                <li class="con"><span class="cs-fb-who">Usability test · Hi-fi V1</span>2 of 6 testers had scroll fatigue</li>
+              </ul>
+            </div>
             <div class="cs-pick tall">
               <span class="cs-pick-label">Final pick</span>
               <h4>8 short, scannable sections</h4>
@@ -213,6 +219,12 @@
                 </ul>
               </div>
             </div>
+            <div class="cs-fb">
+              <span class="cs-fb-label">Feedback</span>
+              <ul class="cs-pc">
+                <li class="con"><span class="cs-fb-who">Usability test · Hi-fi V1</span>2 of 6 testers missed these steps while every GIF played</li>
+              </ul>
+            </div>
             <div class="cs-pick">
               <span class="cs-pick-label">Final pick</span>
               <h4>4 steps, one still screenshot</h4>
@@ -231,10 +243,16 @@
                 <span class="cs-rejected">Rejected</span>
                 <h4>Remove every box</h4>
                 <ul class="cs-pc">
-                  <li class="pro">Avoids a &#8220;rulebook&#8221; feel, as the client wanted</li>
+                  <li class="pro">Avoids a &#8220;rulebook&#8221; feel</li>
                   <li class="con">Research showed newcomers didn&#8217;t know where to start</li>
                 </ul>
               </div>
+            </div>
+            <div class="cs-fb">
+              <span class="cs-fb-label">Feedback</span>
+              <ul class="cs-pc">
+                <li class="ask"><span class="cs-fb-who">Client review</span>Asked to remove every box to avoid a &#8220;rulebook&#8221; feel</li>
+              </ul>
             </div>
             <div class="cs-pick">
               <span class="cs-pick-label">Final pick</span>
@@ -243,101 +261,17 @@
               <ul class="cs-pc">
               <li class="pro">Keeps the guidance newcomers need</li>
               <li class="pro">Cuts filler like &#8220;I won, what now?&#8221;</li>
+              <li class="pro">The client agreed once I shared the research</li>
               </ul>
             </div>
           </div>
         </section>
 
-        <!-- 5 · FEEDBACK ROUNDS -->
-        <section id="feedback" class="cs-sec">
-          <span class="cs-label">05 · Feedback rounds</span>
-          <h2>Five rounds of feedback, from first hi-fi to launch</h2>
-          <ol class="cs-rounds">
-            <li class="cs-round">
-              <span class="cs-round-dot" aria-hidden="true">1</span>
-              <div class="cs-round-card">
-                <div class="cs-round-head"><h3>Early hi-fi</h3><span class="cs-round-who">Mentor review</span></div>
-                <div class="cs-round-body">
-                  <div><span class="cs-round-k">What we heard</span><ul class="cs-pc">
-                    <li class="con">Mentors called the early hi-fi congested</li>
-                  </ul></div>
-                  <div><span class="cs-round-k">What changed</span><ul class="cs-pc">
-                    <li class="pro">Cut the rulebook into 8 scannable sections</li>
-                  </ul></div>
-                </div>
-              </div>
-            </li>
-            <li class="cs-round">
-              <span class="cs-round-dot" aria-hidden="true">2</span>
-              <div class="cs-round-card">
-                <div class="cs-round-head"><h3>Hi-fi V1</h3><span class="cs-round-who">Usability test · 6 testers</span></div>
-                <div class="cs-round-body">
-                  <div><span class="cs-round-k">What we heard</span><ul class="cs-pc">
-                    <li class="con">2 of 6 had scroll fatigue</li>
-                    <li class="con">2 of 6 missed the notification steps while every GIF played at once</li>
-                    <li class="con">3 of 6 couldn&#8217;t find what to do after claiming a dino</li>
-                  </ul></div>
-                  <div><span class="cs-round-k">What changed</span><ul class="cs-pc">
-                    <li class="pro">Shorter sections to scroll</li>
-                    <li class="pro">4 still steps, one screenshot at a time</li>
-                    <li class="pro">A step-by-step after-claim guide</li>
-                  </ul></div>
-                </div>
-              </div>
-            </li>
-            <li class="cs-round">
-              <span class="cs-round-dot" aria-hidden="true">3</span>
-              <div class="cs-round-card">
-                <div class="cs-round-head"><h3>Client review</h3><span class="cs-round-who">UC Davis Triceratops</span></div>
-                <div class="cs-round-body">
-                  <div><span class="cs-round-k">What we heard</span><ul class="cs-pc">
-                    <li class="con">Asked to remove every box to avoid a &#8220;rulebook&#8221; feel</li>
-                  </ul></div>
-                  <div><span class="cs-round-k">What changed</span><ul class="cs-pc">
-                    <li class="pro">Kept boxes only where they guide, and cut the filler</li>
-                    <li class="pro">The client agreed once I shared the research</li>
-                  </ul></div>
-                </div>
-              </div>
-            </li>
-            <li class="cs-round">
-              <span class="cs-round-dot" aria-hidden="true">4</span>
-              <div class="cs-round-card">
-                <div class="cs-round-head"><h3>Mentor check</h3><span class="cs-round-who">Industry mentors</span></div>
-                <div class="cs-round-body">
-                  <div><span class="cs-round-k">What we heard</span><ul class="cs-pc">
-                    <li class="con">A WCAG contrast failure in button and text colors</li>
-                    <li class="pro">Getting Started was the strongest visual direction of the project</li>
-                  </ul></div>
-                  <div><span class="cs-round-k">What changed</span><ul class="cs-pc">
-                    <li class="pro">Rebuilt the button and text colors</li>
-                  </ul></div>
-                </div>
-              </div>
-            </li>
-            <li class="cs-round">
-              <span class="cs-round-dot" aria-hidden="true">5</span>
-              <div class="cs-round-card">
-                <div class="cs-round-head"><h3>Final QA</h3><span class="cs-round-who">Manual testing</span></div>
-                <div class="cs-round-body">
-                  <div><span class="cs-round-k">What we heard</span><ul class="cs-pc">
-                    <li class="con">Broken breakpoints from AI-generated code</li>
-                    <li class="con">Missing hover and empty states</li>
-                  </ul></div>
-                  <div><span class="cs-round-k">What changed</span><ul class="cs-pc">
-                    <li class="pro">Fixed the broken breakpoints</li>
-                    <li class="pro">Added the missing hover and empty states</li>
-                  </ul></div>
-                </div>
-              </div>
-            </li>
-          </ol>
-        </section>
-
-        <!-- 6 · FINAL DESIGN -->
+        <!-- 5 · FINAL DESIGN -->
         <section id="solution" class="cs-sec">
-          <span class="cs-label">06 · Final design</span>
+          <span class="cs-label">05 · Final design</span>
           <h2>The result: one clear path from first visit to first hunt</h2>
+          <p>An industry mentor called Getting Started the strongest visual direction of the project.</p>
 
           <h3>Getting Started</h3>
           <div class="anno cs-callouts">
@@ -348,8 +282,8 @@
               <span class="cs-co-box" data-n="3" tabindex="0" aria-label="Annotation 3" style="left: 1.8%; top: 49.2%; width: 96.5%; height: 50%;"><i class="cs-co-dot" aria-hidden="true">3</i></span>
             </div>
             <ol class="cs-co-cards">
-              <li class="anno-note" data-n="1"><span class="cs-co-dot" aria-hidden="true">1</span><span><b>Added:</b> A step-by-step after-claim guide, so members know what to do once they claim a dino.</span></li>
-              <li class="anno-note" data-n="2"><span class="cs-co-dot" aria-hidden="true">2</span><span><b>Fixed:</b> Rebuilt button and text colors to pass WCAG contrast.</span></li>
+              <li class="anno-note" data-n="1"><span class="cs-co-dot" aria-hidden="true">1</span><span><b>Added:</b> A step-by-step after-claim guide, since 3 of 6 testers couldn't find what to do after claiming a dino.</span></li>
+              <li class="anno-note" data-n="2"><span class="cs-co-dot" aria-hidden="true">2</span><span><b>Fixed:</b> Rebuilt button and text colors after a mentor flagged a WCAG contrast failure.</span></li>
               <li class="anno-note" data-n="3"><span class="cs-co-dot" aria-hidden="true">3</span><span><b>Moved:</b> Drop types into pop-ups, since there was too much content for one card.</span></li>
             </ol>
           </div>
@@ -367,11 +301,13 @@
             </ol>
           </div>
 
+
+          <p class="cs-small">After manual QA, I fixed broken breakpoints and added missing hover and empty states.</p>
         </section>
 
         <!-- 6 · REFLECTIONS & THANKS -->
         <section id="reflect" class="cs-sec">
-          <span class="cs-label">07 · Reflections</span>
+          <span class="cs-label">06 · Reflections</span>
           <h2>Clarity comes from cutting, and from checking early</h2>
           <ul class="cs-plain">
             <li><b>Cutting beats explaining.</b> Testers wanted “what to do and what to do after,” so I now design for what new members need first.</li>

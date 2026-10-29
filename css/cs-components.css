@@ -255,18 +255,16 @@ html{overflow-x:clip}
 .cs-pick .cs-pc li{padding-left:0}
 .cs-pick .cs-pc li::before{position:static;display:inline-block;margin-right:var(--space-2)}
 @media (max-width:640px){.cs-pick{padding:var(--space-4) var(--space-4) var(--space-6)}.cs-pick.tall .cs-vs-img.tall{aspect-ratio:1/1}}
-/* feedback rounds: a numbered timeline, each round's findings (-) beside what changed (+) */
-.cs-rounds{position:relative;margin:var(--space-6) 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:var(--space-4)}
-.cs-rounds::before{content:"";position:absolute;left:15px;top:16px;bottom:16px;width:3px;background:var(--surface-sunken)}
-.cs-round{position:relative;display:grid;grid-template-columns:32px minmax(0,1fr);gap:var(--space-4);align-items:start}
-.cs-round-dot{position:relative;display:grid;place-items:center;width:32px;height:32px;margin-top:var(--space-4);border-radius:50%;background:var(--wood);color:var(--on-wood);font-family:var(--font-pixel);font-size:20px;line-height:20px}
-.cs-round-card{padding:var(--space-4) var(--space-6) var(--space-6);border-radius:var(--radius-md);background:var(--surface-raised);box-shadow:inset 0 0 0 2px var(--surface-sunken)}
-.cs-round-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:var(--space-2) var(--space-3)}
-.cs-sec .cs-round-head h3{margin:0;font-family:var(--font-display);font-size:21px;line-height:28px;font-weight:700}
-.cs-round-who{padding:0 var(--space-2);border-radius:var(--radius-pill);background:var(--surface-sunken);font-size:13px;line-height:22px;font-weight:800;color:var(--ink-muted)}
-.cs-round-body{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-6);margin-top:var(--space-3)}
-.cs-round-k{display:block;font-family:var(--font-pixel);font-size:16px;line-height:20px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-muted)}
-@media (max-width:640px){.cs-round-body{grid-template-columns:1fr;gap:var(--space-3)}.cs-round-card{padding:var(--space-3) var(--space-4) var(--space-4)}}
+/* feedback between a rejected exploration and its final pick: who said it, and what */
+.cs-fb{position:relative;margin:var(--space-6) 0 0 var(--space-6);padding:var(--space-3) var(--space-4);border-left:4px solid var(--gold);border-radius:0 var(--radius-md) var(--radius-md) 0;background:var(--surface-raised)}
+.cs-fb::before{content:"";position:absolute;left:-4px;top:calc(-1 * var(--space-6));height:var(--space-6);border-left:4px dotted var(--gold)}
+.cs-fb::after{content:"";position:absolute;left:-4px;bottom:calc(-1 * var(--space-6));height:var(--space-6);border-left:4px dotted var(--gold)}
+.cs-fb-label{display:block;font-family:var(--font-pixel);font-size:16px;line-height:20px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-text)}
+.cs-fb .cs-pc{margin-top:var(--space-2)}
+.cs-fb-who{display:inline-block;margin-right:var(--space-2);padding:0 var(--space-2);border-radius:var(--radius-pill);background:var(--surface-sunken);font-size:13px;line-height:22px;font-weight:800;color:var(--ink-muted)}
+.cs-pc .ask::before{content:"?";color:var(--wood)}
+.cs-fb + .cs-pick{margin-top:var(--space-6)}
+@media (max-width:640px){.cs-fb{margin-left:var(--space-3)}}
 .cs-chosen{display:inline-block;margin-right:var(--space-2);padding:0 var(--space-2);background:var(--wood);color:var(--on-wood);font-family:var(--font-pixel);font-size:16px;line-height:22px;letter-spacing:.04em;text-transform:uppercase}
 .cs-rejected{display:inline-block;margin-right:var(--space-2);padding:0 var(--space-2);background:var(--berry);color:var(--on-fill);font-family:var(--font-pixel);font-size:16px;line-height:22px;letter-spacing:.04em;text-transform:uppercase}
 .cs-decision .ba2{display:flex;flex-direction:column;gap:var(--space-4)}
