@@ -68,15 +68,11 @@ html{overflow-x:clip}
 /* My impact: headline, contributions, then the result */
 .cs-impact{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:var(--space-2)}
 .cs-impact b{font-weight:800;color:var(--ink)}
-/* My impact: a bold wood panel of four quick results, right under the overview */
-.cs-impact-panel{margin:var(--space-6) 0 var(--space-8);padding:var(--space-6);border-radius:var(--radius-md);background:var(--wood-dark);box-shadow:4px 4px 0 var(--pixel-shadow)}
-.cs-impact-k{display:block;font-family:var(--font-pixel);font-size:18px;line-height:20px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold)}
-.cs-sec .cs-impact-panel ul{margin:var(--space-4) 0 0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-4) var(--space-6)}
-.cs-impact-panel li{display:flex;flex-direction:column;gap:var(--space-1);padding-top:var(--space-3);border-top:2px solid #ffffff22}
-.cs-impact-panel b{font-size:30px;line-height:36px;font-weight:800;color:#fff3d6}
-.cs-impact-panel span{font-size:15px;line-height:22px;font-weight:600;color:#f3d9a8}
-.cs-impact-panel em{font-style:normal;text-decoration:underline;text-decoration-color:var(--gold);text-underline-offset:3px}
-@media (max-width:560px){.cs-sec .cs-impact-panel ul{grid-template-columns:1fr}.cs-impact-panel b{font-size:26px;line-height:32px}}
+/* My impact: a short vertical list under the overview */
+.cs-impact-list{margin:var(--space-6) 0 var(--space-8)}
+.cs-sec .cs-impact-list ul{margin:var(--space-2) 0 0;padding:0;list-style:none;display:flex;flex-direction:column;border-left:3px solid var(--wood)}
+.cs-impact-list li{padding:var(--space-2) 0 var(--space-2) var(--space-4);font-size:17px;line-height:26px;font-weight:600;color:var(--ink-muted)}
+.cs-impact-list b{color:var(--ink);font-weight:800}
 @media (max-width:560px){.cs-context>div{grid-template-columns:1fr;gap:var(--space-1)}}
 
 /* ---------- Feedback rounds strip ---------- */
