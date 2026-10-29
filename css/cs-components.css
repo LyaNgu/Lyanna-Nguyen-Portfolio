@@ -231,30 +231,19 @@ html{overflow-x:clip}
 .cs-num{flex:none;display:inline-grid;place-items:center;width:32px;height:32px;border-radius:50%;background:var(--wood);color:var(--on-wood);font-family:var(--font-pixel);font-size:20px;line-height:20px;font-weight:400}
 .cs-decision p{font-size:17px;line-height:27px;font-weight:600;color:var(--ink-muted)}
 .cs-why{display:flex;flex-direction:column;gap:var(--space-2)}
-/* explorations: media on the left, the option's + and - notes beside it */
-.cs-opt{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(0,1fr);gap:var(--space-6);align-items:center}
-.cs-opt.tall{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
-.cs-opt + .cs-opt{margin-top:var(--space-4)}
-.cs-opt + .cs-pick{margin-top:var(--space-6)}
-.cs-opt-notes{display:flex;flex-direction:column;align-items:flex-start;gap:var(--space-2)}
+/* explorations: each design at full width, its tag, title and + / - notes in a compact row below */
+.cs-opt{display:flex;flex-direction:column;gap:var(--space-3)}
+.cs-opt + .cs-opt{margin-top:var(--space-8)}
+.cs-opt.tall .cs-vs-img.tall{aspect-ratio:1/1}
+.cs-opt-notes{display:flex;flex-wrap:wrap;align-items:baseline;gap:var(--space-1) var(--space-3)}
 .cs-sec .cs-opt-notes h4{margin:0;font-family:var(--font-display);font-size:21px;line-height:28px;font-weight:700;color:var(--ink)}
+.cs-opt-notes .cs-chosen,.cs-opt-notes .cs-rejected{margin-right:0}
+.cs-opt-notes .cs-pc{flex-basis:100%;flex-direction:row;flex-wrap:wrap;gap:var(--space-1) var(--space-6);margin:0}
 .cs-pc{margin:var(--space-1) 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:var(--space-2)}
 .cs-pc li{position:relative;padding-left:22px;font-size:16px;line-height:24px;font-weight:600;color:var(--ink-muted)}
 .cs-pc li::before{position:absolute;left:0;top:0;width:14px;text-align:center;font-weight:800}
 .cs-pc .pro::before{content:"+";color:var(--grass-text)}
 .cs-pc .con::before{content:"\2013";color:var(--accent-text)}
-@media (max-width:640px){.cs-opt,.cs-opt.tall{grid-template-columns:1fr;gap:var(--space-3)}.cs-opt + .cs-opt{margin-top:var(--space-6)}.cs-opt.tall .cs-vs-img.tall{aspect-ratio:1/1}}
-/* the chosen option: a tinted card with the media full width and its + notes centred below */
-.cs-pick{margin-top:var(--space-4);padding:var(--space-6) var(--space-8) var(--space-8);border-radius:var(--radius-md);background:var(--surface-sunken);display:flex;flex-direction:column;align-items:center;gap:var(--space-3);text-align:center}
-.cs-pick-label{font-family:var(--font-pixel);font-size:18px;line-height:20px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-text)}
-.cs-sec .cs-pick h4{margin:0 0 var(--space-2);font-family:var(--font-display);font-size:22px;line-height:30px;font-weight:700;color:var(--ink)}
-.cs-pick-media{width:100%}
-.cs-pick.tall .cs-pick-media{max-width:420px}
-.cs-pick-media .cs-vs-img{box-shadow:0 10px 24px #3a1f1726}
-.cs-pick .cs-pc{margin-top:var(--space-3);align-items:center}
-.cs-pick .cs-pc li{padding-left:0}
-.cs-pick .cs-pc li::before{position:static;display:inline-block;margin-right:var(--space-2)}
-@media (max-width:640px){.cs-pick{padding:var(--space-4) var(--space-4) var(--space-6)}.cs-pick.tall .cs-vs-img.tall{aspect-ratio:1/1}}
 /* feedback between a rejected exploration and its final pick: who said it, and what */
 .cs-fb{position:relative;margin:var(--space-6) 0 0 var(--space-6);padding:var(--space-3) var(--space-4);border-left:4px solid var(--gold);border-radius:0 var(--radius-md) var(--radius-md) 0;background:var(--surface-raised)}
 .cs-fb::before{content:"";position:absolute;left:-4px;top:calc(-1 * var(--space-6));height:var(--space-6);border-left:4px dotted var(--gold)}
@@ -263,7 +252,7 @@ html{overflow-x:clip}
 .cs-fb .cs-pc{margin-top:var(--space-2)}
 .cs-fb-who{display:inline-block;margin-right:var(--space-2);padding:0 var(--space-2);border-radius:var(--radius-pill);background:var(--surface-sunken);font-size:13px;line-height:22px;font-weight:800;color:var(--ink-muted)}
 .cs-pc .ask::before{content:"?";color:var(--wood)}
-.cs-fb + .cs-pick{margin-top:var(--space-6)}
+.cs-fb + .cs-opt{margin-top:var(--space-6)}
 @media (max-width:640px){.cs-fb{margin-left:var(--space-3)}}
 .cs-chosen{display:inline-block;margin-right:var(--space-2);padding:0 var(--space-2);background:var(--wood);color:var(--on-wood);font-family:var(--font-pixel);font-size:16px;line-height:22px;letter-spacing:.04em;text-transform:uppercase}
 .cs-rejected{display:inline-block;margin-right:var(--space-2);padding:0 var(--space-2);background:var(--berry);color:var(--on-fill);font-family:var(--font-pixel);font-size:16px;line-height:22px;letter-spacing:.04em;text-transform:uppercase}
@@ -282,7 +271,7 @@ html{overflow-x:clip}
 .cs-fig figcaption{font-size:14px;line-height:22px;font-weight:600;font-style:italic;color:var(--ink-muted)}
 
 /* ---------- Callout annotations: screenshot with numbered dashed boxes + matching cards (hover sync in case-study.js) ---------- */
-.anno.cs-callouts{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:var(--space-6);align-items:center;padding:var(--space-6);border-radius:var(--radius-md);background:var(--surface);box-shadow:inset 0 0 0 2px var(--surface-sunken)}
+.anno.cs-callouts{display:flex;flex-direction:column;gap:var(--space-4);margin-top:var(--space-3)}
 .cs-co-media{position:relative;border-radius:var(--radius-md);overflow:hidden;background:#fff;box-shadow:0 0 0 3px var(--wood-dark),4px 4px 0 3px var(--pixel-shadow)}
 .cs-co-media>img{display:block;width:100%;height:auto}
 .cs-co-box{position:absolute;box-sizing:border-box;border:2px dashed var(--wood);border-radius:6px;background:rgba(240,181,74,.14);transition:background .2s,border-color .2s;outline:none}
@@ -291,25 +280,11 @@ html{overflow-x:clip}
 .cs-co-dot{flex:none;display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--wood-dark);color:#fff;font-family:var(--font-body);font-size:12px;line-height:12px;font-weight:800;font-style:normal}
 .cs-co-box>.cs-co-dot{position:absolute;left:4px;top:4px}
 .cs-co-box.sm>.cs-co-dot{left:auto;right:calc(100% + 4px);top:50%;transform:translateY(-50%)}
-.cs-sec ol.cs-co-cards{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:var(--space-3)}
+.cs-sec ol.cs-co-cards{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:var(--space-3)}
 .cs-co-cards .anno-note{display:flex;align-items:flex-start;gap:var(--space-3);padding:var(--space-4);border-radius:var(--radius-md);background:var(--surface-raised);box-shadow:inset 0 0 0 2px var(--surface-sunken);font-size:15px;line-height:23px;font-weight:600;color:var(--ink-muted)}
 .cs-co-cards .anno-note b{color:var(--ink);font-weight:800}
 .cs-co-cards .anno-note.hl{background:var(--surface-raised);box-shadow:inset 4px 0 0 var(--wood),inset 0 0 0 2px var(--surface-sunken)}
-@media (max-width:700px){.anno.cs-callouts{grid-template-columns:1fr;padding:var(--space-4)}}
 
-/* Final design viewer: one page at a time, full column width, scrolled inside a fixed frame */
-.cs-viewer{display:flex;flex-direction:column;align-items:center;gap:var(--space-4);margin-top:var(--space-6)}
-.cs-viewer:not(.on) [data-panel="fs"],.cs-viewer.on [data-panel="gs"]{display:none}
-.cs-view{width:100%;display:flex;flex-direction:column;gap:var(--space-4)}
-.cs-view-shot{position:relative}
-.cs-view-frame{max-height:540px;overflow-y:auto;overscroll-behavior:contain;border-radius:var(--radius-md);background:#fff;box-shadow:0 0 0 3px var(--wood-dark),4px 4px 0 3px var(--pixel-shadow)}
-.cs-view .cs-co-media{border-radius:0;box-shadow:none}
-.cs-view-hint{position:absolute;right:var(--space-3);bottom:var(--space-3);padding:2px var(--space-3);border-radius:var(--radius-pill);background:#2b1510d9;color:var(--on-wood);font-size:13px;line-height:22px;font-weight:800;pointer-events:none;transition:opacity .3s}
-.cs-view-shot.scrolled .cs-view-hint,.cs-view-shot.fits .cs-view-hint{opacity:0}
-.cs-sec ol.cs-view-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:var(--space-3)}
-.cs-view-cards .anno-note{cursor:pointer;outline:none}
-.cs-view-cards .anno-note:focus-visible{box-shadow:0 0 0 3px var(--focus)}
-@media (max-width:560px){.cs-view-frame{max-height:420px}.cs-viewer .ba2-tab{min-width:0;padding:10px 12px 8px;font-size:16px;white-space:nowrap}}
 
 /* Faded Problem screenshot */
 .anno-shot{position:relative}
