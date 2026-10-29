@@ -297,6 +297,20 @@ html{overflow-x:clip}
 .cs-co-cards .anno-note.hl{background:var(--surface-raised);box-shadow:inset 4px 0 0 var(--wood),inset 0 0 0 2px var(--surface-sunken)}
 @media (max-width:700px){.anno.cs-callouts{grid-template-columns:1fr;padding:var(--space-4)}}
 
+/* Final design viewer: one page at a time, full column width, scrolled inside a fixed frame */
+.cs-viewer{display:flex;flex-direction:column;align-items:center;gap:var(--space-4);margin-top:var(--space-6)}
+.cs-viewer:not(.on) [data-panel="fs"],.cs-viewer.on [data-panel="gs"]{display:none}
+.cs-view{width:100%;display:flex;flex-direction:column;gap:var(--space-4)}
+.cs-view-shot{position:relative}
+.cs-view-frame{max-height:540px;overflow-y:auto;overscroll-behavior:contain;border-radius:var(--radius-md);background:#fff;box-shadow:0 0 0 3px var(--wood-dark),4px 4px 0 3px var(--pixel-shadow)}
+.cs-view .cs-co-media{border-radius:0;box-shadow:none}
+.cs-view-hint{position:absolute;right:var(--space-3);bottom:var(--space-3);padding:2px var(--space-3);border-radius:var(--radius-pill);background:#2b1510d9;color:var(--on-wood);font-size:13px;line-height:22px;font-weight:800;pointer-events:none;transition:opacity .3s}
+.cs-view-shot.scrolled .cs-view-hint,.cs-view-shot.fits .cs-view-hint{opacity:0}
+.cs-sec ol.cs-view-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:var(--space-3)}
+.cs-view-cards .anno-note{cursor:pointer;outline:none}
+.cs-view-cards .anno-note:focus-visible{box-shadow:0 0 0 3px var(--focus)}
+@media (max-width:560px){.cs-view-frame{max-height:420px}.cs-viewer .ba2-tab{min-width:0;padding:10px 12px 8px;font-size:16px;white-space:nowrap}}
+
 /* Faded Problem screenshot */
 .anno-shot{position:relative}
 .cs-fade::after{content:"";position:absolute;left:0;right:0;bottom:0;height:28%;background:linear-gradient(rgba(18,18,20,0),rgb(18,18,20) 85%);pointer-events:none}

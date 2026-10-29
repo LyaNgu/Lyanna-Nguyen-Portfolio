@@ -110,6 +110,34 @@
   document.addEventListener('mouseover', highlight);
   document.addEventListener('focusin', highlight);
 
+  // Final design viewer: the frame scrolls to a callout's area when its card is picked, and the
+  // "Scroll" hint fades once the visitor scrolls (or isn't needed)
+  var calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.querySelectorAll('.cs-view').forEach(function (view) {
+    var shot = view.querySelector('.cs-view-shot');
+    var frame = view.querySelector('.cs-view-frame');
+    function fits() { shot.classList.toggle('fits', frame.scrollHeight <= frame.clientHeight + 4); }
+    frame.addEventListener('scroll', function () { shot.classList.add('scrolled'); }, { passive: true });
+    window.addEventListener('resize', fits);
+    var img = frame.querySelector('img');
+    if (img.complete) fits(); else img.addEventListener('load', fits);
+    function go(card) {
+      var box = view.querySelector('.cs-co-box[data-n="' + card.getAttribute('data-n') + '"]');
+      if (box) frame.scrollTo({ top: Math.max(0, box.offsetTop - 16), behavior: calm ? 'auto' : 'smooth' });
+    }
+    view.querySelectorAll('.cs-view-cards .anno-note').forEach(function (card) {
+      card.addEventListener('click', function () { go(card); });
+      card.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(card); }
+      });
+    });
+  });
+  // a panel hidden on load measures as zero, so re-check when the switch shows it
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest || !e.target.closest('.cs-viewer .ba2-tab')) return;
+    setTimeout(function () { window.dispatchEvent(new Event('resize')); }, 0);
+  });
+
   // looping prototype recordings stay still for visitors who prefer reduced motion
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     document.querySelectorAll('video[autoplay]').forEach(function (v) {
