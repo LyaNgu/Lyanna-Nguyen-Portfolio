@@ -227,11 +227,7 @@ html{overflow-x:clip}
 .cs-stats b{font-family:var(--font-pixel);font-size:48px;line-height:44px;font-weight:400;color:var(--accent-text)}
 .cs-stats span{font-size:16px;line-height:25px;font-weight:600;color:var(--ink-muted)}
 @media (max-width:560px){.cs-stats{grid-template-columns:1fr}}
-/* research: numbered methods, the interview quote as the hero, then bold finding cards */
-.cs-sec ol.cs-methods{margin:var(--space-3) 0 0;padding:0;list-style:none;counter-reset:m;display:flex;flex-direction:column;gap:var(--space-2)}
-.cs-methods li{counter-increment:m;position:relative;padding-left:40px;font-size:18px;line-height:28px;font-weight:700;color:var(--ink)}
-.cs-methods li::before{content:counter(m);position:absolute;left:0;top:0;font-family:var(--font-pixel);font-size:22px;color:var(--accent-text)}
-.cs-methods li span{font-weight:600;color:var(--ink-muted)}
+/* research: the interview quote as the hero, then bold finding cards */
 .cs-bigquote{position:relative;margin:var(--space-8) 0 0;padding:var(--space-8) var(--space-8) var(--space-6);border-radius:var(--radius-md);background:#fff;box-shadow:0 0 0 3px var(--wood-dark),4px 4px 0 3px var(--pixel-shadow);text-align:center}
 .cs-bigquote::before{content:"\201C";position:absolute;left:var(--space-6);top:-30px;font-family:Georgia,serif;font-size:96px;line-height:1;color:var(--wood)}
 .cs-bigquote blockquote{margin:0;font-size:26px;line-height:36px;font-weight:800;color:var(--ink)}
