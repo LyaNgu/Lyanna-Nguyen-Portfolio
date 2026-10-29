@@ -4,12 +4,12 @@ marks each click (the last one is implied; the recording only hovers the button)
 import sys, subprocess, numpy as np
 SRC, OUT = sys.argv[1], sys.argv[2]
 W, H, FPS = 1276, 870, 30
-# (out start, src start, src end): the scroll in and the stretches where the cursor sits still
-# are left out
-SEGS = [(0.0, 3.7, 8.0), (4.3, 8.4, 12.3), (8.2, 13.0, 18.8)]
-DUR = 14.0
-# (out time, x, y): Steps 1-4, then the implied click on Join Our Discord
-CLICKS = [(1.42, 145, 170), (4.42, 268, 300), (7.22, 267, 451), (9.92, 291, 597), (13.05, 649, 811)]
+# (out start, src start, src end): opens with Step 1 already showing; the scroll in and the
+# stretches where the cursor sits still are left out
+SEGS = [(0.0, 5.6, 8.0), (2.4, 8.4, 12.3), (6.3, 13.0, 18.8)]
+DUR = 12.1
+# (out time, x, y): Steps 2-4, then the implied click on Join Our Discord
+CLICKS = [(2.52, 268, 300), (5.32, 267, 451), (8.02, 291, 597), (11.15, 649, 811)]
 RING = np.array([224, 154, 82], np.float32)   # --wood-light
 FADE = 0.3
 BG = np.array([255, 255, 255], np.float32)
