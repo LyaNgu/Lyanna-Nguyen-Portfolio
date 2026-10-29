@@ -68,7 +68,7 @@ html{overflow-x:clip}
 /* My impact: headline, contributions, then the result */
 .cs-impact{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:var(--space-2)}
 .cs-impact b{font-weight:800;color:var(--ink)}
-/* My impact: a short vertical list under the overview */
+/* My contributions: a short vertical list under the overview */
 .cs-impact-list{margin:var(--space-6) 0 var(--space-8)}
 .cs-sec .cs-impact-list ul{margin:var(--space-2) 0 0;padding:0;list-style:none;display:flex;flex-direction:column;border-left:3px solid var(--wood)}
 .cs-impact-list li{padding:var(--space-2) 0 var(--space-2) var(--space-4);font-size:17px;line-height:26px;font-weight:600;color:var(--ink-muted)}
