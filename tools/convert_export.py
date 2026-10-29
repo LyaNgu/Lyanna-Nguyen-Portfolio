@@ -285,6 +285,12 @@ for _i, _l in enumerate(_lines):
             _lines[_i] = _v
 site_css = '\n'.join(_lines)
 assert all(v in site_css for v in LOADER_MOTION.values())
+# Opening plays in 1.5s: every loader timing scaled to 1.5/3.6 (js/home.js hides it at 1550ms)
+LOADER_SPEED = [('3.6s steps(36)', '1.5s steps(18)'), ('ldrBar 3s steps(15)', 'ldrBar 1.25s steps(10)'),
+                ('ldrFade 3.6s', 'ldrFade 1.5s'), ('ldrHole 3.6s', 'ldrHole 1.5s'), ('ldrDrop .45s steps(5) 2', 'ldrDrop .2s steps(4) 2')]
+for _a, _b in LOADER_SPEED:
+    assert _a in site_css, _a
+    site_css = site_css.replace(_a, _b)
 site_css = site_css.replace('.dlg{height:192px;', '.dlg{min-height:192px;', 1)
 site_css = site_css.replace('@media (max-width:760px){.dlg{height:240px}', '@media (max-width:760px){.dlg{min-height:240px}', 1)
 site_css += ('\n\n/* Dialogue: the box grows to fit long lines; a hidden copy of the full line reserves the space\n'
@@ -295,6 +301,7 @@ site_css += ('\n\n/* Dialogue: the box grows to fit long lines; a hidden copy of
 site_css += ('\n/* Opening: squash and stretch from the base; drops fall under gravity */\n'
              '.ldr-seed{transform-origin:50% 100%}.ldr-drop{animation-timing-function:cubic-bezier(.55,0,1,.45)}\n')
 site_css += '\n/* Elements toggled by the page scripts */\n[hidden]{display:none!important}\n'
+site_css += '\n/* Phone menu: hamburger button and dropdown panel (built by js/site.js) */\n.navburger{display:none}\n@media (max-width:760px){\n.navburger{display:inline-grid;align-content:center;gap:4px;width:44px;height:40px;margin-left:8px;padding:0 10px;border:0;border-radius:6px;background:var(--surface);box-shadow:inset 0 0 0 3px var(--wood-dark);cursor:pointer}\n.navburger span{display:block;height:3px;background:var(--wood-dark);transition:transform .2s ease,opacity .2s ease}\n.menu-open .navburger span:nth-child(1){transform:translateY(7px) rotate(45deg)}\n.menu-open .navburger span:nth-child(2){opacity:0}\n.menu-open .navburger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}\n.navburger:focus-visible{outline:3px solid var(--focus);outline-offset:2px}\n.navpanel{position:absolute;left:0;right:0;top:100%;display:flex;flex-direction:column;padding:6px 20px 14px;background:var(--surface-raised);border-bottom:4px solid var(--wood);box-shadow:0 3px 0 var(--wood-dark);font-family:var(--font-pixel);font-size:22px;letter-spacing:.04em;text-transform:uppercase}\n.navpanel[hidden]{display:none}\n.navpanel .navlinks{display:block!important;padding:12px 4px!important;border-bottom:2px dashed var(--surface-sunken)}\n.navpanel .navlinks:last-child{border-bottom:0}\n}\n@media (prefers-reduced-motion:reduce){.navburger span{transition:none}}\n'
 open(os.path.join(OUT, 'css', 'site.css'), 'w').write(site_css)
 open(os.path.join(OUT, 'css', 'case-study.css'), 'w').write(
     '/* Extra rules for the case-study pages (annotations, before/after, table of contents). */\n'
@@ -310,6 +317,10 @@ for name, P in PAGES.items():
     cfg = CONFIG[name]
     tpl = P['tpl']
     if name == 'Main':
+        for _a, _b in [('animation-delay: 1.85s;', 'animation-delay: .77s;'), ('animation-delay: 2s;', 'animation-delay: .83s;'),
+                       ('animation-delay: 2.15s;', 'animation-delay: .9s;'), ('animation-delay: 2.3s;', 'animation-delay: .96s;')]:
+            assert tpl.count(_a) == 1, _a
+            tpl = tpl.replace(_a, _b)
         # The scroll-following tour guide is permanently switched off (showComp is always false).
         tpl, n = re.subn(r'  <!-- TOUR GUIDE -->.*?(?=  <!-- NAV -->)', '', tpl, flags=re.S)
         assert n == 1 and 'showComp' not in tpl
