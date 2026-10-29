@@ -302,6 +302,8 @@ html{overflow-x:clip}
 .cs-co-cards .anno-note.hl{background:var(--surface-raised);box-shadow:inset 4px 0 0 var(--wood),inset 0 0 0 2px var(--surface-sunken)}
 
 
+.cs-final-ph{aspect-ratio:16/10;margin-top:var(--space-3)}
+
 /* Faded Problem screenshot */
 .anno-shot{position:relative}
 .cs-fade::after{content:"";position:absolute;left:0;right:0;bottom:0;height:28%;background:linear-gradient(rgba(18,18,20,0),rgb(18,18,20) 85%);pointer-events:none}
