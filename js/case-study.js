@@ -110,6 +110,18 @@
   document.addEventListener('mouseover', highlight);
   document.addEventListener('focusin', highlight);
 
+  // Research: the 9 of 15 split wipes in once when the figure scrolls into view
+  var flow = document.querySelector('.cs-flow');
+  if (flow && 'IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    flow.classList.add('ready');
+    var flowIo = new IntersectionObserver(function (entries) {
+      if (!entries[0].isIntersecting) return;
+      flow.classList.add('in');
+      flowIo.disconnect();
+    }, { threshold: 0.4 });
+    flowIo.observe(flow);
+  }
+
   // looping prototype recordings stay still for visitors who prefer reduced motion
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     document.querySelectorAll('video[autoplay]').forEach(function (v) {
