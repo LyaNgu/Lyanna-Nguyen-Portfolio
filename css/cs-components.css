@@ -227,6 +227,18 @@ html{overflow-x:clip}
 .cs-stats b{font-family:var(--font-pixel);font-size:48px;line-height:44px;font-weight:400;color:var(--accent-text)}
 .cs-stats span{font-size:16px;line-height:25px;font-weight:600;color:var(--ink-muted)}
 @media (max-width:560px){.cs-stats{grid-template-columns:1fr}}
+/* research evidence: a unit chart (one square per respondent) beside a participant quote */
+.cs-evidence{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-6);align-items:stretch}
+.cs-stat{display:flex;flex-direction:column;gap:var(--space-2)}
+.cs-stat>b{font-family:var(--font-pixel);font-size:48px;line-height:44px;font-weight:400;color:var(--accent-text)}
+.cs-stat>span:last-child{font-size:16px;line-height:25px;font-weight:600;color:var(--ink-muted)}
+.cs-units{display:grid;grid-template-columns:repeat(15,minmax(0,1fr));gap:4px;max-width:330px}
+.cs-units i{aspect-ratio:1;border-radius:3px;background:var(--surface-sunken)}
+.cs-units i.on{background:var(--wood)}
+.cs-quote{margin:0;padding:var(--space-4);border-radius:var(--radius-md);background:var(--surface-raised);box-shadow:inset 0 0 0 2px var(--surface-sunken);display:flex;flex-direction:column;justify-content:center;gap:var(--space-2)}
+.cs-sec .cs-quote p{margin:0;font-size:17px;line-height:27px;font-weight:700;font-style:italic;color:var(--ink)}
+.cs-quote cite{font-size:14px;line-height:20px;font-weight:600;font-style:normal;color:var(--ink-muted)}
+@media (max-width:560px){.cs-evidence{grid-template-columns:1fr}}
 .cs-sec p.cs-takeaway{margin-top:var(--space-6);padding:var(--space-3) var(--space-4);border-left:4px solid var(--wood);background:var(--surface-raised);font-size:17px;line-height:27px;font-weight:600;color:var(--ink-muted)}
 .cs-takeaway b{color:var(--ink)}
 .cs-sec .cs-decision h3{margin:0;display:flex;align-items:center;gap:var(--space-3)}
