@@ -133,21 +133,20 @@ def grass():
         px[(x, y)] = '#f0b54a'
     return W, H, px
 
-# ---- lawn: a grass tile for the Design Garden. A soft green with a few tufts and a couple of
-# tiny flowers: lively, but low contrast so the artwork stays the focus. Tiles in both directions.
+# ---- lawn: a grass tile for the Design Garden, in the home screen's grass green. Only a few
+# low-contrast tufts and one tiny flower, so the artwork stays the focus. Tiles in both directions.
 def lawn():
     W, H = 128, 96; px = {}
     for y in range(H):
         for x in range(W):
-            px[(x, y)] = '#a5ce91'
-    tufts = [(9, 14), (41, 6), (77, 22), (110, 11), (24, 47), (60, 58), (96, 44), (14, 80), (50, 88), (88, 76), (120, 63), (70, 36)]
-    for x, y in tufts:
+            px[(x, y)] = '#7cc44f'
+    for x, y in [(18, 16), (84, 30), (44, 62), (110, 78)]:
         for dx, dy in ((0, 0), (2, 0), (1, -1), (-1, -1), (3, -1)):
-            px[((x + dx) % W, (y + dy) % H)] = '#8fbe7b'
-    for x, y, c in [(33, 27, '#fbf3df'), (101, 70, '#fbf3df'), (66, 82, '#f3c6d6')]:
-        for dx, dy in ((0, -1), (-1, 0), (1, 0), (0, 1)):
-            px[((x + dx) % W, (y + dy) % H)] = c
-        px[(x, y)] = '#f0c96a'
+            px[((x + dx) % W, (y + dy) % H)] = '#70b947'
+    x, y = 66, 84
+    for dx, dy in ((0, -1), (-1, 0), (1, 0), (0, 1)):
+        px[((x + dx) % W, (y + dy) % H)] = '#f3e6c4'
+    px[(x, y)] = '#f0c96a'
     return W, H, px
 
 # Distance haze: the tree line is blended toward the pale sky so the farmhouse stays the focus
