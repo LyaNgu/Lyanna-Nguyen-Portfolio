@@ -70,6 +70,7 @@
           <a href="#problem" aria-current="false" style="position: relative; display: block; height: 36px; box-sizing: border-box; padding: var(--space-2) 0 var(--space-2) var(--space-4); text-decoration: none; white-space: nowrap; color: var(--ink); font-weight: 800; font-size: 15px; line-height: 20px; transition: color .3s ease, font-weight .3s ease;">Problem</a>
           <a href="#research" aria-current="false" style="position: relative; display: block; height: 36px; box-sizing: border-box; padding: var(--space-2) 0 var(--space-2) var(--space-4); text-decoration: none; white-space: nowrap; color: var(--ink); font-weight: 800; font-size: 15px; line-height: 20px; transition: color .3s ease, font-weight .3s ease;">Research</a>
           <a href="#decisions" aria-current="false" style="position: relative; display: block; height: 36px; box-sizing: border-box; padding: var(--space-2) 0 var(--space-2) var(--space-4); text-decoration: none; white-space: nowrap; color: var(--ink); font-weight: 800; font-size: 15px; line-height: 20px; transition: color .3s ease, font-weight .3s ease;">Design decisions</a>
+          <a href="#solution" aria-current="false" style="position: relative; display: block; height: 36px; box-sizing: border-box; padding: var(--space-2) 0 var(--space-2) var(--space-4); text-decoration: none; white-space: nowrap; color: var(--ink); font-weight: 800; font-size: 15px; line-height: 20px; transition: color .3s ease, font-weight .3s ease;">Final design</a>
           <a href="#reflect" aria-current="false" style="position: relative; display: block; height: 36px; box-sizing: border-box; padding: var(--space-2) 0 var(--space-2) var(--space-4); text-decoration: none; white-space: nowrap; color: var(--ink); font-weight: 800; font-size: 15px; line-height: 20px; transition: color .3s ease, font-weight .3s ease;">Reflections</a>
         </div>
       </nav>
@@ -140,7 +141,7 @@
                 <div class="pk-dots"></div>
               </div>
             </div>
-            <a href="#decisions" class="pp-btn ghost cs-peek-link">▾ See the design decisions</a>
+            <a href="#solution" class="pp-btn ghost cs-peek-link">▾ See the final design</a>
           </div>
         </section>
 
@@ -226,9 +227,47 @@
           </div>
         </section>
 
-        <!-- 5 · REFLECTIONS & THANKS -->
+        <!-- 5 · FINAL DESIGN -->
+        <section id="solution" class="cs-sec">
+          <span class="cs-label">05 · Final design</span>
+          <h2>The result: one clear path from first visit to first hunt</h2>
+          <p>An industry mentor called Getting Started the strongest visual direction of the project.</p>
+
+          <h3>Getting Started</h3>
+          <div class="anno cs-callouts">
+            <div class="cs-co-media">
+              <img src="assets/images/final-getting-started-annotated.webp" alt="The final Getting Started page from the after-claim guide down to drop types, with three annotated changes" loading="lazy" width="684" height="1260">
+              <span class="cs-co-box" data-n="1" tabindex="0" aria-label="Annotation 1" style="left: 1.8%; top: 0.8%; width: 96.5%; height: 23%;"><i class="cs-co-dot" aria-hidden="true">1</i></span>
+              <span class="cs-co-box sm" data-n="2" tabindex="0" aria-label="Annotation 2" style="left: 77.5%; top: 40.9%; width: 17.5%; height: 3.6%;"><i class="cs-co-dot" aria-hidden="true">2</i></span>
+              <span class="cs-co-box" data-n="3" tabindex="0" aria-label="Annotation 3" style="left: 1.8%; top: 49.2%; width: 96.5%; height: 50%;"><i class="cs-co-dot" aria-hidden="true">3</i></span>
+            </div>
+            <ol class="cs-co-cards">
+              <li class="anno-note" data-n="1"><span class="cs-co-dot" aria-hidden="true">1</span><span><b>Added:</b> A step-by-step after-claim guide, since 3 of 6 testers couldn't find what to do after claiming a dino.</span></li>
+              <li class="anno-note" data-n="2"><span class="cs-co-dot" aria-hidden="true">2</span><span><b>Fixed:</b> Rebuilt button and text colors after a mentor flagged a WCAG contrast failure.</span></li>
+              <li class="anno-note" data-n="3"><span class="cs-co-dot" aria-hidden="true">3</span><span><b>Moved:</b> Drop types into pop-ups, since there was too much content for one card.</span></li>
+            </ol>
+          </div>
+
+          <h3>Flash Sales</h3>
+          <div class="anno cs-callouts">
+            <div class="cs-co-media">
+              <img src="assets/images/final-flash-sales-annotated.webp" alt="The final Flash Sales page, with two annotated changes" loading="lazy" width="900" height="820">
+              <span class="cs-co-box" data-n="1" tabindex="0" aria-label="Annotation 1" style="left: 1.1%; top: 4.9%; width: 97.8%; height: 63.4%;"><i class="cs-co-dot" aria-hidden="true">1</i></span>
+              <span class="cs-co-box" data-n="2" tabindex="0" aria-label="Annotation 2" style="left: 1.1%; top: 76.8%; width: 97.8%; height: 20.7%;"><i class="cs-co-dot" aria-hidden="true">2</i></span>
+            </div>
+            <ol class="cs-co-cards">
+              <li class="anno-note" data-n="1"><span class="cs-co-dot" aria-hidden="true">1</span><span><b>Reused:</b> Getting Started's 4-step pattern for entering a giveaway, so members learn one pattern across the site.</span></li>
+              <li class="anno-note" data-n="2"><span class="cs-co-dot" aria-hidden="true">2</span><span><b>Replaced:</b> The filler “I won, what now?” box became real next steps: pay within 2 hours, then watch for pickup info.</span></li>
+            </ol>
+          </div>
+
+
+          <p class="cs-small">After manual QA, I fixed broken breakpoints and added missing hover and empty states.</p>
+        </section>
+
+        <!-- 6 · REFLECTIONS & THANKS -->
         <section id="reflect" class="cs-sec">
-          <span class="cs-label">05 · Reflections</span>
+          <span class="cs-label">06 · Reflections</span>
           <h2>Clarity comes from cutting, and from checking early</h2>
           <ul class="cs-plain">
             <li><b>Cutting beats explaining.</b> The clearest page is usually the shortest one, so I now start from what a new member needs first and keep only what helps them act on it.</li>
