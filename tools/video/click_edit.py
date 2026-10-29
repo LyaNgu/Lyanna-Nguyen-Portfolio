@@ -77,9 +77,10 @@ def offset(a):
     return right / max(left + right, 1)
 def aligned(a):
     if offset(a) < .5: return a
-    out = a.copy()
-    out[:, 640:1276 - NUDGE] = a[:, 640 + NUDGE:1276]
-    out[:, 1276 - NUDGE:1276] = 255
+    # only the screenshot's rows move; the heading and button below stay put
+    out = a.copy(); rows = PANEL[0]
+    out[rows, 640:1276 - NUDGE] = a[rows, 640 + NUDGE:1276]
+    out[rows, 1276 - NUDGE:1276] = 255
     return out
 def clean(i, step):
     while .05 < offset(raw(i)) < .95: i += step
