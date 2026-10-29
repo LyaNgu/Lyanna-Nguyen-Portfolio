@@ -182,12 +182,16 @@ html{overflow-x:clip}
 .pk-sol{display:grid;grid-template-columns:1fr 1fr;align-items:center;background:radial-gradient(ellipse at 75% 50%,var(--surface-raised),var(--surface) 70%)}
 .pk-gs-screen{position:relative;align-self:stretch;margin:5cqw 0 -2cqw 9cqw;overflow:hidden;border-radius:12px 12px 0 0;background:#fff;box-shadow:0 0 0 3px #2b1f17,0 14px 30px #0003}
 .pk-page{position:absolute;left:0;top:0;display:block;width:100%;height:auto;transition:opacity .6s var(--pk-out),translate .6s var(--pk-out)}
-.pk-page.gs{transform:translateY(-62%)}
 .pk-page.fs{opacity:0;translate:0 4cqw}
 /* the Flash Sales card swaps the big screen to that page and back */
 .pk-sol[data-page="fs"] .pk-page.gs{opacity:0;translate:0 -4cqw}
-.pk-sol[data-page="fs"] .pk-page.fs{opacity:1;translate:none;animation:pkScrollFs 12s .7s ease-in-out both}
+.pk-sol[data-page="fs"] .pk-page.fs{opacity:1;translate:none;animation:pkScrollFs 14s .7s ease-in-out both}
 @keyframes pkScrollFs{to{transform:translateY(-55%)}}
+/* both pages open at their header and scroll at the same pace each time they're swapped in */
+.pk-sol[data-page="fs"] .pk-page.gs{animation:none}
+.pk-sol[data-swapped][data-page="gs"] .pk-page.gs{animation:pkScrollSlow 14s .7s ease-in-out both}
+.pk-sol .for-fs,.pk-sol[data-page="fs"] .for-gs{display:none}
+.pk-sol[data-page="fs"] .for-fs{display:inline}
 .pk-sol-copy{display:flex;flex-direction:column;align-items:flex-start;gap:1.6cqw;padding:0 9cqw 0 5cqw}
 .pk-sol-title{margin:0;max-width:none;display:flex;flex-direction:column;align-items:flex-start}
 .pk-kicker2{font-family:var(--font-body);font-size:max(11px,1.9cqw);font-weight:800;color:var(--ink-muted)}
@@ -195,13 +199,13 @@ html{overflow-x:clip}
 .pk-num{font-family:var(--font-display);font-size:max(44px,10cqw);line-height:.9;font-weight:700;color:var(--accent-text);font-variant-numeric:tabular-nums}
 .pk-unit{font-family:var(--font-display);font-size:max(15px,2.8cqw);white-space:nowrap;line-height:1.1;font-weight:700;color:var(--ink)}
 .pk-sol-sub{margin:0;max-width:none;font-family:var(--font-body);font-size:max(11px,1.8cqw);font-weight:600;color:var(--ink-muted)}
-.pk-fs{margin:1cqw 0 0;display:flex;align-items:center;gap:1.6cqw;padding:1.2cqw 1.6cqw 1.2cqw 1.2cqw;border:0;border-radius:var(--radius-md);background:var(--surface-raised);box-shadow:inset 0 0 0 2px var(--surface-sunken),0 6px 16px #0001;font:inherit;text-align:left;cursor:pointer;transition:transform .25s var(--pk-out),box-shadow .25s}
+.pk-fs{margin:1cqw 0 0;display:flex;align-items:center;gap:1.6cqw;width:max(200px,38cqw);box-sizing:border-box;padding:1.2cqw 1.6cqw 1.2cqw 1.2cqw;border:0;border-radius:var(--radius-md);background:var(--surface-raised);box-shadow:inset 0 0 0 2px var(--surface-sunken),0 6px 16px #0001;font:inherit;text-align:left;cursor:pointer;transition:transform .25s var(--pk-out),box-shadow .25s}
 .pk-fs:hover{transform:translateY(-.4cqw);box-shadow:inset 0 0 0 2px var(--wood-light),0 10px 20px #0002}
 .pk-fs:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
 .pk-fs-screen{flex:none;width:13cqw;aspect-ratio:1901/941;overflow:hidden;border-radius:6px;background:#fff;box-shadow:0 0 0 2px #2b1f17}
 .pk-fs-screen img{display:block;width:100%;height:auto}
 .pk-fs-cap{display:flex;flex-direction:column;gap:.3cqw;font-family:var(--font-body);font-size:max(10px,1.5cqw);font-weight:600;line-height:1.3;color:var(--ink-muted)}
-.pk-fs-cap b{font-size:1.15em;color:var(--accent-text)}
+.pk-fs-cap b{font-size:1.15em;white-space:nowrap;color:var(--accent-text)}
 .pk-fs .to-gs,.pk-sol[data-page="fs"] .pk-fs .to-fs{display:none}
 .pk-sol[data-page="fs"] .pk-fs .to-gs{display:flex}
 .pk-sol[data-page="fs"] .pk-fs img.to-gs{display:block}

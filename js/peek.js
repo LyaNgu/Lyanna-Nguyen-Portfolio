@@ -59,6 +59,7 @@
       dots[k].setAttribute('aria-current', on ? 'true' : 'false');
     });
     showPage('gs');
+    if (sol) delete sol.dataset.swapped;
     void slides[current].offsetWidth;          // restart the scene's animations
     if (!reduced) slides[current].classList.add('play');
     countDown(slides[current]);
@@ -89,7 +90,10 @@
     swap.setAttribute('aria-pressed', page === 'fs' ? 'true' : 'false');
     swap.setAttribute('aria-label', page === 'fs' ? 'Back to the Getting Started page' : 'Show the Flash Sales page');
   }
-  if (swap) swap.addEventListener('click', function () { showPage(sol.dataset.page === 'fs' ? 'gs' : 'fs'); });
+  if (swap) swap.addEventListener('click', function () {
+    sol.dataset.swapped = '';
+    showPage(sol.dataset.page === 'fs' ? 'gs' : 'fs');
+  });
 
   root.querySelector('.pk-arrow.prev').addEventListener('click', function () { go(current - 1); });
   root.querySelector('.pk-arrow.next').addEventListener('click', function () { go(current + 1); });
