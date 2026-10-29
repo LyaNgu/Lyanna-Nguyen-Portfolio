@@ -227,38 +227,27 @@ html{overflow-x:clip}
 .cs-stats b{font-family:var(--font-pixel);font-size:48px;line-height:44px;font-weight:400;color:var(--accent-text)}
 .cs-stats span{font-size:16px;line-height:25px;font-weight:600;color:var(--ink-muted)}
 @media (max-width:560px){.cs-stats{grid-template-columns:1fr}}
-/* research: methods as chips, then one finding per group, ordered along the member journey */
-.cs-sec ul.cs-methods{margin:var(--space-4) 0 0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:var(--space-2)}
-.cs-methods li{padding:var(--space-1) var(--space-3);border-radius:var(--radius-pill);background:var(--surface-raised);box-shadow:inset 0 0 0 2px var(--surface-sunken);font-size:15px;line-height:22px;font-weight:600;color:var(--ink-muted)}
-.cs-methods b{color:var(--ink);font-weight:800}
-/* 9 of 15 as one band of 15 students that splits at the rules; band widths match the counts */
-.cs-flow{margin:var(--space-6) 0 0;padding:var(--space-6);border-radius:var(--radius-md);background:var(--surface-raised);box-shadow:inset 0 0 0 2px var(--surface-sunken)}
-.cs-flow-art{position:relative}
-.cs-flow svg{display:block;width:100%;height:auto}
-.cs-flow .b-all{fill:#e8cfa0}
-.cs-flow .b-red{fill:#e2958c}
-.cs-flow .b-grn{fill:#7cc44f}
-.cs-flow .rule{fill:var(--wood-dark)}
-.cs-flow .flag{stroke:var(--wood-dark);stroke-width:4}
-.cs-flow .flagc{fill:var(--gold)}
-.cs-flow-l{position:absolute;transform:translateX(-50%);font-family:var(--font-pixel);font-size:16px;line-height:18px;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;color:var(--wood-dark)}
-.cs-flow-l.hunt{color:#2f6b2b}
-.cs-flow-n{position:absolute;right:0;display:flex;flex-direction:row;align-items:baseline;gap:var(--space-2);font-size:14px;line-height:19px;font-weight:700;color:var(--ink-muted)}
-.cs-flow-n b{flex:none;white-space:nowrap;font-family:var(--font-pixel);font-size:40px;line-height:38px;font-weight:400}
-.cs-flow-n.stop{flex-direction:column;gap:var(--space-1)}
-.cs-flow-n.go b{color:#2f6b2b}.cs-flow-n.stop b{color:#b8322a}
-/* the split grows in from the crowd once, when the figure scrolls into view (js/case-study.js) */
-.cs-flow.ready svg{clip-path:inset(0 100% 0 0)}
-.cs-flow.ready .cs-flow-n,.cs-flow.ready .cs-flow-l{opacity:0}
-.cs-flow.ready.in svg{clip-path:inset(0 0 0 0);transition:clip-path 1.6s cubic-bezier(.4,0,.2,1)}
-.cs-flow.ready.in .cs-flow-n,.cs-flow.ready.in .cs-flow-l{opacity:1;transition:opacity .5s ease 1.3s}
-.cs-sec ul.cs-also{margin:var(--space-3) 0 0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-3)}
-.cs-also li{padding:var(--space-3) var(--space-4);border-radius:var(--radius-md);background:var(--surface-raised);box-shadow:inset 0 0 0 2px var(--surface-sunken);font-size:15px;line-height:22px;font-weight:600;color:var(--ink-muted)}
-.cs-also b{color:var(--ink);font-weight:800}
-@media (max-width:640px){.cs-flow{padding:var(--space-4) var(--space-3)}.cs-flow-l{font-size:11px;line-height:12px}.cs-flow-l.hunt{display:none}.cs-flow-n b{font-size:26px;line-height:26px}.cs-flow-n{position:static;margin-top:var(--space-2);font-size:13px;line-height:18px}.cs-flow-n.stop{flex-direction:row;gap:var(--space-2)}.cs-sec ul.cs-also{grid-template-columns:1fr}}
-.cs-quote{margin:var(--space-4) 0 0;padding:var(--space-4);border-radius:var(--radius-md);border-left:4px solid var(--gold);background:var(--surface-raised);display:flex;flex-direction:column;gap:var(--space-1)}
-.cs-sec .cs-quote p{margin:0;font-size:17px;line-height:27px;font-weight:700;font-style:italic;color:var(--ink)}
-.cs-quote cite{font-size:14px;line-height:20px;font-weight:600;font-style:normal;color:var(--ink-muted)}
+/* research: numbered methods, the interview quote as the hero, then bold finding cards */
+.cs-sec ol.cs-methods{margin:var(--space-3) 0 0;padding:0;list-style:none;counter-reset:m;display:flex;flex-direction:column;gap:var(--space-2)}
+.cs-methods li{counter-increment:m;position:relative;padding-left:40px;font-size:18px;line-height:28px;font-weight:700;color:var(--ink)}
+.cs-methods li::before{content:counter(m);position:absolute;left:0;top:0;font-family:var(--font-pixel);font-size:22px;color:var(--accent-text)}
+.cs-methods li span{font-weight:600;color:var(--ink-muted)}
+.cs-bigquote{position:relative;margin:var(--space-8) 0 0;padding:var(--space-8) var(--space-8) var(--space-6);border-radius:var(--radius-md);background:#fff;box-shadow:0 0 0 3px var(--wood-dark),4px 4px 0 3px var(--pixel-shadow);text-align:center}
+.cs-bigquote::before{content:"\201C";position:absolute;left:var(--space-6);top:-30px;font-family:Georgia,serif;font-size:96px;line-height:1;color:var(--wood)}
+.cs-bigquote blockquote{margin:0;font-size:26px;line-height:36px;font-weight:800;color:var(--ink)}
+.cs-bigquote figcaption{margin-top:var(--space-3);font-size:15px;line-height:22px;font-weight:600;color:var(--ink-muted)}
+.cs-finds{margin-top:var(--space-6);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-3)}
+.cs-find{display:flex;flex-direction:column;gap:var(--space-2);padding:var(--space-6);border-radius:var(--radius-md);color:#fff3d6}
+.cs-find.wide{grid-column:1 / -1}
+.cs-find.rules{background:#7a2a20}.cs-find.social{background:var(--wood-dark)}.cs-find.hunters{background:#2a4f24}
+.cs-find-icon{width:26px;height:26px;fill:currentColor;opacity:.85;shape-rendering:crispEdges}
+.cs-sec .cs-find h3{margin:var(--space-1) 0 0;font-size:20px;line-height:28px;font-weight:800;color:#fff3d6}
+.cs-sec .cs-find p{margin:0;font-size:15px;line-height:23px;font-weight:600;color:#fbe8c0}
+.cs-find p b{color:#fff;font-weight:800}
+.cs-crowd{display:flex;flex-wrap:wrap;gap:10px;margin:var(--space-3) 0}
+.cs-person{flex:none;width:30px;height:42px;fill:#fbe8c040;shape-rendering:crispEdges}
+.cs-person.on{fill:#ffb2a6}
+@media (max-width:640px){.cs-finds{grid-template-columns:1fr}.cs-bigquote{padding:var(--space-8) var(--space-4) var(--space-4)}.cs-bigquote blockquote{font-size:20px;line-height:28px}.cs-person{width:15px;height:21px}.cs-crowd{gap:3px}}
 
 .cs-sec p.cs-takeaway{margin-top:var(--space-6);padding:var(--space-3) var(--space-4);border-left:4px solid var(--wood);background:var(--surface-raised);font-size:17px;line-height:27px;font-weight:600;color:var(--ink-muted)}
 .cs-takeaway b{color:var(--ink)}
