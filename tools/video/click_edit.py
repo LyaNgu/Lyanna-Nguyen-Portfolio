@@ -6,11 +6,13 @@ from PIL import Image
 SRC, OUT = sys.argv[1], sys.argv[2]
 W, H, FPS = 1280, 872, 30
 AR = W / H
+# the recording has a dark column down its right edge; frame only the area inside it
+SW, SH = 1276, 870
 # (out start, src start, src end): the second, in-order pass through the steps, skipping two
 # stretches where the cursor sits still
 SEGS = [(0.0, 27.6, 33.8), (6.2, 34.6, 37.9), (9.5, 38.7, 41.5)]
 DUR = 12.3
-WIDE = (640, 436, 1280)
+WIDE = (SW / 2, SH / 2, SW)
 UPPER = (645, 0, 1208)     # 1.06x: keeps the active-step bar and the whole screenshot in frame
 LOWER = (645, 872, 1208)   # the same zoom, drifted down for step 4 (clamped to the frame)
 KEYS = [(0.0, WIDE), (0.4, WIDE), (1.6, UPPER), (6.4, UPPER), (7.6, LOWER), (9.6, LOWER),
@@ -29,9 +31,9 @@ def cam(t):
             k = ease((t - t0) / (t1 - t0)) if t1 > t0 else 1
             cx = a[0] + (b[0] - a[0]) * k; cy = a[1] + (b[1] - a[1]) * k
             w = math.exp(math.log(a[2]) + (math.log(b[2]) - math.log(a[2])) * k); h = w / AR
-            cx = min(max(cx, w/2), W - w/2); cy = min(max(cy, h/2), H - h/2)
+            cx = min(max(cx, w/2), SW - w/2); cy = min(max(cy, h/2), SH - h/2)
             return (cx - w/2, cy - h/2, cx + w/2, cy + h/2)
-    return (0, 0, W, H)
+    return (0, 0, SW, SH)
 def src_time(t):
     for o, s0, s1 in reversed(SEGS):
         if t >= o: return min(s0 + (t - o), s1 - 1/FPS)
