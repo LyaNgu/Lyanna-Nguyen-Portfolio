@@ -68,7 +68,6 @@
           <span class="toc-mark" aria-hidden="true" style="position: absolute; left: 0; top: 0px; width: 4px; height: 36px; background: var(--wood-dark); transition: top .5s cubic-bezier(.34, 1.56, .64, 1);"></span>
           <a href="#overview" aria-current="false" style="position: relative; display: block; height: 36px; box-sizing: border-box; padding: var(--space-2) 0 var(--space-2) var(--space-4); text-decoration: none; white-space: nowrap; color: var(--ink-muted); font-weight: 600; font-size: 15px; line-height: 20px; transition: color .3s ease, font-weight .3s ease;">Overview</a>
           <a href="#problem" aria-current="false" style="position: relative; display: block; height: 36px; box-sizing: border-box; padding: var(--space-2) 0 var(--space-2) var(--space-4); text-decoration: none; white-space: nowrap; color: var(--ink); font-weight: 800; font-size: 15px; line-height: 20px; transition: color .3s ease, font-weight .3s ease;">Problem</a>
-          <a href="#constraints" aria-current="false" style="position: relative; display: block; height: 36px; box-sizing: border-box; padding: var(--space-2) 0 var(--space-2) var(--space-4); text-decoration: none; white-space: nowrap; color: var(--ink); font-weight: 800; font-size: 15px; line-height: 20px; transition: color .3s ease, font-weight .3s ease;">Constraints</a>
           <a href="#research" aria-current="false" style="position: relative; display: block; height: 36px; box-sizing: border-box; padding: var(--space-2) 0 var(--space-2) var(--space-4); text-decoration: none; white-space: nowrap; color: var(--ink); font-weight: 800; font-size: 15px; line-height: 20px; transition: color .3s ease, font-weight .3s ease;">Research</a>
           <a href="#decisions" aria-current="false" style="position: relative; display: block; height: 36px; box-sizing: border-box; padding: var(--space-2) 0 var(--space-2) var(--space-4); text-decoration: none; white-space: nowrap; color: var(--ink); font-weight: 800; font-size: 15px; line-height: 20px; transition: color .3s ease, font-weight .3s ease;">Design decisions</a>
           <a href="#solution" aria-current="false" style="position: relative; display: block; height: 36px; box-sizing: border-box; padding: var(--space-2) 0 var(--space-2) var(--space-4); text-decoration: none; white-space: nowrap; color: var(--ink); font-weight: 800; font-size: 15px; line-height: 20px; transition: color .3s ease, font-weight .3s ease;">Final design</a>
@@ -162,32 +161,9 @@
           </div>
         </section>
 
-        <!-- 3 · CONSTRAINTS -->
-        <section id="constraints" class="cs-sec cs-constraints">
-          <span class="cs-label">03 · Constraints</span>
-          <h2>Why wasn&#8217;t this simple?</h2>
-            <ul>
-              <li>
-                <svg class="cs-con-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3h2v2H5zM3 5h2v2H3zM1 7h2v2H1zM3 9h2v2H3zM5 11h2v2H5zM9 3h2v2H9zM11 5h2v2h-2zM13 7h2v2h-2zM11 9h2v2h-2zM9 11h2v2H9z"/></svg>
-                <h4>Learning to build</h4>
-                <p>No backend or Claude Code experience, and 4 months to learn GitHub and Cloudflare while designing and building.</p>
-              </li>
-              <li>
-                <svg class="cs-con-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 3h9v2H2zM9 1h2v2H9zM11 3h2v2h-2zM9 5h2v2H9zM5 9h9v2H5zM5 7h2v2H5zM3 9h2v2H3zM5 11h2v2H5z"/></svg>
-                <h4>Designer and developer</h4>
-                <p>I handed designs off to myself, so every decision also had to be something I could build.</p>
-              </li>
-              <li>
-                <svg class="cs-con-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M1 13h14v2H1zM2 9h3v4H2zM7 6h3v7H7zM12 1h2v2h-2zM12 5h2v6h-2z"/></svg>
-                <h4>No usage data</h4>
-                <p>The club&#8217;s info lived only in Discord, with no data on where newcomers dropped off.</p>
-              </li>
-            </ul>
-        </section>
-
-        <!-- 4 · RESEARCH -->
+        <!-- 3 · RESEARCH -->
         <section id="research" class="cs-sec">
-          <span class="cs-label">04 · Research</span>
+          <span class="cs-label">03 · Research</span>
           <h2>Interest wasn't the barrier; the rules were</h2>
           <p>To find where new members got stuck, I combined:</p>
           <ol class="cs-methods">
@@ -220,9 +196,9 @@
           <p class="cs-takeaway"><b>Why it matters:</b> the interest was already there but got lost in unclear rules for taking part, so our goal was to bring clarity and remove friction from the new member&#8217;s journey, from first interest to first hunt.</p>
         </section>
 
-        <!-- 5 · DESIGN DECISIONS -->
+        <!-- 4 · DESIGN DECISIONS -->
         <section id="decisions" class="cs-sec">
-          <span class="cs-label">05 · Design decisions</span>
+          <span class="cs-label">04 · Design decisions</span>
           <h2>So I cut what overwhelmed and kept what guided</h2>
           <h3 class="cs-subhead">What didn&#8217;t work</h3>
           <div class="cs-opt tall">
@@ -263,9 +239,9 @@
           </div>
         </section>
 
-        <!-- 6 · FINAL DESIGN -->
+        <!-- 5 · FINAL DESIGN -->
         <section id="solution" class="cs-sec">
-          <span class="cs-label">06 · Final design</span>
+          <span class="cs-label">05 · Final design</span>
           <h2>The result: one clear path from first visit to first hunt</h2>
           <p>An industry mentor called Getting Started the strongest visual direction of the project.</p>
 
@@ -279,9 +255,9 @@
           <p class="cs-small">After manual QA, I fixed broken breakpoints and added missing hover and empty states.</p>
         </section>
 
-        <!-- 7 · REFLECTIONS & THANKS -->
+        <!-- 6 · REFLECTIONS & THANKS -->
         <section id="reflect" class="cs-sec">
-          <span class="cs-label">07 · Reflections</span>
+          <span class="cs-label">06 · Reflections</span>
           <h2>Clarity comes from cutting, and from checking early</h2>
           <ul class="cs-plain">
             <li><b>Cutting beats explaining.</b> The clearest page is usually the shortest one, so I now start from what a new member needs first and keep only what helps them act on it.</li>
