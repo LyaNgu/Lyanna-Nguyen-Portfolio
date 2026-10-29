@@ -231,20 +231,39 @@ html{overflow-x:clip}
 .cs-sec ul.cs-methods{margin:var(--space-4) 0 0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:var(--space-2)}
 .cs-methods li{padding:var(--space-1) var(--space-3);border-radius:var(--radius-pill);background:var(--surface-raised);box-shadow:inset 0 0 0 2px var(--surface-sunken);font-size:15px;line-height:22px;font-weight:600;color:var(--ink-muted)}
 .cs-methods b{color:var(--ink);font-weight:800}
-.cs-sec ol.cs-cohorts{margin:var(--space-6) 0 0;padding:0;list-style:none;display:grid;grid-template-columns:1fr 1.3fr 1fr;gap:var(--space-3);counter-reset:none}
-.cs-cohorts li{position:relative;display:flex;flex-direction:column;gap:var(--space-2);padding:var(--space-4);border-radius:var(--radius-md);background:var(--surface-raised);box-shadow:inset 0 0 0 2px var(--surface-sunken);font-size:15px;line-height:22px;font-weight:600;color:var(--ink-muted)}
-.cs-cohorts li.key{background:var(--surface-raised);box-shadow:inset 0 0 0 3px var(--wood)}
-.cs-cohorts li + li::before{content:"\25B8";position:absolute;left:calc(-1 * var(--space-3));top:50%;width:var(--space-3);transform:translateY(-50%);text-align:center;font-size:14px;color:var(--wood)}
-.cs-cohort-k{font-family:var(--font-pixel);font-size:16px;line-height:18px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent-text)}
-.cs-cohort-n{font-family:var(--font-pixel);font-size:40px;line-height:38px;font-weight:400;color:var(--ink)}
-.cs-cohort-n.txt{font-family:var(--font-body);font-size:22px;line-height:30px;font-weight:800}
-.cs-units{display:grid;grid-template-columns:repeat(15,minmax(0,1fr));gap:3px}
-.cs-units i{aspect-ratio:1;border-radius:2px;background:var(--surface-sunken)}
-.cs-units i.on{background:var(--wood)}
+/* 9 of 15 drawn as people: a crowd of 15 lines heads for a first hunt; 6 fit through the gap
+   in the rules, 9 hit the fence and drop away */
+.cs-flow{margin:var(--space-6) 0 0;padding:var(--space-8) var(--space-6) var(--space-6);border-radius:var(--radius-md);background:linear-gradient(var(--surface-raised),#fbeccb);box-shadow:inset 0 0 0 2px var(--surface-sunken)}
+.cs-flow-art{position:relative}
+.cs-flow svg{display:block;width:100%;height:auto;overflow:visible}
+.cs-flow .strand{fill:none;stroke-width:4;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:0}
+.cs-flow .go{stroke:#5aa83a;stroke-width:5}
+.cs-flow .stop{stroke:url(#fadeStop)}
+.cs-flow .end{fill:#b8322a}
+.cs-flow .fence{fill:var(--wood)}
+.cs-flow .post{fill:var(--wood-dark)}
+.cs-flow .flag{stroke:var(--wood-dark);stroke-width:4}
+.cs-flow .flagc{fill:var(--gold)}
+.cs-flow-l{position:absolute;top:calc(-1 * var(--space-6));transform:translateX(-50%);font-family:var(--font-pixel);font-size:16px;line-height:18px;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;color:var(--wood-dark)}
+.cs-flow-n{position:absolute;display:flex;flex-direction:column;font-size:14px;line-height:19px;font-weight:700;color:var(--ink-muted)}
+.cs-flow-n.go{align-items:flex-end;text-align:right;white-space:nowrap}
+.cs-flow-n b{font-family:var(--font-pixel);font-size:40px;line-height:38px;font-weight:400}
+.cs-flow-n.go b{color:#2f6b2b}.cs-flow-n.stop b{color:#b8322a}
+/* lines draw in once, when the figure scrolls into view (js/case-study.js) */
+.cs-flow.ready .strand{stroke-dashoffset:1}
+.cs-flow.ready .end,.cs-flow.ready .cs-flow-n{opacity:0}
+.cs-flow.ready.in .strand{stroke-dashoffset:0;transition:stroke-dashoffset 1.6s cubic-bezier(.4,0,.2,1) var(--d)}
+.cs-flow.ready.in .stop{transition-duration:1.1s}
+.cs-flow.ready.in .end{opacity:1;transition:opacity .3s ease var(--d)}
+.cs-flow.ready.in .cs-flow-n{opacity:1;transition:opacity .5s ease 1.6s}
+.cs-sec ul.cs-also{margin:var(--space-3) 0 0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-3)}
+.cs-also li{padding:var(--space-3) var(--space-4);border-radius:var(--radius-md);background:var(--surface-raised);box-shadow:inset 0 0 0 2px var(--surface-sunken);font-size:15px;line-height:22px;font-weight:600;color:var(--ink-muted)}
+.cs-also b{color:var(--ink);font-weight:800}
+@media (max-width:640px){.cs-flow{padding:var(--space-8) var(--space-3) var(--space-3)}.cs-flow-l{font-size:13px}.cs-flow-n{position:static;transform:none!important;margin:var(--space-3) 0 0!important;text-align:left!important;align-items:flex-start!important;white-space:normal!important}.cs-flow-n br{display:none}.cs-flow-n b{font-size:30px;line-height:30px}.cs-sec ul.cs-also{grid-template-columns:1fr}}
 .cs-quote{margin:var(--space-4) 0 0;padding:var(--space-4);border-radius:var(--radius-md);border-left:4px solid var(--gold);background:var(--surface-raised);display:flex;flex-direction:column;gap:var(--space-1)}
 .cs-sec .cs-quote p{margin:0;font-size:17px;line-height:27px;font-weight:700;font-style:italic;color:var(--ink)}
 .cs-quote cite{font-size:14px;line-height:20px;font-weight:600;font-style:normal;color:var(--ink-muted)}
-@media (max-width:640px){.cs-sec ol.cs-cohorts{grid-template-columns:1fr}.cs-cohorts li + li::before{content:"\25BE";left:50%;top:calc(-1 * var(--space-3));transform:translateX(-50%);width:auto;line-height:var(--space-3)}}
+
 .cs-sec p.cs-takeaway{margin-top:var(--space-6);padding:var(--space-3) var(--space-4);border-left:4px solid var(--wood);background:var(--surface-raised);font-size:17px;line-height:27px;font-weight:600;color:var(--ink-muted)}
 .cs-takeaway b{color:var(--ink)}
 .cs-sec .cs-decision h3{margin:0;display:flex;align-items:center;gap:var(--space-3)}
