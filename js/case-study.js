@@ -110,16 +110,53 @@
   document.addEventListener('mouseover', highlight);
   document.addEventListener('focusin', highlight);
 
-  // Research: the 9 of 15 split wipes in once when the figure scrolls into view
+  // Research: each dot is one interested student. Dots travel their path in a staggered stream;
+  // the six who make it glide into the goal, the nine who stop slow at the rules, bounce back a
+  // little and dim. Plays once when scrolled into view; reduced motion shows the final picture.
   var flow = document.querySelector('.cs-flow');
-  if (flow && 'IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    flow.classList.add('ready');
-    var flowIo = new IntersectionObserver(function (entries) {
-      if (!entries[0].isIntersecting) return;
-      flow.classList.add('in');
-      flowIo.disconnect();
-    }, { threshold: 0.4 });
-    flowIo.observe(flow);
+  if (flow) {
+    var trails = flow.querySelectorAll('.trail');
+    var flowDots = flow.querySelectorAll('.dot');
+    var at = function (i, k) {
+      var t = trails[i], p = t.getPointAtLength(t.getTotalLength() * k);
+      flowDots[i].setAttribute('cx', p.x.toFixed(1));
+      flowDots[i].setAttribute('cy', p.y.toFixed(1));
+    };
+    var settle = function () {
+      flowDots.forEach(function (d, i) { at(i, 1); d.classList.remove('moving'); d.classList.add('rest'); });
+    };
+    var calmFlow = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (calmFlow || !('IntersectionObserver' in window)) {
+      settle();
+    } else {
+      flowDots.forEach(function (d, i) { at(i, 0); d.classList.add('moving'); });
+      var easeGo = function (k) { return k < .5 ? 2 * k * k : 1 - Math.pow(-2 * k + 2, 2) / 2; };
+      // the nine overshoot into the rules, then recoil and rest just before it
+      var easeStop = function (k) { var e = 1 - Math.pow(1 - k, 3); return e + Math.sin(e * Math.PI) * .06 - (k > .8 ? (k - .8) * .3 : 0); };
+      var run = function () {
+        var t0 = null;
+        requestAnimationFrame(function step(t) {
+          if (t0 === null) t0 = t;
+          var done = true;
+          flowDots.forEach(function (d, i) {
+            var go = d.classList.contains('go');
+            var delay = (go ? 0 : 120) + ((i * 7) % 15) * 70;
+            var dur = go ? 2200 : 1500;
+            var k = Math.min(Math.max((t - t0 - delay) / dur, 0), 1);
+            at(i, go ? easeGo(k) : Math.min(easeStop(k), 1));
+            if (k >= 1 && d.classList.contains('moving')) { d.classList.remove('moving'); d.classList.add('rest'); }
+            if (k < 1) done = false;
+          });
+          if (!done) requestAnimationFrame(step);
+        });
+      };
+      var flowIo = new IntersectionObserver(function (entries) {
+        if (!entries[0].isIntersecting) return;
+        flowIo.disconnect();
+        run();
+      }, { threshold: 0.5 });
+      flowIo.observe(flow);
+    }
   }
 
   // looping prototype recordings stay still for visitors who prefer reduced motion
