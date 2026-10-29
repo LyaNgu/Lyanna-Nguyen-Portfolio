@@ -61,11 +61,12 @@
 
     var btn = document.createElement('button');
     btn.type = 'button';
-    btn.className = 'navburger';
+    btn.className = 'pp-btn secondary navburger';
     btn.setAttribute('aria-controls', 'site-menu');
     btn.setAttribute('aria-expanded', 'false');
     btn.setAttribute('aria-label', 'Open menu');
-    btn.innerHTML = '<span></span><span></span><span></span>';
+    btn.innerHTML = '<svg class="nb-open" viewBox="0 0 9 7" aria-hidden="true"><path d="M0 0h9v1H0zM0 3h9v1H0zM0 6h9v1H0z"/></svg>' +
+      '<svg class="nb-close" viewBox="0 0 8 7" aria-hidden="true"><path d="M0 0h1v1H0zM0 6h1v1H0zM1 0h1v1H1zM1 1h1v1H1zM1 5h1v1H1zM1 6h1v1H1zM2 1h1v1H2zM2 2h1v1H2zM2 4h1v1H2zM2 5h1v1H2zM3 2h1v1H3zM3 3h1v1H3zM3 4h1v1H3zM4 2h1v1H4zM4 3h1v1H4zM4 4h1v1H4zM5 1h1v1H5zM5 2h1v1H5zM5 4h1v1H5zM5 5h1v1H5zM6 0h1v1H6zM6 1h1v1H6zM6 5h1v1H6zM6 6h1v1H6zM7 0h1v1H7zM7 6h1v1H7z"/></svg>';
     nav.appendChild(btn);
 
     function set(open) {
