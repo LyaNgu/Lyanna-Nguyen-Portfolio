@@ -68,6 +68,8 @@ html{overflow-x:clip}
 /* My impact: headline, contributions, then the result */
 .cs-impact{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:var(--space-2)}
 .cs-impact b{font-weight:800;color:var(--ink)}
+.cs-impact-k{display:block;margin-top:var(--space-6)}
+#overview .cs-impact{margin:var(--space-2) 0 var(--space-8)}
 @media (max-width:560px){.cs-context>div{grid-template-columns:1fr;gap:var(--space-1)}}
 
 /* ---------- Feedback rounds strip ---------- */
