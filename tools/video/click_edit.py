@@ -56,14 +56,44 @@ def ring(a, t, box):
 dec = subprocess.Popen(['ffmpeg', '-loglevel', 'error', '-i', SRC, '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-'], stdout=subprocess.PIPE)
 enc = subprocess.Popen(['ffmpeg', '-loglevel', 'error', '-y', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-s', f'{W}x{H}', '-r', str(FPS), '-i', '-',
     '-c:v', 'libx264', '-preset', 'slow', '-crf', '18', '-pix_fmt', 'yuv420p', OUT], stdin=subprocess.PIPE)
-idx, cur = -1, None
-def frame(i):
-    global idx, cur
+# On the live site Step 2's screenshot sits 9px right of the others, so the box jumps as the
+# steps change. Shift it back in line, and rebuild each crossfade from the clean frames on either
+# side so no doubled edge shows mid-swap.
+PANEL = (slice(140, 660), slice(640, 1276))    # the screenshot and its shadow
+NUDGE = 9
+frames, idx = {}, -1
+def raw(i):
+    global idx
     while idx < i:
         buf = dec.stdout.read(W * H * 3)
-        if len(buf) < W * H * 3: return cur
-        cur = Image.frombytes('RGB', (W, H), buf); idx += 1
-    return cur
+        if len(buf) < W * H * 3: return frames[idx]
+        idx += 1; frames[idx] = np.frombuffer(buf, np.uint8).reshape(H, W, 3)
+        frames.pop(idx - 40, None)
+    return frames[i]
+def offset(a):
+    # 0 = box in line, 1 = box nudged right; in between while the page crossfades
+    left = 255 - a[170:620, 656:662].mean()
+    right = 255 - a[170:620, 1237:1243].mean()
+    return right / max(left + right, 1)
+def aligned(a):
+    if offset(a) < .5: return a
+    out = a.copy()
+    out[:, 640:1276 - NUDGE] = a[:, 640 + NUDGE:1276]
+    out[:, 1276 - NUDGE:1276] = 255
+    return out
+def clean(i, step):
+    while .05 < offset(raw(i)) < .95: i += step
+    return i
+def frame(i):
+    a = raw(i); o = offset(a)
+    if .05 < o < .95:
+        p, n = clean(i, -1), clean(i, 1)
+        k = (i - p) / (n - p)
+        a = aligned(raw(p)).copy()
+        a[PANEL] = (aligned(raw(p))[PANEL] * (1 - k) + aligned(raw(n))[PANEL] * k).astype(np.uint8)
+        a[:, :640] = raw(i)[:, :640]    # the step list keeps its own live transition
+        return Image.fromarray(a)
+    return Image.fromarray(aligned(a))
 for f in range(int(DUR * FPS)):
     t = f / FPS
     box = cam(t)
