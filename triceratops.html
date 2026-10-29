@@ -176,83 +176,70 @@
         <section id="decisions" class="cs-sec">
           <span class="cs-label">04 · Design decisions</span>
           <h2>So I cut what overwhelmed and kept what guided</h2>
-          <div class="cs-decision">
-            <h3><span class="cs-num">1</span>Cut the rulebook into 8 scannable sections</h3>
-            <div class="cs-opt tall">
-              <div class="cs-opt-media"><div class="cs-vs-img tall"><img style="object-position: 50% 22%;" src="assets/images/mid-fi-beginners-guide.webp" alt="Mid-fi Beginner's Guide with dense blocks of rules" loading="lazy" width="513" height="2000"></div></div>
-              <div class="cs-opt-notes">
-                <span class="cs-rejected">Rejected</span>
-                <h4>Everything the client gave us</h4>
-                <ul class="cs-pc">
-                  <li class="pro">Every rule in one place</li>
-                  <li class="con">Dense blocks of rules to read through</li>
-                  <li class="con"><span class="cs-fb-who">Mentors · Early hi-fi</span>Called the page congested</li>
-                  <li class="con"><span class="cs-fb-who">Usability test · Hi-fi V1</span>2 of 6 testers had scroll fatigue</li>
-                </ul>
-              </div>
-            </div>
-            <div class="cs-opt tall">
-              <div class="cs-opt-media"><div class="cs-vs-img tall"><img style="object-position: 50% 10%;" src="assets/images/final-beginners-guide.webp" alt="Final Beginner's Guide with short numbered steps and clear sections" loading="lazy" width="684" height="4000"></div></div>
-              <div class="cs-opt-notes">
-                <span class="cs-chosen">Chose</span>
-                <h4>8 short, scannable sections</h4>
-                <ul class="cs-pc">
-                  <li class="pro">Short numbered steps newcomers can skim</li>
-                  <li class="pro">Clear sections, so each rule is easy to find</li>
-                </ul>
-              </div>
+          <h3 class="cs-subhead">What didn&#8217;t work</h3>
+          <div class="cs-opt tall">
+            <div class="cs-opt-media"><div class="cs-vs-img tall"><img style="object-position: 50% 22%;" src="assets/images/mid-fi-beginners-guide.webp" alt="Mid-fi Beginner's Guide with dense blocks of rules" loading="lazy" width="513" height="2000"></div></div>
+            <div class="cs-opt-notes">
+              <h4><span class="cs-num">1</span>Everything the client gave us</h4>
+              <ul class="cs-pc">
+                <li class="pro">Every rule in one place</li>
+                <li class="con">Dense blocks of rules to read through</li>
+                <li class="con"><span class="cs-fb-who">Mentors · Early hi-fi</span>Called the page congested</li>
+                <li class="con"><span class="cs-fb-who">Usability test · Hi-fi V1</span>2 of 6 testers had scroll fatigue</li>
+              </ul>
             </div>
           </div>
-          <div class="cs-decision">
-            <h3><span class="cs-num">2</span>Swapped simultaneous GIFs for 4 still steps</h3>
-            <div class="cs-opt">
-              <div class="cs-opt-media"><div class="cs-vs-img wide"><video poster="assets/images/hifi-v1-notification-gifs-poster.webp" autoplay muted loop playsinline preload="metadata" aria-label="Hi-fi V1 prototype: the four step GIFs all playing at once"><source src="assets/video/hifi-v1-notification-gifs.mp4" type="video/mp4"><source src="assets/video/hifi-v1-notification-gifs.webm" type="video/webm"></video></div></div>
-              <div class="cs-opt-notes">
-                <span class="cs-rejected">Rejected</span>
-                <h4>Every step&#8217;s GIF playing at once</h4>
-                <ul class="cs-pc">
-                  <li class="pro">Shows each step in motion</li>
-                  <li class="con">Four moving GIFs compete for attention</li>
-                  <li class="con"><span class="cs-fb-who">Usability test · Hi-fi V1</span>2 of 6 testers missed these steps while every GIF played</li>
-                </ul>
-              </div>
-            </div>
-            <div class="cs-opt">
-              <div class="cs-opt-media"><div class="cs-vs-img wide"><video poster="assets/images/final-notification-steps-poster.webp" autoplay muted loop playsinline preload="metadata" aria-label="Final design: clicking each of the 4 steps swaps in one still screenshot of that step"><source src="assets/video/final-notification-steps.mp4" type="video/mp4"><source src="assets/video/final-notification-steps.webm" type="video/webm"></video></div></div>
-              <div class="cs-opt-notes">
-                <span class="cs-chosen">Chose</span>
-                <h4>4 steps, one still screenshot</h4>
-                <ul class="cs-pc">
-                  <li class="pro">One thing to look at at a time</li>
-                  <li class="pro">Click a step to see exactly where to go</li>
-                </ul>
-              </div>
+          <div class="cs-opt">
+            <div class="cs-opt-media"><div class="cs-vs-img wide"><video poster="assets/images/hifi-v1-notification-gifs-poster.webp" autoplay muted loop playsinline preload="metadata" aria-label="Hi-fi V1 prototype: the four step GIFs all playing at once"><source src="assets/video/hifi-v1-notification-gifs.mp4" type="video/mp4"><source src="assets/video/hifi-v1-notification-gifs.webm" type="video/webm"></video></div></div>
+            <div class="cs-opt-notes">
+              <h4><span class="cs-num">2</span>Every step&#8217;s GIF playing at once</h4>
+              <ul class="cs-pc">
+                <li class="pro">Shows each step in motion</li>
+                <li class="con">Four moving GIFs compete for attention</li>
+                <li class="con"><span class="cs-fb-who">Usability test · Hi-fi V1</span>2 of 6 testers missed these steps while every GIF played</li>
+              </ul>
             </div>
           </div>
-          <div class="cs-decision">
-            <h3><span class="cs-num">3</span>Pushed back to keep guiding boxes</h3>
-            <div class="cs-opt">
-              <div class="cs-opt-media"><div class="cs-vs-img"><div class="ph img"><b>Client&#8217;s ask</b><span>The page with every box removed</span></div></div></div>
-              <div class="cs-opt-notes">
-                <span class="cs-rejected">Rejected</span>
-                <h4>Remove every box</h4>
-                <ul class="cs-pc">
-                  <li class="pro"><span class="cs-fb-who">Client review</span>Avoids a &#8220;rulebook&#8221; feel, as the client asked</li>
-                  <li class="con">Research showed newcomers didn&#8217;t know where to start</li>
-                </ul>
-              </div>
+          <div class="cs-opt">
+            <div class="cs-opt-media"><div class="cs-vs-img"><div class="ph img"><b>Client&#8217;s ask</b><span>The page with every box removed</span></div></div></div>
+            <div class="cs-opt-notes">
+              <h4><span class="cs-num">3</span>Remove every box</h4>
+              <ul class="cs-pc">
+                <li class="pro"><span class="cs-fb-who">Client review</span>Avoids a &#8220;rulebook&#8221; feel, as the client asked</li>
+                <li class="con">Research showed newcomers didn&#8217;t know where to start</li>
+              </ul>
             </div>
-            <div class="cs-opt">
-              <div class="cs-opt-media"><div class="cs-vs-img"><div class="ph img"><b>After</b><span>Boxes only for guidance, with real claiming steps</span></div></div></div>
-              <div class="cs-opt-notes">
-                <span class="cs-chosen">Chose</span>
-                <h4>Boxes only for guidance</h4>
-                <ul class="cs-pc">
-                  <li class="pro">Keeps the guidance newcomers need</li>
-                  <li class="pro">Cuts filler like &#8220;I won, what now?&#8221;</li>
-                  <li class="pro">The client agreed once I shared the research</li>
-                </ul>
-              </div>
+          </div>
+          <h3 class="cs-subhead">What I chose</h3>
+          <div class="cs-opt tall">
+            <div class="cs-opt-media"><div class="cs-vs-img tall"><img style="object-position: 50% 10%;" src="assets/images/final-beginners-guide.webp" alt="Final Beginner's Guide with short numbered steps and clear sections" loading="lazy" width="684" height="4000"></div></div>
+            <div class="cs-opt-notes">
+              <h4><span class="cs-num">1</span>Cut the rulebook into 8 scannable sections</h4>
+              <ul class="cs-pc">
+                <li class="pro">Short numbered steps newcomers can skim</li>
+                <li class="pro">Clear sections, so each rule is easy to find</li>
+              </ul>
+            </div>
+          </div>
+          <div class="cs-opt">
+            <div class="cs-opt-media"><div class="cs-vs-img wide"><video poster="assets/images/final-notification-steps-poster.webp" autoplay muted loop playsinline preload="metadata" aria-label="Final design: clicking each of the 4 steps swaps in one still screenshot of that step"><source src="assets/video/final-notification-steps.mp4" type="video/mp4"><source src="assets/video/final-notification-steps.webm" type="video/webm"></video></div></div>
+            <div class="cs-opt-notes">
+              <h4><span class="cs-num">2</span>Swapped simultaneous GIFs for 4 still steps</h4>
+              <ul class="cs-pc">
+                <li class="pro">One thing to look at at a time</li>
+                <li class="pro">Click a step to see exactly where to go</li>
+              </ul>
+            </div>
+          </div>
+          <div class="cs-opt">
+            <div class="cs-opt-media"><div class="cs-vs-img"><div class="ph img"><b>After</b><span>Boxes only for guidance, with real claiming steps</span></div></div></div>
+            <div class="cs-opt-notes">
+              <h4><span class="cs-num">3</span>Pushed back to keep guiding boxes</h4>
+              <ul class="cs-pc">
+                <li class="pro">Keeps the guidance newcomers need</li>
+                <li class="pro">Cuts filler like &#8220;I won, what now?&#8221;</li>
+                <li class="pro">The client agreed once I shared the research</li>
+              </ul>
             </div>
           </div>
         </section>

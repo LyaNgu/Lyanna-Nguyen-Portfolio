@@ -231,6 +231,11 @@ html{overflow-x:clip}
 .cs-num{flex:none;display:inline-grid;place-items:center;width:32px;height:32px;border-radius:50%;background:var(--wood);color:var(--on-wood);font-family:var(--font-pixel);font-size:20px;line-height:20px;font-weight:400}
 .cs-decision p{font-size:17px;line-height:27px;font-weight:600;color:var(--ink-muted)}
 .cs-why{display:flex;flex-direction:column;gap:var(--space-2)}
+/* Design decisions: rejected explorations grouped first, then the choices, under mini headers */
+.cs-sec h3.cs-subhead{margin:var(--space-12) 0 var(--space-6);padding-bottom:var(--space-2);border-bottom:2px dashed var(--surface-sunken);font-family:var(--font-pixel);font-size:24px;line-height:28px;font-weight:400;letter-spacing:.06em;text-transform:uppercase;color:var(--accent-text)}
+.cs-sec h2 + h3.cs-subhead{margin-top:var(--space-8)}
+.cs-sec .cs-opt-notes h4{display:flex;align-items:center;gap:var(--space-3)}
+.cs-opt-notes .cs-num{width:28px;height:28px;font-size:18px}
 /* explorations: each design at full width, its tag, title and + / - notes in a compact row below */
 .cs-opt{display:flex;flex-direction:column;gap:var(--space-3)}
 .cs-opt + .cs-opt{margin-top:var(--space-8)}
