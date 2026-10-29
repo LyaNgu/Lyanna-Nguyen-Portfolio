@@ -1,5 +1,5 @@
 """Decision 2 "Chose" clip: a new member clicks through the four final steps, then heads for
-"Join Our Discord". A light zoom keeps the step list and its screenshot in view together, and a
+"Join Our Discord". The view stays wide so the whole design is always in frame, and a
 soft ring marks each click (the last one is implied; the recording only hovers the button)."""
 import sys, subprocess, math, numpy as np
 from PIL import Image
@@ -13,10 +13,7 @@ SW, SH = 1276, 870
 SEGS = [(0.0, 27.6, 33.8), (6.2, 34.6, 37.9), (9.5, 38.7, 41.5)]
 DUR = 12.3
 WIDE = (SW / 2, SH / 2, SW)
-UPPER = (645, 0, 1208)     # 1.06x: keeps the active-step bar and the whole screenshot in frame
-LOWER = (645, 872, 1208)   # the same zoom, drifted down for step 4 (clamped to the frame)
-KEYS = [(0.0, WIDE), (0.4, WIDE), (1.6, UPPER), (6.4, UPPER), (7.6, LOWER), (9.6, LOWER),
-        (10.9, WIDE), (DUR, WIDE)]
+KEYS = [(0.0, WIDE), (DUR, WIDE)]
 # (out time, x, y in the recording)
 CLICKS = [(1.75, 173, 300), (4.95, 234, 449), (8.15, 235, 594), (11.2, 636, 812)]
 RING = np.array([224, 154, 82], np.float32)   # --wood-light
