@@ -235,6 +235,7 @@ html{overflow-x:clip}
 .cs-opt{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(0,1fr);gap:var(--space-6);align-items:center}
 .cs-opt.tall{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
 .cs-opt + .cs-opt{margin-top:var(--space-4)}
+.cs-opt + .cs-pick{margin-top:var(--space-6)}
 .cs-opt-notes{display:flex;flex-direction:column;align-items:flex-start;gap:var(--space-2)}
 .cs-sec .cs-opt-notes h4{margin:0;font-family:var(--font-display);font-size:21px;line-height:28px;font-weight:700;color:var(--ink)}
 .cs-pc{margin:var(--space-1) 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:var(--space-2)}
@@ -243,6 +244,17 @@ html{overflow-x:clip}
 .cs-pc .pro::before{content:"+";color:var(--grass-text)}
 .cs-pc .con::before{content:"\2013";color:var(--accent-text)}
 @media (max-width:640px){.cs-opt,.cs-opt.tall{grid-template-columns:1fr;gap:var(--space-3)}.cs-opt + .cs-opt{margin-top:var(--space-6)}.cs-opt.tall .cs-vs-img.tall{aspect-ratio:1/1}}
+/* the chosen option: a tinted card with the media full width and its + notes centred below */
+.cs-pick{margin-top:var(--space-4);padding:var(--space-6) var(--space-8) var(--space-8);border-radius:var(--radius-md);background:var(--surface-sunken);display:flex;flex-direction:column;align-items:center;gap:var(--space-3);text-align:center}
+.cs-pick-label{font-family:var(--font-pixel);font-size:18px;line-height:20px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-text)}
+.cs-sec .cs-pick h4{margin:0 0 var(--space-2);font-family:var(--font-display);font-size:22px;line-height:30px;font-weight:700;color:var(--ink)}
+.cs-pick-media{width:100%}
+.cs-pick.tall .cs-pick-media{max-width:420px}
+.cs-pick-media .cs-vs-img{box-shadow:0 10px 24px #3a1f1726}
+.cs-pick .cs-pc{margin-top:var(--space-3);align-items:center}
+.cs-pick .cs-pc li{padding-left:0}
+.cs-pick .cs-pc li::before{position:static;display:inline-block;margin-right:var(--space-2)}
+@media (max-width:640px){.cs-pick{padding:var(--space-4) var(--space-4) var(--space-6)}.cs-pick.tall .cs-vs-img.tall{aspect-ratio:1/1}}
 .cs-chosen{display:inline-block;margin-right:var(--space-2);padding:0 var(--space-2);background:var(--wood);color:var(--on-wood);font-family:var(--font-pixel);font-size:16px;line-height:22px;letter-spacing:.04em;text-transform:uppercase}
 .cs-rejected{display:inline-block;margin-right:var(--space-2);padding:0 var(--space-2);background:var(--berry);color:var(--on-fill);font-family:var(--font-pixel);font-size:16px;line-height:22px;letter-spacing:.04em;text-transform:uppercase}
 .cs-decision .ba2{display:flex;flex-direction:column;gap:var(--space-4)}
