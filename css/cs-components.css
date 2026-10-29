@@ -231,6 +231,18 @@ html{overflow-x:clip}
 .cs-num{flex:none;display:inline-grid;place-items:center;width:32px;height:32px;border-radius:50%;background:var(--wood);color:var(--on-wood);font-family:var(--font-pixel);font-size:20px;line-height:20px;font-weight:400}
 .cs-decision p{font-size:17px;line-height:27px;font-weight:600;color:var(--ink-muted)}
 .cs-why{display:flex;flex-direction:column;gap:var(--space-2)}
+/* explorations: media on the left, the option's + and - notes beside it */
+.cs-opt{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(0,1fr);gap:var(--space-6);align-items:center}
+.cs-opt.tall{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+.cs-opt + .cs-opt{margin-top:var(--space-4)}
+.cs-opt-notes{display:flex;flex-direction:column;align-items:flex-start;gap:var(--space-2)}
+.cs-sec .cs-opt-notes h4{margin:0;font-family:var(--font-display);font-size:21px;line-height:28px;font-weight:700;color:var(--ink)}
+.cs-pc{margin:var(--space-1) 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:var(--space-2)}
+.cs-pc li{position:relative;padding-left:22px;font-size:16px;line-height:24px;font-weight:600;color:var(--ink-muted)}
+.cs-pc li::before{position:absolute;left:0;top:0;width:14px;text-align:center;font-weight:800}
+.cs-pc .pro::before{content:"+";color:var(--grass-text)}
+.cs-pc .con::before{content:"\2013";color:var(--accent-text)}
+@media (max-width:640px){.cs-opt,.cs-opt.tall{grid-template-columns:1fr;gap:var(--space-3)}.cs-opt + .cs-opt{margin-top:var(--space-6)}.cs-opt.tall .cs-vs-img.tall{aspect-ratio:1/1}}
 .cs-chosen{display:inline-block;margin-right:var(--space-2);padding:0 var(--space-2);background:var(--wood);color:var(--on-wood);font-family:var(--font-pixel);font-size:16px;line-height:22px;letter-spacing:.04em;text-transform:uppercase}
 .cs-rejected{display:inline-block;margin-right:var(--space-2);padding:0 var(--space-2);background:var(--berry);color:var(--on-fill);font-family:var(--font-pixel);font-size:16px;line-height:22px;letter-spacing:.04em;text-transform:uppercase}
 .cs-decision .ba2{display:flex;flex-direction:column;gap:var(--space-4)}
