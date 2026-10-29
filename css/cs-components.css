@@ -236,7 +236,7 @@ html{overflow-x:clip}
 .cs-flow{margin:var(--space-8) 0 0;padding:0}
 .cs-flow-art{position:relative}
 .cs-flow svg{display:block;width:100%;height:auto}
-.cs-flow .dino{filter:drop-shadow(0 3px 4px rgba(60,40,20,.25));transform-box:fill-box;transform-origin:center;transform:rotate(-8deg)}
+.cs-flow .dino{transform-box:fill-box;transform-origin:center;transform:rotate(-8deg)}
 .cs-flow-l{position:absolute;transform:translateX(-50%);font-family:var(--font-pixel);font-size:16px;line-height:18px;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;color:var(--wood-dark)}
 .cs-flow-l.hunt{color:#2f6b2b}
 .cs-flow-n{position:absolute;right:0;display:flex;flex-direction:row;align-items:baseline;gap:var(--space-2);font-size:14px;line-height:19px;font-weight:700;color:var(--ink-muted)}
