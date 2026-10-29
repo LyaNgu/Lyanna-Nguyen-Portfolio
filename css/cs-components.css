@@ -232,11 +232,6 @@ html{overflow-x:clip}
 .cs-bigquote::before{content:"\201C";position:absolute;left:var(--space-6);top:-30px;font-family:Georgia,serif;font-size:96px;line-height:1;color:var(--wood)}
 .cs-bigquote blockquote{margin:0;font-size:26px;line-height:36px;font-weight:800;color:var(--ink)}
 .cs-bigquote figcaption{margin-top:var(--space-3);font-size:15px;line-height:22px;font-weight:600;color:var(--ink-muted)}
-/* AI in the research process */
-.cs-ai{margin-top:var(--space-4);padding:var(--space-4) var(--space-6);border-radius:var(--radius-md);background:var(--surface-raised);box-shadow:inset 0 0 0 2px var(--surface-sunken)}
-.cs-ai-k{font-family:var(--font-pixel);font-size:16px;line-height:20px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent-text)}
-.cs-sec .cs-ai p{margin:var(--space-1) 0 0;font-size:17px;line-height:27px;font-weight:600;color:var(--ink)}
-
 /* 9 of 15: each dot is one interested student travelling toward a first hunt. Six glide through
    and merge at the goal; nine slow at the rules, bounce back and dim (js/case-study.js) */
 .cs-flow{margin:var(--space-6) 0 0;padding:var(--space-8) var(--space-6) var(--space-6);border-radius:var(--radius-md);background:#fffaf0;box-shadow:inset 0 0 0 2px var(--surface-sunken)}
