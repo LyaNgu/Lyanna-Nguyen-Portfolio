@@ -22,6 +22,10 @@ CONTENT_FIXES = {
     'Garden': [('background-image: radial-gradient(circle at 3px 3px, #5aa83a 2.5px, transparent 3px), radial-gradient(circle at 21px 17px, #95d46a 2px, transparent 2.5px); background-size: 38px 30px;',
                 'background-image: url(assets/images/bg-lawn.svg); background-size: 512px 384px; image-rendering: pixelated;')],
     'Main': [('>Triceratops Website · Jun 2026 – Present<', '>Triceratops Website · Jun – Oct 2026<'),
+             # Works: no subtitle, and the Linguistics card matches its case study summary
+             ('\n        <p style="margin: 0; font-size: 20px; line-height: 32px; font-weight: 600; color: var(--ink-muted);">Two case studies, from the first interview to the final handoff.</p>', ''),
+             ('>I designed the Opportunities pages that help linguistics students find programs, research and study abroad in one place.<',
+              '>Designing one place for 150+ linguistics students to find programs, research and study abroad.<'),
              # Case study tags: the top three skills each project shows
              ('<span class="pp-sticker">Paid Contract</span><span class="pp-sticker">Onboarding</span><span class="pp-sticker">Design + Dev</span>',
               '<span class="pp-sticker">Growth UX</span><span class="pp-sticker">UX Engineering</span><span class="pp-sticker">Product Onboarding</span>'),
