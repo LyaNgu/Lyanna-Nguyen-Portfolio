@@ -333,6 +333,16 @@ html{overflow-x:clip}
 @media (max-width:640px){.cs-pages{grid-template-columns:1fr}.cs-page-scroll{height:520px}}
 @media (prefers-reduced-motion:reduce){.cs-page-hint{transition:none}}
 
+/* Annotations on still screenshots: a dashed highlight with a short label pinned above it */
+.cs-vs-img:has(.cs-hl){position:relative}
+.cs-hl{position:absolute;box-sizing:border-box;border:3px dashed var(--wood);border-radius:10px;background:rgba(240,181,74,.14);pointer-events:none}
+.cs-hl-k{position:absolute;right:12px;bottom:calc(100% + 10px);padding:4px 12px;border-radius:var(--radius-pill);background:var(--wood-dark);color:#fff3d6;font-size:14px;line-height:20px;font-weight:800;white-space:nowrap;box-shadow:0 3px 0 #3a1f1740}
+.cs-hl-k::after{content:"";position:absolute;right:18px;top:100%;width:3px;height:10px;background:var(--wood-dark)}
+.cs-hl.below .cs-hl-k{bottom:auto;top:calc(100% + 10px)}.cs-hl.below .cs-hl-k::after{top:auto;bottom:100%}
+.cs-fade .cs-hl{z-index:1}
+.cs-fade .cs-hl{border-color:var(--gold);background:rgba(240,181,74,.12)}.cs-fade .cs-hl-k{background:var(--gold);color:var(--ink)}.cs-fade .cs-hl-k::after{background:var(--gold)}
+@media (max-width:560px){.cs-hl{border-width:2px}.cs-hl-k{right:6px;font-size:11px;line-height:16px;padding:2px 8px;bottom:calc(100% + 6px)}.cs-hl-k::after{height:6px;right:12px}.cs-hl.below .cs-hl-k{top:calc(100% + 6px)}}
+
 /* Faded Problem screenshot */
 .anno-shot{position:relative}
 .cs-fade::after{content:"";position:absolute;left:0;right:0;bottom:0;height:28%;background:linear-gradient(rgba(18,18,20,0),rgb(18,18,20) 85%);pointer-events:none}
