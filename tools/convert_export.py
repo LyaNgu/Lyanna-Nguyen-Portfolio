@@ -285,9 +285,9 @@ for _i, _l in enumerate(_lines):
             _lines[_i] = _v
 site_css = '\n'.join(_lines)
 assert all(v in site_css for v in LOADER_MOTION.values())
-# Opening plays in 1.5s: every loader timing scaled to 1.5/3.6 (js/home.js hides it at 1550ms)
-LOADER_SPEED = [('3.6s steps(36)', '1.5s steps(18)'), ('ldrBar 3s steps(15)', 'ldrBar 1.25s steps(10)'),
-                ('ldrFade 3.6s', 'ldrFade 1.5s'), ('ldrHole 3.6s', 'ldrHole 1.5s'), ('ldrDrop .45s steps(5) 2', 'ldrDrop .2s steps(4) 2')]
+# Opening plays in 2.5s: every loader timing scaled to 2.5/3.6 (js/home.js hides it at 2550ms)
+LOADER_SPEED = [('3.6s steps(36)', '2.5s steps(25)'), ('ldrBar 3s steps(15)', 'ldrBar 2.1s steps(12)'),
+                ('ldrFade 3.6s', 'ldrFade 2.5s'), ('ldrHole 3.6s', 'ldrHole 2.5s'), ('ldrDrop .45s steps(5) 2', 'ldrDrop .3s steps(4) 2')]
 for _a, _b in LOADER_SPEED:
     assert _a in site_css, _a
     site_css = site_css.replace(_a, _b)
@@ -317,13 +317,17 @@ for name, P in PAGES.items():
     cfg = CONFIG[name]
     tpl = P['tpl']
     if name == 'Main':
-        for _a, _b in [('animation-delay: 1.85s;', 'animation-delay: .77s;'), ('animation-delay: 2s;', 'animation-delay: .83s;'),
-                       ('animation-delay: 2.15s;', 'animation-delay: .9s;'), ('animation-delay: 2.3s;', 'animation-delay: .96s;')]:
+        for _a, _b in [('animation-delay: 1.85s;', 'animation-delay: 1.28s;'), ('animation-delay: 2s;', 'animation-delay: 1.39s;'),
+                       ('animation-delay: 2.15s;', 'animation-delay: 1.49s;'), ('animation-delay: 2.3s;', 'animation-delay: 1.6s;')]:
             assert tpl.count(_a) == 1, _a
             tpl = tpl.replace(_a, _b)
         # The scroll-following tour guide is permanently switched off (showComp is always false).
         tpl, n = re.subn(r'  <!-- TOUR GUIDE -->.*?(?=  <!-- NAV -->)', '', tpl, flags=re.S)
         assert n == 1 and 'showComp' not in tpl
+    # Plain labels on external and download links (no trailing arrows)
+    for _a in ('LinkedIn ↗<', 'Resume ↗<', 'Resume ↓<'):
+        assert _a in tpl, (name, _a)
+        tpl = tpl.replace(_a, _a.replace(' ↗', '').replace(' ↓', ''))
     # Extract the embedded interactive prototype into its own page.
     def proto(mm):
         doc = html.unescape(mm.group(1))
