@@ -270,7 +270,7 @@ html{overflow-x:clip}
 /* explorations: each design at full width, its tag, title and + / - notes in a compact row below */
 .cs-opt{display:flex;flex-direction:column;gap:var(--space-3)}
 .cs-opt + .cs-opt{margin-top:var(--space-8)}
-.cs-opt.tall .cs-vs-img.tall{aspect-ratio:1/1}
+.cs-opt.tall .cs-vs-img.tall{aspect-ratio:537/690}
 /* each option is headed by its number and title, so a reviewer can scan the screens */
 .cs-sec .cs-opt>h4{margin:0;display:flex;align-items:center;gap:var(--space-3);font-size:22px;line-height:30px;font-weight:800;color:var(--ink)}
 .cs-opt>h4 .cs-num{width:36px;height:36px;font-size:22px}
