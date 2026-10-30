@@ -349,7 +349,23 @@ html{overflow-x:clip}
 
 /* Linguistics Club: a lavender stage for the hero, and the embedded prototype */
 .cs-vs-img.narrow{max-width:440px;margin:0 auto}
-.cs-hero-stage.lc{background:linear-gradient(135deg,#e7e4fb,#c9c3f2 55%,#a99fe6)}
+.cs-hero-stage.lc{background:linear-gradient(160deg,#f1eefe,#d4cff7 50%,#ab9fe8)}
+/* Linguistics banner: twinkling sparkles, drifting light streaks and rolling waves behind the screen */
+.lc-sky,.lc-waves{position:absolute;inset:0;pointer-events:none}
+.lc-spark{position:absolute;width:var(--s);height:var(--s);margin:calc(var(--s) / -2) 0 0 calc(var(--s) / -2);animation:lcTwinkle var(--t) ease-in-out var(--d) infinite}
+.lc-spark svg{display:block;width:100%;height:100%;fill:#fff;filter:drop-shadow(0 0 6px #fff) drop-shadow(0 0 2px #8f84e0)}
+@keyframes lcTwinkle{0%,100%{transform:scale(.55) rotate(0);opacity:.35}50%{transform:scale(1) rotate(45deg);opacity:1}}
+.lc-streak{position:absolute;left:0;width:var(--w);height:14px;border-radius:999px;background:linear-gradient(90deg,#ffffff00,#ffffffb3 40%,#c8c1f6aa 70%,#ffffff00);animation:lcDrift var(--t) linear var(--d) infinite}
+@keyframes lcDrift{from{transform:translateX(-110%)}to{transform:translateX(560%)}}
+.lc-waves{top:auto;height:20%;overflow:hidden;z-index:2}
+.lc-wave{position:absolute;bottom:0;left:0;width:200%;height:100%;animation:lcRoll 14s linear infinite}
+.lc-wave.back{height:100%;opacity:.8;animation-duration:22s;animation-direction:reverse}
+.lc-wave.front{height:65%}
+@keyframes lcRoll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.cs-hero-stage.lc .cs-hero-screen{z-index:1;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.cs-hero-stage.lc:hover .cs-hero-screen{transform:translateX(-50%) translateY(-8px)}
+.cs-hero-stage.lc:hover .lc-spark{animation-duration:1.2s}
+@media (prefers-reduced-motion:reduce){.lc-spark,.lc-streak,.lc-wave{animation:none}.lc-streak{display:none}.cs-hero-stage.lc .cs-hero-screen{transition:none}}
 .cs-proto{display:block;width:100%;height:min(900px,190vw);margin-top:var(--space-4);border:0;border-radius:var(--radius-md);background:linear-gradient(180deg,#f4f3fc,#fbf9ff);box-shadow:0 0 0 3px var(--wood-dark),4px 4px 0 3px var(--pixel-shadow)}
 
 /* Faded Problem screenshot */
