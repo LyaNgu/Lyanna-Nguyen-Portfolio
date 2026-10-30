@@ -22,7 +22,7 @@
     try { seen = sessionStorage.getItem(LOADER_KEY) === '1'; } catch (e) {}
     if (seen || Site.reducedMotion) return;
     Site.show('loader', true);
-    loaderTimer = setTimeout(hideLoader, 2550);
+    loaderTimer = setTimeout(hideLoader, 3550);
     try { sessionStorage.setItem(LOADER_KEY, '1'); } catch (e) {}
   })();
   Site.on('skip-loader', hideLoader);
