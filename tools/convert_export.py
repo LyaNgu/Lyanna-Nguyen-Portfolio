@@ -38,7 +38,7 @@ CONTENT_FIXES = {
 }
 
 # Pages rebuilt by hand after the export; the converter never overwrites them.
-HAND_BUILT = {'triceratops.html'}
+HAND_BUILT = {'triceratops.html', 'linguistics-club.html'}
 
 FILES = {
     'Main': 'index.html', 'About': 'about.html', 'Garden': 'garden.html',

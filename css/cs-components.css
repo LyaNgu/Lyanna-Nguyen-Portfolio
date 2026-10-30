@@ -339,13 +339,18 @@ html{overflow-x:clip}
 .cs-hl{position:absolute;box-sizing:border-box;border:3px dashed var(--wood);border-radius:10px;background:rgba(240,181,74,.14);pointer-events:none}
 .cs-hl-k{position:absolute;right:12px;bottom:calc(100% + 10px);padding:4px 12px;border-radius:var(--radius-pill);background:var(--wood-dark);color:#fff3d6;font-size:14px;line-height:20px;font-weight:800;white-space:nowrap;box-shadow:0 3px 0 #3a1f1740}
 .cs-hl-k::after{content:"";position:absolute;right:18px;top:100%;width:3px;height:10px;background:var(--wood-dark)}
-.cs-hl.below .cs-hl-k{bottom:auto;top:calc(100% + 10px)}.cs-hl.below .cs-hl-k::after{top:auto;bottom:100%}
+.cs-hl.below .cs-hl-k{bottom:auto;top:calc(100% + 10px)}.cs-hl.l .cs-hl-k{right:auto;left:12px}.cs-hl.l .cs-hl-k::after{right:auto;left:18px}.cs-hl.below .cs-hl-k::after{top:auto;bottom:100%}
 .cs-fade .cs-hl{z-index:1}
 .cs-fade .cs-hl{border-color:var(--gold);background:rgba(240,181,74,.12)}.cs-fade .cs-hl-k{background:var(--gold);color:var(--ink)}.cs-fade .cs-hl-k::after{background:var(--gold)}
 @media (max-width:560px){.cs-hl{border-width:2px}.cs-hl-k{right:6px;font-size:11px;line-height:16px;padding:2px 8px;bottom:calc(100% + 6px)}.cs-hl-k::after{height:6px;right:12px}.cs-hl.below .cs-hl-k{top:calc(100% + 6px)}}
 
 /* A short, wide crop for the closing photo */
 .cs-fig>img.cs-photo{aspect-ratio:16/11;object-fit:cover;object-position:50% 58%}
+
+/* Linguistics Club: a lavender stage for the hero, and the embedded prototype */
+.cs-vs-img.narrow{max-width:440px;margin:0 auto}
+.cs-hero-stage.lc{background:linear-gradient(135deg,#e7e4fb,#c9c3f2 55%,#a99fe6)}
+.cs-proto{display:block;width:100%;height:min(900px,190vw);margin-top:var(--space-4);border:0;border-radius:var(--radius-md);background:linear-gradient(180deg,#f4f3fc,#fbf9ff);box-shadow:0 0 0 3px var(--wood-dark),4px 4px 0 3px var(--pixel-shadow)}
 
 /* Faded Problem screenshot */
 .anno-shot{position:relative}
