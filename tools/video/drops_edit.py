@@ -1,17 +1,18 @@
 """Decision 3 "Chose" clip: a visitor opens a common drop's collector book and flips a page,
-closes it, scrolls to the rare drops, then opens Trivia and flips through every rare page.
+closes it, scrolls to the rare drops, then opens Trivia and flips through the rare pages.
 Wide view throughout; a soft ring marks each click. Idle waits between clicks are cut."""
 import sys, subprocess, numpy as np
 SRC, OUT = sys.argv[1], sys.argv[2]
 W, H, FPS = 1348, 920, 30
 # (out start, src start, src end, speed): each cut lands where the page and cursor are the same on
-# both sides; the slow scroll down to the rare drops plays at 2.5x
-SEGS = [(0.0, 1.2, 4.4, 1), (3.2, 5.2, 6.9, 1), (4.9, 7.2, 8.9, 1), (6.6, 9.2, 11.0, 1), (8.4, 11.0, 15.0, 2.5),
-        (10.0, 15.6, 19.4, 1), (13.8, 19.9, 21.6, 1), (15.5, 22.0, 23.7, 1), (17.2, 24.0, 25.8, 1), (19.0, 26.3, 28.8, 1)]
-DUR = 21.5
-# (out time, x, y): open Find Me's, next page x2, close, open Trivia, next page x3, close
-CLICKS = [(0.55, 394, 378), (3.55, 1136, 460), (5.25, 1136, 460), (7.95, 1062, 250), (11.65, 208, 528),
-          (14.15, 1165, 468), (15.85, 1165, 468), (17.55, 1165, 468), (20.75, 1064, 248)]
+# both sides, or right on a click; the slow scroll down to the rare drops plays at 2.5x. The Flash
+# Sales and Special Dinos pages are skipped to keep the loop short.
+SEGS = [(0.0, 1.2, 4.4, 1), (3.2, 5.2, 6.9, 1), (4.9, 10.5, 11.0, 1), (5.4, 11.0, 15.0, 2.5),
+        (7.0, 15.6, 19.4, 1), (10.8, 19.9, 21.6, 1), (12.5, 24.33, 25.8, 1), (13.97, 26.3, 28.8, 1)]
+DUR = 16.47
+# (out time, x, y): open Find Me's, next page, close, open Trivia, next page x2, close
+CLICKS = [(0.55, 394, 378), (3.55, 1136, 460), (4.95, 1062, 250), (8.65, 208, 528),
+          (11.15, 1165, 468), (12.52, 1165, 468), (15.72, 1064, 248)]
 RING = np.array([224, 154, 82], np.float32)   # --wood-light
 FADE = 0.3
 BG = np.array([255, 255, 255], np.float32)
