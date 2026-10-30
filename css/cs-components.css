@@ -267,6 +267,7 @@ html{overflow-x:clip}
 /* Design decisions: rejected explorations grouped first, then the choices, under mini headers */
 .cs-sec h3.cs-subhead{margin:var(--space-12) 0 var(--space-6);padding-bottom:var(--space-2);border-bottom:2px dashed var(--surface-sunken);font-family:var(--font-pixel);font-size:24px;line-height:28px;font-weight:400;letter-spacing:.06em;text-transform:uppercase;color:var(--accent-text)}
 .cs-sec h2 + h3.cs-subhead{margin-top:var(--space-8)}
+.cs-sec p.cs-subintro{margin:calc(-1 * var(--space-2)) 0 var(--space-6);font-size:17px;line-height:28px;color:var(--ink-muted)}
 /* explorations: each design at full width, its tag, title and + / - notes in a compact row below */
 .cs-opt{display:flex;flex-direction:column;gap:var(--space-3)}
 .cs-opt + .cs-opt{margin-top:var(--space-8)}
