@@ -350,44 +350,30 @@ html{overflow-x:clip}
 /* Linguistics Club: a lavender stage for the hero, and the embedded prototype */
 .cs-vs-img.narrow{max-width:440px;margin:0 auto}
 .cs-hero-stage.lc{background:linear-gradient(160deg,#f1eefe,#d4cff7 50%,#ab9fe8)}
-/* Linguistics banner: twinkling sparkles, drifting light streaks and rolling waves behind the screen */
-.lc-sky,.lc-waves{position:absolute;inset:0;pointer-events:none}
+/* Linguistics banner: twinkling sparkles behind the screen */
+.lc-sky{position:absolute;inset:0;pointer-events:none}
 .lc-spark{position:absolute;width:var(--s);height:var(--s);margin:calc(var(--s) / -2) 0 0 calc(var(--s) / -2);animation:lcTwinkle var(--t) ease-in-out var(--d) infinite}
 .lc-spark svg{display:block;width:100%;height:100%;fill:#fff;filter:drop-shadow(0 0 6px #fff) drop-shadow(0 0 2px #8f84e0)}
 @keyframes lcTwinkle{0%,100%{transform:scale(.55) rotate(0);opacity:.35}50%{transform:scale(1) rotate(45deg);opacity:1}}
-.lc-waves{top:auto;height:20%;overflow:hidden;z-index:2}
-.lc-wave{position:absolute;bottom:0;left:0;width:200%;height:100%;animation:lcRoll 14s linear infinite}
-.lc-wave.back{height:100%;opacity:.8;animation-duration:22s;animation-direction:reverse}
-.lc-wave.front{height:65%}
-@keyframes lcRoll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 .cs-hero-stage.lc .cs-hero-screen{z-index:1;width:min(58%,760px);transition:transform .5s cubic-bezier(.2,.8,.2,1)}
-/* mini pages tilt in around the main page, then the wug peeks in (plays once on load) */
-.lc-mini{position:absolute;z-index:3;margin:0;border-radius:10px;overflow:hidden;background:#fff;box-shadow:0 0 0 3px #fff,0 16px 30px rgba(70,50,150,.28);transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+/* on hover, the mini pages tilt in from the edges, a Saved toast pops and the wug peeks up */
+.lc-mini,.lc-toast,.lc-wug{transition:transform .55s cubic-bezier(.2,.9,.25,1.15),opacity .35s ease}
+.lc-mini{position:absolute;z-index:3;margin:0;border-radius:10px;overflow:hidden;background:#fff;box-shadow:0 0 0 3px #fff,0 16px 30px rgba(70,50,150,.28);opacity:0}
 .lc-mini img{display:block;width:100%;height:auto}
-.lc-detail{left:5%;bottom:14%;width:min(27%,380px);transform:rotate(-4deg);animation:lcInL .9s cubic-bezier(.2,.9,.25,1.15) .35s both}
-.lc-mail{right:6%;top:9%;width:min(19%,270px);transform:rotate(4deg);animation:lcInR .9s cubic-bezier(.2,.9,.25,1.15) .6s both}
-.lc-toast{position:absolute;z-index:4;left:calc(5% + min(27%,380px) - 120px);bottom:calc(14% - 18px);padding:6px 14px;border-radius:999px;background:#3c2f8f;color:#fff;font-size:clamp(10px,1vw,14px);line-height:1.4;font-weight:800;white-space:nowrap;box-shadow:0 8px 18px rgba(60,40,140,.35);animation:lcPop .5s cubic-bezier(.2,.9,.25,1.4) 1.3s both}
-@keyframes lcInL{from{transform:translate(-60%,30%) rotate(-14deg);opacity:0}to{transform:rotate(-4deg);opacity:1}}
-@keyframes lcInR{from{transform:translate(60%,-20%) rotate(14deg);opacity:0}to{transform:rotate(4deg);opacity:1}}
-@keyframes lcPop{from{transform:scale(.4);opacity:0}to{transform:none;opacity:1}}
-.lc-wug{position:absolute;z-index:4;right:2%;bottom:0;width:min(15%,200px);animation:lcWugIn 1s cubic-bezier(.2,.9,.25,1.2) 1.6s both}
-.lc-wug svg{display:block;width:100%;height:auto;overflow:visible;animation:lcBob 3.2s ease-in-out 2.6s infinite;transform-origin:50% 100%}
-.wug-body{fill:#f4f2ff;stroke:#6a5fe0;stroke-width:4}
-.wug-belly{fill:#e3defc}
-.wug-beak{fill:#d9d3fb;stroke:#6a5fe0;stroke-width:4;stroke-linejoin:round}
-.wug-beak-lo{fill:#c6befa;stroke:#6a5fe0;stroke-width:4;stroke-linejoin:round}
-.wug-eye{fill:#6a5fe0;transform-box:fill-box;transform-origin:center;animation:lcBlink 4.5s ease-in-out 3s infinite}
-.wug-tuft{fill:none;stroke:#6a5fe0;stroke-width:4;stroke-linecap:round}
-@keyframes lcWugIn{from{transform:translateY(110%)}to{transform:none}}
-@keyframes lcBob{0%,100%{transform:rotate(0)}50%{transform:rotate(-4deg) translateY(-3%)}}
-@keyframes lcBlink{0%,92%,100%{transform:scaleY(1)}95%{transform:scaleY(.1)}}
-.cs-hero-stage.lc:hover .lc-detail{transform:rotate(-2deg) translateY(-8px)}
-.cs-hero-stage.lc:hover .lc-mail{transform:rotate(2deg) translateY(-8px)}
-@media (max-width:640px){.lc-mail{display:none}.lc-detail{width:34%;bottom:12%;left:3%}.lc-toast{display:none}.lc-wug{width:20%}.cs-hero-stage.lc .cs-hero-screen{width:70%}}
-@media (prefers-reduced-motion:reduce){.lc-mini,.lc-toast,.lc-wug,.lc-wug svg,.wug-eye{animation:none}}
+.lc-detail{left:2%;bottom:10%;width:min(22%,300px);transform:translate(-70%,25%) rotate(-14deg)}
+.lc-mail{right:2%;top:8%;width:min(15%,210px);transform:translate(70%,-20%) rotate(14deg)}
+.lc-toast{position:absolute;z-index:4;left:calc(2% + min(22%,300px) - 110px);bottom:calc(10% - 16px);padding:6px 14px;border-radius:999px;background:#3c2f8f;color:#fff;font-size:clamp(10px,1vw,14px);line-height:1.4;font-weight:800;white-space:nowrap;box-shadow:0 8px 18px rgba(60,40,140,.35);opacity:0;transform:scale(.4)}
+.lc-wug{position:absolute;z-index:4;right:1%;bottom:0;width:min(17%,230px);height:auto;transform:translateY(105%)}
+.cs-hero-stage.lc:hover .lc-mini,.cs-hero-stage.lc:hover .lc-toast{opacity:1}
+.cs-hero-stage.lc:hover .lc-detail{transform:rotate(-4deg)}
+.cs-hero-stage.lc:hover .lc-mail{transform:rotate(4deg);transition-delay:.08s}
+.cs-hero-stage.lc:hover .lc-toast{transform:none;transition-delay:.3s}
+.cs-hero-stage.lc:hover .lc-wug{transform:none;transition-delay:.15s}
+@media (max-width:640px){.lc-mail,.lc-toast{display:none}.lc-detail{width:30%}.lc-wug{width:22%}.cs-hero-stage.lc .cs-hero-screen{width:70%}}
+@media (prefers-reduced-motion:reduce){.lc-mini,.lc-toast,.lc-wug{transition:opacity .2s}}
 .cs-hero-stage.lc:hover .cs-hero-screen{transform:translateX(-50%) translateY(-8px)}
 .cs-hero-stage.lc:hover .lc-spark{animation-duration:1.2s}
-@media (prefers-reduced-motion:reduce){.lc-spark,.lc-wave{animation:none}.cs-hero-stage.lc .cs-hero-screen{transition:none}}
+@media (prefers-reduced-motion:reduce){.lc-spark{animation:none}.cs-hero-stage.lc .cs-hero-screen{transition:none}}
 .cs-proto{display:block;width:100%;height:min(900px,190vw);margin-top:var(--space-4);border:0;border-radius:var(--radius-md);background:linear-gradient(180deg,#f4f3fc,#fbf9ff);box-shadow:0 0 0 3px var(--wood-dark),4px 4px 0 3px var(--pixel-shadow)}
 
 /* Faded Problem screenshot */

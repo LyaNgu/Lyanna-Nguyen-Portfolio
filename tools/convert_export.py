@@ -5,6 +5,7 @@ Usage: python3 tools/convert_export.py path/to/Lyanna_Nguyen_Portfolio_Final.htm
 Regenerates the HTML pages, css/ and assets/. The scripts in js/ are hand-written and
 are not touched, so keep the data-show / data-action hooks below in sync with them.
 """
+import workcards  # noqa: E402  (tools/workcards.py)
 import base64, hashlib, html, json, os, re, sys
 
 SRC = sys.argv[1]
@@ -310,6 +311,7 @@ site_css += ('\n\n/* Dialogue: the box grows to fit long lines; a hidden copy of
 site_css += ('\n/* Opening: squash and stretch from the base; drops fall under gravity */\n'
              '.ldr-seed{transform-origin:50% 100%}.ldr-drop{animation-timing-function:cubic-bezier(.55,0,1,.45)}\n')
 site_css += '\n/* Elements toggled by the page scripts */\n[hidden]{display:none!important}\n'
+site_css += workcards.CSS
 site_css += '\n/* Phone menu: a pixel plank button with a pixel hamburger / X, and a dropdown panel (js/site.js) */\n.navburger{display:none}\n@media (max-width:760px){\n.pp-btn.navburger{display:inline-grid;place-items:center;width:40px;height:36px;margin-left:12px;padding:0}\n.navburger svg{width:20px;height:16px;fill:var(--wood-dark);shape-rendering:crispEdges}\n.navburger .nb-close{width:18px;height:16px}\n.navburger[aria-expanded="true"] .nb-open,.navburger[aria-expanded="false"] .nb-close{display:none}\n.navpanel{position:absolute;left:0;right:0;top:100%;display:flex;flex-direction:column;padding:6px 20px 14px;background:var(--surface-raised);border-bottom:4px solid var(--wood);box-shadow:0 3px 0 var(--wood-dark);font-family:var(--font-pixel);font-size:22px;letter-spacing:.04em;text-transform:uppercase}\n.navpanel[hidden]{display:none}\n.navpanel .navlinks{display:block!important;padding:12px 4px!important;border-bottom:2px dashed var(--surface-sunken)}\n.navpanel .navlinks:last-child{border-bottom:0}\n}\n'
 open(os.path.join(OUT, 'css', 'site.css'), 'w').write(site_css)
 open(os.path.join(OUT, 'css', 'case-study.css'), 'w').write(
@@ -330,6 +332,7 @@ for name, P in PAGES.items():
                        ('animation-delay: 2.15s;', 'animation-delay: 2.09s;'), ('animation-delay: 2.3s;', 'animation-delay: 2.24s;')]:
             assert tpl.count(_a) == 1, _a
             tpl = tpl.replace(_a, _b)
+        tpl = workcards.apply(tpl)
         # The scroll-following tour guide is permanently switched off (showComp is always false).
         tpl, n = re.subn(r'  <!-- TOUR GUIDE -->.*?(?=  <!-- NAV -->)', '', tpl, flags=re.S)
         assert n == 1 and 'showComp' not in tpl
