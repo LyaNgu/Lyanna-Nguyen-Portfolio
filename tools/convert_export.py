@@ -364,6 +364,11 @@ for name, P in PAGES.items():
         tpl = tpl.replace('<a data-show="dialog-choices" hidden href="#contact" class="pp-btn secondary" data-action="close-dialog">Just the resume</a>',
                           '<a data-show="dialog-choices" hidden href="assets/files/Lyanna_Nguyen_Resume.pdf" target="_blank" rel="noopener" class="pp-btn secondary" data-action="close-dialog">Just the resume</a>')
         assert '#resume' not in tpl and 'Lyanna_Nguyen_Resume.pdf" target="_blank" rel="noopener" class="pp-btn secondary"' in tpl
+    # No contact section any more: drop the Contact links, and Resume becomes a plain nav link
+    tpl, n = re.subn(r'\n[ ]*<a href="[^"]*#contact"[^>]*>Contact</a>', '', tpl)
+    assert n == 2, (name, n)
+    tpl, n = re.subn(r'class="pp-btn navres" style="[^"]*"', 'class="navlinks" style="padding: 8px 10px; text-decoration: none; color: var(--ink);"', tpl)
+    assert n == 1, (name, n)
     css = ['css/pixel-pals.css', 'css/site.css'] + (['css/case-study.css'] if name.startswith('CaseStudy') else [])
     title = P['title']
     doc = f'''<!doctype html>
