@@ -344,7 +344,7 @@ html{overflow-x:clip}
 @media (max-width:560px){.cs-hl{border-width:2px}.cs-hl-k{right:6px;font-size:11px;line-height:16px;padding:2px 8px;bottom:calc(100% + 6px)}.cs-hl-k::after{height:6px;right:12px}.cs-hl.below .cs-hl-k{top:calc(100% + 6px)}}
 
 /* A short, wide crop for the closing photo */
-.cs-fig>img.cs-photo{aspect-ratio:5/4;object-fit:cover;object-position:50% 100%}
+.cs-fig>img.cs-photo{aspect-ratio:16/11;object-fit:cover;object-position:50% 58%}
 
 /* Faded Problem screenshot */
 .anno-shot{position:relative}
