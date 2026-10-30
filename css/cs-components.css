@@ -315,7 +315,23 @@ html{overflow-x:clip}
 .cs-co-cards .anno-note.hl{background:var(--surface-raised);box-shadow:inset 4px 0 0 var(--wood),inset 0 0 0 2px var(--surface-sunken)}
 
 
-.cs-final-ph{aspect-ratio:16/10;margin-top:var(--space-3)}
+
+/* Final design: each full page in a browser window visitors scroll inside */
+.cs-pages{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-6);margin-top:var(--space-6)}
+.cs-page{margin:0;display:flex;flex-direction:column;gap:var(--space-3);min-width:0}
+.cs-page figcaption{display:flex;flex-direction:column}
+.cs-page figcaption b{font-size:20px;line-height:28px;font-weight:800;color:var(--ink)}
+.cs-page figcaption span{font-size:15px;line-height:22px;font-weight:600;color:var(--ink-muted)}
+.cs-page-win{position:relative;border-radius:var(--radius-md);overflow:hidden;background:#fff;box-shadow:0 0 0 3px var(--wood-dark),4px 4px 0 3px var(--pixel-shadow)}
+.cs-page-bar{display:flex;gap:6px;padding:8px 10px;background:var(--surface-raised);border-bottom:2px solid var(--surface-sunken)}
+.cs-page-bar i{width:9px;height:9px;border-radius:50%;background:var(--berry)}.cs-page-bar i:nth-child(2){background:var(--gold)}.cs-page-bar i:nth-child(3){background:var(--grass)}
+.cs-page-scroll{height:620px;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:var(--wood-light) transparent}
+.cs-page-scroll:focus-visible{outline:3px solid var(--focus);outline-offset:-3px}
+.cs-page-scroll img{display:block;width:100%;height:auto}
+.cs-page-hint{position:absolute;left:50%;bottom:var(--space-3);transform:translateX(-50%);padding:4px var(--space-3);border-radius:var(--radius-pill);background:#3a1f17d9;color:#fff3d6;font-size:13px;line-height:20px;font-weight:800;white-space:nowrap;pointer-events:none;transition:opacity .3s ease}
+.cs-page-win.scrolled .cs-page-hint{opacity:0}
+@media (max-width:640px){.cs-pages{grid-template-columns:1fr}.cs-page-scroll{height:520px}}
+@media (prefers-reduced-motion:reduce){.cs-page-hint{transition:none}}
 
 /* Faded Problem screenshot */
 .anno-shot{position:relative}

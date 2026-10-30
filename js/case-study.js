@@ -122,6 +122,13 @@
     flowIo.observe(flow);
   }
 
+  // Final design pages: hide the "Scroll to explore" hint once the visitor scrolls a page
+  document.querySelectorAll('.cs-page-scroll').forEach(function (el) {
+    el.addEventListener('scroll', function () {
+      if (el.scrollTop > 40) el.parentNode.classList.add('scrolled');
+    }, { passive: true });
+  });
+
   // looping prototype recordings stay still for visitors who prefer reduced motion
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     document.querySelectorAll('video[autoplay]').forEach(function (v) {
