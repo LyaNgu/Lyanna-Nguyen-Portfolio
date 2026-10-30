@@ -22,6 +22,11 @@ CONTENT_FIXES = {
     'Garden': [('background-image: radial-gradient(circle at 3px 3px, #5aa83a 2.5px, transparent 3px), radial-gradient(circle at 21px 17px, #95d46a 2px, transparent 2.5px); background-size: 38px 30px;',
                 'background-image: url(assets/images/bg-lawn.svg); background-size: 512px 384px; image-rendering: pixelated;')],
     'Main': [('>Triceratops Website · Jun 2026 – Present<', '>Triceratops Website · Jun – Oct 2026<'),
+             # Case study tags: the top three skills each project shows
+             ('<span class="pp-sticker">Paid Contract</span><span class="pp-sticker">Onboarding</span><span class="pp-sticker">Design + Dev</span>',
+              '<span class="pp-sticker">Growth UX</span><span class="pp-sticker">UX Engineering</span><span class="pp-sticker">Product Onboarding</span>'),
+             ('<span class="pp-sticker">#Include</span><span class="pp-sticker">User Research</span><span class="pp-sticker">Figma</span>',
+              '<span class="pp-sticker">User Research</span><span class="pp-sticker">Information Architecture</span><span class="pp-sticker">Developer Handoff</span>'),
              # Keep the Works card in step with the hand-built case study hero
              ('>Streamlining onboarding to help new members get involved from day one<', '>Streamlining onboarding for new members<'),
              ('>I designed and built a Getting Started page that turns a crowded Discord into a clear first step for new members.<', '>Designing for interested students, 60% of whom said unclear rules kept them from joining.<'),
