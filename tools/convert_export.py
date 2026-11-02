@@ -31,8 +31,6 @@ CONTENT_FIXES = {
                ('background-image: radial-gradient(circle at 3px 3px, #5aa83a 2.5px, transparent 3px), radial-gradient(circle at 21px 17px, #95d46a 2px, transparent 2.5px); background-size: 38px 30px;',
                 'background-image: url(assets/images/bg-lawn.svg); background-size: 512px 384px; image-rendering: pixelated;')],
     'Main': [('>Triceratops Website · Jun 2026 – Present<', '>Triceratops Website · Jun – Oct 2026<'),
-             # Lead the hero with the current roles, matching the resume
-             ('Cognitive Science @ UC Davis&nbsp;&nbsp;·&nbsp;&nbsp;UI/UX Design Director @ HackDavis<', 'Cognitive Science @ UC Davis&nbsp;&nbsp;·&nbsp;&nbsp;UX Researcher Intern @ Google&nbsp;&nbsp;·&nbsp;&nbsp;UI/UX Design Director @ HackDavis<'),
              # Works: no subtitle, and the Linguistics card matches its case study summary
              ('\n        <p style="margin: 0; font-size: 20px; line-height: 32px; font-weight: 600; color: var(--ink-muted);">Two case studies, from the first interview to the final handoff.</p>', ''),
              ('>I designed the Opportunities pages that help linguistics students find programs, research and study abroad in one place.<',
