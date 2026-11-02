@@ -215,3 +215,9 @@ footer nav a{display:flex!important;align-items:center;min-height:44px;box-sizin
 .pp-btn.navburger{width:44px;height:44px}
 [data-action="filter"]{min-height:44px}
 }
+
+/* Dialogue sound toggle, beside the close button (js/home.js) */
+.dlg-sound{right:28px;display:grid;place-items:center}
+.dlg-sound svg{width:18px;height:18px;fill:currentColor;shape-rendering:crispEdges}
+.dlg-sound .off,.dlg-sound.muted .on{display:none}
+.dlg-sound.muted .off{display:inline}
