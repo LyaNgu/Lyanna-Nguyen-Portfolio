@@ -18,7 +18,7 @@
 .cs-head{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:var(--space-4) var(--space-12);align-items:start;padding:var(--space-4) 0 var(--space-12)}
 .cs-head-main{display:flex;flex-direction:column;gap:var(--space-3)}
 .cs-sec .cs-actions{margin-top:0}
-.cs-live{align-self:flex-start;margin-top:var(--space-2);font-family:var(--font-pixel);font-size:20px;line-height:24px;letter-spacing:.04em;text-transform:uppercase;color:var(--accent-text);text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:5px}
+.cs-live{display:inline-flex;align-items:center;min-height:44px;align-self:flex-start;margin-top:var(--space-2);font-family:var(--font-pixel);font-size:20px;line-height:24px;letter-spacing:.04em;text-transform:uppercase;color:var(--accent-text);text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:5px}
 .cs-live:hover{color:var(--ink)}
 @media (max-width:860px){.cs-head{grid-template-columns:1fr;gap:var(--space-6)}}
 .cs-head h1{margin:0;font-family:var(--font-display);font-size:clamp(30px,3vw,40px);line-height:1.08;font-weight:700;text-wrap:balance}
@@ -105,13 +105,14 @@ html{overflow-x:clip}
 .pk-slide.is-active{opacity:1;visibility:visible;transform:none;transition:opacity .7s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
 .pk-scene{position:absolute;inset:0;overflow:hidden}
 .pk-cap{position:absolute;left:0;right:0;bottom:6%;margin:0;text-align:center;font-family:var(--font-body);font-size:max(13px,3cqw);font-weight:800;color:#fff;text-shadow:0 2px 0 #0008}
-.pk-arrow{position:absolute;top:50%;z-index:3;display:grid;place-items:center;width:40px;height:40px;padding:0;transform:translateY(-50%);border:0;border-radius:50%;background:#ffffffe6;color:var(--ink);cursor:pointer;box-shadow:0 2px 6px #0004}
+.pk-arrow{position:absolute;top:50%;z-index:3;display:grid;place-items:center;width:44px;height:44px;padding:0;transform:translateY(-50%);border:0;border-radius:50%;background:#ffffffe6;color:var(--ink);cursor:pointer;box-shadow:0 2px 6px #0004}
 .pk-arrow svg{display:block;width:18px;height:18px}
 .pk-arrow.prev{left:12px}.pk-arrow.next{right:12px}
 .pk-arrow:focus-visible,.pk-dots button:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
 .pk-controls{display:flex;align-items:center;justify-content:center;gap:var(--space-4)}
-.pk-dots{display:flex;gap:var(--space-2)}
-.pk-dots button{width:10px;height:10px;padding:0;border:0;border-radius:50%;background:var(--surface-sunken);cursor:pointer}
+.pk-dots{display:flex;gap:var(--space-6)}
+.pk-dots button{position:relative;width:10px;height:10px;padding:0;border:0;border-radius:50%;background:var(--surface-sunken);cursor:pointer}
+.pk-dots button::before{content:"";position:absolute;inset:-17px}
 .pk-dots button[aria-current="true"]{background:var(--wood-dark)}
 /* 1 · join: the club's Instagram; the cursor taps the Discord link in the bio */
 .pk-site{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 0;transform-origin:43.6% 30.6%}
@@ -394,3 +395,6 @@ html{overflow-x:clip}
 .ph-text{padding:0 var(--space-1);background:#f0b54a55;border-bottom:2px dashed var(--wood);font-style:normal;font-weight:800;color:var(--ink)}
 
 @media (max-width:560px){.cs-hero-screen>.ph span{display:none}.cs-hero-screen>.ph{min-height:0;padding:var(--space-2)}}
+
+/* "Back to works" link under the banner: a full-height tap target */
+#cstop > a[href="index.html#work"]{display:inline-flex;align-items:center;min-height:44px}

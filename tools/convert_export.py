@@ -19,14 +19,18 @@ HEAD_CSS = re.search(r'<style>\n(.*?)</style>', raw, re.S).group(1)
 
 # Text corrected after the export, per page.
 CONTENT_FIXES = {
+    # One spelling of the field across the site
+    'About': [('UX/UI design turned out', 'UI/UX design turned out')],
     # Quiet lawn tile for the garden (tools/pixel/backdrop.py)
     'Garden': [('background-image: radial-gradient(circle at 3px 3px, #5aa83a 2.5px, transparent 3px), radial-gradient(circle at 21px 17px, #95d46a 2px, transparent 2.5px); background-size: 38px 30px;',
                 'background-image: url(assets/images/bg-lawn.svg); background-size: 512px 384px; image-rendering: pixelated;')],
     'Main': [('>Triceratops Website · Jun 2026 – Present<', '>Triceratops Website · Jun – Oct 2026<'),
+             # Lead the hero with the current roles, matching the resume
+             ('Cognitive Science @ UC Davis&nbsp;&nbsp;·&nbsp;&nbsp;UI/UX Design Director @ HackDavis<', 'Cognitive Science @ UC Davis&nbsp;&nbsp;·&nbsp;&nbsp;UX Researcher Intern @ Google&nbsp;&nbsp;·&nbsp;&nbsp;UI/UX Design Director @ HackDavis<'),
              # Works: no subtitle, and the Linguistics card matches its case study summary
              ('\n        <p style="margin: 0; font-size: 20px; line-height: 32px; font-weight: 600; color: var(--ink-muted);">Two case studies, from the first interview to the final handoff.</p>', ''),
              ('>I designed the Opportunities pages that help linguistics students find programs, research and study abroad in one place.<',
-              '>Designing one place for 150+ linguistics students to find programs, research and study abroad.<'),
+              '>Made opportunities 80% easier to find for 150+ students across 6 usability tests, by splitting them into undergrad and grad tracks.<'),
              # Case study tags: the top three skills each project shows
              ('<span class="pp-sticker">Paid Contract</span><span class="pp-sticker">Onboarding</span><span class="pp-sticker">Design + Dev</span>',
               '<span class="pp-sticker">Growth UX</span><span class="pp-sticker">UX Engineering</span><span class="pp-sticker">Product Onboarding</span>'),
@@ -34,7 +38,7 @@ CONTENT_FIXES = {
               '<span class="pp-sticker">User Research</span><span class="pp-sticker">Information Architecture</span><span class="pp-sticker">Developer Handoff</span>'),
              # Keep the Works card in step with the hand-built case study hero
              ('>Streamlining onboarding to help new members get involved from day one<', '>Streamlining onboarding for new members<'),
-             ('>I designed and built a Getting Started page that turns a crowded Discord into a clear first step for new members.<', '>Designing for interested students, 60% of whom said unclear rules kept them from joining.<'),
+             ('>I designed and built a Getting Started page that turns a crowded Discord into a clear first step for new members.<', '>Shipped the club&#8217;s first website in 14 weeks, giving a nearly 5,000-member Discord one clear path to a first hunt.<'),
              # 8-bit backdrop (mountains, hills, tree line, grass tufts) drawn by tools/pixel/backdrop.py
              ('    <div aria-hidden="true" style="position: absolute; left: -10%; right: 30%; bottom: 80px; height: 170px; background: #9fd28a; border-radius: 50% 50% 0 0 / 100% 100% 0 0; box-shadow: inset 0 4px 0 #b8e0a0;"></div>\n    <div aria-hidden="true" style="position: absolute; left: 35%; right: -15%; bottom: 80px; height: 130px; background: #8cc97a; border-radius: 50% 50% 0 0 / 100% 100% 0 0; box-shadow: inset 0 4px 0 #a8d890;"></div>\n',
               '    <div aria-hidden="true" style="position: absolute; left: 0; right: 0; bottom: 120px; height: 144px; background: url(assets/images/bg-mountains.svg) 0 100% / 384px 144px repeat-x; image-rendering: pixelated;"></div>\n    <div aria-hidden="true" style="position: absolute; left: 0; right: 0; bottom: 96px; height: 104px; background: url(assets/images/bg-hills.svg) -60px 100% / 320px 104px repeat-x; image-rendering: pixelated;"></div>\n    <div aria-hidden="true" style="position: absolute; left: 0; right: 0; bottom: 96px; height: 136px; background: url(assets/images/bg-trees.svg) 50% 100% / 512px 136px repeat-x; image-rendering: pixelated;"></div>\n'),
@@ -312,6 +316,7 @@ site_css += ('\n/* Opening: squash and stretch from the base; drops fall under g
              '.ldr-seed{transform-origin:50% 100%}.ldr-drop{animation-timing-function:cubic-bezier(.55,0,1,.45)}\n')
 site_css += '\n/* Elements toggled by the page scripts */\n[hidden]{display:none!important}\n'
 site_css += workcards.CSS
+site_css += '\n/* Touch targets: header, footer, menu and filter controls reach 44px on touch and narrow screens */\n@media (max-width:900px),(pointer:coarse){\nheader a[href="index.html"],header a[href="#top"]{min-height:44px}\n.topnav .navlinks{padding-top:11px!important;padding-bottom:11px!important}\nfooter nav a{display:flex!important;align-items:center;min-height:44px;box-sizing:border-box}\n.pp-btn.navburger{width:44px;height:44px}\n[data-action="filter"]{min-height:44px}\n}\n'
 site_css += '\n/* Phone menu: a pixel plank button with a pixel hamburger / X, and a dropdown panel (js/site.js) */\n.navburger{display:none}\n@media (max-width:760px){\n.pp-btn.navburger{display:inline-grid;place-items:center;width:40px;height:36px;margin-left:12px;padding:0}\n.navburger svg{width:20px;height:16px;fill:var(--wood-dark);shape-rendering:crispEdges}\n.navburger .nb-close{width:18px;height:16px}\n.navburger[aria-expanded="true"] .nb-open,.navburger[aria-expanded="false"] .nb-close{display:none}\n.navpanel{position:absolute;left:0;right:0;top:100%;display:flex;flex-direction:column;padding:6px 20px 14px;background:var(--surface-raised);border-bottom:4px solid var(--wood);box-shadow:0 3px 0 var(--wood-dark);font-family:var(--font-pixel);font-size:22px;letter-spacing:.04em;text-transform:uppercase}\n.navpanel[hidden]{display:none}\n.navpanel .navlinks{display:block!important;padding:12px 4px!important;border-bottom:2px dashed var(--surface-sunken)}\n.navpanel .navlinks:last-child{border-bottom:0}\n}\n'
 open(os.path.join(OUT, 'css', 'site.css'), 'w').write(site_css)
 open(os.path.join(OUT, 'css', 'case-study.css'), 'w').write(

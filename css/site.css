@@ -206,3 +206,12 @@ a,button,[role=switch],label,.flip,.workcard{cursor:url(../assets/images/cursor-
 .workcard:hover .wc-lc .lc-mail{transform:rotate(4deg);transition-delay:.08s}
 .workcard:hover .wc-lc .lc-wug{transform:none;transition-delay:.15s}
 @media (prefers-reduced-motion:reduce){.wc-sticker,.wc-lc .lc-mini,.wc-lc .lc-wug{transition:opacity .2s}.wc-lc .lc-spark{animation:none}}
+
+/* Touch targets: header, footer, menu and filter controls reach 44px on touch and narrow screens */
+@media (max-width:900px),(pointer:coarse){
+header a[href="index.html"],header a[href="#top"]{min-height:44px}
+.topnav .navlinks{padding-top:11px!important;padding-bottom:11px!important}
+footer nav a{display:flex!important;align-items:center;min-height:44px;box-sizing:border-box}
+.pp-btn.navburger{width:44px;height:44px}
+[data-action="filter"]{min-height:44px}
+}
