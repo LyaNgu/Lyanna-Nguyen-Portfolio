@@ -20,9 +20,7 @@ HEAD_CSS = re.search(r'<style>\n(.*?)</style>', raw, re.S).group(1)
 # Text corrected after the export, per page.
 CONTENT_FIXES = {
     # One spelling of the field across the site
-    'About': [('UX/UI design turned out', 'UI/UX design turned out'),
-              # FatPix has no curly apostrophe
-              ('>Lyanna’s Catches<', ">Lyanna's Catches<")],
+    'About': [('UX/UI design turned out', 'UI/UX design turned out')],
     # Quiet lawn tile for the garden (tools/pixel/backdrop.py)
     'Garden': [# The page title is the page's only heading, so it's the H1
                ('<h2 style="margin: 0; display: flex; align-items: center; gap: 14px; font-family: var(--font-display); font-size: 40px; line-height: 44px; font-weight: 700;">', '<h1 style="margin: 0; display: flex; align-items: center; gap: 14px; font-family: var(--font-display); font-size: 40px; line-height: 44px; font-weight: 700;">'),
@@ -321,7 +319,6 @@ site_css += ('\n/* Opening: squash and stretch from the base; drops fall under g
              '.ldr-seed{transform-origin:50% 100%}.ldr-drop{animation-timing-function:cubic-bezier(.55,0,1,.45)}\n')
 site_css += '\n/* Elements toggled by the page scripts */\n[hidden]{display:none!important}\n'
 site_css += workcards.CSS
-site_css += '\n/* Display font: FatPix by ngndang (SIL Open Font License 1.1) */\n@font-face{font-family:"FatPix";src:url(../assets/fonts/fatpix.woff2) format("woff2");font-weight:400 700;font-display:swap}\n:root{--font-display:"FatPix","Pixelify Sans","Courier New",monospace}\n'
 site_css += '\n/* Touch targets: header, footer, menu and filter controls reach 44px on touch and narrow screens */\n@media (max-width:900px),(pointer:coarse){\nheader a[href="index.html"],header a[href="#top"]{min-height:44px}\n.topnav .navlinks{padding-top:11px!important;padding-bottom:11px!important}\nfooter nav a{display:flex!important;align-items:center;min-height:44px;box-sizing:border-box}\n.pp-btn.navburger{width:44px;height:44px}\n[data-action="filter"]{min-height:44px}\n}\n'
 site_css += '\n/* Phone menu: a pixel plank button with a pixel hamburger / X, and a dropdown panel (js/site.js) */\n.navburger{display:none}\n@media (max-width:760px){\n.pp-btn.navburger{display:inline-grid;place-items:center;width:40px;height:36px;margin-left:12px;padding:0}\n.navburger svg{width:20px;height:16px;fill:var(--wood-dark);shape-rendering:crispEdges}\n.navburger .nb-close{width:18px;height:16px}\n.navburger[aria-expanded="true"] .nb-open,.navburger[aria-expanded="false"] .nb-close{display:none}\n.navpanel{position:absolute;left:0;right:0;top:100%;display:flex;flex-direction:column;padding:6px 20px 14px;background:var(--surface-raised);border-bottom:4px solid var(--wood);box-shadow:0 3px 0 var(--wood-dark);font-family:var(--font-pixel);font-size:22px;letter-spacing:.04em;text-transform:uppercase}\n.navpanel[hidden]{display:none}\n.navpanel .navlinks{display:block!important;padding:12px 4px!important;border-bottom:2px dashed var(--surface-sunken)}\n.navpanel .navlinks:last-child{border-bottom:0}\n}\n'
 open(os.path.join(OUT, 'css', 'site.css'), 'w').write(site_css)
