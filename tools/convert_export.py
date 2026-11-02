@@ -22,7 +22,10 @@ CONTENT_FIXES = {
     # One spelling of the field across the site
     'About': [('UX/UI design turned out', 'UI/UX design turned out')],
     # Quiet lawn tile for the garden (tools/pixel/backdrop.py)
-    'Garden': [('background-image: radial-gradient(circle at 3px 3px, #5aa83a 2.5px, transparent 3px), radial-gradient(circle at 21px 17px, #95d46a 2px, transparent 2.5px); background-size: 38px 30px;',
+    'Garden': [# The page title is the page's only heading, so it's the H1
+               ('<h2 style="margin: 0; display: flex; align-items: center; gap: 14px; font-family: var(--font-display); font-size: 40px; line-height: 44px; font-weight: 700;">', '<h1 style="margin: 0; display: flex; align-items: center; gap: 14px; font-family: var(--font-display); font-size: 40px; line-height: 44px; font-weight: 700;">'),
+               ('>Design Garden</h2>', '>Design Garden</h1>'),
+               ('background-image: radial-gradient(circle at 3px 3px, #5aa83a 2.5px, transparent 3px), radial-gradient(circle at 21px 17px, #95d46a 2px, transparent 2.5px); background-size: 38px 30px;',
                 'background-image: url(assets/images/bg-lawn.svg); background-size: 512px 384px; image-rendering: pixelated;')],
     'Main': [('>Triceratops Website · Jun 2026 – Present<', '>Triceratops Website · Jun – Oct 2026<'),
              # Lead the hero with the current roles, matching the resume
