@@ -215,3 +215,7 @@ footer nav a{display:flex!important;align-items:center;min-height:44px;box-sizin
 .pp-btn.navburger{width:44px;height:44px}
 [data-action="filter"]{min-height:44px}
 }
+
+/* Display font: FatPix by ngndang (SIL Open Font License 1.1) */
+@font-face{font-family:"FatPix";src:url(../assets/fonts/fatpix.woff2) format("woff2");font-weight:400 700;font-display:swap}
+:root{--font-display:"FatPix","Pixelify Sans","Courier New",monospace}
