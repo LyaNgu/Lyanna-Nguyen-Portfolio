@@ -409,21 +409,9 @@ html{overflow-x:clip}
 .cs-frame-k{position:absolute;z-index:2;top:-26px;right:12px;max-width:calc(100% - 24px);padding:4px 12px;border-radius:var(--radius-pill);background:var(--gold);color:var(--ink);font-size:14px;line-height:20px;font-weight:800;box-shadow:0 0 0 2px var(--wood-dark)}
 @media (max-width:640px){.cs-frames{grid-template-columns:1fr;gap:38px;padding:34px 10px 10px}.cs-frame-k{font-size:12px;line-height:16px;padding:3px 10px;top:-22px}}
 
-/* Triceratops research: insight rows led by the evidence stat, and a SWOT borrow / avoid split */
-.cs-ins{display:grid;grid-template-columns:170px 1fr;gap:24px;align-items:start;margin:var(--space-12) 0 var(--space-4);padding-top:var(--space-6);border-top:2px dashed var(--surface-sunken)}
-.cs-ins-stat{display:flex;flex-direction:column;gap:6px}
-.cs-ins-stat b{font-family:var(--font-body);font-size:50px;line-height:52px;font-weight:800;letter-spacing:-.01em;color:var(--accent-text)}
-.cs-ins-stat span{font-size:14px;line-height:20px;font-weight:700;color:var(--ink-muted)}
-.cs-sec .cs-ins-body h3{margin:0 0 8px;font-size:22px;line-height:30px;font-weight:800;color:var(--ink)}
-.cs-ins-n{display:block;font-family:var(--font-pixel);font-size:17px;line-height:18px;font-weight:400;letter-spacing:.06em;color:var(--ink-muted)}
-.cs-sec .cs-ins-body p{margin:0}
-.cs-swot{margin:var(--space-12) 0 var(--space-6);padding-top:var(--space-6);border-top:2px dashed var(--surface-sunken)}
-.cs-swot-cols{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:var(--space-3)}
-.cs-swot-cols>div{padding:16px 20px;border-radius:var(--radius-md);background:var(--surface-raised);box-shadow:inset 0 0 0 2px var(--surface-sunken)}
-.cs-sec .cs-swot-cols h4{margin:0 0 8px;font-size:17px;line-height:24px;font-weight:800}
-.cs-swot-cols .keep h4{color:#3f7a2c}.cs-swot-cols .skip h4{color:#b8322a}
-.cs-sec .cs-swot-cols ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px}
-.cs-swot-cols li{position:relative;padding-left:22px;font-size:16px;line-height:24px;font-weight:600;color:var(--ink-muted)}
-.cs-swot-cols li::before{position:absolute;left:0;top:0;font-weight:800}
-.cs-swot-cols .keep li::before{content:"+";color:#3f7a2c}.cs-swot-cols .skip li::before{content:"\2013";color:#b8322a}
-@media (max-width:640px){.cs-ins{grid-template-columns:1fr;gap:10px}.cs-ins-stat b{font-size:42px;line-height:44px}.cs-swot-cols{grid-template-columns:1fr}}
+/* Triceratops research: a numbered three-step walkthrough (method, then what it showed) */
+.cs-step{display:grid;grid-template-columns:44px 1fr;gap:16px;align-items:start;margin:var(--space-10,40px) 0 var(--space-4)}
+.cs-step-n{display:grid;place-items:center;width:40px;height:40px;background:var(--wood);color:#fdf1d3;font-family:var(--font-pixel);font-size:24px;line-height:24px;box-shadow:0 0 0 3px var(--wood-dark)}
+.cs-sec .cs-step h3{margin:4px 0 6px;font-size:21px;line-height:28px;font-weight:800;color:var(--ink)}
+.cs-sec .cs-step p{margin:0}
+.cs-step + .cs-takeaway{margin-top:var(--space-8)}
