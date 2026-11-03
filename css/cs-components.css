@@ -430,3 +430,13 @@ html{overflow-x:clip}
 .cs-brief li b{color:var(--ink);font-weight:800}
 .cs-brief li::before{content:"";position:absolute;left:0;top:4px;width:14px;height:14px;background:var(--grass);box-shadow:0 0 0 2px var(--wood-dark)}
 @media (max-width:640px){.cs-sec .cs-brief ul{grid-template-columns:1fr}.cs-sec .cs-brief-job{font-size:22px;line-height:30px}.cs-brief{padding:20px 18px}}
+
+/* Triceratops research, lighter: icon sticky notes and an icon-tile brief */
+.cs-note{min-height:0;padding:26px 18px 20px;text-align:center}
+.cs-note-ic{display:block;width:40px;height:40px;margin:0 auto 10px}.cs-note-ic svg{display:block;width:100%;height:100%}
+.cs-note b{font-size:18px;line-height:25px;margin:0}
+.cs-sec .cs-brief ul{grid-template-columns:repeat(3,1fr);gap:12px;padding-top:18px}
+.cs-brief li{display:flex;flex-direction:column;align-items:center;gap:8px;padding:14px 10px;text-align:center;background:#fff;box-shadow:0 0 0 2px var(--wood-light);font-size:15px;line-height:20px;font-weight:800;color:var(--ink)}
+.cs-brief li::before{display:none}
+.cs-brief-ic{display:block;width:34px;height:34px}.cs-brief-ic svg{display:block;width:100%;height:100%}
+@media (max-width:640px){.cs-sec .cs-brief ul{grid-template-columns:1fr 1fr}}
