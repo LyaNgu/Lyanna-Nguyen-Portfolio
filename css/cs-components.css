@@ -371,11 +371,11 @@ html{overflow-x:clip}
 .cs-hero-stage.lc:hover .lc-mail{transform:rotate(4deg);transition-delay:.08s}
 .cs-hero-stage.lc:hover .lc-toast{transform:none;transition-delay:.3s}
 .cs-hero-stage.lc:hover .lc-wug{transform:none;transition-delay:.15s}
-@media (max-width:640px){.lc-mail,.lc-toast{display:none}.lc-detail{width:30%}.lc-wug{width:22%}.cs-hero-stage.lc{--lch:clamp(220px,58vw,280px);height:var(--lch)}}
+@media (max-width:640px){.lc-mail,.lc-toast{display:none}.lc-detail{width:30%}.lc-wug{width:22%}.cs-hero-stage.lc{height:clamp(200px,52vw,260px)}.cs-hero-stage.lc .cs-hero-screen{width:88%}}
 @media (prefers-reduced-motion:reduce){.lc-mini,.lc-toast,.lc-wug{transition:opacity .2s}}
-.cs-hero-stage.lc:hover .lc-hero-laptop{transform:translate(-50%,-50%) translateY(-8px)}
+.cs-hero-stage.lc:hover .cs-hero-screen{transform:translateX(-50%) translateY(-8px)}
 .cs-hero-stage.lc:hover .lc-spark{animation-duration:1.2s}
-@media (prefers-reduced-motion:reduce){.lc-spark{animation:none}.lc-hero-laptop{transition:none}}
+@media (prefers-reduced-motion:reduce){.lc-spark{animation:none}.cs-hero-stage.lc .cs-hero-screen{transition:none}}
 .cs-proto{display:block;width:100%;height:min(900px,190vw);margin-top:var(--space-4);border:0;border-radius:var(--radius-md);background:linear-gradient(180deg,#f4f3fc,#fbf9ff);box-shadow:0 0 0 3px var(--wood-dark),4px 4px 0 3px var(--pixel-shadow)}
 
 /* Faded Problem screenshot */
@@ -398,13 +398,3 @@ html{overflow-x:clip}
 
 /* "Back to works" link under the banner: a full-height tap target */
 #cstop > a[href="index.html#work"]{display:inline-flex;align-items:center;min-height:44px}
-
-/* Linguistics banner: the same sleek laptop as the home page Selected work card */
-.cs-hero-stage.lc{--lch:clamp(260px,34vw,500px);height:var(--lch)}
-.lc-hero-laptop{position:absolute;z-index:1;left:50%;top:50%;width:min(88%,calc(var(--lch) * 1.3));transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
-.lc-hero-lid{position:relative;width:100%;padding:1.4% 1.4% 2.2%;box-sizing:border-box;border-radius:16px 16px 5px 5px;background:linear-gradient(180deg,#1d1d22,#0b0b0e);box-shadow:inset 0 0 0 1px #3a3a42,0 24px 40px rgba(40,30,110,.4)}
-.lc-hero-cam{position:absolute;top:.5%;left:50%;width:6px;height:6px;margin-left:-3px;border-radius:50%;background:#2c2c34;box-shadow:inset 0 0 0 1px #45454f}
-.lc-hero-lid img{display:block;width:100%;height:auto;aspect-ratio:1100/620;object-fit:cover;object-position:top;border-radius:4px}
-.lc-hero-base{position:relative;width:114%;height:clamp(10px,1.2vw,16px);border-radius:2px 2px 14px 14px;background:linear-gradient(180deg,#3a3a42 0,#1a1a1f 45%,#0b0b0e 100%);box-shadow:0 12px 22px rgba(40,30,110,.35)}
-.lc-hero-base span{position:absolute;top:0;left:50%;width:16%;height:40%;margin-left:-8%;border-radius:0 0 8px 8px;background:#0e0e12}
-@media (max-width:640px){.cs-hero-stage.lc{--lch:clamp(220px,58vw,280px)}}
