@@ -200,7 +200,7 @@ a,button,[role=switch],label,.flip,.workcard{cursor:url(../assets/images/cursor-
 .wc-lc .lc-mini img{display:block;width:100%;height:auto}
 .wc-lc .lc-detail{left:3%;bottom:8%;width:34%;transform:translate(-70%,25%) rotate(-14deg)}
 .wc-lc .lc-mail{right:3%;top:6%;width:24%;transform:translate(70%,-20%) rotate(14deg)}
-.wc-lc .lc-wug{z-index:4;right:2%;bottom:0;width:24%;height:auto;transform:translateY(105%)}
+.wc-lc .lc-wug{z-index:4;right:0;bottom:0;width:24%;height:auto;transform:translateY(105%)}
 .workcard:hover .wc-lc .lc-mini{opacity:1}
 .workcard:hover .wc-lc .lc-detail{transform:rotate(-4deg)}
 .workcard:hover .wc-lc .lc-mail{transform:rotate(4deg);transition-delay:.08s}
