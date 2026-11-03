@@ -224,3 +224,25 @@ footer nav a{display:flex!important;align-items:center;min-height:44px;box-sizin
 
 /* The fish sprite faces left but jumps to the right: mirror it so it leaps head-first */
 .fishjump svg{transform:scaleX(-1)}
+
+/* Works card: Google / YouTube Careers, coming soon (not a link yet) */
+.wc-soon,.wc-soon *{cursor:default!important}
+.wc-yt{background:#f3e3c3 repeating-linear-gradient(0deg,transparent 0 23px,#00000008 23px 24px),repeating-linear-gradient(90deg,transparent 0 23px,#00000008 23px 24px)}
+.yt-note{position:absolute;left:0;top:0;width:13%;max-width:58px;aspect-ratio:1;background:var(--c);rotate:var(--r);box-shadow:0 0 0 2px #5e2f1833,2px 3px 0 #5e2f1826;padding:6px 5px;display:flex;flex-direction:column;gap:4px;transition:translate .25s steps(3)}
+.yt-note i{display:block;height:3px;background:#3a1f1755}.yt-note i:nth-child(2){width:75%}.yt-note i:nth-child(3){width:55%}
+.workcard:hover .yt-note:nth-child(odd){translate:0 -4px}
+.yt-win{position:absolute;left:25%;right:25%;top:12%;bottom:-6%;background:#fff;border-radius:10px 10px 0 0;box-shadow:0 0 0 3px #2b1f17,0 18px 30px rgba(60,30,20,.3);overflow:hidden;display:flex;flex-direction:column}
+.yt-bar{display:flex;gap:5px;padding:8px 10px;background:#ecd29a;box-shadow:inset 0 -3px 0 #2b1f17}.yt-bar span{width:8px;height:8px;background:#5e2f18}
+.yt-page{flex:1;padding:44px 10px 10px;display:flex;flex-direction:column;gap:9px}
+.yt-head{display:flex;align-items:center;gap:6px}.yt-logo svg{display:block;width:22px;height:16px}
+.yt-head b{height:6px;width:38%;background:#3a1f17}.yt-head b.s{width:18%;margin-left:auto;background:#e5332a}
+.yt-video{flex:1;min-height:70px;background:#2b1f17;display:grid;place-items:center;box-shadow:inset 0 0 0 4px #3a2a20}
+.yt-video svg{width:42px;height:30px;transition:scale .25s steps(3)}.workcard:hover .yt-video svg{scale:1.15}
+.yt-roles{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}.yt-roles span{height:22px;background:#fdf1d3;box-shadow:inset 0 0 0 2px #e09a52}
+.yt-sign{position:absolute;left:50%;top:15%;translate:-50% 0;rotate:-4deg;z-index:2;transform-origin:50% -30px;transition:rotate .3s steps(4)}
+.workcard:hover .yt-sign{rotate:3deg}
+.yt-sign i{position:absolute;top:-26px;width:3px;height:28px;background:#5e2f18}.yt-sign i:first-child{left:22%}.yt-sign i:nth-child(2){right:22%}
+.yt-sign span{display:block;padding:8px 18px 6px;background:#a0522a repeating-linear-gradient(0deg,transparent 0 9px,#5e2f1840 9px 11px);color:#fdf1d3;font-family:var(--font-pixel);font-size:24px;line-height:24px;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;box-shadow:0 0 0 3px #3a1f17,4px 5px 0 #3a1f1740}
+.readcs.soon{color:var(--ink-muted);border-bottom:0}
+.wc-soon h3{font-variant-ligatures:none;font-feature-settings:"liga" 0}
+@media (prefers-reduced-motion:reduce){.yt-note,.yt-sign,.yt-video svg{transition:none}}
