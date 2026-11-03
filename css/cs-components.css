@@ -409,3 +409,12 @@ html{overflow-x:clip}
 .cs-frame-k{position:absolute;z-index:2;top:-26px;right:12px;max-width:calc(100% - 24px);padding:4px 12px;border-radius:var(--radius-pill);background:var(--gold);color:var(--ink);font-size:14px;line-height:20px;font-weight:800;box-shadow:0 0 0 2px var(--wood-dark)}
 @media (max-width:640px){.cs-frames{grid-template-columns:1fr;gap:38px;padding:34px 10px 10px}.cs-frame-k{font-size:12px;line-height:16px;padding:3px 10px;top:-22px}}
 
+
+/* Triceratops research: numbered pins on the drop-off chart, keyed to finding -> so-what notes */
+.cs-flow-art .cs-pin{position:absolute;z-index:3;transform:translate(-50%,-50%)}
+.cs-pin{display:inline-grid;place-items:center;flex:none;width:30px;height:30px;background:var(--gold);color:var(--ink);font-family:var(--font-pixel);font-size:20px;line-height:20px;box-shadow:0 0 0 3px var(--wood-dark),3px 3px 0 3px var(--pixel-shadow)}
+.cs-sec .cs-pins{list-style:none;margin:var(--space-6) 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.cs-pins li{display:flex;gap:12px;align-items:flex-start;font-size:15px;line-height:22px;color:var(--ink-muted)}
+.cs-pins b{color:var(--ink);font-weight:800}
+.cs-so{display:block;margin-top:8px;padding-top:8px;border-top:2px dashed var(--wood-light);color:var(--accent-text);font-weight:800}
+@media (max-width:640px){.cs-sec .cs-pins{grid-template-columns:1fr;gap:18px}.cs-flow-art .cs-pin{display:none}}
