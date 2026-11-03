@@ -229,18 +229,13 @@ footer nav a{display:flex!important;align-items:center;min-height:44px;box-sizin
 .wc-soon,.wc-soon *{cursor:default!important}
 .wc-soon h3{font-variant-ligatures:none;font-feature-settings:"liga" 0}
 .readcs.soon{color:var(--ink-muted);border-bottom:0}
-.wc-yt{background:#f8fafd;display:flex;align-items:center;justify-content:center;padding:34px 26px 30px}
+.wc-yt{background:#f8fafd;display:flex;align-items:center;justify-content:center;padding:30px 26px}
 .yt-shapes{position:absolute;inset:0;pointer-events:none}
 .yt-s{position:absolute;display:block}.yt-s svg{display:block;width:100%;height:100%}
-.yt-cookie{left:-5%;top:-12%;width:36%;aspect-ratio:1;transition:rotate .8s cubic-bezier(.2,.9,.25,1.1)}
+.yt-cookie{left:50%;top:50%;width:min(78%,330px);aspect-ratio:1;translate:-50% -50%;transition:rotate 1.2s cubic-bezier(.2,.9,.25,1.1)}
 .workcard:hover .yt-cookie{rotate:40deg}
-.yt-pill{right:-5%;top:6%;width:30%;height:14%;border-radius:999px;background:#fde293;rotate:-28deg}
-.yt-quarter{left:0;bottom:0;width:24%;aspect-ratio:1;border-radius:0 100% 0 0;background:#ceead6}
-.yt-clover{right:-3%;bottom:-8%;width:30%;aspect-ratio:1;transition:rotate .8s cubic-bezier(.2,.9,.25,1.1)}
-.workcard:hover .yt-clover{rotate:-45deg}
-.yt-dot{width:14px;height:14px;border-radius:50%}.yt-dot.b{left:30%;top:62%;background:#4285f4}.yt-dot.r{right:22%;top:44%;width:10px;height:10px;background:#ea4335}.yt-dot.y{left:31%;bottom:9%;width:10px;height:10px;background:#fbbc04}.yt-dot.g{left:12%;top:32%;width:8px;height:8px;background:#34a853}
-@media (prefers-reduced-motion:reduce){.yt-cookie,.yt-clover{transition:none}}
-.yt-laptop{position:relative;z-index:1;width:56%;display:flex;flex-direction:column;align-items:center}
+@media (prefers-reduced-motion:reduce){.yt-cookie{transition:none}}
+.yt-laptop{position:relative;z-index:1;width:60%;display:flex;flex-direction:column;align-items:center}
 .yt-lid{width:100%;padding:8px 8px 12px;box-sizing:border-box;background:#3a1f17;box-shadow:0 0 0 3px #2b1520,6px 6px 0 #5e2f1840}
 .yt-screen{aspect-ratio:16/10;background:#fffaf0;display:flex;flex-direction:column;gap:7%;padding:5% 6%;box-sizing:border-box;overflow:hidden}
 .yt-nav{display:flex;align-items:center;gap:6px;font-family:var(--font-pixel);font-size:15px;line-height:1;color:#2b1520}
@@ -258,12 +253,8 @@ footer nav a{display:flex!important;align-items:center;min-height:44px;box-sizin
 .yt-note{position:absolute;z-index:2;padding:9px 10px 7px;background:var(--c);rotate:var(--r);font-family:var(--font-pixel);font-size:18px;line-height:18px;color:#3a1f17;letter-spacing:.03em;white-space:nowrap;box-shadow:0 0 0 2px #3a1f17,3px 3px 0 #3a1f1740;transition:translate .2s steps(2) var(--d,0s)}
 .yt-note:before{content:"";position:absolute;left:50%;top:-5px;width:8px;height:8px;margin-left:-4px;background:#ea4335;box-shadow:0 0 0 2px #3a1f17,inset -2px -2px 0 #b3261e}
 .workcard:hover .yt-note{translate:0 -5px}
-.yt-sign{position:absolute;left:50%;top:22px;translate:-50% 0;rotate:-3deg;z-index:3;transform-origin:50% -24px;transition:rotate .3s steps(4)}
-.workcard:hover .yt-sign{rotate:2deg}
-.yt-sign i{position:absolute;top:-24px;width:3px;height:26px;background:#5e2f18}.yt-sign i:first-child{left:20%}.yt-sign i:nth-child(2){right:20%}
-.yt-sign span{display:block;padding:7px 16px 5px;background:#a0522a repeating-linear-gradient(0deg,transparent 0 9px,#5e2f1840 9px 11px);color:#fdf1d3;font-family:var(--font-pixel);font-size:22px;line-height:22px;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;box-shadow:0 0 0 3px #3a1f17,4px 4px 0 #3a1f1740}
 @media (max-width:520px){.yt-note{font-size:12px;line-height:12px;padding:5px 6px 3px;box-shadow:0 0 0 2px #3a1f17,2px 2px 0 #3a1f1740}.yt-note:before{width:6px;height:6px;margin-left:-3px;top:-4px}.yt-laptop{width:70%}}
-@media (prefers-reduced-motion:reduce){.yt-note,.yt-sign,.yt-play svg{transition:none}}
+@media (prefers-reduced-motion:reduce){.yt-note,.yt-play svg{transition:none}}
 
 /* Works cards: every card matches the tallest one, whatever its text length */
 @media (min-width:760px){
