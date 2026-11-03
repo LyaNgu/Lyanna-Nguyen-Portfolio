@@ -463,3 +463,24 @@ html{overflow-x:clip}
 .cs-insight .cs-flow{grid-column:1/-1;margin:var(--space-4) 0 0}
 .cs-insight ~ .cs-takeaway{margin-top:var(--space-8)}
 @media (max-width:640px){.cs-insight{grid-template-columns:1fr}}
+
+/* Triceratops research, visual-first: chart, then three icon insight cards */
+.cs-sec .cs-flow-so,.cs-sec .cs-ic-so{margin:6px 0 0;font-size:16px;line-height:23px;font-weight:800;color:#3f7a2c}
+.cs-sec .cs-flow-so{text-align:center}
+.cs-sec .cs-icards{list-style:none;margin:var(--space-8) 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.cs-icards li{display:flex;flex-direction:column;padding:18px 18px 16px;background:var(--surface-raised);box-shadow:0 0 0 3px var(--wood-dark),5px 5px 0 3px var(--pixel-shadow)}
+.cs-ic-vis{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;height:104px;margin-bottom:12px;background:#fff;box-shadow:inset 0 0 0 2px var(--surface-sunken)}
+.cs-ic-pair,.cs-ic-row{display:flex;align-items:center;gap:10px}
+.cs-ic-pair svg,.cs-ic-row svg{width:30px;height:30px}
+.cs-ic-pair i{width:34px;height:0;border-top:3px dashed #b8322a;position:relative}
+.cs-ic-pair i::after{content:"\2715";position:absolute;left:50%;top:-12px;transform:translateX(-50%);font-size:12px;font-weight:800;color:#b8322a;font-style:normal}
+.cs-ic-stat{font-family:var(--font-body);font-size:22px;line-height:22px;font-weight:800;color:var(--accent-text)}
+.cs-ic-cap{font-family:var(--font-pixel);font-size:15px;line-height:16px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-muted)}
+.cs-ic-swot{display:flex;flex-direction:column;gap:6px}
+.cs-ic-swot em{font-style:normal;font-size:14px;line-height:18px;font-weight:800;padding:2px 8px}
+.cs-ic-swot .k{color:#3f7a2c;background:#e4f3da}.cs-ic-swot .x{color:#b8322a;background:#fbe1dc}
+.cs-icards .cs-insight-n{font-size:20px;line-height:20px}
+.cs-sec .cs-icards h3{margin:4px 0 0;font-size:18px;line-height:24px;font-weight:800;color:var(--ink)}
+.cs-icards .cs-ic-so{margin-top:auto;padding-top:10px;font-size:15px;line-height:21px}
+.cs-icards ~ .cs-takeaway{margin-top:var(--space-8)}
+@media (max-width:640px){.cs-sec .cs-icards{grid-template-columns:1fr}}
