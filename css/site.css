@@ -227,22 +227,41 @@ footer nav a{display:flex!important;align-items:center;min-height:44px;box-sizin
 
 /* Works card: Google / YouTube Careers, coming soon (not a link yet) */
 .wc-soon,.wc-soon *{cursor:default!important}
-.wc-yt{background:#f3e3c3 repeating-linear-gradient(0deg,transparent 0 23px,#00000008 23px 24px),repeating-linear-gradient(90deg,transparent 0 23px,#00000008 23px 24px)}
-.yt-note{position:absolute;left:0;top:0;width:13%;max-width:58px;aspect-ratio:1;background:var(--c);rotate:var(--r);box-shadow:0 0 0 2px #5e2f1833,2px 3px 0 #5e2f1826;padding:6px 5px;display:flex;flex-direction:column;gap:4px;transition:translate .25s steps(3)}
-.yt-note i{display:block;height:3px;background:#3a1f1755}.yt-note i:nth-child(2){width:75%}.yt-note i:nth-child(3){width:55%}
-.workcard:hover .yt-note:nth-child(odd){translate:0 -4px}
-.yt-win{position:absolute;left:25%;right:25%;top:12%;bottom:-6%;background:#fff;border-radius:10px 10px 0 0;box-shadow:0 0 0 3px #2b1f17,0 18px 30px rgba(60,30,20,.3);overflow:hidden;display:flex;flex-direction:column}
-.yt-bar{display:flex;gap:5px;padding:8px 10px;background:#ecd29a;box-shadow:inset 0 -3px 0 #2b1f17}.yt-bar span{width:8px;height:8px;background:#5e2f18}
-.yt-page{flex:1;padding:44px 10px 10px;display:flex;flex-direction:column;gap:9px}
-.yt-head{display:flex;align-items:center;gap:6px}.yt-logo svg{display:block;width:22px;height:16px}
-.yt-head b{height:6px;width:38%;background:#3a1f17}.yt-head b.s{width:18%;margin-left:auto;background:#e5332a}
-.yt-video{flex:1;min-height:70px;background:#2b1f17;display:grid;place-items:center;box-shadow:inset 0 0 0 4px #3a2a20}
-.yt-video svg{width:42px;height:30px;transition:scale .25s steps(3)}.workcard:hover .yt-video svg{scale:1.15}
-.yt-roles{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}.yt-roles span{height:22px;background:#fdf1d3;box-shadow:inset 0 0 0 2px #e09a52}
-.yt-sign{position:absolute;left:50%;top:15%;translate:-50% 0;rotate:-4deg;z-index:2;transform-origin:50% -30px;transition:rotate .3s steps(4)}
-.workcard:hover .yt-sign{rotate:3deg}
-.yt-sign i{position:absolute;top:-26px;width:3px;height:28px;background:#5e2f18}.yt-sign i:first-child{left:22%}.yt-sign i:nth-child(2){right:22%}
-.yt-sign span{display:block;padding:8px 18px 6px;background:#a0522a repeating-linear-gradient(0deg,transparent 0 9px,#5e2f1840 9px 11px);color:#fdf1d3;font-family:var(--font-pixel);font-size:24px;line-height:24px;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;box-shadow:0 0 0 3px #3a1f17,4px 5px 0 #3a1f1740}
-.readcs.soon{color:var(--ink-muted);border-bottom:0}
 .wc-soon h3{font-variant-ligatures:none;font-feature-settings:"liga" 0}
-@media (prefers-reduced-motion:reduce){.yt-note,.yt-sign,.yt-video svg{transition:none}}
+.readcs.soon{color:var(--ink-muted);border-bottom:0}
+.wc-yt{background:linear-gradient(180deg,#ffe2c4 0,#ffd0b0 55%,#f9bd9c 100%);display:flex;align-items:center;justify-content:center;padding:34px 26px 30px}
+.yt-cloud{position:absolute;opacity:.9}.yt-cloud svg{display:block;width:100%;height:auto}
+.yt-hills{position:absolute;left:0;right:0;bottom:22px;height:52px;background:url(../assets/images/bg-hills.svg) 0 100%/160px 52px repeat-x;image-rendering:pixelated}
+.yt-grass{position:absolute;left:0;right:0;bottom:0;height:30px;background:url(../assets/images/bg-grass.svg) 0 0/128px 48px repeat-x,#5aa83f;image-rendering:pixelated}
+.yt-laptop{position:relative;z-index:1;width:62%;display:flex;flex-direction:column;align-items:center}
+.yt-lid{width:100%;padding:8px 8px 12px;box-sizing:border-box;background:#3a1f17;box-shadow:0 0 0 3px #2b1520,6px 6px 0 #5e2f1840}
+.yt-screen{aspect-ratio:16/10;background:#fffaf0;display:flex;flex-direction:column;gap:7%;padding:5% 6%;box-sizing:border-box;overflow:hidden}
+.yt-nav{display:flex;align-items:center;gap:6px;font-family:var(--font-pixel);font-size:15px;line-height:1;color:#2b1520}
+.yt-nav b{font-weight:400;letter-spacing:.04em}.yt-logo svg{display:block;width:20px;height:14px}
+.yt-nav i{height:4px;width:12%;background:#2b152040;margin-left:6%}.yt-nav i+i{margin-left:0}.yt-nav i.r{margin-left:auto;width:16%;height:8px;background:#e5332a}
+.yt-hero{flex:1;position:relative;background:#2b1520;display:grid;place-items:center;box-shadow:inset 0 0 0 3px #3e2a22}
+.yt-play svg{display:block;width:40px;height:28px;transition:scale .2s steps(2)}
+.workcard:hover .yt-play svg{scale:1.18}
+.yt-cap{position:absolute;left:7%;bottom:12%;width:40%;display:flex;flex-direction:column;gap:4px}.yt-cap i{height:4px;background:#fffaf0cc}.yt-cap i+i{width:60%;background:#fffaf066}
+.yt-roles{display:grid;grid-template-columns:repeat(3,1fr);gap:6%;height:18%}
+.yt-roles span{background:#fff;box-shadow:0 0 0 2px #2b152022;display:flex;flex-direction:column;gap:3px;padding:4px}
+.yt-roles em{height:4px;width:70%;background:#e5332a}.yt-roles span:nth-child(2) em{background:#f0b54a}.yt-roles span:nth-child(3) em{background:#7cc44f}
+.yt-roles i{height:3px;width:90%;background:#2b152030}
+.yt-base{width:116%;height:10px;background:#5e2f18;box-shadow:0 0 0 3px #2b1520,6px 6px 0 #5e2f1840}
+.yt-note{position:absolute;z-index:2;padding:9px 10px 7px;background:var(--c);rotate:var(--r);font-family:var(--font-pixel);font-size:18px;line-height:18px;color:#3a1f17;letter-spacing:.03em;white-space:nowrap;box-shadow:0 0 0 2px #3a1f17,3px 3px 0 #3a1f1740;transition:translate .2s steps(2) var(--d,0s)}
+.yt-note:before{content:"";position:absolute;left:50%;top:-5px;width:8px;height:8px;margin-left:-4px;background:#e5645a;box-shadow:0 0 0 2px #3a1f17,inset -2px -2px 0 #b8322a}
+.workcard:hover .yt-note{translate:0 -5px}
+.yt-sign{position:absolute;left:50%;top:22px;translate:-50% 0;rotate:-3deg;z-index:3;transform-origin:50% -24px;transition:rotate .3s steps(4)}
+.workcard:hover .yt-sign{rotate:2deg}
+.yt-sign i{position:absolute;top:-24px;width:3px;height:26px;background:#5e2f18}.yt-sign i:first-child{left:20%}.yt-sign i:nth-child(2){right:20%}
+.yt-sign span{display:block;padding:7px 16px 5px;background:#a0522a repeating-linear-gradient(0deg,transparent 0 9px,#5e2f1840 9px 11px);color:#fdf1d3;font-family:var(--font-pixel);font-size:22px;line-height:22px;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;box-shadow:0 0 0 3px #3a1f17,4px 4px 0 #3a1f1740}
+@media (max-width:520px){.yt-note{font-size:15px;line-height:15px;padding:7px 8px 5px}.yt-laptop{width:70%}}
+@media (prefers-reduced-motion:reduce){.yt-note,.yt-sign,.yt-play svg{transition:none}}
+
+/* Works cards: every card matches the tallest one, whatever its text length */
+@media (min-width:760px){
+#work > div:has(> .workcard){display:grid!important;grid-auto-rows:1fr}
+#work .workcard > .cardlink{flex:1;grid-auto-rows:auto 1fr}
+#work .workcard > .cardlink > div:last-child{justify-content:center}
+#work .workcard > .cardlink > div:last-child > div:last-child{margin-top:6px!important}
+}
