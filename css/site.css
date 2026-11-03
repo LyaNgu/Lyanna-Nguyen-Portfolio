@@ -216,12 +216,6 @@ footer nav a{display:flex!important;align-items:center;min-height:44px;box-sizin
 [data-action="filter"]{min-height:44px}
 }
 
-/* Dialogue sound toggle, beside the close button (js/home.js) */
-.dlg-sound{right:28px;display:grid;place-items:center}
-.dlg-sound svg{width:18px;height:18px;fill:currentColor;shape-rendering:crispEdges}
-.dlg-sound .off,.dlg-sound.muted .on{display:none}
-.dlg-sound.muted .off{display:inline}
-
 /* About: pixel water texture, white foam where the water meets the sand, pixel ripples at the bobber */
 .foam{height:24px;margin-top:-24px;position:relative;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 6' width='160' height='24' shape-rendering='crispEdges'%3E%3Cpath fill='%23d7f0fb' d='M0 5h1v1h-1zM1 5h1v1h-1zM2 5h1v1h-1zM3 5h1v1h-1zM4 5h1v1h-1zM5 5h1v1h-1zM6 5h1v1h-1zM7 5h1v1h-1zM8 5h1v1h-1zM9 5h1v1h-1zM10 5h1v1h-1zM11 5h1v1h-1zM12 5h1v1h-1zM13 5h1v1h-1zM14 5h1v1h-1zM15 5h1v1h-1zM16 5h1v1h-1zM17 5h1v1h-1zM18 5h1v1h-1zM19 5h1v1h-1zM20 5h1v1h-1zM21 5h1v1h-1zM22 5h1v1h-1zM23 5h1v1h-1zM24 5h1v1h-1zM25 5h1v1h-1zM26 5h1v1h-1zM27 5h1v1h-1zM28 5h1v1h-1zM29 5h1v1h-1zM30 5h1v1h-1zM31 5h1v1h-1zM32 5h1v1h-1zM33 5h1v1h-1zM34 5h1v1h-1zM35 5h1v1h-1zM36 5h1v1h-1zM37 5h1v1h-1zM38 5h1v1h-1zM39 5h1v1h-1z'/%3E%3Cpath fill='%23ffffff' d='M0 3h1v2h-1zM1 3h1v2h-1zM2 3h1v2h-1zM3 2h1v3h-1zM4 2h1v3h-1zM5 1h1v4h-1zM6 1h1v4h-1zM7 2h1v3h-1zM8 2h1v3h-1zM9 2h1v3h-1zM10 3h1v2h-1zM11 3h1v2h-1zM12 3h1v2h-1zM13 2h1v3h-1zM14 2h1v3h-1zM15 1h1v4h-1zM16 1h1v4h-1zM17 2h1v3h-1zM18 2h1v3h-1zM19 2h1v3h-1zM20 3h1v2h-1zM21 3h1v2h-1zM22 3h1v2h-1zM23 2h1v3h-1zM24 2h1v3h-1zM25 1h1v4h-1zM26 1h1v4h-1zM27 2h1v3h-1zM28 2h1v3h-1zM29 2h1v3h-1zM30 3h1v2h-1zM31 3h1v2h-1zM32 3h1v2h-1zM33 2h1v3h-1zM34 2h1v3h-1zM35 1h1v4h-1zM36 1h1v4h-1zM37 2h1v3h-1zM38 2h1v3h-1zM39 2h1v3h-1z'/%3E%3C/svg%3E") 0 100%/160px 24px repeat-x;image-rendering:pixelated;animation:foamdrift 6s steps(10) infinite alternate}
 @keyframes foamdrift{to{background-position:40px 100%}}

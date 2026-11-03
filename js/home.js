@@ -27,42 +27,6 @@
   })();
   Site.on('skip-loader', hideLoader);
 
-  /* ---------- Dialogue sounds (Dialogue SFX by AmbroggioMusic, ambroggiomusic.itch.io) ----------
-     Short "voice" blips while Lyanna talks, plus a chirp for hello / next / close. Sounds only play
-     after the visitor knocks (a click), and a speaker button beside the close button mutes them. */
-  var SOUND_KEY = 'ln_dialogue_sound';
-  var soundOn = true;
-  try { soundOn = localStorage.getItem(SOUND_KEY) !== 'off'; } catch (e) {}
-  var AC = window.AudioContext || window.webkitAudioContext;
-  var audio = null, buffers = {};
-  function loadSounds() {
-    if (audio || !AC) return;
-    audio = new AC();
-    ['talk-1', 'talk-2', 'hello', 'next', 'close'].forEach(function (name) {
-      fetch('assets/audio/' + name + '.mp3')
-        .then(function (r) { return r.arrayBuffer(); })
-        .then(function (data) { return new Promise(function (ok, no) { audio.decodeAudioData(data, ok, no); }); })
-        .then(function (buf) { buffers[name] = buf; })
-        .catch(function () {});
-    });
-  }
-  function play(name, rate, volume) {
-    if (!soundOn || !audio || !buffers[name]) return;
-    if (audio.state === 'suspended') audio.resume();
-    var src = audio.createBufferSource(), gain = audio.createGain();
-    src.buffer = buffers[name];
-    src.playbackRate.value = rate || 1;
-    gain.gain.value = volume == null ? 0.35 : volume;
-    src.connect(gain).connect(audio.destination);
-    src.start();
-  }
-  var talkTick = 0;
-  function talk() {
-    // one blip every few letters, with a little pitch variation so it sounds like speech
-    if (talkTick++ % 3) return;
-    play(talkTick % 2 ? 'talk-1' : 'talk-2', 0.92 + Math.random() * 0.2, 0.28);
-  }
-
   /* ---------- Knock on the door → Lyanna says hello ---------- */
   var house = document.querySelector('.clickhouse');
   var door = house.querySelector('.door');
@@ -128,7 +92,6 @@
     typer = setInterval(function () {
       if (chars >= LINES[line].length) { clearInterval(typer); return; }
       chars += 2;
-      talk();
       render();
     }, 30);
   }
@@ -140,9 +103,8 @@
   }
 
   function knock() {
-    if (phase === 'greet') { play('close', 1, 0.3); reset(); return; }
+    if (phase === 'greet') { reset(); return; }
     if (phase !== 'idle') return;
-    loadSounds();
     var fast = Site.reducedMotion;
     phase = 'knocking';
     render();
@@ -150,7 +112,6 @@
     knockT2 = setTimeout(function () {
       phase = 'greet'; line = 0; chars = 0; jump = '';
       bounce();
-      play('hello', 1, 0.4);
       render();
       type();
     }, fast ? 0 : 1500);
@@ -160,33 +121,12 @@
     var full = LINES[line].length;
     if (chars < full) { clearInterval(typer); chars = full; render(); return; }
     if (line < LINES.length - 1) {
-      play('next', 1, 0.3);
       line += 1; chars = 0;
       bounce();
       render();
       type();
     }
   }
-
-  var closeBtn = document.querySelector('.dlg-x');
-  var soundBtn = document.createElement('button');
-  soundBtn.type = 'button';
-  soundBtn.className = 'dlg-x dlg-sound';
-  soundBtn.innerHTML = '<svg viewBox="0 0 12 12" aria-hidden="true"><path class="spk" d="M1 4h2l3-3v10L3 8H1z"/><path class="on" d="M8 3h1v1H8zM9 4h1v4H9zM8 8h1v1H8zM10 2h1v1h-1zM11 3h1v6h-1zM10 9h1v1h-1z"/><path class="off" d="M8 4h1v1H8zM9 5h1v1H9zM10 6h1v1h-1zM11 7h1v1h-1zM11 4h1v1h-1zM10 5h1v1h-1zM9 6h1v1H9zM8 7h1v1H8z"/></svg>';
-  function syncSoundBtn() {
-    soundBtn.setAttribute('aria-pressed', String(soundOn));
-    soundBtn.setAttribute('aria-label', soundOn ? 'Mute dialogue sounds' : 'Turn on dialogue sounds');
-    soundBtn.classList.toggle('muted', !soundOn);
-  }
-  soundBtn.addEventListener('click', function () {
-    soundOn = !soundOn;
-    try { localStorage.setItem(SOUND_KEY, soundOn ? 'on' : 'off'); } catch (e) {}
-    syncSoundBtn();
-    loadSounds();
-    if (soundOn) play('next', 1.1, 0.25);
-  });
-  syncSoundBtn();
-  if (closeBtn) closeBtn.parentNode.insertBefore(soundBtn, closeBtn);
 
   Site.on('knock', knock);
   house.addEventListener('keydown', function (e) {
@@ -197,7 +137,7 @@
     if (e.target.closest('.dlg-x, a, button')) return;
     next();
   });
-  Site.on('close-dialog', function () { if (phase === 'greet') play('close', 1, 0.3); reset(); });   // also used by the "Start the tour" / "Just the resume" links
+  Site.on('close-dialog', reset);   // also used by the "Start the tour" / "Just the resume" links
 
   /* ---------- Fireflies scatter away from the cursor ---------- */
   var night = document.querySelector('[data-night]');
