@@ -39,7 +39,7 @@ CONTENT_FIXES = {
              ('<span class="pp-sticker">Paid Contract</span><span class="pp-sticker">Onboarding</span><span class="pp-sticker">Design + Dev</span>',
               '<span class="pp-sticker">Growth UX</span><span class="pp-sticker">UX Engineering</span><span class="pp-sticker">Product Onboarding</span>'),
              ('<span class="pp-sticker">#Include</span><span class="pp-sticker">User Research</span><span class="pp-sticker">Figma</span>',
-              '<span class="pp-sticker">User Research</span><span class="pp-sticker">Information Architecture</span><span class="pp-sticker">Developer Handoff</span>'),
+              '<span class="pp-sticker">User Research</span><span class="pp-sticker">Info Architecture</span><span class="pp-sticker">Dev Handoff</span>'),
              # Keep the Works card in step with the hand-built case study hero
              ('>Streamlining onboarding to help new members get involved from day one<', '>Streamlining onboarding for new members<'),
              ('>I designed and built a Getting Started page that turns a crowded Discord into a clear first step for new members.<', '>Shipped the club&#8217;s first website in 14 weeks, giving a nearly 5,000-member Discord one clear path to a first hunt.<'),
