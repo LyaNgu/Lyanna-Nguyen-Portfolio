@@ -420,11 +420,13 @@ html{overflow-x:clip}
 .cs-find-n{font-family:var(--font-pixel);font-size:16px;line-height:16px;letter-spacing:.04em;text-transform:uppercase;color:var(--accent-text);margin-bottom:-4px}
 @media (max-width:640px){.cs-stats{grid-template-columns:repeat(3,1fr);gap:8px}.cs-stat{display:flex;flex-direction:column;padding:10px 10px 12px}.cs-stat-ic{width:auto}.cs-stat-ic svg{width:20px;height:20px;margin-bottom:4px}.cs-stat b{font-size:28px;line-height:32px}.cs-stat span:last-child{font-size:12px;line-height:16px}}
 
-/* Decision 1: the rules screenshots cut into three annotated frames, held in one panel */
-.cs-frames{display:grid;grid-template-columns:1fr 1fr;align-items:start;gap:44px 16px;padding:40px 16px 16px;background:var(--surface-sunken);border-radius:var(--radius-md);box-shadow:inset 0 0 0 3px var(--wood-light)}
-.cs-frame{position:relative;margin:0}
-.cs-frame.main{grid-column:1/-1}
-.cs-frame-img{overflow:hidden;border-radius:8px;background:#fff;box-shadow:0 0 0 2px var(--wood-dark)}
+/* Decision 1: the rules screenshots as three frames in one panel, annotated from the side with arrows */
+.cs-frames{display:flex;flex-direction:column;gap:22px;padding:24px 18px;background:var(--surface-sunken);border-radius:var(--radius-md);box-shadow:inset 0 0 0 3px var(--wood-light)}
+.cs-frame{display:grid;grid-template-columns:140px minmax(0,1fr) 140px;align-items:center;gap:12px;margin:0}
+.cs-frame-img{grid-column:2;grid-row:1;overflow:hidden;border-radius:8px;background:#fff;box-shadow:0 0 0 2px var(--wood-dark)}
 .cs-frame-img img{display:block;width:100%;height:auto}
-.cs-frame-k{position:absolute;z-index:2;top:-26px;right:12px;max-width:calc(100% - 24px);padding:4px 12px;border-radius:var(--radius-pill);background:var(--gold);color:var(--ink);font-size:14px;line-height:20px;font-weight:800;box-shadow:0 0 0 2px var(--wood-dark)}
-@media (max-width:640px){.cs-frames{grid-template-columns:1fr;gap:38px;padding:34px 10px 10px}.cs-frame-k{font-size:12px;line-height:16px;padding:3px 10px;top:-22px}}
+.cs-frame-k{grid-column:1;grid-row:1;display:flex;align-items:center;gap:8px;font-family:var(--font-pixel);font-size:17px;line-height:18px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink)}
+.cs-frame-k::after{content:"";flex:none;width:34px;height:10px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 10'%3E%3Cpath d='M0 5h33M28 1l5 4-5 4' fill='none' stroke='%235e2f18' stroke-width='2'/%3E%3C/svg%3E") center/contain no-repeat}
+.cs-frame:nth-child(even) .cs-frame-k{grid-column:3;flex-direction:row-reverse;text-align:left}
+.cs-frame:nth-child(even) .cs-frame-k::after{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 10'%3E%3Cpath d='M36 5H3M8 1L3 5l5 4' fill='none' stroke='%235e2f18' stroke-width='2'/%3E%3C/svg%3E")}
+@media (max-width:640px){.cs-frames{padding:16px 12px;gap:18px}.cs-frame{grid-template-columns:1fr;gap:6px}.cs-frame-k,.cs-frame:nth-child(even) .cs-frame-k{grid-column:1;grid-row:1;flex-direction:column;align-items:center;text-align:center;gap:4px;font-size:15px;line-height:16px}.cs-frame-img{grid-column:1;grid-row:2}.cs-frame-k::after,.cs-frame:nth-child(even) .cs-frame-k::after{width:10px;height:18px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 22'%3E%3Cpath d='M5 0v19M1 14l4 5 4-5' fill='none' stroke='%235e2f18' stroke-width='2'/%3E%3C/svg%3E")}}
