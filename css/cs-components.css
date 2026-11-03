@@ -423,14 +423,11 @@ html{overflow-x:clip}
 .cs-tie span{padding:2px 8px 0;background:var(--gold);box-shadow:0 0 0 2px var(--wood-dark);font-family:var(--font-pixel);font-size:15px;line-height:18px;font-weight:400;letter-spacing:.04em;text-transform:uppercase}
 @media (max-width:640px){.cs-stats{grid-template-columns:repeat(3,1fr);gap:8px}.cs-stat{display:flex;flex-direction:column;padding:10px 10px 12px}.cs-stat-ic{width:auto}.cs-stat-ic svg{width:20px;height:20px;margin-bottom:4px}.cs-stat b{font-size:28px;line-height:32px}.cs-stat span:last-child{font-size:12px;line-height:16px}}
 
-/* Decision 1: the rules screenshots cut into three tilted, annotated frames */
-.cs-frames{display:grid;grid-template-columns:1fr 1fr;align-items:start;gap:44px 18px;padding:30px 6px 6px}
-.cs-frame{position:relative;margin:0;transition:rotate .3s steps(3),translate .3s steps(3)}
-.cs-frame.main{grid-column:1/-1;rotate:-.6deg}
-.cs-frame.a{rotate:1deg}.cs-frame.b{rotate:-1deg}
-.cs-frame:hover{rotate:0deg;translate:0 -4px}
-.cs-frame-img{overflow:hidden;border-radius:10px;background:#fff;box-shadow:0 0 0 3px var(--wood-dark),6px 6px 0 3px #5e2f1826}
+/* Decision 1: the rules screenshots cut into three annotated frames, held in one panel */
+.cs-frames{display:grid;grid-template-columns:1fr 1fr;align-items:start;gap:44px 16px;padding:40px 16px 16px;background:var(--surface-sunken);border-radius:var(--radius-md);box-shadow:inset 0 0 0 3px var(--wood-light)}
+.cs-frame{position:relative;margin:0}
+.cs-frame.main{grid-column:1/-1}
+.cs-frame-img{overflow:hidden;border-radius:8px;background:#fff;box-shadow:0 0 0 2px var(--wood-dark)}
 .cs-frame-img img{display:block;width:100%;height:auto}
-.cs-frame-k{position:absolute;z-index:2;top:-26px;right:14px;max-width:calc(100% - 28px);padding:4px 12px;border-radius:var(--radius-pill);background:var(--gold);color:var(--ink);font-size:14px;line-height:20px;font-weight:800;box-shadow:0 0 0 2px var(--wood-dark),3px 3px 0 #3a1f1740}
-@media (max-width:640px){.cs-frames{grid-template-columns:1fr;gap:30px}.cs-frame-k{font-size:12px;line-height:16px;padding:3px 10px}}
-@media (prefers-reduced-motion:reduce){.cs-frame{transition:none}}
+.cs-frame-k{position:absolute;z-index:2;top:-26px;right:12px;max-width:calc(100% - 24px);padding:4px 12px;border-radius:var(--radius-pill);background:var(--gold);color:var(--ink);font-size:14px;line-height:20px;font-weight:800;box-shadow:0 0 0 2px var(--wood-dark)}
+@media (max-width:640px){.cs-frames{grid-template-columns:1fr;gap:38px;padding:34px 10px 10px}.cs-frame-k{font-size:12px;line-height:16px;padding:3px 10px;top:-22px}}
