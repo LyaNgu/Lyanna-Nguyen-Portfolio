@@ -409,20 +409,3 @@ html{overflow-x:clip}
 .cs-frame-k{position:absolute;z-index:2;top:-26px;right:12px;max-width:calc(100% - 24px);padding:4px 12px;border-radius:var(--radius-pill);background:var(--gold);color:var(--ink);font-size:14px;line-height:20px;font-weight:800;box-shadow:0 0 0 2px var(--wood-dark)}
 @media (max-width:640px){.cs-frames{grid-template-columns:1fr;gap:38px;padding:34px 10px 10px}.cs-frame-k{font-size:12px;line-height:16px;padding:3px 10px;top:-22px}}
 
-/* Triceratops research: quote bubbles and a new member journey with drop-off flags */
-.cs-sec .cs-voices{list-style:none;margin:var(--space-6) 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.cs-voices li{position:relative;padding:16px 18px;background:#fff;border-radius:12px;box-shadow:0 0 0 3px var(--wood-dark),4px 4px 0 3px var(--pixel-shadow);font-size:16px;line-height:23px;font-weight:700;color:var(--ink)}
-.cs-voices li::after{content:"";position:absolute;left:22px;bottom:-12px;width:14px;height:12px;background:#fff;clip-path:polygon(0 0,100% 0,0 100%);filter:drop-shadow(0 3px 0 var(--wood-dark))}
-.cs-journey{margin:var(--space-8) 0 var(--space-4);padding:22px 20px 26px;background:var(--surface-raised);border-radius:var(--radius-md);box-shadow:inset 0 0 0 3px var(--wood-light)}
-.cs-sec .cs-journey ol{list-style:none;margin:46px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:12px;position:relative}
-.cs-journey ol::before{content:"";position:absolute;left:12%;right:12%;top:31px;border-top:4px dashed var(--wood-light)}
-.cs-journey li{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;gap:4px;font-size:15px;line-height:21px;font-weight:700;color:var(--ink-muted)}
-.cs-journey li b{font-family:var(--font-pixel);font-size:18px;line-height:18px;font-weight:400;color:var(--ink);margin-top:4px}
-.cs-j-ic{position:relative;z-index:1;display:grid;place-items:center;width:66px;height:66px;background:#fff;box-shadow:0 0 0 3px var(--wood-dark),4px 4px 0 0 var(--pixel-shadow)}
-.cs-j-ic svg{width:40px;height:32px}.cs-j-ic img{width:52px;height:auto}
-.cs-journey li.stop .cs-j-ic{box-shadow:0 0 0 3px #b8322a,4px 4px 0 0 var(--pixel-shadow)}
-.cs-journey li.win .cs-j-ic{box-shadow:0 0 0 3px #3f7a2c,4px 4px 0 0 var(--pixel-shadow)}
-.cs-j-flag{position:absolute;bottom:calc(100% + 8px);padding:3px 10px;background:#fbe1dc;box-shadow:0 0 0 2px #b8322a;font-size:13px;line-height:17px;font-weight:800;color:#b8322a;white-space:nowrap}
-.cs-journey li.drop-before .cs-j-flag{left:-50%;transform:translateX(-10%)}
-.cs-j-note{font-size:13px;line-height:17px;font-weight:800;color:#3f7a2c}
-@media (max-width:640px){.cs-sec .cs-voices{grid-template-columns:1fr}.cs-sec .cs-journey ol{grid-template-columns:1fr;gap:38px;margin-top:40px}.cs-journey ol::before{display:none}.cs-journey li.drop-before .cs-j-flag{left:auto;transform:none}.cs-j-flag{position:static;order:-1;margin-bottom:6px}}
