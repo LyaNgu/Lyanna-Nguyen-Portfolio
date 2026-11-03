@@ -34,7 +34,7 @@ CONTENT_FIXES = {
              # Works: no subtitle, and the Linguistics card matches its case study summary
              ('\n        <p style="margin: 0; font-size: 20px; line-height: 32px; font-weight: 600; color: var(--ink-muted);">Two case studies, from the first interview to the final handoff.</p>', ''),
              ('>I designed the Opportunities pages that help linguistics students find programs, research and study abroad in one place.<',
-              '>Made opportunities 80% easier to find for 150+ students across 6 usability tests, by splitting them into undergrad and grad tracks.<'),
+              '>Made opportunities 80% easier to find for 150+ students by splitting them into undergrad and grad tracks.<'),
              # Case study tags: the top three skills each project shows
              ('<span class="pp-sticker">Paid Contract</span><span class="pp-sticker">Onboarding</span><span class="pp-sticker">Design + Dev</span>',
               '<span class="pp-sticker">Growth UX</span><span class="pp-sticker">UX Engineering</span><span class="pp-sticker">Product Onboarding</span>'),
