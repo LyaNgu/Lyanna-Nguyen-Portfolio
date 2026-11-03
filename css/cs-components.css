@@ -398,3 +398,13 @@ html{overflow-x:clip}
 
 /* "Back to works" link under the banner: a full-height tap target */
 #cstop > a[href="index.html#work"]{display:inline-flex;align-items:center;min-height:44px}
+
+/* Overview: a compact "My process" strip of numbered steps */
+.cs-process{margin:0 0 var(--space-8)}
+.cs-process ol{list-style:none;margin:var(--space-3) 0 0;padding:0;display:grid;grid-template-columns:repeat(5,1fr);gap:10px;counter-reset:step}
+.cs-process li{counter-increment:step;position:relative;display:flex;flex-direction:column;gap:4px;padding:12px 12px 14px;background:var(--surface-raised);box-shadow:inset 0 0 0 2px var(--wood-light),3px 3px 0 #5e2f1826;font-size:14px;line-height:20px;color:var(--ink-muted)}
+.cs-process li b{display:flex;align-items:center;gap:6px;font-family:var(--font-pixel);font-size:19px;line-height:20px;font-weight:400;letter-spacing:.04em;text-transform:uppercase;color:var(--ink)}
+.cs-process li b::before{content:counter(step,decimal-leading-zero);color:var(--accent-text)}
+.cs-process li:not(:last-child)::after{content:"";position:absolute;right:-9px;top:20px;width:8px;height:8px;background:var(--wood);clip-path:polygon(0 0,100% 50%,0 100%);z-index:1}
+@media (max-width:900px){.cs-process ol{grid-template-columns:repeat(2,1fr)}.cs-process li::after{display:none}}
+@media (max-width:420px){.cs-process ol{grid-template-columns:1fr}}
