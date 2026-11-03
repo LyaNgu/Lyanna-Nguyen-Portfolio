@@ -418,9 +418,6 @@ html{overflow-x:clip}
 .cs-finds-grid.four{grid-template-columns:repeat(2,1fr)}
 @media (max-width:640px){.cs-finds-grid.four{grid-template-columns:1fr}}
 .cs-find-n{font-family:var(--font-pixel);font-size:16px;line-height:16px;letter-spacing:.04em;text-transform:uppercase;color:var(--accent-text);margin-bottom:-4px}
-/* Design decisions: a chip linking each choice back to the research finding it answers */
-.cs-tie{display:inline-flex;align-items:center;flex-wrap:wrap;gap:8px;margin:-6px 0 14px;padding:4px 12px 4px 4px;background:var(--surface-raised);box-shadow:inset 0 0 0 2px var(--wood-light);font-size:14px;line-height:20px;font-weight:700;color:var(--ink)}
-.cs-tie span{padding:2px 8px 0;background:var(--gold);box-shadow:0 0 0 2px var(--wood-dark);font-family:var(--font-pixel);font-size:15px;line-height:18px;font-weight:400;letter-spacing:.04em;text-transform:uppercase}
 @media (max-width:640px){.cs-stats{grid-template-columns:repeat(3,1fr);gap:8px}.cs-stat{display:flex;flex-direction:column;padding:10px 10px 12px}.cs-stat-ic{width:auto}.cs-stat-ic svg{width:20px;height:20px;margin-bottom:4px}.cs-stat b{font-size:28px;line-height:32px}.cs-stat span:last-child{font-size:12px;line-height:16px}}
 
 /* Decision 1: the rules screenshots cut into three annotated frames, held in one panel */
