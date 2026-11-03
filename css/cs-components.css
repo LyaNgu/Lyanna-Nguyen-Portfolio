@@ -338,9 +338,9 @@ html{overflow-x:clip}
 
 /* Annotations on still screenshots: a dashed highlight with a short label pinned above it */
 .cs-vs-img:has(.cs-hl){position:relative}
-.cs-hl{position:absolute;box-sizing:border-box;border:3px dashed var(--wood);border-radius:10px;background:rgba(240,181,74,.14);pointer-events:none}
-.cs-hl-k{position:absolute;right:12px;bottom:calc(100% + 10px);padding:4px 12px;border-radius:var(--radius-pill);background:var(--wood-dark);color:#fff3d6;font-size:14px;line-height:20px;font-weight:800;white-space:nowrap;box-shadow:0 3px 0 #3a1f1740}
-.cs-hl-k::after{content:"";position:absolute;right:18px;top:100%;width:3px;height:10px;background:var(--wood-dark)}
+.cs-hl{position:absolute;box-sizing:border-box;border:3px dashed var(--gold);border-radius:10px;background:rgba(240,181,74,.12);pointer-events:none}
+.cs-hl-k{position:absolute;right:12px;bottom:calc(100% + 10px);padding:4px 12px;border-radius:var(--radius-pill);background:var(--gold);color:var(--ink);font-size:14px;line-height:20px;font-weight:800;white-space:nowrap;box-shadow:0 3px 0 #3a1f1740}
+.cs-hl-k::after{content:"";position:absolute;right:18px;top:100%;width:3px;height:10px;background:var(--gold)}
 .cs-hl.below .cs-hl-k{bottom:auto;top:calc(100% + 10px)}.cs-hl.l .cs-hl-k{right:auto;left:12px}.cs-hl.l .cs-hl-k::after{right:auto;left:18px}.cs-hl.below .cs-hl-k::after{top:auto;bottom:100%}
 .cs-fade .cs-hl{z-index:1}
 .cs-fade .cs-hl{border-color:var(--gold);background:rgba(240,181,74,.12)}.cs-fade .cs-hl-k{background:var(--gold);color:var(--ink)}.cs-fade .cs-hl-k::after{background:var(--gold)}
@@ -357,7 +357,7 @@ html{overflow-x:clip}
 .lc-spark{position:absolute;width:var(--s);height:var(--s);margin:calc(var(--s) / -2) 0 0 calc(var(--s) / -2);animation:lcTwinkle var(--t) ease-in-out var(--d) infinite}
 .lc-spark svg{display:block;width:100%;height:100%;fill:#fff;filter:drop-shadow(0 0 6px #fff) drop-shadow(0 0 2px #8f84e0)}
 @keyframes lcTwinkle{0%,100%{transform:scale(.55) rotate(0);opacity:.35}50%{transform:scale(1) rotate(45deg);opacity:1}}
-.cs-hero-stage.lc .cs-hero-screen{z-index:1;width:min(58%,760px);transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.cs-hero-stage.lc .cs-hero-screen{z-index:1;width:min(76%,980px);transition:transform .5s cubic-bezier(.2,.8,.2,1)}
 /* on hover, the mini pages tilt in from the edges, a Saved toast pops and the wug peeks up */
 .lc-mini,.lc-toast,.lc-wug{transition:transform .55s cubic-bezier(.2,.9,.25,1.15),opacity .35s ease}
 .lc-mini{position:absolute;z-index:3;margin:0;border-radius:10px;overflow:hidden;background:#fff;box-shadow:0 0 0 3px #fff,0 16px 30px rgba(70,50,150,.28);opacity:0}
@@ -371,7 +371,7 @@ html{overflow-x:clip}
 .cs-hero-stage.lc:hover .lc-mail{transform:rotate(4deg);transition-delay:.08s}
 .cs-hero-stage.lc:hover .lc-toast{transform:none;transition-delay:.3s}
 .cs-hero-stage.lc:hover .lc-wug{transform:none;transition-delay:.15s}
-@media (max-width:640px){.lc-mail,.lc-toast{display:none}.lc-detail{width:30%}.lc-wug{width:22%}.cs-hero-stage.lc .cs-hero-screen{width:70%}}
+@media (max-width:640px){.lc-mail,.lc-toast{display:none}.lc-detail{width:30%}.lc-wug{width:22%}.cs-hero-stage.lc{height:clamp(200px,52vw,260px)}.cs-hero-stage.lc .cs-hero-screen{width:88%}}
 @media (prefers-reduced-motion:reduce){.lc-mini,.lc-toast,.lc-wug{transition:opacity .2s}}
 .cs-hero-stage.lc:hover .cs-hero-screen{transform:translateX(-50%) translateY(-8px)}
 .cs-hero-stage.lc:hover .lc-spark{animation-duration:1.2s}
