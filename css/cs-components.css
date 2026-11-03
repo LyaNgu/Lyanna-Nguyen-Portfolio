@@ -357,7 +357,7 @@ html{overflow-x:clip}
 .lc-spark{position:absolute;width:var(--s);height:var(--s);margin:calc(var(--s) / -2) 0 0 calc(var(--s) / -2);animation:lcTwinkle var(--t) ease-in-out var(--d) infinite}
 .lc-spark svg{display:block;width:100%;height:100%;fill:#fff;filter:drop-shadow(0 0 6px #fff) drop-shadow(0 0 2px #8f84e0)}
 @keyframes lcTwinkle{0%,100%{transform:scale(.55) rotate(0);opacity:.35}50%{transform:scale(1) rotate(45deg);opacity:1}}
-.cs-hero-stage.lc .cs-hero-screen{z-index:1;width:min(76%,980px);transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.cs-hero-stage.lc .cs-hero-screen{z-index:1;width:min(60vw,880px);transition:transform .5s cubic-bezier(.2,.8,.2,1)}
 /* on hover, the mini pages tilt in from the edges, a Saved toast pops and the wug peeks up */
 .lc-mini,.lc-toast,.lc-wug{transition:transform .55s cubic-bezier(.2,.9,.25,1.15),opacity .35s ease}
 .lc-mini{position:absolute;z-index:3;margin:0;border-radius:10px;overflow:hidden;background:#fff;box-shadow:0 0 0 3px #fff,0 16px 30px rgba(70,50,150,.28);opacity:0}
@@ -365,7 +365,7 @@ html{overflow-x:clip}
 .lc-detail{left:1%;bottom:10%;width:min(22%,300px);transform:translate(-70%,25%) rotate(-14deg)}
 .lc-mail{right:2%;top:8%;width:min(15%,210px);transform:translate(70%,-20%) rotate(14deg)}
 .lc-toast{position:absolute;z-index:4;left:calc(1% + min(22%,300px) - 110px);bottom:calc(10% - 16px);padding:6px 14px;border-radius:999px;background:#3c2f8f;color:#fff;font-size:clamp(10px,1vw,14px);line-height:1.4;font-weight:800;white-space:nowrap;box-shadow:0 8px 18px rgba(60,40,140,.35);opacity:0;transform:scale(.4)}
-.lc-wug{position:absolute;z-index:4;right:1%;bottom:0;width:min(17%,230px);height:auto;transform:translateY(105%)}
+.lc-wug{position:absolute;z-index:4;right:0;bottom:0;width:min(17%,230px);height:auto;transform:translateY(105%)}
 .cs-hero-stage.lc:hover .lc-mini,.cs-hero-stage.lc:hover .lc-toast{opacity:1}
 .cs-hero-stage.lc:hover .lc-detail{transform:rotate(-4deg)}
 .cs-hero-stage.lc:hover .lc-mail{transform:rotate(4deg);transition-delay:.08s}
