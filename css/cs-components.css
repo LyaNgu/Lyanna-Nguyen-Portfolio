@@ -399,26 +399,6 @@ html{overflow-x:clip}
 /* "Back to works" link under the banner: a full-height tap target */
 #cstop > a[href="index.html#work"]{display:inline-flex;align-items:center;min-height:44px}
 
-/* Research: method stat tiles and finding cards (finding -> what I did) */
-.cs-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:var(--space-6) 0 var(--space-8)}
-.cs-stat{display:flex;flex-direction:column;gap:2px;padding:16px 18px 18px;background:var(--surface-raised);box-shadow:inset 0 0 0 3px var(--wood-light),4px 4px 0 #5e2f1826}
-.cs-stat-ic svg{display:block;width:28px;height:28px;margin-bottom:8px}
-.cs-stat b{font-family:var(--font-display);font-size:44px;line-height:46px;font-weight:700;color:var(--accent-text)}
-.cs-stat span:last-child{font-size:15px;line-height:21px;font-weight:600;color:var(--ink-muted)}
-.cs-finds{margin:var(--space-8) 0}
-.cs-finds-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:var(--space-3)}
-.cs-find{display:flex;flex-direction:column;gap:10px;padding:18px 18px 16px;background:var(--surface-raised);box-shadow:inset 0 0 0 3px var(--wood-light),4px 4px 0 #5e2f1826}
-.cs-find h4{display:flex;align-items:center;gap:10px;margin:0;font-family:var(--font-display);font-size:19px;line-height:24px;font-weight:700;color:var(--ink)}
-.cs-find-ic{flex:none;display:grid;place-items:center;width:38px;height:38px;background:var(--surface-sunken);box-shadow:inset 0 0 0 2px var(--wood)}
-.cs-find-ic svg{display:block;width:24px;height:24px}
-.cs-find p{margin:0;font-size:15px;line-height:23px;color:var(--ink-muted)}
-.cs-find .cs-find-resp{margin-top:auto;padding-top:10px;border-top:2px dashed var(--wood-light);color:var(--ink);font-weight:600}
-.cs-find-resp span{display:block;margin-bottom:2px;font-family:var(--font-pixel);font-size:16px;line-height:18px;font-weight:400;letter-spacing:.04em;text-transform:uppercase;color:var(--accent-text)}
-@media (max-width:640px){.cs-stats{grid-template-columns:1fr}.cs-stat{flex-direction:row;flex-wrap:wrap;align-items:baseline;column-gap:10px}.cs-stat-ic{width:100%}.cs-stat b{font-size:36px;line-height:40px}}
-.cs-finds-grid.four{grid-template-columns:repeat(2,1fr)}
-@media (max-width:640px){.cs-finds-grid.four{grid-template-columns:1fr}}
-.cs-find-n{font-family:var(--font-pixel);font-size:16px;line-height:16px;letter-spacing:.04em;text-transform:uppercase;color:var(--accent-text);margin-bottom:-4px}
-@media (max-width:640px){.cs-stats{grid-template-columns:repeat(3,1fr);gap:8px}.cs-stat{display:flex;flex-direction:column;padding:10px 10px 12px}.cs-stat-ic{width:auto}.cs-stat-ic svg{width:20px;height:20px;margin-bottom:4px}.cs-stat b{font-size:28px;line-height:32px}.cs-stat span:last-child{font-size:12px;line-height:16px}}
 
 /* Decision 1: the rules screenshots cut into three annotated frames, held in one panel */
 .cs-frames{display:grid;grid-template-columns:1fr 1fr;align-items:start;gap:44px 16px;padding:40px 16px 16px;background:var(--surface-sunken);border-radius:var(--radius-md);box-shadow:inset 0 0 0 3px var(--wood-light)}
