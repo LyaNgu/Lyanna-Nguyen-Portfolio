@@ -408,3 +408,5 @@ html{overflow-x:clip}
 .cs-frame-img img{display:block;width:100%;height:auto}
 .cs-frame-k{position:absolute;z-index:2;top:-26px;right:12px;max-width:calc(100% - 24px);padding:4px 12px;border-radius:var(--radius-pill);background:var(--gold);color:var(--ink);font-size:14px;line-height:20px;font-weight:800;box-shadow:0 0 0 2px var(--wood-dark)}
 @media (max-width:640px){.cs-frames{grid-template-columns:1fr;gap:38px;padding:34px 10px 10px}.cs-frame-k{font-size:12px;line-height:16px;padding:3px 10px;top:-22px}}
+.cs-surfaced{margin:var(--space-8) 0 var(--space-6)}
+.cs-surfaced .cs-plain{margin-top:var(--space-3)}
