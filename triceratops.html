@@ -15,15 +15,17 @@
 <body>
 <div class="pp-root" style="background: var(--surface-raised); color: var(--ink); font-family: var(--font-body); font-size: 17px; line-height: 28px;">
   <!-- NAV -->
-  <header style="position: sticky; top: 0; z-index: 20; background: var(--surface-raised); border-bottom: 4px solid var(--wood); box-shadow: 0 3px 0 var(--wood-dark);">
-    <div style="max-width: 1080px; margin: 0 auto; padding: 10px 20px; display: flex; align-items: center; justify-content: space-between; gap: 16px;">
-      <a href="index.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); font-family: var(--font-display); font-weight: 700; font-size: 22px;"><span class="sprite-o" style="display: flex;"><img class="px" src="assets/images/chibi-head.png" alt="" width="48" height="36" style="width:48px;height:36px;image-rendering:pixelated;"></span>Lyanna Nguyen</a>
-      <nav class="topnav" aria-label="Farm tour" style="display: flex; align-items: center; gap: 20px; white-space: nowrap; font-family: var(--font-pixel); font-size: 22px; letter-spacing: .04em; text-transform: uppercase;">
-        <a href="index.html#work" class="navlinks" aria-current="page" style="padding: 8px 10px; text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 3px; color: var(--accent-text);">Works</a>
-        <a href="about.html" class="navlinks" style="padding: 8px 10px; text-decoration: none; color: var(--ink);">About</a>
-        <a href="garden.html" class="navlinks" style="padding: 8px 10px; text-decoration: none; color: var(--ink);">Design Garden</a>
-        <a href="assets/files/Lyanna_Nguyen_Resume.pdf" target="_blank" rel="noopener" class="navlinks" style="padding: 8px 10px; text-decoration: none; color: var(--ink);">Resume</a>
+  <header class="sitenav">
+    <div class="sitenav-row">
+      <span class="nav-pill nav-status"><i class="nav-dot" aria-hidden="true"></i>Open to UX roles</span>
+      <nav class="nav-pill topnav" aria-label="Main">
+        <a href="index.html" class="nav-logo" aria-label="Lyanna Nguyen, home"><span class="nav-logo-ic"><img class="px" src="assets/images/chibi-head.png" alt="" width="32" height="24"></span><span class="nav-name">Lyanna</span></a>
+        <a href="index.html#work" class="navlinks" aria-current="page">Works</a>
+        <a href="about.html" class="navlinks">About</a>
+        <a href="garden.html" class="navlinks">Design Garden</a>
+        <a href="assets/files/Lyanna_Nguyen_Resume.pdf" target="_blank" rel="noopener" class="nav-cta">Resume</a>
       </nav>
+      <button type="button" class="nav-pill nav-email" data-copy="lyannanguyen21@gmail.com" aria-label="Copy email address lyannanguyen21@gmail.com"><svg viewBox="0 0 8 8" aria-hidden="true"><path d="M2 0h6v6H6V1H2zM0 2h5v6H0zM1 3v4h3V3z"/></svg><span class="nav-email-t">lyannanguyen21@gmail.com</span></button>
     </div>
   </header>
   <main id="cstop" style="max-width: 1080px; margin: 0 auto; padding: var(--space-12) 20px var(--space-20); scroll-margin-top: 100px;">

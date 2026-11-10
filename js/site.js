@@ -88,5 +88,24 @@
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initMenu);
   else initMenu();
 
+
+  // Navbar email pill: copy the address, with a short "Copied!" confirmation
+  function initCopy() {
+    document.querySelectorAll('[data-copy]').forEach(function (btn) {
+      var label = btn.querySelector('.nav-email-t'), text = label ? label.textContent : '';
+      btn.addEventListener('click', function () {
+        var done = function () {
+          btn.classList.add('copied'); if (label) label.textContent = 'Copied!';
+          setTimeout(function () { btn.classList.remove('copied'); if (label) label.textContent = text; }, 1600);
+        };
+        var v = btn.getAttribute('data-copy');
+        if (navigator.clipboard) navigator.clipboard.writeText(v).then(done, function () { location.href = 'mailto:' + v; });
+        else location.href = 'mailto:' + v;
+      });
+    });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initCopy);
+  else initCopy();
+
   window.Site = Site;
 })();

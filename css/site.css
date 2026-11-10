@@ -287,3 +287,49 @@ footer nav a{display:flex!important;align-items:center;min-height:44px;box-sizin
 /* Google card: a neutral play button, not the YouTube mark */
 .yt-play{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:#ffffff26;box-shadow:inset 0 0 0 2px #fdf1d3}
 .yt-play svg{width:22px;height:22px}
+
+/* Floating pill navbar (tools/navbar.py): status pill, centre nav pill, email pill */
+.sitenav{position:sticky;top:0;z-index:30;padding:14px 20px 0;background:transparent;pointer-events:none}
+.sitenav{margin-bottom:-70px}
+#top .hero-grid{padding-top:118px!important}
+.sitenav-row{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:16px}
+.nav-pill{pointer-events:auto;display:inline-flex;align-items:center;gap:8px;background:var(--surface-raised);color:var(--ink);
+  box-shadow:0 -3px 0 0 var(--wood-dark),0 3px 0 0 var(--wood-dark),-3px 0 0 0 var(--wood-dark),3px 0 0 0 var(--wood-dark),5px 6px 0 0 var(--pixel-shadow),inset 0 -3px 0 0 var(--surface-sunken)}
+.nav-status{justify-self:start;padding:7px 14px 8px 12px;font-size:14px;line-height:18px;font-weight:700}
+.nav-dot{width:10px;height:10px;background:#4fbf6a;box-shadow:0 0 0 2px #2f7d3a;animation:navblink 2.4s steps(1) infinite}
+@keyframes navblink{50%{background:#9ee6a9}}
+.sitenav .topnav{justify-self:center;gap:4px!important;padding:5px 5px 6px;white-space:nowrap;font-family:var(--font-pixel);font-size:20px!important;line-height:20px;letter-spacing:.04em;text-transform:uppercase}
+.nav-logo{display:flex;align-items:center;gap:8px;margin-right:6px;text-decoration:none;color:var(--ink)}
+.nav-logo-ic{display:grid;place-items:center;width:40px;height:40px;background:var(--wood-dark);box-shadow:inset 0 -3px 0 #3a1f17,inset 0 2px 0 #8a4a2a}
+.nav-logo-ic img{width:32px;height:24px;image-rendering:pixelated}
+.nav-name{display:none;font-family:var(--font-display);font-size:20px;font-weight:700;text-transform:none;letter-spacing:0}
+.sitenav .topnav .navlinks{display:block;padding:10px 10px!important;text-decoration:none;color:var(--ink)}
+.sitenav .topnav .navlinks:hover{color:var(--accent-text)}
+.sitenav .navlinks[aria-current="page"]{color:var(--accent-text);text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:3px}
+.nav-cta{display:inline-flex;align-items:center;min-height:40px;margin-left:6px;padding:0 16px;background:var(--wood-dark);color:#fdf1d3;text-decoration:none;
+  box-shadow:inset 0 -3px 0 #3a1f17,inset 0 2px 0 #8a4a2a;transition:transform .1s steps(2)}
+.nav-cta:hover{background:var(--wood);color:#fff}
+.nav-cta:active{transform:translateY(2px)}
+.nav-email{justify-self:end;border:0;padding:7px 14px 8px 12px;font:700 14px/18px var(--font-body);cursor:pointer}
+.nav-email svg{width:14px;height:14px;fill:var(--wood-dark);shape-rendering:crispEdges}
+.nav-email:hover .nav-email-t{color:var(--accent-text)}
+.nav-email.copied .nav-email-t{color:#2f7d3a}
+.nav-pill:focus-visible,.nav-cta:focus-visible,.nav-logo:focus-visible,.sitenav .navlinks:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+/* the old header's burger + panel, restyled for the pill */
+.sitenav .navburger{margin-left:6px}
+.sitenav .navpanel{pointer-events:auto;position:static;max-width:420px;margin:12px auto 0;padding:6px 18px 12px;border:0;background:var(--surface-raised);
+  box-shadow:0 -3px 0 0 var(--wood-dark),0 3px 0 0 var(--wood-dark),-3px 0 0 0 var(--wood-dark),3px 0 0 0 var(--wood-dark),5px 6px 0 0 var(--pixel-shadow)}
+@media (max-width:1100px){.nav-status,.nav-email{display:none}.sitenav-row{grid-template-columns:1fr}}
+@media (max-width:760px){
+  .sitenav{padding:10px 12px 0}
+  .sitenav{margin-bottom:-64px}
+  #top .hero-grid{padding-top:96px!important}
+  .sitenav .topnav{width:100%;justify-content:flex-start}
+  .nav-name{display:block}
+  .sitenav .topnav .nav-cta{margin-left:auto}
+  .sitenav .topnav .navlinks{display:none!important}
+  .sitenav .navpanel .navlinks{display:block!important}
+}
+.sitenav .navpanel .navlinks{color:var(--ink);text-decoration:none}
+.sitenav .navpanel .navlinks[aria-current="page"]{color:var(--accent-text);text-decoration:underline}
+@media (prefers-reduced-motion:reduce){.nav-dot{animation:none}}
