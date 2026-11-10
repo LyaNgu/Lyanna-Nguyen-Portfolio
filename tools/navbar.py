@@ -7,7 +7,7 @@ import os, re
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 EMAIL = 'lyannanguyen21@gmail.com'
-STATUS = 'Open to UX roles'
+STATUS = 'Open to Summer 2027 internships'
 PAGES = {  # page: (logo href, works href, current link)
     'index.html': ('#top', '#work', None),
     'about.html': ('index.html', 'index.html#work', 'About'),
