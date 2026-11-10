@@ -333,3 +333,10 @@ footer nav a{display:flex!important;align-items:center;min-height:44px;box-sizin
 .sitenav .navpanel .navlinks{color:var(--ink);text-decoration:none}
 .sitenav .navpanel .navlinks[aria-current="page"]{color:var(--accent-text);text-decoration:underline}
 @media (prefers-reduced-motion:reduce){.nav-dot{animation:none}}
+
+/* Only the centre nav pill follows the scroll; the status and email pills stay at the top */
+.sitenav{position:relative}
+.sitenav .topnav{position:fixed;z-index:31;top:14px;left:50%;transform:translateX(-50%)}
+.sitenav .navpanel{position:fixed;z-index:31;top:84px;left:12px;right:12px}
+.sitenav .nav-email{grid-column:3}
+@media (max-width:760px){.sitenav .topnav{top:10px;left:12px;right:12px;width:auto;transform:none;justify-self:stretch}.sitenav .navpanel{top:74px}}
