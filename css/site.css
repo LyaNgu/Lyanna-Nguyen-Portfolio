@@ -340,3 +340,5 @@ footer nav a{display:flex!important;align-items:center;min-height:44px;box-sizin
 .sitenav .navpanel{position:fixed;z-index:31;top:84px;left:12px;right:12px}
 .sitenav .nav-email{grid-column:3}
 @media (max-width:760px){.sitenav .topnav{top:10px;left:12px;right:12px;width:auto;transform:none;justify-self:stretch}.sitenav .navpanel{top:74px}}
+/* Side pills: vertically centred on the centre nav pill */
+.sitenav-row{min-height:51px}
