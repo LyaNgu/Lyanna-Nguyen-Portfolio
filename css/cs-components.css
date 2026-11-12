@@ -457,3 +457,21 @@ body:has(.cs-hero-stage.lc){--stage-img:linear-gradient(160deg,#f1eefe,#d4cff7 5
 /* Team photos fill their frame edge to edge (no inner stage box) */
 .cs-fig>img.cs-photo{width:100%;object-fit:cover}
 .cs-fig>img.cs-photo[src*="include-design-team"]{aspect-ratio:auto}
+
+/* Case study layout v3 (ref: jessicahsu.design/foreflight) */
+/* eyebrows: small, left-aligned, no rules */
+.cs-sec>.cs-label:first-child{display:block;font-size:16px;line-height:18px;letter-spacing:.06em;color:var(--accent-text)}
+.cs-sec>.cs-label:first-child::before,.cs-sec>.cs-label:first-child::after{content:none}
+/* each section starts on a thin rule, like her page */
+.cs-sec+.cs-sec{border-top:2px solid var(--surface-sunken);margin-top:var(--space-12)}
+/* decisions become stacked cards, linked by a dotted path that leads the eye down */
+.cs-sec .cs-opt{position:relative;padding:22px 22px 18px;background:var(--surface-raised);border-radius:14px;box-shadow:0 0 0 3px var(--wood-dark),6px 6px 0 3px var(--pixel-shadow)}
+.cs-sec .cs-opt + .cs-opt{margin-top:56px}
+.cs-sec .cs-opt + .cs-opt::before{content:"";position:absolute;left:40px;top:-53px;height:50px;border-left:3px dotted var(--wood-light)}
+.cs-sec .cs-opt + .cs-opt::after{content:"";position:absolute;left:35px;top:-11px;width:13px;height:13px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 3px var(--wood-dark)}
+.cs-sec .cs-opt .cs-opt-media:not(:has(.cs-frames)){box-shadow:inset 0 0 0 2px #5e2f1840}
+.cs-sec .cs-opt .cs-frames{box-shadow:inset 0 0 0 2px var(--wood-light)}
+.cs-sec .cs-opt>.cs-pc{padding-top:12px;border-top:2px dashed var(--surface-sunken)}
+/* contributions and the impact quotes read as boxes too */
+.cs-sec .cs-impact-list{padding:20px 24px;background:var(--surface-raised);border-radius:14px;box-shadow:0 0 0 3px var(--wood-dark),6px 6px 0 3px var(--pixel-shadow)}
+@media (max-width:640px){.cs-sec .cs-opt{padding:16px 14px 14px}.cs-sec .cs-opt + .cs-opt::before{left:30px}.cs-sec .cs-opt + .cs-opt::after{left:25px}}
