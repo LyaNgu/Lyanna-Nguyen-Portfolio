@@ -439,13 +439,4 @@ footer nav a{display:flex!important;align-items:center;min-height:44px;box-sizin
 #work .workcard > .cardlink > div:last-child > p:nth-of-type(n){display:none!important}
 #work .workcard h3{align-self:center}
 
-/* Nav sound toggle: a small speaker at the end of the pill */
-.sitenav .nav-sound{position:relative;z-index:1;display:grid;place-items:center;width:38px;height:38px;margin-left:2px;padding:0;border:0;border-radius:999px;background:none;color:var(--ink-muted);cursor:pointer}
-.sitenav .nav-sound:hover{color:var(--ink);background:var(--surface-sunken)}
-.sitenav .nav-sound:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
-.sitenav .nav-sound svg{width:18px;height:18px;fill:#fdf1d3;stroke:currentColor;stroke-width:2.1;stroke-linecap:round;stroke-linejoin:round}
-.sitenav .nav-sound svg .s{fill:none}
-.sitenav .nav-sound .off,.sitenav .nav-sound.muted .on{display:none}
-.sitenav .nav-sound.muted .off{display:inline}
-@media (max-width:760px){.sitenav .nav-sound{width:32px;height:32px}.sitenav .nav-sound svg{width:15px;height:15px}}
 #work .workcard > .cardlink > div:last-child > p:first-of-type{display:block!important;grid-column:1;grid-row:2}

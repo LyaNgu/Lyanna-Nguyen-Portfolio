@@ -108,7 +108,7 @@
     if (phase !== 'idle') return;
     var fast = Site.reducedMotion;
     phase = 'knocking';
-    if (window.Sfx) Sfx.play('confirm');
+    if (window.Sfx) Sfx.knock();
     render();
     knockT1 = setTimeout(function () { phase = 'open'; render(); }, fast ? 0 : 950);
     knockT2 = setTimeout(function () {
@@ -123,7 +123,6 @@
     var full = LINES[line].length;
     if (chars < full) { clearInterval(typer); chars = full; render(); return; }
     if (line < LINES.length - 1) {
-      if (window.Sfx) Sfx.play('confirm', .25, 1.15);
       line += 1; chars = 0;
       bounce();
       render();

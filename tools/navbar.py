@@ -49,7 +49,6 @@ def header(home, works, current):
       {link('about.html', 'About')}
       {link('garden.html', 'Garden')}
       {link('assets/files/Lyanna_Nguyen_Resume.pdf', 'Resume', ' target="_blank" rel="noopener"')}
-      <button type="button" class="nav-sound" aria-pressed="true" aria-label="Sound on">{SOUND}</button>
     </nav>
   </header>'''
 
