@@ -440,3 +440,9 @@ html{overflow-x:clip}
 .cs-cons li{display:flex;flex-direction:column;gap:4px;padding:0 0 0 14px;border-left:3px solid var(--wood-light);font-size:14px;line-height:20px;color:var(--ink-muted)}
 .cs-cons b{font-size:15px;line-height:20px;font-weight:800;color:var(--ink)}
 @media (max-width:640px){.cs-sec .cs-cons ul{grid-template-columns:1fr;gap:12px}}
+
+/* Every case study image box: brown border, rounded, no drop shadow (so nothing reads as a button) */
+.cs-sec .cs-vs-img,.cs-sec .cs-fig>img,.cs-sec .cs-frame-img,.cs-sec .cs-page-win,.cs-sec .pk-viewport,.cs-sec .cs-shot-frame,.cs-sec .anno-shot,.cs-sec .cs-frames,.cs-sec .cs-proto{
+  border-radius:12px!important;box-shadow:0 0 0 3px var(--wood-dark)!important}
+.cs-sec .cs-vs-img,.cs-sec .cs-page-win,.cs-sec .pk-viewport,.cs-sec .cs-frame-img{overflow:hidden}
+.cs-sec .anno-shot{box-shadow:none!important}
