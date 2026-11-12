@@ -433,25 +433,3 @@ html{overflow-x:clip}
 .cs-sec .cs-notes.two{grid-template-columns:repeat(2,1fr);margin-top:0}
 .cs-notes.two .cs-note b{font-size:17px;line-height:25px;margin:0}
 @media (max-width:640px){.cs-sec .cs-stats3,.cs-sec .cs-notes.two{grid-template-columns:1fr}}
-
-/* Case study cover (ref: billguo.me): title block on the left, the work on a framed art stage on the right */
-.cs-cover{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:var(--space-12);align-items:center;padding:56px 0 var(--space-12)}
-.cs-cover-text{display:flex;flex-direction:column;align-items:flex-start;gap:var(--space-4)}
-.cs-back{font-weight:700;font-size:14px;text-decoration:none;color:var(--ink-muted)}
-.cs-back:hover{color:var(--accent-text)}
-.cs-kicker{padding:4px 10px 2px;background:var(--gold);box-shadow:0 0 0 2px var(--wood-dark),3px 3px 0 0 var(--pixel-shadow);font-family:var(--font-pixel);font-size:16px;line-height:18px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink)}
-.cs-cover h1{margin:0;font-family:var(--font-display);font-size:clamp(30px,3vw,42px);line-height:1.08;font-weight:700;text-wrap:balance}
-.cs-cover .cs-sum{margin:0;font-size:18px;line-height:28px;font-weight:500;color:var(--ink-muted)}
-.cs-cover-line{font-family:var(--font-pixel);font-size:17px;line-height:20px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-muted)}
-.cs-cover .cs-hero-stage{width:auto;margin:0;height:auto;aspect-ratio:5/4;border-radius:14px;box-shadow:0 0 0 3px var(--wood-dark),7px 7px 0 3px var(--pixel-shadow)}
-.cs-cover .cs-hero-screen{width:84%!important;top:13%;bottom:-5%}
-.cs-cover .cs-hero-stage .cs-sticker{width:16%}
-.cs-cover .cs-hero-stage.lc .cs-hero-screen{width:86%!important;top:18%;bottom:auto}
-.cs-head{padding-top:0}
-.cs-head .cs-meta{grid-column:1/-1;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--space-6);padding:var(--space-6) 0 0;border-top:2px dashed var(--surface-sunken);border-left:0}
-.cs-head .cs-meta>div{display:flex;flex-direction:column;gap:6px}
-@media (max-width:900px){.cs-cover{grid-template-columns:1fr;gap:var(--space-8)}.cs-cover .cs-hero-stage{aspect-ratio:4/3}.cs-head .cs-meta{grid-template-columns:1fr 1fr}}
-.cs-cover .cs-hero-screen>img.cs-hero-scroll{object-fit:cover;object-position:50% 0;animation:wcScroll 40s ease-in-out infinite alternate}
-.cs-cover .cs-hero-stage:hover img.cs-hero-scroll{animation-play-state:paused}
-@media (prefers-reduced-motion:reduce){.cs-cover img.cs-hero-scroll{animation:none}}
-@media (max-width:900px){.cs-cover{padding-top:72px}}
