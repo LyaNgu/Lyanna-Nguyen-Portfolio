@@ -424,3 +424,12 @@ html{overflow-x:clip}
 .cs-note-k{display:block;margin-bottom:8px;font-family:var(--font-pixel);font-size:16px;line-height:16px;letter-spacing:.05em;text-transform:uppercase;color:var(--accent-text)}
 .cs-note-q{display:block;margin:-2px 0 10px;font-size:14px;line-height:20px;font-style:italic;font-weight:600;color:var(--ink-muted)}
 .cs-notes ~ .cs-takeaway{margin-top:var(--space-8)}
+
+/* Triceratops impact: three pixel stat tiles and two member quote notes */
+.cs-sec .cs-stats3{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.cs-stats3 li{display:flex;flex-direction:column;gap:6px;padding:18px 18px 16px;background:var(--surface-raised);box-shadow:0 0 0 3px var(--wood-dark),5px 5px 0 3px var(--pixel-shadow),inset 0 0 0 2px var(--wood-light)}
+.cs-stats3 b{font-family:var(--font-body);font-size:44px;line-height:46px;font-weight:800;color:var(--accent-text)}
+.cs-stats3 span{font-size:15px;line-height:21px;font-weight:700;color:var(--ink-muted)}
+.cs-sec .cs-notes.two{grid-template-columns:repeat(2,1fr);margin-top:0}
+.cs-notes.two .cs-note b{font-size:17px;line-height:25px;margin:0}
+@media (max-width:640px){.cs-sec .cs-stats3,.cs-sec .cs-notes.two{grid-template-columns:1fr}}
