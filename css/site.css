@@ -257,13 +257,6 @@ footer nav a{display:flex!important;align-items:center;min-height:44px;box-sizin
 @media (max-width:520px){.yt-note{font-size:12px;line-height:12px;padding:5px 6px 3px;box-shadow:0 0 0 2px #3a1f17,2px 2px 0 #3a1f1740}.yt-note:before{width:6px;height:6px;margin-left:-3px;top:-4px}.yt-laptop{width:70%}}
 @media (prefers-reduced-motion:reduce){.yt-note,.yt-play svg{transition:none}}
 
-/* Works cards: every card matches the tallest one, whatever its text length */
-@media (min-width:760px){
-#work > div:has(> .workcard){display:grid!important;grid-auto-rows:1fr}
-#work .workcard > .cardlink{flex:1;grid-auto-rows:auto 1fr}
-#work .workcard > .cardlink > div:last-child{justify-content:center}
-#work .workcard > .cardlink > div:last-child > div:last-child{margin-top:6px!important}
-}
 
 /* Works cards: the Linguistics laptop is the same width as the Google laptop */
 .wc-lc-laptop{width:64%}
@@ -342,3 +335,32 @@ footer nav a{display:flex!important;align-items:center;min-height:44px;box-sizin
 @media (max-width:760px){.sitenav .topnav{top:10px;left:12px;right:12px;width:auto;transform:none;justify-self:stretch}.sitenav .navpanel{top:74px}}
 /* Side pills: vertically centred on the centre nav pill */
 .sitenav-row{min-height:51px}
+
+/* Selected work, image-first (ref: amylalai.com): a large cover per project with one caption line (title left, tags right) */
+#work > div:has(> .workcard){display:flex!important;flex-direction:column;gap:56px!important}
+#work .workcard{margin:0;padding:0;background:none!important;border:0!important;box-shadow:none!important}
+#work .workcard > .cardlink{display:flex!important;flex-direction:column;gap:14px}
+#work .workcard > .cardlink > div:first-child{margin:0!important;min-height:0!important;aspect-ratio:2/1;border-radius:12px;box-shadow:0 0 0 3px var(--wood-dark),6px 6px 0 3px var(--pixel-shadow)!important;transition:transform .2s steps(3)}
+#work .workcard:not(.wc-soon):hover > .cardlink > div:first-child{transform:translate(-2px,-3px)}
+#work .workcard > .cardlink > div:last-child{display:grid!important;grid-template-columns:1fr auto;align-items:baseline;gap:4px 24px!important;padding:0 2px!important;justify-content:initial!important}
+#work .workcard h3{grid-column:1;font-size:22px!important;line-height:30px!important}
+#work .workcard > .cardlink > div:last-child > p:first-of-type{grid-column:1;grid-row:2;font-size:15px!important}
+#work .workcard > .cardlink > div:last-child > p:nth-of-type(2){display:none}
+#work .workcard > .cardlink > div:last-child > div:has(.pp-sticker){grid-column:2;grid-row:1;display:block!important;text-align:right}
+#work .workcard .pp-sticker{display:inline;padding:0;background:none;box-shadow:none;border:0;font-family:var(--font-pixel);font-size:16px;line-height:20px;letter-spacing:.05em;color:var(--ink-muted)}
+#work .workcard .pp-sticker:not(:last-child)::after{content:", ";white-space:pre}
+#work .workcard > .cardlink > div:last-child > div:last-child:has(.readcs){display:none!important}
+#work .wc-soon > .cardlink > div:last-child > div:last-child:has(.readcs){display:flex!important;grid-column:2;grid-row:2;justify-content:flex-end;margin:0!important;padding:0!important}
+#work .wc-soon .readcs.soon{font-size:15px}
+/* covers: let the art breathe at the larger size */
+#work .wc-lc-laptop{width:58%}
+#work .yt-laptop{width:46%}
+#work .yt-cookie{width:min(64%,600px)!important}
+@media (max-width:760px){
+  #work > div:has(> .workcard){gap:40px!important}
+  #work .workcard > .cardlink > div:first-child{aspect-ratio:4/3}
+  #work .workcard > .cardlink > div:last-child{grid-template-columns:1fr}
+  #work .workcard > .cardlink > div:last-child > div:has(.pp-sticker),#work .wc-soon > .cardlink > div:last-child > div:last-child:has(.readcs){grid-column:1;grid-row:auto;justify-content:flex-start}
+  #work .wc-lc-laptop{width:76%}#work .yt-laptop{width:62%}#work .yt-cookie{width:min(86%,420px)!important}
+  #work .workcard > .cardlink > div:last-child > div:has(.pp-sticker){text-align:left}
+}
