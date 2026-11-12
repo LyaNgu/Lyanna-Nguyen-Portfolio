@@ -475,3 +475,10 @@ body:has(.cs-hero-stage.lc){--stage-img:linear-gradient(160deg,#f1eefe,#d4cff7 5
 /* contributions and the impact quotes read as boxes too */
 .cs-sec .cs-impact-list{padding:20px 24px;background:var(--surface-raised);border-radius:14px;box-shadow:0 0 0 3px var(--wood-dark),6px 6px 0 3px var(--pixel-shadow)}
 @media (max-width:640px){.cs-sec .cs-opt{padding:16px 14px 14px}.cs-sec .cs-opt + .cs-opt::before{left:30px}.cs-sec .cs-opt + .cs-opt::after{left:25px}}
+
+/* Constraints: one compact row of three, at the end of Problem */
+.cs-cons .cs-label{display:block;margin-bottom:10px}
+.cs-sec .cs-cons ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.cs-cons li{display:flex;flex-direction:column;gap:4px;padding:14px 16px;background:var(--surface-raised);border-radius:12px;box-shadow:0 0 0 2px var(--wood-light);font-size:14px;line-height:20px;color:var(--ink-muted)}
+.cs-cons b{font-size:15px;line-height:20px;font-weight:800;color:var(--ink)}
+@media (max-width:640px){.cs-sec .cs-cons ul{grid-template-columns:1fr;gap:8px}.cs-cons li{padding:12px 14px}}
