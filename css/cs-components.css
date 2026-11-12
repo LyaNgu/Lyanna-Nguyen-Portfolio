@@ -433,3 +433,16 @@ html{overflow-x:clip}
 .cs-sec .cs-notes.two{grid-template-columns:repeat(2,1fr);margin-top:0}
 .cs-notes.two .cs-note b{font-size:17px;line-height:25px;margin:0}
 @media (max-width:640px){.cs-sec .cs-stats3,.cs-sec .cs-notes.two{grid-template-columns:1fr}}
+
+/* Case study body, visual-first (ref: billguo.me), in the site's pixel style: each screen sits on a soft blurred art stage, text stays short and quiet, sections split by centred labels */
+:root{--stage-img:url(../assets/images/triceratops-hero-background.webp);--stage-tint:#fdf1d326}
+body:has(.cs-hero-stage.lc){--stage-img:linear-gradient(160deg,#f1eefe,#d4cff7 50%,#ab9fe8);--stage-tint:#ffffff1a}
+.cs-sec .cs-opt-media:not(:has(.cs-frames)),.cs-sec .cs-fig:has(>img:not(.cs-photo)),.cs-sec .cs-pages{position:relative;isolation:isolate;overflow:hidden;padding:clamp(18px,4.5%,40px);border-radius:12px;box-shadow:0 0 0 3px var(--wood-dark),6px 6px 0 3px var(--pixel-shadow)}
+.cs-sec .cs-opt-media:not(:has(.cs-frames))::before,.cs-sec .cs-fig:has(>img:not(.cs-photo))::before,.cs-sec .cs-pages::before{content:"";position:absolute;inset:-30px;z-index:-1;background:var(--stage-img) center/cover;filter:blur(14px)}
+.cs-sec .cs-opt-media:not(:has(.cs-frames))::after,.cs-sec .cs-fig:has(>img:not(.cs-photo))::after,.cs-sec .cs-pages::after{content:"";position:absolute;inset:0;z-index:-1;background:var(--stage-tint)}
+.cs-sec .cs-opt-media .cs-vs-img,.cs-sec .cs-fig:has(>img:not(.cs-photo))>img{border-radius:10px;box-shadow:0 0 0 3px var(--wood-dark),0 18px 34px rgba(40,30,20,.32)!important}
+.cs-sec .cs-fig:has(>img:not(.cs-photo)) figcaption{position:relative;margin-top:10px;padding:4px 10px;align-self:flex-start;background:#fdf1d3e6;box-shadow:0 0 0 2px var(--wood-dark);font-style:normal;font-weight:700;color:var(--ink)}
+.cs-sec .cs-pages .cs-page figcaption{padding:6px 10px;background:#fdf1d3e6;box-shadow:0 0 0 2px var(--wood-dark)}
+.cs-sec>p:not(.cs-takeaway):not(.cs-small),.cs-sec .cs-subintro{max-width:36em;font-size:16px;line-height:26px;color:var(--ink-muted)}
+.cs-sec>.cs-label:first-child{display:flex;align-items:center;gap:14px;font-size:17px}
+.cs-sec>.cs-label:first-child::before,.cs-sec>.cs-label:first-child::after{content:"";flex:1;height:2px;background:var(--surface-sunken)}
