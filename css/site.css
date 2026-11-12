@@ -434,3 +434,7 @@ footer nav a{display:flex!important;align-items:center;min-height:44px;box-sizin
 
 /* The pixel display font draws "fi" as a broken ligature ("find" reads "And"), so ligatures are off site-wide */
 *{font-variant-ligatures:no-common-ligatures;font-feature-settings:"liga" 0}
+
+/* Work captions: title only (plus tags) */
+#work .workcard > .cardlink > div:last-child > p:nth-of-type(n){display:none!important}
+#work .workcard h3{align-self:center}
