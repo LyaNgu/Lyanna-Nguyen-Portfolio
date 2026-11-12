@@ -22,7 +22,6 @@
     try { seen = sessionStorage.getItem(LOADER_KEY) === '1'; } catch (e) {}
     if (seen || Site.reducedMotion) return;
     Site.show('loader', true);
-    if (window.Sfx) Sfx.loader();
     loaderTimer = setTimeout(hideLoader, 3550);
     try { sessionStorage.setItem(LOADER_KEY, '1'); } catch (e) {}
   })();

@@ -1,6 +1,6 @@
 /* Cozy UI sounds + an Animal Crossing-style talking voice.
    UI sound effects by lolurio (CC BY 4.0), https://lolurio.itch.io/
-   Kept minimal: only the opening animation and the knock-on-the-door greeting make sound. Nothing plays
+   Kept minimal: only the knock-on-the-door greeting makes sound. Nothing plays
    until the visitor interacts. */
 (function () {
   'use strict';
@@ -77,68 +77,7 @@
     });
   }
 
-
-  /* Opening animation: a soft "plop" as the seed lands (and a tiny one as it
-     settles), then a whimsical sprinkle while the watering can pours: little
-     high droplet plinks over a faint hush of water. Times match the CSS. */
-  function plop(t, vol, hi) {
-    var o = ctx.createOscillator(), g = ctx.createGain();
-    o.type = 'sine';
-    o.frequency.setValueAtTime(hi, t); o.frequency.exponentialRampToValueAtTime(hi * .32, t + .13);
-    g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(vol, t + .01); g.gain.exponentialRampToValueAtTime(.001, t + .18);
-    o.connect(g).connect(ctx.destination); o.start(t); o.stop(t + .2);
-  }
-  function plink(t, vol) {
-    var f = 1300 + Math.random() * 700, o = ctx.createOscillator(), g = ctx.createGain();
-    o.type = 'sine';
-    o.frequency.setValueAtTime(f, t); o.frequency.exponentialRampToValueAtTime(f * .55, t + .09);
-    g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(vol, t + .005); g.gain.exponentialRampToValueAtTime(.001, t + .12);
-    o.connect(g).connect(ctx.destination); o.start(t); o.stop(t + .14);
-  }
-  function hush(t, dur, vol) {
-    var n = ctx.createBuffer(1, Math.floor(ctx.sampleRate * dur), ctx.sampleRate), d = n.getChannelData(0);
-    for (var k = 0; k < d.length; k++) d[k] = Math.random() * 2 - 1;
-    var src = ctx.createBufferSource(), bp = ctx.createBiquadFilter(), g = ctx.createGain();
-    src.buffer = n; bp.type = 'bandpass'; bp.frequency.value = 3200; bp.Q.value = .7;
-    g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(vol, t + .15); g.gain.setValueAtTime(vol, t + dur - .3); g.gain.linearRampToValueAtTime(0, t + dur);
-    src.connect(bp).connect(g).connect(ctx.destination); src.start(t);
-  }
-  var LOADER = [
-    [.77, function (t) { plop(t, .14, 560); }],                 // seed lands in the dirt
-    [1.12, function (t) { plop(t, .06, 700); }],                // ...and settles
-    [1.78, function (t) { hush(t, 1.25, .018); }],              // the can starts to pour
-    [1.84, function (t) { plink(t, .05); }], [1.98, function (t) { plink(t, .045); }],
-    [2.13, function (t) { plink(t, .05); }], [2.28, function (t) { plink(t, .045); }],
-    [2.28, function (t) { plink(t, .04); }], [2.42, function (t) { plink(t, .045); }],
-    [2.57, function (t) { plink(t, .04); }], [2.72, function (t) { plink(t, .035); }]
-  ];
-  function loader() {
-    if (!AC) return;
-    var start = performance.now(), played = false;
-    function go() {
-      if (played) return true;
-      if (!ctx) init();
-      if (!ctx || ctx.state !== 'running') return false;
-      played = true;
-      var now = ctx.currentTime, elapsed = (performance.now() - start) / 1000;
-      LOADER.forEach(function (e) { if (e[0] > elapsed) e[1](now + e[0] - elapsed); });
-      return true;
-    }
-    // Browsers only allow sound once the visitor has interacted, so this plays
-    // straight away when allowed, or picks up from wherever the animation is
-    // if they tap or press a key while it runs.
-    init();
-    if (ctx && ctx.state === 'suspended') ctx.resume().then(function () { if (performance.now() - start < 3000) go(); }).catch(function () {});
-    if (go()) return;
-    function late() {
-      window.removeEventListener('pointerdown', late, true); window.removeEventListener('keydown', late, true);
-      if (performance.now() - start > 3000) return;
-      init(); if (ctx.state === 'suspended') ctx.resume().then(go); else go();
-    }
-    window.addEventListener('pointerdown', late, true); window.addEventListener('keydown', late, true);
-  }
-
-  window.Sfx = { play: play, talk: talk, knock: knock, loader: loader };
+  window.Sfx = { play: play, talk: talk, knock: knock };
 
   function wire() {
     ['pointerdown', 'keydown'].forEach(function (t) { window.addEventListener(t, init, { once: true, capture: true }); });
