@@ -482,3 +482,30 @@ body:has(.cs-hero-stage.lc){--stage-img:linear-gradient(160deg,#f1eefe,#d4cff7 5
 .cs-cons li{display:flex;flex-direction:column;gap:4px;padding:14px 16px;background:var(--surface-raised);border-radius:12px;box-shadow:0 0 0 2px var(--wood-light);font-size:14px;line-height:20px;color:var(--ink-muted)}
 .cs-cons b{font-size:15px;line-height:20px;font-weight:800;color:var(--ink)}
 @media (max-width:640px){.cs-sec .cs-cons ul{grid-template-columns:1fr;gap:8px}.cs-cons li{padding:12px 14px}}
+
+/* What didn't work: compact rows, no card and no inner box (screen left, takeaways right) */
+.cs-sec .cs-opt.sm{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);grid-template-rows:auto 1fr;column-gap:24px;row-gap:10px;padding:0;background:none;border-radius:0;box-shadow:none}
+.cs-sec .cs-opt.sm + .cs-opt.sm{margin-top:var(--space-8);padding-top:var(--space-8);border-top:2px dashed var(--surface-sunken)}
+.cs-sec .cs-opt.sm::before,.cs-sec .cs-opt.sm::after{content:none!important}
+.cs-opt.sm>h4{grid-column:2;grid-row:1}
+.cs-opt.sm>.cs-opt-media{grid-column:1;grid-row:1/3;align-self:start}
+.cs-opt.sm>.cs-pc{grid-column:2;grid-row:2;align-self:start;padding-top:0!important;border-top:0!important}
+.cs-opt.sm .cs-pc .pro{display:none}
+.cs-sec .cs-opt.sm .cs-opt-media,.cs-sec .cs-opt.sm .cs-frames{padding:0!important;background:none!important;box-shadow:none!important;border-radius:0}
+.cs-sec .cs-opt.sm .cs-opt-media::before,.cs-sec .cs-opt.sm .cs-opt-media::after{content:none!important}
+.cs-opt.sm .cs-vs-img{max-height:300px;box-shadow:0 0 0 3px var(--wood-dark)!important}
+.cs-opt.sm .cs-vs-img.tall{aspect-ratio:4/3}
+.cs-opt.sm .cs-frames{display:block}
+.cs-opt.sm .cs-frame:not(.main){display:none}
+.cs-opt.sm .cs-frame-img{box-shadow:0 0 0 3px var(--wood-dark)}
+.cs-opt.sm .cs-frame-k,.cs-opt.sm .cs-hl{display:none}
+/* What I chose: one box only, the card; screens sit straight inside it */
+.cs-sec .cs-opt:not(.sm) .cs-opt-media,.cs-sec .cs-opt:not(.sm) .cs-frames{padding:0!important;background:none!important;box-shadow:none!important;border-radius:0}
+.cs-sec .cs-opt:not(.sm) .cs-opt-media::before,.cs-sec .cs-opt:not(.sm) .cs-opt-media::after{content:none!important}
+.cs-sec .cs-opt:not(.sm) .cs-vs-img{box-shadow:0 0 0 2px var(--wood-dark)!important}
+@media (max-width:640px){.cs-sec .cs-opt.sm{grid-template-columns:1fr}.cs-opt.sm>h4,.cs-opt.sm>.cs-opt-media,.cs-opt.sm>.cs-pc{grid-column:1;grid-row:auto}}
+/* no connector dots between decision cards */
+.cs-sec .cs-opt + .cs-opt::before,.cs-sec .cs-opt + .cs-opt::after{content:none!important}
+.cs-sec .cs-opt + .cs-opt:not(.sm){margin-top:var(--space-8)}
+/* the rules collage inside a chosen card: no extra panel behind it */
+.cs-sec .cs-opt .cs-opt-media .cs-frames{background:none!important;box-shadow:none!important;padding:28px 0 0!important}
