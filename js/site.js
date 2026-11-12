@@ -123,5 +123,44 @@
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initNavHl);
   else initNavHl();
 
+
+  // Nav pill: the gold block sits on the current page and glides to a clicked link before the page changes
+  function initNavCur() {
+    var nav = document.querySelector('.sitenav .topnav'), cur = nav && nav.querySelector('.nav-cur');
+    if (!cur) return;
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    function place(a, anim) {
+      if (!a) return;
+      if (!anim) cur.classList.add('no-anim');
+      cur.style.left = a.offsetLeft + 'px'; cur.style.width = a.offsetWidth + 'px'; nav.classList.add('has-cur');
+      if (!anim) { void cur.offsetWidth; cur.classList.remove('no-anim'); }
+    }
+    function current() { return nav.querySelector('.navlinks[aria-current="page"]'); }
+    function settle() { place(current(), false); }
+    settle();
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(settle);
+    window.addEventListener('load', settle);
+    window.addEventListener('resize', settle);
+    nav.querySelectorAll('.navlinks').forEach(function (a) {
+      a.addEventListener('click', function (e) {
+        if (e.metaKey || e.ctrlKey || e.shiftKey || e.button) return;
+        var was = current();
+        if (a === was) return;
+        if (was) was.removeAttribute('aria-current');
+        a.setAttribute('aria-current', 'page');
+        place(a, true);
+        var href = a.getAttribute('href');
+        // same-page jumps and new-tab links just keep the block where it landed
+        if (a.target === '_blank') { setTimeout(function () { a.removeAttribute('aria-current'); if (was) was.setAttribute('aria-current', 'page'); place(was, true); }, 900); return; }
+        if (href.charAt(0) === '#') return;
+        if (reduce) return;
+        e.preventDefault();
+        setTimeout(function () { location.href = href; }, 380);
+      });
+    });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initNavCur);
+  else initNavCur();
+
   window.Site = Site;
 })();
