@@ -448,3 +448,4 @@ footer nav a{display:flex!important;align-items:center;min-height:44px;box-sizin
 .sitenav .nav-sound .off,.sitenav .nav-sound.muted .on{display:none}
 .sitenav .nav-sound.muted .off{display:inline}
 @media (max-width:760px){.sitenav .nav-sound{width:32px;height:32px}.sitenav .nav-sound svg{width:15px;height:15px}}
+#work .workcard > .cardlink > div:last-child > p:first-of-type{display:block!important;grid-column:1;grid-row:2}
