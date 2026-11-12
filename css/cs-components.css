@@ -446,3 +446,14 @@ body:has(.cs-hero-stage.lc){--stage-img:linear-gradient(160deg,#f1eefe,#d4cff7 5
 .cs-sec>p:not(.cs-takeaway):not(.cs-small),.cs-sec .cs-subintro{max-width:36em;font-size:16px;line-height:26px;color:var(--ink-muted)}
 .cs-sec>.cs-label:first-child{display:flex;align-items:center;gap:14px;font-size:17px}
 .cs-sec>.cs-label:first-child::before,.cs-sec>.cs-label:first-child::after{content:"";flex:1;height:2px;background:var(--surface-sunken)}
+
+/* Body text sits snug under its heading and spans the same width as the heading and visuals */
+.cs-sec>p:not(.cs-takeaway):not(.cs-small),.cs-sec .cs-subintro{max-width:none;font-size:17px;line-height:28px;color:var(--ink-muted)}
+.cs-sec>h2+p,.cs-sec>h2+.cs-subintro,.cs-sec>.cs-subhead+.cs-subintro,.cs-sec>.cs-subhead+p{margin-top:calc(-1 * var(--space-4))}
+.cs-sec>p+p{margin-top:calc(-1 * var(--space-3))}
+/* Sub-headers: body text tucks in right below the dashed rule */
+.cs-sec .cs-subhead{margin-bottom:0!important}
+.cs-sec .cs-subhead+.cs-subintro{margin-top:-16px!important}
+/* Team photos fill their frame edge to edge (no inner stage box) */
+.cs-fig>img.cs-photo{width:100%;object-fit:cover}
+.cs-fig>img.cs-photo[src*="include-design-team"]{aspect-ratio:auto}
