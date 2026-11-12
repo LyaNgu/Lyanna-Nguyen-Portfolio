@@ -107,5 +107,21 @@
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initCopy);
   else initCopy();
 
+
+  // Nav pill: a soft highlight slides to whichever link is hovered or focused
+  function initNavHl() {
+    var nav = document.querySelector('.sitenav .topnav'), hl = nav && nav.querySelector('.nav-hl');
+    if (!hl) return;
+    function to(a) { if (!a) { nav.classList.remove('has-hl'); return; } hl.style.left = a.offsetLeft + 'px'; hl.style.width = a.offsetWidth + 'px'; nav.classList.add('has-hl'); }
+    nav.querySelectorAll('.navlinks').forEach(function (a) {
+      a.addEventListener('mouseenter', function () { to(a); });
+      a.addEventListener('focus', function () { to(a); });
+      a.addEventListener('blur', function () { to(null); });
+    });
+    nav.addEventListener('mouseleave', function () { to(null); });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initNavHl);
+  else initNavHl();
+
   window.Site = Site;
 })();

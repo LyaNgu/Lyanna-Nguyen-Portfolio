@@ -381,3 +381,27 @@ footer nav a{display:flex!important;align-items:center;min-height:44px;box-sizin
 /* tags back to colour blocks */
 #work .workcard > .cardlink > div:last-child > div:has(.pp-sticker){display:flex!important;flex-wrap:wrap;justify-content:flex-end;gap:8px!important;text-align:initial}
 @media (max-width:760px){#work .workcard > .cardlink > div:last-child > div:has(.pp-sticker){justify-content:flex-start}}
+
+/* Cute single nav pill (ref: jessicahsu.design): pixel icon + label per link, a soft highlight that slides to the hovered link */
+.sitenav{display:flex;justify-content:center;padding:14px 16px 0}
+.sitenav .topnav{position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:31;display:flex!important;align-items:center;gap:2px!important;padding:5px!important;
+  background:#fdf1d3f2;border-radius:999px;box-shadow:0 0 0 3px var(--wood-dark),0 5px 0 0 var(--pixel-shadow),inset 0 -3px 0 var(--surface-sunken);
+  font-family:var(--font-pixel);font-size:19px!important;line-height:19px;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap}
+.sitenav .topnav .navlinks{position:relative;z-index:1;display:flex!important;align-items:center;gap:7px;padding:9px 14px 8px!important;border-radius:999px;color:var(--ink-muted);text-decoration:none!important}
+.sitenav .topnav .navlinks svg{width:16px;height:16px;fill:currentColor;shape-rendering:crispEdges;flex:none}
+.sitenav .topnav .navlinks:hover,.sitenav .topnav .navlinks:focus-visible{color:var(--ink)}
+.sitenav .topnav .navlinks[aria-current="page"]{color:var(--ink);background:var(--gold);box-shadow:0 0 0 2px var(--wood-dark)}
+.sitenav .topnav .navlinks:hover svg{animation:navIconHop .35s steps(3)}
+@keyframes navIconHop{50%{transform:translateY(-3px)}}
+.sitenav .nav-hl{position:absolute;z-index:0;top:5px;bottom:5px;left:0;width:0;border-radius:999px;background:var(--surface-sunken);opacity:0;transition:left .28s cubic-bezier(.22,1,.36,1),width .28s cubic-bezier(.22,1,.36,1),opacity .16s}
+.sitenav .topnav.has-hl .nav-hl{opacity:1}
+.sitenav .navburger,.sitenav .navpanel,.nav-status,.nav-email{display:none!important}
+@media (max-width:760px){
+  .sitenav .topnav{top:10px;font-size:16px!important;line-height:16px}
+  .sitenav .topnav .navlinks{gap:5px;padding:8px 9px 7px!important}
+  .sitenav .topnav .navlinks svg{width:13px;height:13px}
+}
+@media (max-width:420px){.sitenav .topnav .navlinks span{display:none}.sitenav .topnav .navlinks[aria-current="page"] span{display:inline}.sitenav .topnav .navlinks{padding:9px 11px!important}}
+@media (prefers-reduced-motion:reduce){.sitenav .nav-hl{transition:none}.sitenav .topnav .navlinks:hover svg{animation:none}}
+.sitenav{height:70px;box-sizing:border-box;margin-bottom:-70px!important}
+@media (max-width:760px){.sitenav{height:64px;margin-bottom:-64px!important}}
