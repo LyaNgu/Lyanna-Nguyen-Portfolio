@@ -428,3 +428,9 @@ footer nav a{display:flex!important;align-items:center;min-height:44px;box-sizin
 .sitenav .topnav .navlinks svg{transition:transform .25s cubic-bezier(.3,1.4,.5,1)}
 .sitenav .topnav .navlinks:hover svg,.sitenav .topnav .navlinks:focus-visible svg{animation:none!important;transform:rotate(-12deg)}
 @media (prefers-reduced-motion:reduce){.sitenav .topnav .navlinks svg{transition:none}}
+
+/* Work captions (ref: billguo.me): an outcome-led title, then one short result line */
+#work .workcard > .cardlink > div:last-child > p:nth-of-type(2){display:block!important;grid-column:1;grid-row:3;margin:2px 0 0!important;font-size:16px!important;line-height:24px!important;color:var(--ink)!important;font-weight:600}
+
+/* The pixel display font draws "fi" as a broken ligature ("find" reads "And"), so ligatures are off site-wide */
+*{font-variant-ligatures:no-common-ligatures;font-feature-settings:"liga" 0}
