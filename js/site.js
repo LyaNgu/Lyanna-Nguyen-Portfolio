@@ -141,6 +141,16 @@
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(settle);
     window.addEventListener('load', settle);
     window.addEventListener('resize', settle);
+    // Home page: the block follows the scroll, landing on Works while Selected work is on screen
+    var work = document.getElementById('work'), homeLink = nav.querySelector('.navlinks[href="#top"]'), workLink = nav.querySelector('.navlinks[href="#work"]');
+    if (work && homeLink && workLink && 'IntersectionObserver' in window) {
+      new IntersectionObserver(function (es) {
+        var on = es[0].isIntersecting || es[0].boundingClientRect.top < 0, want = on ? workLink : homeLink, was = current();
+        if (want === was) return;
+        if (was) was.removeAttribute('aria-current');
+        want.setAttribute('aria-current', 'page'); place(want, true);
+      }, { rootMargin: '-35% 0px -45% 0px' }).observe(work);
+    }
     nav.querySelectorAll('.navlinks').forEach(function (a) {
       a.addEventListener('click', function (e) {
         if (e.metaKey || e.ctrlKey || e.shiftKey || e.button) return;

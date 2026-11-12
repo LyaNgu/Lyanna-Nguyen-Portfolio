@@ -422,3 +422,10 @@ footer nav a{display:flex!important;align-items:center;min-height:44px;box-sizin
 ::view-transition-group(nav-cur){animation-duration:.42s;animation-timing-function:cubic-bezier(.34,1.3,.5,1)}
 @media (max-width:760px){.sitenav .topnav .navlinks svg{width:16px;height:16px}}
 @media (prefers-reduced-motion:reduce){.sitenav .nav-cur{transition:none}.sitenav .topnav .navlinks:hover svg{animation:none}@view-transition{navigation:none}}
+
+/* Softer nav pill: lighter outline, a gentle shadow, a pastel gold block */
+.sitenav .topnav{background:#fff8e8ee!important;box-shadow:0 0 0 2px #c99a6e,0 6px 18px rgba(94,47,24,.16),inset 0 -2px 0 #f3e2bd!important;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.sitenav .nav-cur{background:#f7d58e!important;box-shadow:0 0 0 1.5px #d9a35d,inset 0 -2px 0 #ecbf6e!important}
+.sitenav .nav-hl{background:#f3e6c8!important}
+.sitenav .topnav .navlinks{color:#8a5a3c}
+.sitenav .topnav .navlinks svg{stroke-width:1.9}
