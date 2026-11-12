@@ -92,6 +92,7 @@
     typer = setInterval(function () {
       if (chars >= LINES[line].length) { clearInterval(typer); return; }
       chars += 2;
+      if (window.Sfx) Sfx.talk(LINES[line].charAt(chars - 1));
       render();
     }, 30);
   }
@@ -103,10 +104,11 @@
   }
 
   function knock() {
-    if (phase === 'greet') { reset(); return; }
+    if (phase === 'greet') { if (window.Sfx) Sfx.play('close'); reset(); return; }
     if (phase !== 'idle') return;
     var fast = Site.reducedMotion;
     phase = 'knocking';
+    if (window.Sfx) Sfx.play('confirm');
     render();
     knockT1 = setTimeout(function () { phase = 'open'; render(); }, fast ? 0 : 950);
     knockT2 = setTimeout(function () {
@@ -121,6 +123,7 @@
     var full = LINES[line].length;
     if (chars < full) { clearInterval(typer); chars = full; render(); return; }
     if (line < LINES.length - 1) {
+      if (window.Sfx) Sfx.play('confirm', .25, 1.15);
       line += 1; chars = 0;
       bounce();
       render();
@@ -137,7 +140,7 @@
     if (e.target.closest('.dlg-x, a, button')) return;
     next();
   });
-  Site.on('close-dialog', reset);   // also used by the "Start the tour" / "Just the resume" links
+  Site.on('close-dialog', function () { if (phase === 'greet' && window.Sfx) Sfx.play('close'); reset(); });   // also used by the "Start the tour" / "Just the resume" links
 
   /* ---------- Fireflies scatter away from the cursor ---------- */
   var night = document.querySelector('[data-night]');

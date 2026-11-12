@@ -32,6 +32,11 @@ ICONS = {
 }
 
 
+SOUND = ('<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5h3.2L12 5.5v13l-4.8-4H4z"/>'
+         '<path class="s on" d="M15.5 9a4.2 4.2 0 0 1 0 6M18 6.6a7.6 7.6 0 0 1 0 10.8"/>'
+         '<path class="s off" d="M16 9.5l5 5M21 9.5l-5 5"/></svg>')
+
+
 def header(home, works, current):
     def link(href, label, extra=''):
         cur = ' aria-current="page"' if label == current else ''
@@ -44,6 +49,7 @@ def header(home, works, current):
       {link('about.html', 'About')}
       {link('garden.html', 'Garden')}
       {link('assets/files/Lyanna_Nguyen_Resume.pdf', 'Resume', ' target="_blank" rel="noopener"')}
+      <button type="button" class="nav-sound" aria-pressed="true" aria-label="Sound on">{SOUND}</button>
     </nav>
   </header>'''
 
@@ -54,6 +60,9 @@ def run():
         s = open(p, encoding='utf-8').read()
         s, n = re.subn(r'<header class="sitenav[^"]*">.*?</header>', lambda m: header(*args), s, count=1, flags=re.S)
         assert n == 1, page
+        if 'js/sfx.js' not in s:
+            s = s.replace('<script src="js/site.js"></script>', '<script src="js/site.js"></script>\n<script src="js/sfx.js"></script>', 1)
+        s = s.replace('made with &lt;3</span>', 'made with &lt;3 · UI sounds by <a href="https://lolurio.itch.io/" target="_blank" rel="noopener" style="color:inherit">lolurio</a></span>', 1)
         open(p, 'w', encoding='utf-8').write(s)
 
 
