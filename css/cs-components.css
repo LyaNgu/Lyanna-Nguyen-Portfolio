@@ -530,3 +530,13 @@ body:has(.cs-hero-stage.lc){--stage-img:linear-gradient(160deg,#f1eefe,#d4cff7 5
 .cs-sec .cs-opt.sm .cs-opt-media .cs-frames{padding:0!important}
 .cs-opt.sm .cs-frame{width:320px}
 .cs-opt.sm .cs-vs-img img,.cs-opt.sm .cs-vs-img video,.cs-opt.sm .cs-frame-img img{object-position:left top}
+
+/* Every case study screen: a rounded dark-wood frame, no drop shadow (so it never reads as a button) */
+.cs-sec .cs-vs-img,.cs-sec .cs-fig>img,.cs-sec .cs-frame-img,.cs-sec .cs-page>div:not(figcaption),.cs-sec .cs-peek .cs-peek-stage,.cs-sec .cs-fig>img.cs-photo{
+  border-radius:12px!important;box-shadow:0 0 0 3px var(--wood-dark)!important;overflow:hidden}
+.cs-sec .cs-opt .cs-vs-img,.cs-sec .cs-opt.sm .cs-vs-img,.cs-sec .cs-opt.sm .cs-frame-img,.cs-sec .cs-fig:has(>img:not(.cs-photo))>img{box-shadow:0 0 0 3px var(--wood-dark)!important}
+.cs-sec .cs-page-win,.cs-sec .cs-bigquote{border-radius:12px;box-shadow:0 0 0 3px var(--wood-dark)!important}
+.cs-stats3 li,.cs-note{box-shadow:0 0 0 3px var(--wood-dark)!important}
+.cs-stats3 li{box-shadow:0 0 0 3px var(--wood-dark),inset 0 0 0 2px var(--wood-light)!important;border-radius:12px}
+.cs-sec .pk-viewport{border-radius:12px;box-shadow:0 0 0 3px var(--wood-dark)!important}
+.cs-sec .cs-shot-frame,.cs-sec .anno-shot{border-radius:12px;box-shadow:0 0 0 3px var(--wood-dark)!important}
