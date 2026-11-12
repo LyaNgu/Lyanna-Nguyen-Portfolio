@@ -509,3 +509,24 @@ body:has(.cs-hero-stage.lc){--stage-img:linear-gradient(160deg,#f1eefe,#d4cff7 5
 .cs-sec .cs-opt + .cs-opt:not(.sm){margin-top:var(--space-8)}
 /* the rules collage inside a chosen card: no extra panel behind it */
 .cs-sec .cs-opt .cs-opt-media .cs-frames{background:none!important;box-shadow:none!important;padding:28px 0 0!important}
+
+/* Flat layout: content sits on the page, not in cards or stages */
+.cs-sec .cs-opt:not(.sm){padding:0;background:none;border-radius:0;box-shadow:none}
+.cs-sec .cs-opt:not(.sm)+.cs-opt:not(.sm){margin-top:var(--space-8);padding-top:var(--space-8);border-top:2px dashed var(--surface-sunken)}
+.cs-sec .cs-opt>.cs-pc{border-top:0!important;padding-top:0!important}
+.cs-sec .cs-impact-list{padding:0;background:none;border-radius:0;box-shadow:none}
+.cs-cons li{padding:0 0 0 14px;background:none;border-radius:0;box-shadow:none;border-left:3px solid var(--wood-light)}
+.cs-sec .cs-fig:has(>img:not(.cs-photo)),.cs-sec .cs-pages{padding:0;overflow:visible;box-shadow:none;border-radius:0}
+.cs-sec .cs-fig:has(>img:not(.cs-photo))::before,.cs-sec .cs-fig:has(>img:not(.cs-photo))::after,.cs-sec .cs-pages::before,.cs-sec .cs-pages::after{content:none}
+.cs-sec .cs-fig:has(>img:not(.cs-photo))>img{box-shadow:0 0 0 2px var(--wood-dark)!important}
+.cs-sec .cs-fig:has(>img:not(.cs-photo)) figcaption,.cs-sec .cs-pages .cs-page figcaption{padding:0;background:none;box-shadow:none;font-style:italic;font-weight:600;color:var(--ink-muted)}
+.cs-sec .cs-pages .cs-page figcaption b{color:var(--ink)}
+/* What didn't work: every screen the same size */
+.cs-sec .cs-opt.sm{grid-template-columns:320px minmax(0,1fr)}
+.cs-opt.sm .cs-vs-img,.cs-opt.sm .cs-vs-img.tall,.cs-opt.sm .cs-vs-img.narrow,.cs-opt.sm .cs-vs-img.wide,.cs-opt.sm .cs-frame-img{width:320px;max-height:none;aspect-ratio:4/3!important;overflow:hidden}
+.cs-opt.sm .cs-vs-img img,.cs-opt.sm .cs-vs-img video,.cs-opt.sm .cs-frame-img img{width:100%;height:100%;object-fit:cover;object-position:top}
+.cs-opt.sm .cs-vs-img[style*="aspect-ratio"]{aspect-ratio:4/3!important}
+@media (max-width:640px){.cs-sec .cs-opt.sm{grid-template-columns:1fr}.cs-opt.sm .cs-vs-img,.cs-opt.sm .cs-frame-img{width:100%}}
+.cs-sec .cs-opt.sm .cs-opt-media .cs-frames{padding:0!important}
+.cs-opt.sm .cs-frame{width:320px}
+.cs-opt.sm .cs-vs-img img,.cs-opt.sm .cs-vs-img video,.cs-opt.sm .cs-frame-img img{object-position:left top}
