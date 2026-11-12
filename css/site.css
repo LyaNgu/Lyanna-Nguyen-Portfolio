@@ -423,3 +423,8 @@ footer nav a{display:flex!important;align-items:center;min-height:44px;box-sizin
 @media (max-width:760px){.sitenav .topnav .navlinks svg{width:16px;height:16px}}
 @media (prefers-reduced-motion:reduce){.sitenav .nav-cur{transition:none}.sitenav .topnav .navlinks:hover svg{animation:none}@view-transition{navigation:none}}
 
+
+/* Nav icons: a gentle tilt that holds while hovered, then eases back */
+.sitenav .topnav .navlinks svg{transition:transform .25s cubic-bezier(.3,1.4,.5,1)}
+.sitenav .topnav .navlinks:hover svg,.sitenav .topnav .navlinks:focus-visible svg{animation:none!important;transform:rotate(-12deg)}
+@media (prefers-reduced-motion:reduce){.sitenav .topnav .navlinks svg{transition:none}}
