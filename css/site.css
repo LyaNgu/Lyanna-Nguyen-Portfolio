@@ -450,8 +450,12 @@ footer nav a{display:flex!important;align-items:center;min-height:44px;box-sizin
 /* Nav squash & stretch: the gold block stretches as it glides, squashes as it lands, then settles;
    links squish a little while pressed */
 .sitenav .nav-cur{transform-origin:50% 100%}
-.sitenav .nav-cur.squish{animation:navSquash .5s cubic-bezier(.3,1.2,.5,1)}
+.sitenav .nav-cur.squish{animation:navSquash .8s cubic-bezier(.3,1.2,.5,1)}
 @keyframes navSquash{0%{scale:1 1}30%{scale:1.14 .8}58%{scale:.9 1.12}78%{scale:1.05 .96}100%{scale:1 1}}
 .sitenav .topnav .navlinks{transition:scale .14s cubic-bezier(.3,1.6,.5,1)}
 .sitenav .topnav .navlinks:active{scale:1.06 .86}
 @media (prefers-reduced-motion:reduce){.sitenav .nav-cur.squish{animation:none}.sitenav .topnav .navlinks:active{scale:none}}
+
+/* slower glide to match the slower squash */
+.sitenav .nav-cur{transition:left .62s cubic-bezier(.34,1.35,.5,1),width .62s cubic-bezier(.34,1.35,.5,1)}
+::view-transition-group(nav-cur){animation-duration:.62s}

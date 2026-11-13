@@ -166,7 +166,7 @@
         if (href.charAt(0) === '#') return;
         if (reduce) return;
         e.preventDefault();
-        setTimeout(function () { location.href = href; }, 380);
+        setTimeout(function () { location.href = href; }, 600);
       });
     });
   }
