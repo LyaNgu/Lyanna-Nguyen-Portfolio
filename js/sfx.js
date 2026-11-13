@@ -43,7 +43,7 @@
   function talk(ch) {
     if (!ready() || !/[a-z0-9]/i.test(ch)) return;
     var now = ctx.currentTime;
-    if (now - lastTalk < .085) return;
+    if (now - lastTalk < .12) return;
     lastTalk = now;
     var c = ch.toLowerCase(), vowel = 'aeiouy'.indexOf(c) > -1;
     var n = (c.charCodeAt(0) * 5) % 4 + (vowel ? 2 : 0);          // vowels sit a little higher
@@ -51,15 +51,15 @@
     var o = ctx.createOscillator(), o2 = ctx.createOscillator();
     var g = ctx.createGain(), g2 = ctx.createGain(), lp = ctx.createBiquadFilter();
     o.type = 'sine'; o2.type = 'sine';
-    o.frequency.setValueAtTime(f * .96, now); o.frequency.exponentialRampToValueAtTime(f * 1.02, now + .05);
-    o2.frequency.setValueAtTime(f * 2 * .96, now); o2.frequency.exponentialRampToValueAtTime(f * 2 * 1.02, now + .05);
-    g2.gain.value = .18;                                           // a hint of overtone for warmth
+    o.frequency.setValueAtTime(f * .96, now); o.frequency.exponentialRampToValueAtTime(f * 1.02, now + .07);
+    o2.frequency.setValueAtTime(f * 2 * .96, now); o2.frequency.exponentialRampToValueAtTime(f * 2 * 1.02, now + .07);
+    g2.gain.value = .12;                                           // a hint of overtone for warmth
     lp.type = 'lowpass'; lp.frequency.value = 2600;
     g.gain.setValueAtTime(0, now);
-    g.gain.linearRampToValueAtTime(.075, now + .014);
-    g.gain.exponentialRampToValueAtTime(.001, now + .13);
+    g.gain.linearRampToValueAtTime(.05, now + .02);
+    g.gain.exponentialRampToValueAtTime(.001, now + .17);
     o.connect(lp); o2.connect(g2).connect(lp); lp.connect(g).connect(ctx.destination);
-    o.start(now); o2.start(now); o.stop(now + .15); o2.stop(now + .15);
+    o.start(now); o2.start(now); o.stop(now + .19); o2.stop(now + .19);
   }
 
   /* Soft knock: two muffled wooden taps, synthesised (a short low thump plus a
