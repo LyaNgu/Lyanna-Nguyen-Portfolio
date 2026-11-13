@@ -36,26 +36,30 @@
      pitch is set by the letter, vowels a little higher, run through a soft
      vocal-ish filter so it sounds like chatter rather than beeps. */
   var lastTalk = 0;
+  /* Cute, wholesome voice: a soft rounded "bloop" per syllable, sung on a
+     major pentatonic scale (so every run of notes sounds friendly, never
+     dissonant), with a tiny upward chirp and no buzzy edges. */
+  var SCALE = [523.25, 587.33, 659.25, 783.99, 880.00, 1046.5];   // C5 D5 E5 G5 A5 C6
   function talk(ch) {
     if (!ready() || !/[a-z0-9]/i.test(ch)) return;
     var now = ctx.currentTime;
-    if (now - lastTalk < .055) return;
+    if (now - lastTalk < .085) return;
     lastTalk = now;
     var c = ch.toLowerCase(), vowel = 'aeiouy'.indexOf(c) > -1;
-    var idx = (c.charCodeAt(0) * 7) % 12;
-    var f = 440 * Math.pow(2, idx / 24) * (vowel ? 1.18 : 1) * (0.97 + Math.random() * .06);
+    var n = (c.charCodeAt(0) * 5) % 4 + (vowel ? 2 : 0);          // vowels sit a little higher
+    var f = SCALE[n];
     var o = ctx.createOscillator(), o2 = ctx.createOscillator();
-    var bp = ctx.createBiquadFilter(), g = ctx.createGain();
-    o.type = 'triangle'; o2.type = 'square';
-    o.frequency.setValueAtTime(f * 1.06, now); o.frequency.exponentialRampToValueAtTime(f * .94, now + .07);
-    o2.frequency.setValueAtTime(f * 2, now); o2.frequency.exponentialRampToValueAtTime(f * 1.86, now + .07);
-    var g2 = ctx.createGain(); g2.gain.value = .1;
-    bp.type = 'bandpass'; bp.frequency.value = vowel ? 1700 : 1300; bp.Q.value = 1.2;
+    var g = ctx.createGain(), g2 = ctx.createGain(), lp = ctx.createBiquadFilter();
+    o.type = 'sine'; o2.type = 'sine';
+    o.frequency.setValueAtTime(f * .96, now); o.frequency.exponentialRampToValueAtTime(f * 1.02, now + .05);
+    o2.frequency.setValueAtTime(f * 2 * .96, now); o2.frequency.exponentialRampToValueAtTime(f * 2 * 1.02, now + .05);
+    g2.gain.value = .18;                                           // a hint of overtone for warmth
+    lp.type = 'lowpass'; lp.frequency.value = 2600;
     g.gain.setValueAtTime(0, now);
-    g.gain.linearRampToValueAtTime(.09, now + .01);
-    g.gain.exponentialRampToValueAtTime(.001, now + .075);
-    o.connect(bp); o2.connect(g2).connect(bp); bp.connect(g).connect(ctx.destination);
-    o.start(now); o2.start(now); o.stop(now + .09); o2.stop(now + .09);
+    g.gain.linearRampToValueAtTime(.075, now + .014);
+    g.gain.exponentialRampToValueAtTime(.001, now + .13);
+    o.connect(lp); o2.connect(g2).connect(lp); lp.connect(g).connect(ctx.destination);
+    o.start(now); o2.start(now); o.stop(now + .15); o2.stop(now + .15);
   }
 
   /* Soft knock: two muffled wooden taps, synthesised (a short low thump plus a
