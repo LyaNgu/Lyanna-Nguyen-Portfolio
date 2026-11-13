@@ -446,3 +446,12 @@ footer nav a{display:flex!important;align-items:center;min-height:44px;box-sizin
   .sitenav .topnav{left:50%!important;right:auto!important;width:max-content!important;max-width:calc(100vw - 20px);transform:translateX(-50%)!important;justify-content:center!important;gap:2px!important}
   .sitenav .topnav .navlinks{display:flex!important;flex:none}
 }
+
+/* Nav squash & stretch: the gold block stretches as it glides, squashes as it lands, then settles;
+   links squish a little while pressed */
+.sitenav .nav-cur{transform-origin:50% 100%}
+.sitenav .nav-cur.squish{animation:navSquash .5s cubic-bezier(.3,1.2,.5,1)}
+@keyframes navSquash{0%{scale:1 1}30%{scale:1.14 .8}58%{scale:.9 1.12}78%{scale:1.05 .96}100%{scale:1 1}}
+.sitenav .topnav .navlinks{transition:scale .14s cubic-bezier(.3,1.6,.5,1)}
+.sitenav .topnav .navlinks:active{scale:1.06 .86}
+@media (prefers-reduced-motion:reduce){.sitenav .nav-cur.squish{animation:none}.sitenav .topnav .navlinks:active{scale:none}}

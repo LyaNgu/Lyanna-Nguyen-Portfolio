@@ -134,6 +134,7 @@
       if (!anim) cur.classList.add('no-anim');
       cur.style.left = a.offsetLeft + 'px'; cur.style.width = a.offsetWidth + 'px'; nav.classList.add('has-cur');
       if (!anim) { void cur.offsetWidth; cur.classList.remove('no-anim'); }
+      else { cur.classList.remove('squish'); void cur.offsetWidth; cur.classList.add('squish'); }
     }
     function current() { return nav.querySelector('.navlinks[aria-current="page"]'); }
     function settle() { place(current(), false); }
