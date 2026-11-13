@@ -336,6 +336,7 @@ site_css += '\n/* Nav icons: a gentle tilt that holds while hovered, then eases 
 site_css += '\n/* Work captions (ref: billguo.me): an outcome-led title, then one short result line */\n#work .workcard > .cardlink > div:last-child > p:nth-of-type(2){display:block!important;grid-column:1;grid-row:3;margin:2px 0 0!important;font-size:16px!important;line-height:24px!important;color:var(--ink)!important;font-weight:600}\n\n/* The pixel display font draws "fi" as a broken ligature ("find" reads "And"), so ligatures are off site-wide */\n*{font-variant-ligatures:no-common-ligatures;font-feature-settings:"liga" 0}\n'
 site_css += '\n/* Work captions: title only (plus tags) */\n#work .workcard > .cardlink > div:last-child > p:nth-of-type(n){display:none!important}\n#work .workcard h3{align-self:center}\n'
 site_css += '#work .workcard > .cardlink > div:last-child > p:first-of-type{display:block!important;grid-column:1;grid-row:2}\n'
+site_css += '\n/* Mobile nav: the pill sizes to its icons and stays centred (older rules had squeezed it) */\n@media (max-width:760px){\n  .sitenav .topnav{left:50%!important;right:auto!important;width:max-content!important;max-width:calc(100vw - 20px);transform:translateX(-50%)!important;justify-content:center!important;gap:2px!important}\n  .sitenav .topnav .navlinks{display:flex!important;flex:none}\n}\n'
 open(os.path.join(OUT, 'css', 'site.css'), 'w').write(site_css)
 import navbar; navbar.run()  # floating pill navbar on every page
 open(os.path.join(OUT, 'css', 'case-study.css'), 'w').write(
