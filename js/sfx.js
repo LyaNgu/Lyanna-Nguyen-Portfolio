@@ -83,8 +83,23 @@
 
   window.Sfx = { play: play, talk: talk, knock: knock };
 
+  /* Phones (especially iPhone Safari) only let sound start inside a real tap:
+     on every tap until audio is running, resume it and play one silent frame,
+     which unlocks Web Audio on iOS and Android alike. */
+  var UNLOCK = ['touchend', 'click', 'keydown', 'pointerup'];
+  function unlock() {
+    init();
+    if (!ctx) return;
+    if (ctx.state !== 'running') { try { ctx.resume(); } catch (e) {} }
+    try {
+      var b = ctx.createBuffer(1, 1, ctx.sampleRate || 22050), s = ctx.createBufferSource();
+      s.buffer = b; s.connect(ctx.destination); s.start(0);
+    } catch (e) {}
+    if (ctx.state === 'running') UNLOCK.forEach(function (t) { window.removeEventListener(t, unlock, true); });
+  }
   function wire() {
-    ['pointerdown', 'keydown'].forEach(function (t) { window.addEventListener(t, init, { once: true, capture: true }); });
+    window.addEventListener('pointerdown', init, { once: true, capture: true });
+    UNLOCK.forEach(function (t) { window.addEventListener(t, unlock, true); });
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', wire);
   else wire();
