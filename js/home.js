@@ -152,11 +152,12 @@
       imgs.forEach(function (img, i) {
         var box = img.parentElement, dist = img.offsetHeight - box.clientHeight;
         if (!img.complete || dist <= 0) return;
-        var secs = img.classList.contains('wc-lc-scroll') ? 18 : (i % 2 ? 30 : 38);
+        var secs = 32;   // every cover scrolls in step: same speed and timing, top and bottom together
         var a = img.animate([
           { transform: 'translateY(0)', offset: 0 }, { transform: 'translateY(0)', offset: .06 },
           { transform: 'translateY(' + -dist + 'px)', offset: .94 }, { transform: 'translateY(' + -dist + 'px)', offset: 1 }
-        ], { duration: secs * 1000, iterations: Infinity, direction: 'alternate', easing: 'ease-in-out', delay: i % 2 ? -6000 : 0 });
+        ], { duration: secs * 1000, iterations: Infinity, direction: 'alternate', easing: 'ease-in-out' });
+        a.startTime = 0;   // shared timeline, so they stay in sync even if images load at different times
         anims.push(a);
         var card = img.closest('.workcard');
         if (card && !card._wcHover) {
