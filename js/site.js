@@ -129,12 +129,25 @@
     var nav = document.querySelector('.sitenav .topnav'), cur = nav && nav.querySelector('.nav-cur');
     if (!cur) return;
     var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    /* The block moves on the GPU: it slides with translateX and stretches with
+       scaleX (no layout work per frame), then snaps to its real width once it
+       lands so the rounded ends never look stretched at rest. */
+    var baseW = 0, x = 0;
+    function snap(w) {
+      cur.classList.remove('moving');
+      cur.style.width = w + 'px'; baseW = w;
+      cur.style.transform = 'translateX(' + x + 'px)';
+    }
+    cur.addEventListener('transitionend', function (e) { if (e.propertyName === 'transform' && cur._w) { snap(cur._w); cur._w = 0; } });
     function place(a, anim) {
       if (!a) return;
-      if (!anim) cur.classList.add('no-anim');
-      cur.style.left = a.offsetLeft + 'px'; cur.style.width = a.offsetWidth + 'px'; nav.classList.add('has-cur');
-      if (!anim) { void cur.offsetWidth; cur.classList.remove('no-anim'); }
-      else { cur.classList.remove('squish'); void cur.offsetWidth; cur.classList.add('squish'); }
+      var w = a.offsetWidth; x = a.offsetLeft;
+      nav.classList.add('has-cur');
+      if (!anim || !baseW) { snap(w); return; }
+      cur._w = w;
+      cur.classList.add('moving');
+      cur.style.transform = 'translateX(' + x + 'px) scaleX(' + (w / baseW).toFixed(4) + ')';
+      cur.classList.remove('squish'); void cur.offsetWidth; cur.classList.add('squish');
     }
     function current() { return nav.querySelector('.navlinks[aria-current="page"]'); }
     function settle() { place(current(), false); }
@@ -142,6 +155,9 @@
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(settle);
     window.addEventListener('load', settle);
     window.addEventListener('resize', settle);
+    // web fonts swap in after first paint and change the link widths: re-measure whenever the pill resizes
+    if ('ResizeObserver' in window) new ResizeObserver(function () { if (!cur.classList.contains('moving')) settle(); }).observe(nav);
+    if (document.fonts && document.fonts.addEventListener) document.fonts.addEventListener('loadingdone', settle);
     // Home page: the block follows the scroll, landing on Works while Selected work is on screen
     var work = document.getElementById('work'), homeLink = nav.querySelector('.navlinks[href="#top"]'), workLink = nav.querySelector('.navlinks[href="#work"]');
     if (work && homeLink && workLink && 'IntersectionObserver' in window) {

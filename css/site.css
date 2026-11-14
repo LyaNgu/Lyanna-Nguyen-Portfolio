@@ -474,3 +474,10 @@ footer nav a{display:flex!important;align-items:center;min-height:44px;box-sizin
 
 /* Cover auto-scroll is driven from js/home.js with pixel offsets (Safari can resolve container units in keyframes to 0, which scrolled the page out of view) */
 .wc-win-scr img,.wc-lc-lid .wc-lc-view img.wc-lc-scroll{animation:none!important}
+
+/* Nav gold block, GPU version: the element only translates/scales; its look lives on ::before so the squash can run there */
+.sitenav .nav-cur{left:0!important;transition:none!important;animation:none!important;background:none!important;box-shadow:none!important;transform-origin:0 50%;will-change:transform}
+.sitenav .nav-cur.moving{transition:transform .35s cubic-bezier(.34,1.35,.5,1)!important}
+.sitenav .nav-cur::before{content:"";position:absolute;inset:0;border-radius:999px;background:var(--gold);box-shadow:0 0 0 2px var(--wood-dark),inset 0 -3px 0 #d79a3e;transform-origin:50% 100%}
+.sitenav .nav-cur.squish::before{animation:navSquash .45s cubic-bezier(.3,1.2,.5,1)}
+@media (prefers-reduced-motion:reduce){.sitenav .nav-cur.moving{transition:none!important}.sitenav .nav-cur.squish::before{animation:none}}
