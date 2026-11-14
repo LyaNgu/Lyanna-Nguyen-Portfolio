@@ -8,8 +8,8 @@ LC_CARD = ('<div class="wc-lc" style="position: relative; margin: 12px; min-heig
     '            <div class="lc-sky" aria-hidden="true">'
     + ''.join(f'<span class="lc-spark" style="left:{x}%;top:{y}%;--s:{sz}px;--d:{d}s;--t:{t}s">{STAR}</span>' for x, y, sz, d, t in SPARKS)
     + '</div>\n'
-    '            <div class="wc-lc-laptop"><div class="wc-lc-lid"><span class="wc-lc-cam" aria-hidden="true"></span><img class="wc-lc-scroll" src="assets/images/final-undergraduate-programs-page.webp" alt="The Undergraduate Programs page Lyanna designed, scrolling from program search to the program cards" loading="lazy"></div><div class="wc-lc-base" aria-hidden="true"><span></span></div></div>\n'
-    '            <figure class="lc-mini lc-detail" aria-hidden="true"><img src="assets/images/lc-final-save-visit.webp" alt="" loading="lazy"></figure>\n'
+    '            <div class="wc-lc-laptop"><div class="wc-lc-lid"><span class="wc-lc-cam" aria-hidden="true"></span><span class="wc-lc-view"><img class="wc-lc-scroll" src="assets/images/final-undergraduate-programs-page.webp" srcset="assets/images/final-undergraduate-programs-page-600.webp 600w, assets/images/final-undergraduate-programs-page.webp 1100w" sizes="(max-width: 760px) 70vw, 600px" alt="The Undergraduate Programs page Lyanna designed, scrolling from program search to the program cards" loading="lazy"></span></div><div class="wc-lc-base" aria-hidden="true"><span></span></div></div>\n'
+    '            <figure class="lc-mini lc-detail" aria-hidden="true"><img src="assets/images/lc-final-save-visit.webp" srcset="assets/images/lc-final-save-visit-600.webp 600w, assets/images/lc-final-save-visit.webp 1200w" sizes="(max-width: 760px) 70vw, 600px" alt="" loading="lazy"></figure>\n'
     '            <figure class="lc-mini lc-mail" aria-hidden="true"><img src="assets/images/lc-final-mailing-list.webp" alt="" loading="lazy"></figure>\n'
     '            <img class="lc-wug" aria-hidden="true" alt="" src="assets/images/wug.png" loading="lazy">\n'
     '          </div>')

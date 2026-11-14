@@ -55,7 +55,7 @@
 
     door.classList.toggle('shake', phase === 'knocking');
     doorPanel.style.transform = (phase === 'open' || greeted) ? 'perspective(300px) rotateY(-80deg)' : 'none';
-    house.setAttribute('aria-label', greeted ? 'Close the door and knock again' : 'Knock on the door');
+    house.setAttribute('aria-label', greeted ? 'Close the door and knock again' : 'Click to knock on the door');
 
     Site.show('knocking', phase === 'knocking');
     Site.show('knock-hint', phase === 'idle');

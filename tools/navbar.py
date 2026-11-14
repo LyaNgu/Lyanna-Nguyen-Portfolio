@@ -40,7 +40,7 @@ SOUND = ('<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5h3.2L12 5.5
 def header(home, works, current):
     def link(href, label, extra=''):
         cur = ' aria-current="page"' if label == current else ''
-        return f'<a href="{href}" class="navlinks"{cur}{extra}>{ICONS[label]}<span>{label}</span></a>'
+        return f'<a href="{href}" class="navlinks" aria-label="{label}"{cur}{extra}>{ICONS[label]}<span>{label}</span></a>'
     return f'''<header class="sitenav">
     <nav class="nav-pill topnav" aria-label="Main">
       <span class="nav-hl" aria-hidden="true"></span><span class="nav-cur" aria-hidden="true"></span>
@@ -59,6 +59,16 @@ def run():
         s = open(p, encoding='utf-8').read()
         s, n = re.subn(r'<header class="sitenav[^"]*">.*?</header>', lambda m: header(*args), s, count=1, flags=re.S)
         assert n == 1, page
+        if page in ('index.html', 'about.html', 'garden.html') and '<main' not in s:   # main landmark (WCAG)
+            i = s.index('</header>') + len('</header>'); j = s.index('<footer', i)
+            s = s[:i] + '\n  <main id="main">' + s[i:j].rstrip() + '\n  </main>\n\n  ' + s[j:]
+        # fonts: connect early and load the stylesheet without blocking first paint (font-display: swap)
+        FONT = 'https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&amp;family=Pixelify+Sans:wght@400..700&amp;family=VT323&amp;display=swap'
+        if 'fonts.gstatic.com' not in s:
+            s = s.replace('<link rel="preconnect" href="https://fonts.googleapis.com">',
+                          '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>', 1)
+        s = s.replace(f'<link href="{FONT}" rel="stylesheet">',
+                      f'<link rel="preload" as="style" href="{FONT}"><link href="{FONT}" rel="stylesheet" media="print" onload="this.media=\'all\'"><noscript><link href="{FONT}" rel="stylesheet"></noscript>', 1)
         if 'js/sfx.js' not in s:
             s = s.replace('<script src="js/site.js"></script>', '<script src="js/site.js"></script>\n<script src="js/sfx.js"></script>', 1)
         s = s.replace('made with &lt;3</span>', 'made with &lt;3 · UI sounds by <a href="https://lolurio.itch.io/" target="_blank" rel="noopener" style="color:inherit">lolurio</a></span>', 1)

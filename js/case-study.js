@@ -130,10 +130,24 @@
   });
 
   // looping prototype recordings stay still for visitors who prefer reduced motion
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (still) {
     document.querySelectorAll('video[autoplay]').forEach(function (v) {
       v.removeAttribute('autoplay');
       v.pause();
     });
+  }
+  // Recordings load and play only while on screen, and pause when scrolled away,
+  // so the page doesn't download and decode every video up front
+  var lazyVids = document.querySelectorAll('video[data-inview]');
+  if (!still && lazyVids.length && 'IntersectionObserver' in window) {
+    var vio = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        var v = e.target;
+        if (e.isIntersecting) { if (v.preload === 'none') v.preload = 'auto'; var pr = v.play(); if (pr && pr.catch) pr.catch(function () {}); }
+        else if (!v.paused) v.pause();
+      });
+    }, { rootMargin: '200px 0px', threshold: 0.15 });
+    lazyVids.forEach(function (v) { vio.observe(v); });
   }
 })();
