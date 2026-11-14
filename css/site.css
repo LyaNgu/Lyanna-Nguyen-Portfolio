@@ -471,3 +471,6 @@ footer nav a{display:flex!important;align-items:center;min-height:44px;box-sizin
 .wc-win.fs img{--d:30s;animation-delay:-6s}
 .workcard:hover .wc-win-scr img,.workcard:hover .wc-lc-scroll{animation-play-state:paused}
 @media (prefers-reduced-motion:reduce){.cloud,.wc-win-scr img,.wc-lc-scroll{animation:none!important}}
+
+/* Cover auto-scroll is driven from js/home.js with pixel offsets (Safari can resolve container units in keyframes to 0, which scrolled the page out of view) */
+.wc-win-scr img,.wc-lc-lid .wc-lc-view img.wc-lc-scroll{animation:none!important}

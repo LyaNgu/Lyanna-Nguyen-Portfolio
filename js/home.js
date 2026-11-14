@@ -141,6 +141,37 @@
   });
   Site.on('close-dialog', function () { if (phase === 'greet' && window.Sfx) Sfx.play('close'); reset(); });   // also used by the "Start the tour" / "Just the resume" links
 
+
+  /* ---------- Work covers: slowly scroll each screenshot top to bottom and back ---------- */
+  (function () {
+    if (Site.reducedMotion || !Element.prototype.animate) return;
+    var imgs = document.querySelectorAll('.wc-win-scr img, .wc-lc-view img.wc-lc-scroll');
+    var anims = [];
+    function start() {
+      anims.forEach(function (a) { a.cancel(); }); anims = [];
+      imgs.forEach(function (img, i) {
+        var box = img.parentElement, dist = img.offsetHeight - box.clientHeight;
+        if (!img.complete || dist <= 0) return;
+        var secs = img.classList.contains('wc-lc-scroll') ? 18 : (i % 2 ? 30 : 38);
+        var a = img.animate([
+          { transform: 'translateY(0)', offset: 0 }, { transform: 'translateY(0)', offset: .06 },
+          { transform: 'translateY(' + -dist + 'px)', offset: .94 }, { transform: 'translateY(' + -dist + 'px)', offset: 1 }
+        ], { duration: secs * 1000, iterations: Infinity, direction: 'alternate', easing: 'ease-in-out', delay: i % 2 ? -6000 : 0 });
+        anims.push(a);
+        var card = img.closest('.workcard');
+        if (card && !card._wcHover) {
+          card._wcHover = true;
+          card.addEventListener('mouseenter', function () { anims.forEach(function (x) { if (card.contains(x.effect.target)) x.pause(); }); });
+          card.addEventListener('mouseleave', function () { anims.forEach(function (x) { if (card.contains(x.effect.target)) x.play(); }); });
+        }
+      });
+    }
+    imgs.forEach(function (img) { if (!img.complete) img.addEventListener('load', start, { once: true }); });
+    window.addEventListener('load', start);
+    var rt; window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(start, 200); });
+    start();
+  })();
+
   /* ---------- Fireflies scatter away from the cursor ---------- */
   var night = document.querySelector('[data-night]');
   if (night) {
