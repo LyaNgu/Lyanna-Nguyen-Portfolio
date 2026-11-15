@@ -472,11 +472,11 @@ footer nav a{display:flex!important;align-items:center;min-height:44px;box-sizin
 .sitenav .nav-cur.squish::before{animation:navSquash .45s cubic-bezier(.3,1.2,.5,1)}
 @media (prefers-reduced-motion:reduce){.sitenav .nav-cur.moving{transition:none!important}.sitenav .nav-cur.squish::before{animation:none}}
 
-/* Shorter opening animation (~1.9s, first visit only) */
-.ldr-seed,.ldr-can,.ldr-sprout,.ldr-bloom,.ldr-scene{animation-duration:1.9s!important}
-.ldr-bg{animation-duration:1.9s!important}
-.ldr-bar{animation-duration:1.6s!important}
-.ldr-drop{animation-duration:.26s!important}
+/* Opening animation (~3s, first visit only) */
+.ldr-seed,.ldr-can,.ldr-sprout,.ldr-bloom,.ldr-scene{animation-duration:3s!important}
+.ldr-bg{animation-duration:3s!important}
+.ldr-bar{animation-duration:2.5s!important}
+.ldr-drop{animation-duration:.38s!important}
 
 /* Self-hosted pixel fonts (preloaded in each page's head) */
 @font-face{font-family:"Pixelify Sans";font-style:normal;font-weight:400 700;font-display:swap;src:url(../assets/fonts/pixelify-sans-latin.woff2) format("woff2")}

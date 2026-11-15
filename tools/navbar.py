@@ -69,8 +69,9 @@ def run():
                           '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>', 1)
         s = s.replace(f'<link href="{FONT}" rel="stylesheet">',
                       f'<link rel="preload" as="style" href="{FONT}"><link href="{FONT}" rel="stylesheet" media="print" onload="this.media=\'all\'"><noscript><link href="{FONT}" rel="stylesheet"></noscript>', 1)
-        if page == 'index.html':   # shorter opening animation (~1.9s): water drops start earlier
-            for old, new in (('1.8s;"', '0.99s;"'), ('1.94s;"', '1.07s;"'), ('2.09s;"', '1.15s;"'), ('2.24s;"', '1.23s;"')):
+        if page == 'index.html':   # opening animation (~3s): water drop timing
+            for old, new in (('1.8s;"', '1.54s;"'), ('1.94s;"', '1.66s;"'), ('2.09s;"', '1.79s;"'), ('2.24s;"', '1.92s;"'),
+                             ('0.99s;"', '1.54s;"'), ('1.07s;"', '1.66s;"'), ('1.15s;"', '1.79s;"'), ('1.23s;"', '1.92s;"')):
                 s = s.replace('animation-delay: ' + old, 'animation-delay: ' + new)
         # self-hosted pixel fonts, preloaded so they swap in before first paint; Google Fonts now only serves Nunito
         OLDF = 'https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&amp;family=Pixelify+Sans:wght@400..700&amp;family=VT323&amp;display=swap'
