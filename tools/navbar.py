@@ -69,6 +69,28 @@ def run():
                           '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>', 1)
         s = s.replace(f'<link href="{FONT}" rel="stylesheet">',
                       f'<link rel="preload" as="style" href="{FONT}"><link href="{FONT}" rel="stylesheet" media="print" onload="this.media=\'all\'"><noscript><link href="{FONT}" rel="stylesheet"></noscript>', 1)
+        if page == 'index.html':   # shorter opening animation (~1.9s): water drops start earlier
+            for old, new in (('1.8s;"', '0.99s;"'), ('1.94s;"', '1.07s;"'), ('2.09s;"', '1.15s;"'), ('2.24s;"', '1.23s;"')):
+                s = s.replace('animation-delay: ' + old, 'animation-delay: ' + new)
+        # self-hosted pixel fonts, preloaded so they swap in before first paint; Google Fonts now only serves Nunito
+        OLDF = 'https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&amp;family=Pixelify+Sans:wght@400..700&amp;family=VT323&amp;display=swap'
+        NEWF = 'https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&amp;display=swap'
+        s = s.replace(OLDF, NEWF)
+        if 'pixelify-sans-latin.woff2' not in s:
+            pre = ('<link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/pixelify-sans-latin.woff2">'
+                   '<link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/vt323-latin.woff2">\n')
+            s = s.replace('<link rel="preconnect" href="https://fonts.googleapis.com">', pre + '<link rel="preconnect" href="https://fonts.googleapis.com">', 1)
+        # all fonts self-hosted: drop the Google Fonts links and preload Nunito alongside the pixel fonts
+        NEWF2 = 'https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&amp;display=swap'
+        s = s.replace(f'<link rel="preload" as="style" href="{NEWF2}"><link href="{NEWF2}" rel="stylesheet" media="print" onload="this.media=\'all\'"><noscript><link href="{NEWF2}" rel="stylesheet"></noscript>', '')
+        s = s.replace('<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>', '')
+        s = re.sub(r'<link rel="preload" as="style" href="https://fonts\.googleapis\.com[^\n]*?</noscript>\n?', '', s)
+        s = re.sub(r'<link rel="preconnect" href="https://fonts\.g[^>]*>', '', s)
+        if '<noscript' not in s:
+            s = s.replace('\n</noscript>\n', '\n')
+        if 'nunito-latin.woff2' not in s:
+            s = s.replace('<link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/pixelify-sans-latin.woff2">',
+                          '<link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/nunito-latin.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/pixelify-sans-latin.woff2">', 1)
         if 'js/sfx.js' not in s:
             s = s.replace('<script src="js/site.js"></script>', '<script src="js/site.js"></script>\n<script src="js/sfx.js"></script>', 1)
         s = s.replace('made with &lt;3</span>', 'made with &lt;3 · UI sounds by <a href="https://lolurio.itch.io/" target="_blank" rel="noopener" style="color:inherit">lolurio</a></span>', 1)

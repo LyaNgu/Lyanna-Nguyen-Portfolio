@@ -19,11 +19,11 @@
   }
   (function () {
     var seen = false;
-    try { seen = sessionStorage.getItem(LOADER_KEY) === '1'; } catch (e) {}
+    try { seen = localStorage.getItem(LOADER_KEY) === '1'; } catch (e) {}   // only on someone's very first visit
     if (seen || Site.reducedMotion) return;
     Site.show('loader', true);
-    loaderTimer = setTimeout(hideLoader, 3550);
-    try { sessionStorage.setItem(LOADER_KEY, '1'); } catch (e) {}
+    loaderTimer = setTimeout(hideLoader, 1950);
+    try { localStorage.setItem(LOADER_KEY, '1'); } catch (e) {}
   })();
   Site.on('skip-loader', hideLoader);
 

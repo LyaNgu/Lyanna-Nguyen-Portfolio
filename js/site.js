@@ -189,5 +189,19 @@
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initNavCur);
   else initNavCur();
 
+
+  // Pause decorative CSS animations in sections that are scrolled out of view (saves battery and keeps old phones smooth)
+  function initOffscreen() {
+    if (!('IntersectionObserver' in window)) return;
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { e.target.classList.toggle('offscreen', !e.isIntersecting); });
+    }, { rootMargin: '100px 0px' });
+    document.querySelectorAll('main > section, main > div, [data-area], .cs-hero-stage, footer').forEach(function (el) {
+      if (!el.closest('.sitenav')) io.observe(el);
+    });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initOffscreen);
+  else initOffscreen();
+
   window.Site = Site;
 })();
