@@ -488,3 +488,7 @@ footer nav a{display:flex!important;align-items:center;min-height:44px;box-sizin
 /* Decorative animations pause while their section is off screen (js/site.js toggles .offscreen) */
 .offscreen *,.offscreen *::before,.offscreen *::after{animation-play-state:paused!important}
 @font-face{font-family:"Nunito";font-style:normal;font-weight:400 800;font-display:swap;src:url(../assets/fonts/nunito-latin.woff2) format("woff2")}
+
+/* Catches are display-only (not clickable): no pointer, no lift on hover */
+.stall-item,.stall-item *{cursor:default!important}
+.stall-item:hover .stall-photo{transform:none!important}

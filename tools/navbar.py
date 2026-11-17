@@ -92,6 +92,11 @@ def run():
         if 'nunito-latin.woff2' not in s:
             s = s.replace('<link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/pixelify-sans-latin.woff2">',
                           '<link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/nunito-latin.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/pixelify-sans-latin.woff2">', 1)
+        if page == 'about.html' and 'class="stall-item" aria-label="View catch:' in s:   # catches are display-only
+            a = s.index('<div class="stall-body">'); b = s.index('<div id="catch-0" class="stall-modal"')
+            seg = re.sub(r'<a href="#catch-\\d+" class="stall-item" aria-label="View catch: ([^"]*)"((?: tabindex="-1")?(?: aria-hidden="true")?)>',
+                         lambda m: '<div class="stall-item" role="group" aria-label="' + m.group(1) + '"' + (' aria-hidden="true"' if 'aria-hidden' in (m.group(2) or '') else '') + '>', s[a:b])
+            s = s[:a] + seg.replace('</a>', '</div>') + s[b:]
         if 'js/sfx.js' not in s:
             s = s.replace('<script src="js/site.js"></script>', '<script src="js/site.js"></script>\n<script src="js/sfx.js"></script>', 1)
         s = s.replace('made with &lt;3</span>', 'made with &lt;3 · UI sounds by <a href="https://lolurio.itch.io/" target="_blank" rel="noopener" style="color:inherit">lolurio</a></span>', 1)
