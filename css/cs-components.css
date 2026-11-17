@@ -450,3 +450,5 @@ html{overflow-x:clip}
 /* Triceratops banner art is a real <img fetchpriority="high"> so it starts downloading immediately */
 .cs-hero-stage:has(.cs-hero-bg){background:#cfe3f2}
 .cs-hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0}
+.cs-sec .cs-cons.two ul{grid-template-columns:repeat(2,1fr)}
+@media (max-width:640px){.cs-sec .cs-cons.two ul{grid-template-columns:1fr}}
