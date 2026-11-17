@@ -488,3 +488,48 @@ footer nav a{display:flex!important;align-items:center;min-height:44px;box-sizin
 /* Decorative animations pause while their section is off screen (js/site.js toggles .offscreen) */
 .offscreen *,.offscreen *::before,.offscreen *::after{animation-play-state:paused!important}
 @font-face{font-family:"Nunito";font-style:normal;font-weight:400 800;font-display:swap;src:url(../assets/fonts/nunito-latin.woff2) format("woff2")}
+
+/* About: Lyanna's Catches as a shop booth (ref: cozy game shop stands): posts, string lights,
+   the shopkeeper behind the counter with a speech bubble, and catches hanging as tags on a rope */
+.keeper{display:none!important}
+.booth{position:relative;z-index:1;height:200px;margin:-18px 6px 0}
+.booth-post{position:absolute;top:-10px;bottom:0;width:16px;background:linear-gradient(90deg,#b7834f 0 30%,#a0522a 30% 75%,#7a3d1f 75%);box-shadow:0 0 0 3px var(--wood-dark);z-index:1}
+.booth-post.l{left:0}.booth-post.r{right:0}
+.booth-back{position:absolute;left:16px;right:16px;top:0;bottom:24px;overflow:hidden;background:repeating-linear-gradient(90deg,#f6e3b4 0 26px,#f1d8a0 26px 52px);box-shadow:inset 0 6px 0 #5e2f1826}
+.booth-lights{position:absolute;left:16px;right:16px;top:12px;height:40px;z-index:3;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 40' preserveAspectRatio='none'%3E%3Cpath d='M3.00 10 Q14.75 42.4 26.50 10 L34.33 10 Q46.08 42.4 57.83 10 L65.67 10 Q77.42 42.4 89.17 10 L97.00 10' fill='none' stroke='%235e2f18' stroke-width='2' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E") 0 0/100% 100% no-repeat}
+.booth-lights i{position:absolute;width:12px;height:14px;margin:-2px 0 0 -6px;background:var(--c);border-radius:40% 40% 50% 50%;box-shadow:0 0 0 2px var(--wood-dark),inset -3px -3px 0 #0000001f,0 0 12px 2px color-mix(in srgb,var(--c) 55%,transparent);animation:boothGlow 2.4s steps(2) infinite}
+.booth-lights i:nth-child(odd){animation-delay:-1.2s}
+@keyframes boothGlow{50%{filter:brightness(1.18)}}
+.booth-girl{position:absolute;left:50%;bottom:-6px;width:118px;transform:translateX(-50%);z-index:1}
+.booth-girl img{display:block;width:100%;height:auto;image-rendering:pixelated}
+.booth-bubble{position:absolute;left:calc(50% + 76px);top:46px;max-width:230px;padding:8px 12px 6px;background:#fffaf0;border-radius:10px;box-shadow:0 0 0 3px var(--wood-dark),4px 4px 0 0 var(--pixel-shadow);font-family:var(--font-pixel);font-size:21px;line-height:22px;letter-spacing:.03em;text-transform:uppercase;color:var(--ink);z-index:2}
+.booth-bubble::before{content:"";position:absolute;left:-14px;top:18px;width:14px;height:14px;background:#fffaf0;clip-path:polygon(100% 0,0 50%,100% 100%);filter:drop-shadow(-3px 0 0 var(--wood-dark))}
+.booth-plant{position:absolute;left:16%;bottom:22px;width:64px;height:64px;z-index:3}
+.booth-yarn{position:absolute;right:18%;bottom:22px;width:44px;height:37px;z-index:3}
+.booth-plant svg,.booth-yarn svg{display:block;width:100%;height:100%}
+.booth-counter{position:absolute;left:-8px;right:-8px;bottom:-6px;height:34px;z-index:2;background:linear-gradient(#e7b07a 0 9px,#c98a52 9px 13px,#a0522a 13px);box-shadow:0 0 0 3px var(--wood-dark),0 5px 0 0 var(--pixel-shadow)}
+.booth-counter span{position:absolute;left:0;right:0;top:3px;height:2px;background:#f6d2a6}
+.stall-body{margin-top:0;padding-top:46px}
+/* catches hang as tags on a rope, still scrolling */
+.stall-marquee{padding-top:30px!important;background:linear-gradient(#8a5a35,#8a5a35) 0 18px/100% 3px repeat-x}
+.stall-item{position:relative;padding:10px 10px 12px;background:#fffaf0;border-radius:12px;box-shadow:0 0 0 3px var(--wood-dark),5px 5px 0 0 var(--pixel-shadow);transform-origin:50% -14px;transition:rotate .3s steps(3)}
+.stall-item:nth-child(odd){rotate:-1.6deg}.stall-item:nth-child(even){rotate:1.4deg}
+.stall-item:hover,.stall-item:focus-visible{rotate:0deg}
+.stall-item::before{content:"";position:absolute;z-index:2;left:50%;top:-20px;width:10px;height:24px;margin-left:-5px;background:linear-gradient(90deg,#e7b07a 0 50%,#c98a52 50%);box-shadow:0 0 0 2px var(--wood-dark)}
+.stall-photo{border-radius:8px!important;box-shadow:0 0 0 2px var(--wood-dark)!important}
+.stall-plank{display:none!important}
+.stall-cap{margin-top:10px!important;font-style:normal!important;font-weight:800!important;font-size:14px!important;line-height:20px!important}
+@media (max-width:640px){
+  .booth{height:150px}
+  .booth-girl{width:84px}
+  .booth-bubble{left:calc(50% + 50px);top:24px;max-width:120px;font-size:15px;line-height:16px;padding:6px 8px 4px}
+  .booth-plant{left:6%;width:44px;height:44px}.booth-yarn{right:auto;left:calc(50% - 98px);width:30px;height:25px}
+}
+@media (prefers-reduced-motion:reduce){.booth-lights i{animation:none}.stall-item{transition:none}}
+.booth-girl .bob{display:block!important}
+.booth-girl{bottom:-26px}
+.booth-plant,.booth-yarn{bottom:-2px}
+.booth-lights{top:26px}
+.booth-bubble{top:52px}
+@media (max-width:640px){.booth-girl{bottom:-20px}.booth-bubble{top:34px}}
+@media (max-width:640px){.booth{height:196px}.booth-lights{top:22px}.booth-bubble{top:68px;left:calc(50% + 46px);max-width:130px}.booth-girl{width:92px}}

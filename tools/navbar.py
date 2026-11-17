@@ -37,6 +37,9 @@ SOUND = ('<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5h3.2L12 5.5
          '<path class="s off" d="M16 9.5l5 5M21 9.5l-5 5"/></svg>')
 
 
+BOOTH = '<div class="booth" aria-hidden="true"><span class="booth-post l"></span><span class="booth-post r"></span><span class="booth-lights"><i style="left:3.0%;top:10px;--c:#e5645a"></i><i style="left:10.8%;top:24px;--c:#f0b54a"></i><i style="left:18.7%;top:24px;--c:#7cc44f"></i><i style="left:26.5%;top:10px;--c:#7cc0ea"></i><i style="left:34.3%;top:10px;--c:#c9a6ef"></i><i style="left:42.2%;top:24px;--c:#e5645a"></i><i style="left:50.0%;top:24px;--c:#f0b54a"></i><i style="left:57.8%;top:10px;--c:#7cc44f"></i><i style="left:65.7%;top:10px;--c:#7cc0ea"></i><i style="left:73.5%;top:24px;--c:#c9a6ef"></i><i style="left:81.3%;top:24px;--c:#e5645a"></i><i style="left:89.2%;top:10px;--c:#f0b54a"></i><i style="left:97.0%;top:10px;--c:#7cc44f"></i></span><div class="booth-back"><span class="booth-girl"><span class="bob"><img class="px" src="assets/images/chibi-happy.png" alt="" width="32" height="39"></span></span><span class="booth-bubble">Step right up! Come see my catches ✿</span><span class="booth-plant"><svg viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="#4f9e3c" d="M7 2h2v6H7zM4 4h2v1h1v3H5V7H4zM10 4h2v3h-1v1H9V5h1z"/><path fill="#7cc44f" d="M7 3h1v5H7zM5 5h1v2H5zM10 5h1v2h-1z"/><path fill="#5e2f18" d="M3 8h10v1h-1v6H4V9H3z"/><path fill="#b9764a" d="M4 9h8v1H4zM5 10h6v4H5z"/><path fill="#d6935e" d="M5 10h2v4H5z"/></svg></span><span class="booth-yarn"><svg viewBox="0 0 12 10" shape-rendering="crispEdges"><path fill="#5e2f18" d="M3 1h5v1h2v1h1v4h-1v1H8v1H3V8H2V7H1V3h1V2h1z"/><path fill="#f6a5b8" d="M3 2h5v1h2v4H9v1H3V7H2V3h1z"/><path fill="#fbd0dc" d="M4 3h1v1H4zM6 3h1v1h1v1H6zM4 5h1v1h1v1H4zM8 5h1v1H8z"/><path fill="#e5809a" d="M3 6h1v1h1v1H3zM7 6h2v1H7z"/></svg></span></div><div class="booth-counter"><span></span></div></div>'
+
+
 def header(home, works, current):
     def link(href, label, extra=''):
         cur = ' aria-current="page"' if label == current else ''
@@ -92,6 +95,8 @@ def run():
         if 'nunito-latin.woff2' not in s:
             s = s.replace('<link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/pixelify-sans-latin.woff2">',
                           '<link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/nunito-latin.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/pixelify-sans-latin.woff2">', 1)
+        if page == 'about.html' and 'class="booth"' not in s:   # shopkeeper booth on the Catches stall
+            s = s.replace('<span class="stall-sign">Lyanna’s Catches</span></div>', '<span class="stall-sign">Lyanna’s Catches</span></div>' + BOOTH, 1)
         if 'js/sfx.js' not in s:
             s = s.replace('<script src="js/site.js"></script>', '<script src="js/site.js"></script>\n<script src="js/sfx.js"></script>', 1)
         s = s.replace('made with &lt;3</span>', 'made with &lt;3 · UI sounds by <a href="https://lolurio.itch.io/" target="_blank" rel="noopener" style="color:inherit">lolurio</a></span>', 1)
