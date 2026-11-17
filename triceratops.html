@@ -6,6 +6,7 @@
 <title>Triceratops Website | Lyanna Nguyen</title>
 <meta name="description" content="Case study: how Lyanna Nguyen helped design and build the onboarding pages that turned a scattered 41-channel Discord into a clear first step for new UC Davis Triceratops members.">
 <link rel="icon" href="assets/images/chibi-head.png">
+<link rel="preload" as="image" href="assets/images/triceratops-hero-background.webp" imagesrcset="assets/images/triceratops-hero-background-720.webp 720w, assets/images/triceratops-hero-background-960.webp 960w, assets/images/triceratops-hero-background.webp 1200w" imagesizes="100vw" fetchpriority="high">
 <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/nunito-latin.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/pixelify-sans-latin.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/vt323-latin.woff2">
 <link rel="stylesheet" href="css/pixel-pals.css">
 <link rel="stylesheet" href="css/site.css">
@@ -30,11 +31,11 @@
     <a data-show="back-to-top" hidden href="#cstop" class="pp-btn secondary pop" aria-label="Back to top" style="position: fixed; right: 28px; bottom: 28px; z-index: 25; font-size: 18px; line-height: 18px; padding: var(--space-2) var(--space-3) var(--space-2);">▲ Back to top</a>
 
     <div class="cs-hero-stage">
-      <img class="cs-hero-bg" src="assets/images/triceratops-hero-background.webp" alt="" fetchpriority="high" width="1200" height="773">
+      <img class="cs-hero-bg" src="assets/images/triceratops-hero-background.webp" srcset="assets/images/triceratops-hero-background-720.webp 720w, assets/images/triceratops-hero-background-960.webp 960w, assets/images/triceratops-hero-background.webp 1200w" sizes="100vw" alt="" fetchpriority="high" width="1200" height="773">
       <div class="cs-hero-screen">
         <!-- HERO LOOP: replace the placeholder below with
              <video src="assets/video/getting-started-loop.mp4" poster="assets/images/final-beginners-guide.webp" autoplay muted loop playsinline aria-label="The final Getting Started page in use"></video> -->
-        <img fetchpriority="high" src="assets/images/getting-started-header.webp" alt="The live Getting Started page: the Beginner's Guide banner and the first section, Drop Notifications On Discord" width="1905" height="943">
+        <img src="assets/images/getting-started-header.webp" srcset="assets/images/getting-started-header-640.webp 640w, assets/images/getting-started-header-1000.webp 1000w, assets/images/getting-started-header.webp 1905w" sizes="(max-width: 760px) 520px, (max-width: 1100px) 780px, 980px" alt="The live Getting Started page: the Beginner's Guide banner and the first section, Drop Notifications On Discord" width="1905" height="943">
       </div>
       <img class="cs-sticker" aria-hidden="true" alt="" src="assets/images/sticker-triceratops-blue.png" style="left: 3%; top: 4%; transform: rotate(-14deg);">
       <img class="cs-sticker" aria-hidden="true" alt="" src="assets/images/sticker-triceratops-yellow.png" style="right: 3%; top: 3%; transform: rotate(12deg);">
