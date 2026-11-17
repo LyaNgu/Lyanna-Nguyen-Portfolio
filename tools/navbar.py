@@ -97,6 +97,15 @@ def run():
             seg = re.sub(r'<a href="#catch-\\d+" class="stall-item" aria-label="View catch: ([^"]*)"((?: tabindex="-1")?(?: aria-hidden="true")?)>',
                          lambda m: '<div class="stall-item" role="group" aria-label="' + m.group(1) + '"' + (' aria-hidden="true"' if 'aria-hidden' in (m.group(2) or '') else '') + '>', s[a:b])
             s = s[:a] + seg.replace('</a>', '</div>') + s[b:]
+        if page == 'about.html':   # catch pop-ups removed: drop each modal block
+            while True:
+                m = re.search(r'[ \t]*<div id="catch-\d+" class="stall-modal"', s)
+                if not m: break
+                i, d = s.index('<div', m.start()), 0
+                for t in re.finditer(r'<div\b|</div>', s[i:]):
+                    d += 1 if t.group() == '<div' else -1
+                    if d == 0: end = i + t.end(); break
+                s = s[:m.start()] + s[end:].lstrip(' \t').removeprefix('\n')
         if 'js/sfx.js' not in s:
             s = s.replace('<script src="js/site.js"></script>', '<script src="js/site.js"></script>\n<script src="js/sfx.js"></script>', 1)
         s = s.replace('made with &lt;3</span>', 'made with &lt;3 · UI sounds by <a href="https://lolurio.itch.io/" target="_blank" rel="noopener" style="color:inherit">lolurio</a></span>', 1)
